@@ -1,0 +1,23 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $white;
+  box-shadow: 1px 3px 12px black;
+}
+
+.header-logo {
+  height: 100px;
+  margin: 5%;
+}
+
+.header-btn-anchor {
+  @include button-anchor;
+}
+
+.header-btn {
+  @include button-primary();
+}
+
