@@ -44,9 +44,3 @@
 @mixin button-secondary {
   @include button-all;
 }
-
-@mixin button-anchor {
-  height: 35px;
-  margin: 5%;
-  width: 200px;
-}

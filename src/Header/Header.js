@@ -15,12 +15,9 @@ const Header = (props) => {
         />
       </Link>
       <Link
-        className="header-btn-anchor"
+        className="header-btn"
         to="/saved-packing-lists"
-      >
-        <button
-          className="header-btn"
-        >Saved Packing Lists</button>
+      >Saved Packing Lists
       </Link>
     </nav>
   )

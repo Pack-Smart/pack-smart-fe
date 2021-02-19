@@ -10,14 +10,14 @@
 
 .header-logo {
   height: 100px;
-  margin: 5%;
-}
-
-.header-btn-anchor {
-  @include button-anchor;
+  margin: 25%;
+  align-self: center;
 }
 
 .header-btn {
-  // @include button-primary;
+  @include button-primary(medium, 175px, .75%);
+  height: 20px;
+  margin: 2%;
+  align-self: center;
 }
 
