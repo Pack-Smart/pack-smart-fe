@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import BrowserRouter from 'react-router-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.scss'
+import App from './App/App'
+import { BrowserRouter } from 'react-router-dom'
 
-const router = <BrowserRouter><App /></BrowserRouter>
+const router = <BrowserRouter basename='/packsmart'><App /></BrowserRouter>
 
 ReactDOM.render(
 
