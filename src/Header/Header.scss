@@ -4,15 +4,23 @@
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: $white;
+  background-color: $blue;
   box-shadow: 1px 3px 12px black;
   margin-bottom: 2%;
 }
 
+.header-logo-anchor {
+  height: 100px;
+  margin: 2%;
+}
+
 .header-logo {
   height: 100px;
-  margin: 25%;
   align-self: center;
+  &:hover {
+    transform: scale(1.05);
+    transition-duration: 0.4s;
+	}
 }
 
 .header-btn {

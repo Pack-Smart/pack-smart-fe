@@ -7,6 +7,7 @@ const Header = (props) => {
     <nav className="header">
       <Link
         to='/'
+        className="header-logo-anchor"
       >
         <img
           src={cases}
