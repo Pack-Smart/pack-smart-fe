@@ -1,2 +1,19 @@
 @import '../variables.scss';
+@import '../mixins.scss';
 
+.home {
+  @include column-center;
+}
+
+.pack-smart-title {
+  font-size: 7em;
+  margin: 0;
+}
+
+.start-button {
+  @include button-primary;
+}
+
+img {
+  margin: 2em;
+}
