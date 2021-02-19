@@ -21,6 +21,9 @@
 @mixin button-all {
     outline: none;
     cursor: pointer;
+    height: 35px;
+    border-radius: 5px;
+    width: 200px;
     box-shadow: 5px 5px 5px black;
     &:hover {
 		transform: scale(1.05);
@@ -30,9 +33,17 @@
 
 @mixin button-primary {
     @include button-all;
+    background-color: $red;
+    color: $white;
 }
 
 @mixin button-secondary {
     @include button-all;
+}
+
+@mixin button-anchor {
+    height: 35px;
+    margin: 5%;
+    width: 200px;
 }
 
