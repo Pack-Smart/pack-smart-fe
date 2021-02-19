@@ -1,6 +1,6 @@
 import './Home.scss'
 import { Link } from 'react-router-dom'
-import lady from '../assets/lady.png'
+import lady from './lady.png'
 
 const Home = (props) => {
   return(
@@ -9,8 +9,8 @@ const Home = (props) => {
       <h1 className='pack-smart-title'>Pack Smart</h1>
       <p>Welcome to Pack Smart! Let us help you get started packing for your next travel adventure!</p>
       <img src={ lady }/>
-      <Link to='/packing-quiz'>
-        <button className='start-button'>Get Started!</button>
+      <Link to='/packing-quiz' className='start-button'>
+        Get Started!
       </Link>
     </section>
   )

@@ -10,10 +10,12 @@
   margin: 0;
 }
 
+
 .start-button {
-  @include button-primary;
+  @include button-primary(x-large, 250px, 1.5%);
+  width: 250px;
 }
 
 img {
-  margin: 2em;
+  margin: 3%;
 }
