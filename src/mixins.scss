@@ -21,7 +21,7 @@
 @mixin button-all {
     outline: none;
     cursor: pointer;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 5px 5px 5px $text-color;
     &:hover {
 		transform: scale(1.05);
 		transition-duration: 0.4s;
@@ -30,6 +30,13 @@
 
 @mixin button-primary {
     @include button-all;
+    background-color: $red;
+    color: $offwhite;
+    font-size: x-large;
+    width: 10em;
+    border-radius: 1.5em;
+    border: none;
+    padding: 1em;
 }
 
 @mixin button-secondary {
