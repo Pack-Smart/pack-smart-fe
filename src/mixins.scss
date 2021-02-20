@@ -41,10 +41,10 @@
   background-color: $red;
   color: $offwhite;
   font-size: $font-size;
-  width: $width;
   padding: $padding;
   text-decoration: none;
   text-align: center;
+  width: $width;
 }
 
 @mixin button-secondary {
