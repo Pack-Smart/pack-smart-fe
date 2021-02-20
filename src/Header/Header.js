@@ -5,6 +5,7 @@ import cases from './cases.png'
 const Header = (props) => {
   return(
     <nav className="header">
+      <div className="side-nav">
       <Link
         to='/'
         className="header-logo-anchor"
@@ -15,6 +16,8 @@ const Header = (props) => {
           className="header-logo" 
         />
       </Link>
+      <h1 className='pack-smart-title'>Pack Smart</h1>
+      </div>
       <Link
         className="header-btn"
         to="/saved-packing-lists"

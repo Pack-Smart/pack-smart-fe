@@ -5,11 +5,11 @@
   @include column-center;
 }
 
-.pack-smart-title {
-  font-size: 7em;
-  margin: 0;
+.home p {
+  font-size: 1.5em;
+  width: 50%;
+  text-align: center;
 }
-
 
 .start-button {
   @include button-primary(x-large, 250px, 1.5%);
@@ -17,5 +17,6 @@
 }
 
 img {
-  margin: 3%;
+  margin: 0 0 3% 0;
+  height: 350px;
 }
