@@ -1,0 +1,9 @@
+@import '../mixins.scss';
+
+.packing-list-main {
+  @include column-center;
+}
+
+.packing-list-header {
+  @include column-center;
+}
