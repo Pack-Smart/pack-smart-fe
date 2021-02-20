@@ -94,7 +94,7 @@ const Quiz = (props) => {
         <input 
           type="number"
           placeholder="e.g. 3"
-          name="days"
+          name="number_of_days"
           onChange={handleChange}
         />
       </div>
