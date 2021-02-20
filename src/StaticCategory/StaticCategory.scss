@@ -1,3 +1,5 @@
+@import '../mixins.scss';
+
 .list-items {
   display: grid;
   grid-template-columns: repeat(2, 400px);
@@ -5,4 +7,12 @@
 
 .packing-column-labels {
   display: flex;
+}
+
+.cat-title {
+  font-size: 1.5em;
+  @include column-center;
+  padding-bottom: 0.5em;
+  color: $text-color;
+  border-bottom: 0.2em $red solid;
 }

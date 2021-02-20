@@ -29,7 +29,7 @@ const StaticCategory = ({ catTitle, items }) => {
 
   return (
     <section>
-      <h1>{catTitle}</h1>
+      <h1 className='cat-title'>{catTitle}</h1>
       <article className='list-items'>
         {generateListItems()}
       </article>
