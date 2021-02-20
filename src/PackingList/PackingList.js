@@ -10,7 +10,6 @@ const PackingList = () => {
     const categories = Object.keys(samplePackingList)
 
     return categories.map(cat => {
-      console.log(samplePackingList[cat])
       return (
         <StaticCategory 
           key={cat}

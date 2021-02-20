@@ -1,19 +1,25 @@
 import './StaticItem.scss'
 
-const StaticItem = ({ item }) => {
+const StaticItem = ({ item, quantity }) => {
 
   return (
     <article className='static-item'>
-
-      <input 
-        type='checkbox' 
-        name='checkbox' 
-        aria-label='checkbox'
-        role='checkbox' 
-      />
+      
+      <div className='quantity-container'>
+        {quantity}
+      </div>
 
       <div className='item-box'>
         <p>{item}</p>
+      </div>
+
+      <div className='input-container'> 
+        <input
+          type='checkbox' 
+          name='checkbox' 
+          aria-label='item checkbox'
+          role='checkbox' 
+        />
       </div>
 
     </article>

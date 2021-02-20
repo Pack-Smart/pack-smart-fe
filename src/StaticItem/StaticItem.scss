@@ -1,9 +1,23 @@
 @import '../mixins.scss';
 
+.input-container {
+  @include column-center;
+  justify-content: center;
+}
+
 .static-item {
   @include row-center;
 }
 
 .item-box {
   width: 70%;
+}
+
+.quantity-container {
+  @extend .input-container;
+  
+}
+
+.static-item-quantity {
+  // width: 15px;
 }
