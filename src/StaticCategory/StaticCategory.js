@@ -1,4 +1,4 @@
-import { getByTestId } from '@testing-library/react'
+import { categoryIcons } from './categoryIcons.js';
 import StaticItem from '../StaticItem/StaticItem'
 import './StaticCategory.scss'
 
@@ -27,9 +27,20 @@ const StaticCategory = ({ catTitle, items }) => {
     }
   }
 
+  const generateCategoryIcon = (cat) => {
+    let category = categoryIcons.find(icon => {
+      return icon.name === cat
+    })
+    if (category !== undefined) {
+      return category.icon
+    } else {
+      console.log(cat)
+    }
+  }
+
   return (
     <section>
-      <h1 className='cat-title'>{catTitle}</h1>
+      <h1 className='cat-title'>{generateCategoryIcon(catTitle)}{catTitle}</h1>
       <article className='list-items'>
         {generateListItems()}
       </article>
