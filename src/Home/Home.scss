@@ -3,10 +3,9 @@
 
 .home {
   @include column-center;
-  background-color: $offwhite;
+  background-color: rgba(245,246,248, .8);
   margin: 0 25%;
   padding: 2em;
-  opacity: .8;
   border-radius: 1em;
 }
 
