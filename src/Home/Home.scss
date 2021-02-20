@@ -1,0 +1,22 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.home {
+  @include column-center;
+}
+
+.home p {
+  font-size: 1.5em;
+  width: 50%;
+  text-align: center;
+}
+
+.start-button {
+  @include button-primary(x-large, 250px, 1.5%);
+  width: 250px;
+}
+
+img {
+  margin: 0 0 3% 0;
+  height: 350px;
+}

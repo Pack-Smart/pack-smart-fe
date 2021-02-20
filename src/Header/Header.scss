@@ -1,0 +1,45 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $blue;
+  box-shadow: 1px 3px 12px black;
+  margin-bottom: 2%;
+}
+
+.side-nav {
+  display: flex;
+  justify-content: flex-start;
+  width: 75%;
+}
+
+.header-logo-anchor {
+  height: 90px;
+  margin: 2%;
+}
+
+.header-logo {
+  height: 90px;
+  align-self: center;
+  &:hover {
+    transform: scale(1.05);
+    transition-duration: 0.4s;
+	}
+}
+
+.pack-smart-title {
+  font-size: 4em;
+  margin: 0;
+  color: $text-color;
+  align-self: center;
+}
+
+.header-btn {
+  @include button-primary(medium, 175px, .75%);
+  height: 20px;
+  margin: 2%;
+  align-self: center;
+}
+
