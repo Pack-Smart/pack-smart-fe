@@ -10,6 +10,7 @@ const Quiz = (props) => {
         <input
           type="text"
           placeholder="e.g. Cancun 20 08!"
+          name="name"
         />
       </div>
       <div className="trip-gender-field">
@@ -23,6 +24,7 @@ const Quiz = (props) => {
         <input
           type="text"
           placeholder="e.g. Mexico"
+          name="location"
         />
       </div>
       <div className="trip-duration-field">
@@ -30,6 +32,7 @@ const Quiz = (props) => {
         <input 
           type="number"
           placeholder="e.g. 3"
+          name="days"
         />
       </div>
       <div className="trip-weather-field">
