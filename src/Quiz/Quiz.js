@@ -10,6 +10,7 @@ const Quiz = (props) => {
     number_of_days: 0,
     categories: []
   })
+  const [error, setError] = useState(false)
 
   const handleChange = (event) => {
     event.preventDefault()
@@ -46,15 +47,21 @@ const Quiz = (props) => {
   }
 
   const submitForm = () => {
-    validateForm()
   }
 
-  const validateForm =() => {
+  const validateForm = () => {
+    const quizValues = Object.values(quizData)
 
+  
+    if (Object.values(quizData)) {
+      console.log('empty string')
+    }
+
+    submitForm()
   }
 
   return (
-    <form className="quiz-form" onSubmit={submitForm()}>
+    <form className="quiz-form" onSubmit={validateForm()}>
       <h1>Quiz!</h1>
       <p className="quizIntro">Answer all the questions below to get your custom packing list.</p>
       <div className="trip-name-field">
@@ -64,6 +71,7 @@ const Quiz = (props) => {
           placeholder="e.g. Cancun 20 08!"
           name="name"
           onChange={handleChange}
+          required
         />
       </div>
       <div className="trip-gender-field">
@@ -77,7 +85,7 @@ const Quiz = (props) => {
         <input
           type="text"
           placeholder="e.g. Mexico"
-          name="location"
+          name="destination"
           onChange={handleChange}
         />
       </div>
