@@ -1,0 +1,9 @@
+@import '../mixins.scss';
+
+.static-item {
+  @include row-center;
+}
+
+.item-box {
+  width: 70%;
+}
