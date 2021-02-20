@@ -3,6 +3,7 @@ import './Quiz.scss'
 const Quiz = (props) => {
   return (
     <form className="quiz-form">
+      <p>Fill in all the below fields to get your custom packing list.</p>
       <div className="trip-name-field">
         <h2>Packing List Name</h2>
         <input
@@ -24,7 +25,7 @@ const Quiz = (props) => {
         />
       </div>
       <div className="trip-duration-field">
-        <h2>Number of days</h2>
+        <h2>Number of days:</h2>
         <input 
           type="number"
           placeholder="3"
@@ -32,23 +33,31 @@ const Quiz = (props) => {
       </div>
       <div className="trip-weather-field">
         <h2>What will the weather be like?</h2>
-        <p>(Select all that apply)</p>
-        <button>Cold</button>
-        <button>Cool</button>
-        <button>Warm</button>
-        <button>Hot</button>
-        <button>Rainy</button>
-        <button>Snowy</button>
+        <p className="select-all-txt">(Select all that apply)</p>
+        <div className="quiz-answer-btns">
+          <button>Cold</button>
+          <button>Cool</button>
+          <button>Warm</button>
+        </div>
+        <div className="quiz-answer-btns">
+          <button>Hot</button>
+          <button>Rainy</button>
+          <button>Snowy</button>
+        </div>
       </div>
       <div className="trip-activities-field">
         <h2>What activities do you plan to do</h2>
-        <p>(Select all that apply)</p>
-        <button>Skiing</button>
-        <button>Beach</button>
-        <button>Hiking</button>
-        <button>Night Life</button>
-        <button>Wedding</button>
-        <button>Business</button>
+        <p className="select-all-txt">(Select all that apply)</p>
+        <div className="quiz-answer-btns">
+          <button>Skiing</button>
+          <button>Beach</button>
+          <button>Hiking</button>
+        </div>
+        <div className="quiz-answer-btns">
+          <button>Night Life</button>
+          <button>Wedding</button>
+          <button>Business</button>
+        </div>
       </div>
       <button
         className="quiz-submit-btn"
