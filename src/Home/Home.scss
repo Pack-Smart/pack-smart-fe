@@ -3,11 +3,16 @@
 
 .home {
   @include column-center;
+  background-color: $offwhite;
+  margin: 0 25%;
+  padding: 2em;
+  opacity: .8;
+  border-radius: 1em;
 }
 
 .home p {
-  font-size: 1.5em;
-  width: 50%;
+  font-size: 1.2em;
+  width: 80%;
   text-align: center;
 }
 
@@ -17,6 +22,6 @@
 }
 
 img {
-  margin: 0 0 3% 0;
+  margin: 5%;
   height: 350px;
 }

@@ -20,8 +20,13 @@ const Header = (props) => {
       </div>
       <Link
         className="header-btn"
+        to="/how-it-works"
+      >How It Works
+      </Link>
+      <Link
+        className="header-btn"
         to="/saved-packing-lists"
-      >Saved Packing Lists
+      >Saved Lists
       </Link>
     </nav>
   )
