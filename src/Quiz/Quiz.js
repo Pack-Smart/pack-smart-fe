@@ -19,10 +19,30 @@ const Quiz = (props) => {
     })
   }
 
-  const handleClick = (event) => {
+  const handleClick = (event, type) => {
     event.preventDefault()
 
-    
+    const name = event.target.name
+
+    type === 'gender' ? updateGender(name) : updateMultipleSelections(type, name)
+  }
+
+  const updateGender = (name) => {
+    setQuizData({
+      ...quizData, gender: name
+    })
+  }
+
+  const updateMultipleSelections = (type, name) => {
+    if (quizData[type].includes(name)) {
+      setQuizData({
+        ...quizData, [type]: quizData[type].filter(property => property !== name)
+      })
+    } else {
+      setQuizData({
+        ...quizData, [type]: [...quizData[type], name]
+      })
+    }
   }
 
   const submitForm = () => {
@@ -48,9 +68,9 @@ const Quiz = (props) => {
       </div>
       <div className="trip-gender-field">
         <h2>2. I'm packing for:</h2>
-        <button name='female' onClick={handleClick}>Female</button>
-        <button name='male' onClick={handleClick}>Male</button>
-        <button name='non-binary' onClick={handleClick}>Non-Binary</button>
+        <button name='female' onClick={(event) => handleClick(event, 'gender')}>Female</button>
+        <button name='male' onClick={(event) => handleClick(event, 'gender')}>Male</button>
+        <button name='non-binary' onClick={(event) => handleClick(event, 'gender')}>Non-Binary</button>
       </div>
       <div className="trip-location-field">
         <h2>3. Going to:</h2>
@@ -58,6 +78,7 @@ const Quiz = (props) => {
           type="text"
           placeholder="e.g. Mexico"
           name="location"
+          onChange={handleChange}
         />
       </div>
       <div className="trip-duration-field">
@@ -66,34 +87,35 @@ const Quiz = (props) => {
           type="number"
           placeholder="e.g. 3"
           name="days"
+          onChange={handleChange}
         />
       </div>
       <div className="trip-weather-field">
         <h2>5. What will the weather be like?</h2>
         <p className="select-all-txt">(Select all that apply)</p>
         <div className="quiz-answer-btns">
-          <button>Cold</button>
-          <button>Cool</button>
-          <button>Warm</button>
+          <button name='cold' onClick={(event) => handleClick(event, 'weather')}>Cold</button>
+          <button name='cool' onClick={(event) => handleClick(event, 'weather')}>Cool</button>
+          <button name='warm' onClick={(event) => handleClick(event, 'weather')}>Warm</button>
         </div>
         <div className="quiz-answer-btns">
-          <button>Hot</button>
-          <button>Rainy</button>
-          <button>Snowy</button>
+          <button name='hot' onClick={(event) => handleClick(event, 'weather')}>Hot</button>
+          <button name='rainy' onClick={(event) => handleClick(event, 'weather')}>Rainy</button>
+          <button name='snowy' onClick={(event) => handleClick(event, 'weather')}>Snowy</button>
         </div>
       </div>
       <div className="trip-activities-field">
         <h2>6. What activities do you plan to do</h2>
         <p className="select-all-txt">(Select all that apply)</p>
         <div className="quiz-answer-btns">
-          <button>Skiing</button>
-          <button>Beach</button>
-          <button>Hiking</button>
+          <button name='skiing' onClick={(event) => handleClick(event, 'weather')}>Skiing</button>
+          <button name='beach' onClick={(event) => handleClick(event, 'weather')}>Beach</button>
+          <button name='hiking' onClick={(event) => handleClick(event, 'weather')}>Hiking</button>
         </div>
         <div className="quiz-answer-btns">
-          <button>Night Life</button>
-          <button>Wedding</button>
-          <button>Business</button>
+          <button name='night life' onClick={(event) => handleClick(event, 'weather')}>Night Life</button>
+          <button name='wedding' onClick={(event) => handleClick(event, 'weather')}>Wedding</button>
+          <button name='business' onClick={(event) => handleClick(event, 'weather')}>Business</button>
         </div>
       </div>
       <button
