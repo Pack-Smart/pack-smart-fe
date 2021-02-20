@@ -1,3 +1,4 @@
+import { getByTestId } from '@testing-library/react'
 import StaticItem from '../StaticItem/StaticItem'
 import './StaticCategory.scss'
 
@@ -19,7 +20,7 @@ const StaticCategory = ({ catTitle, items }) => {
           <StaticItem
             key={item} 
             item={item}
-            quantity='-'
+            quantity='Qty.'
           />
         )
       })
@@ -29,7 +30,7 @@ const StaticCategory = ({ catTitle, items }) => {
   return (
     <section>
       <h1>{catTitle}</h1>
-      <article>
+      <article className='list-items'>
         {generateListItems()}
       </article>
     </section>

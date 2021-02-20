@@ -7,14 +7,17 @@
 
 .static-item {
   @include row-center;
+  border: solid black 1px;
+  margin: 0.1em;
 }
 
 .item-box {
-  width: 70%;
+  width: 50%;
 }
 
 .quantity-container {
   @extend .input-container;
+  margin-right: 2em;
   
 }
 

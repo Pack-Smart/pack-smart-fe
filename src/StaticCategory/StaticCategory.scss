@@ -1,0 +1,8 @@
+.list-items {
+  display: grid;
+  grid-template-columns: repeat(2, 400px);
+}
+
+.packing-column-labels {
+  display: flex;
+}

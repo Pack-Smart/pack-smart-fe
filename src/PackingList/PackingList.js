@@ -27,9 +27,15 @@ const PackingList = () => {
         <h2>Destination</h2>
         <h3>Duration</h3>
       </header>
+      <button className='save-list-button'>
+        Save List
+      </button>
       <section>
         {createCategoryCards()}
       </section>
+      <button className='save-list-button'>
+        Save List
+      </button>
     </section>
   )
 }

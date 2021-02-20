@@ -1,10 +1,10 @@
 export const samplePackingList = {
-  accessories: [
+  Accessories: [
     'Belts',
     'Hat',
     'Purses'
   ], 
-  beach: [
+  Beach: [
     'Bathing Suit',
     'Flip Flops',
     'Sun Hat',
@@ -12,7 +12,7 @@ export const samplePackingList = {
     'Towel',
     'Beach Games'
   ],
-  clothing: [
+  Clothing: [
     'Blouses/ Dress Shirts',
     'Bras',
     'Jeans',
@@ -22,7 +22,7 @@ export const samplePackingList = {
     'Tank Tops',
     'Sandals/ Flip Flops'
   ], 
-  essentials: [
+  Essentials: [
     'Eye-glasses',
     'Hand Sanitizer',
     'Mask',
@@ -33,7 +33,7 @@ export const samplePackingList = {
     'Cash',
     'Umbrella'
   ], 
-  misc: [
+  Misc: [
     'Book',
     'Cards',
     'Kindle',
@@ -42,11 +42,12 @@ export const samplePackingList = {
     'Camera',
     'Camera Charger'
   ],
-  nightlife: [
+  Nightlife: [
     'Event tickets',
     'Night Life Outfit'
   ],
-  toiletries: [
-    'Beard Trimmer'
+  Toiletries: [
+    'Beard Trimmer',
+    'Lotion'
   ]
 }
