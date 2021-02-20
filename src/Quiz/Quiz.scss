@@ -4,6 +4,14 @@
   @include column-center;
 }
 
+.quiz-form h1 {
+  margin-bottom: .5%;
+}
+
+.quizIntro {
+  margin-top: 0;
+}
+
 .trip-name-field, .trip-weather-field, .trip-activities-field {
   @include column-center;
   @include quiz-question;
@@ -16,8 +24,6 @@
 
 .trip-gender-field button {
   @include button-quiz-answer;
-  padding: 0;
-  height: 35px;
   align-self: center;
 }
 
@@ -30,7 +36,7 @@
 }
 
 .trip-duration-field input {
-  @include input-line(40px);
+  @include input-line(60px);
 }
 
 .quiz-answer-btns {

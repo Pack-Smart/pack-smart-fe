@@ -55,9 +55,9 @@
   @include button-all;
   background-color: $offwhite;
   border: 1px solid $text-color;
-  padding: 1%;
   width: 100px;
-  margin: 1%;
+  margin: .75%;
+  height: 35px;
 }
 
 @mixin input-all {
@@ -80,5 +80,5 @@
 
 @mixin quiz-question {
   width: 100%;
-  margin: 2%;
+  margin: 1%;
 }

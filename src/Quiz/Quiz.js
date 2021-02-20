@@ -3,36 +3,37 @@ import './Quiz.scss'
 const Quiz = (props) => {
   return (
     <form className="quiz-form">
-      <p>Fill in all the below fields to get your custom packing list.</p>
+      <h1>Quiz!</h1>
+      <p className="quizIntro">Answer all the questions below to get your custom packing list.</p>
       <div className="trip-name-field">
-        <h2>Packing List Name</h2>
+        <h2>1. Packing list name</h2>
         <input
           type="text"
           placeholder="e.g. Cancun 20 08!"
         />
       </div>
       <div className="trip-gender-field">
-        <h2>I'm packing for:</h2>
+        <h2>2. I'm packing for:</h2>
         <button>Female</button>
         <button>Male</button>
         <button>Non-Binary</button>
       </div>
       <div className="trip-location-field">
-        <h2>Going to:</h2>
+        <h2>3. Going to:</h2>
         <input
           type="text"
           placeholder="e.g. Mexico"
         />
       </div>
       <div className="trip-duration-field">
-        <h2>Number of days:</h2>
+        <h2>4. Number of days:</h2>
         <input 
           type="number"
-          placeholder="3"
+          placeholder="e.g. 3"
         />
       </div>
       <div className="trip-weather-field">
-        <h2>What will the weather be like?</h2>
+        <h2>5. What will the weather be like?</h2>
         <p className="select-all-txt">(Select all that apply)</p>
         <div className="quiz-answer-btns">
           <button>Cold</button>
@@ -46,7 +47,7 @@ const Quiz = (props) => {
         </div>
       </div>
       <div className="trip-activities-field">
-        <h2>What activities do you plan to do</h2>
+        <h2>6. What activities do you plan to do</h2>
         <p className="select-all-txt">(Select all that apply)</p>
         <div className="quiz-answer-btns">
           <button>Skiing</button>
