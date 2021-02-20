@@ -1,8 +1,40 @@
+import React, { useState } from 'react'
 import './Quiz.scss'
 
 const Quiz = (props) => {
+  const [quizData, setQuizData] = useState({
+    name: '',
+    gender: '',
+    weather: [],
+    destination: '',
+    number_of_days: 0,
+    categories: []
+  })
+
+  const handleChange = (event) => {
+    event.preventDefault()
+
+    setQuizData({
+      ...quizData, [event.target.name]: event.target.value
+    })
+  }
+
+  const handleClick = (event) => {
+    event.preventDefault()
+
+    
+  }
+
+  const submitForm = () => {
+    validateForm()
+  }
+
+  const validateForm =() => {
+
+  }
+
   return (
-    <form className="quiz-form">
+    <form className="quiz-form" onSubmit={submitForm()}>
       <h1>Quiz!</h1>
       <p className="quizIntro">Answer all the questions below to get your custom packing list.</p>
       <div className="trip-name-field">
@@ -11,13 +43,14 @@ const Quiz = (props) => {
           type="text"
           placeholder="e.g. Cancun 20 08!"
           name="name"
+          onChange={handleChange}
         />
       </div>
       <div className="trip-gender-field">
         <h2>2. I'm packing for:</h2>
-        <button>Female</button>
-        <button>Male</button>
-        <button>Non-Binary</button>
+        <button name='female' onClick={handleClick}>Female</button>
+        <button name='male' onClick={handleClick}>Male</button>
+        <button name='non-binary' onClick={handleClick}>Non-Binary</button>
       </div>
       <div className="trip-location-field">
         <h2>3. Going to:</h2>
