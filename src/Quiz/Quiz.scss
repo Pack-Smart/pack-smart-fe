@@ -1,0 +1,62 @@
+@import '../mixins.scss';
+
+.quiz-form {
+  @include column-center;
+}
+
+.quiz-form h1 {
+  margin-bottom: .5%;
+}
+
+.quizIntro {
+  margin-top: 0;
+}
+
+.trip-name-field, .trip-weather-field, .trip-activities-field {
+  @include column-center;
+  @include quiz-question;
+}
+
+.trip-gender-field, .trip-location-field, .trip-duration-field {
+  @include row-center;
+  @include quiz-question;
+}
+
+.trip-gender-field button {
+  @include button-quiz-answer;
+  align-self: center;
+}
+
+.trip-name-field input {
+  @include input-line(300px)
+}
+
+.trip-location-field input {
+  @include input-line(300px);
+}
+
+.trip-duration-field input {
+  @include input-line(60px);
+}
+
+.quiz-answer-btns {
+  @include row-center;
+  width: 100%;
+}
+
+.trip-activities-field p, .trip-weather-field p {
+  margin-top: 0;
+}
+
+.trip-activities-field h2, .trip-weather-field h2 {
+  margin-bottom: 0;
+}
+
+.quiz-answer-btns button {
+  @include button-quiz-answer;
+}
+
+.quiz-submit-btn {
+  @include button-primary(18px, 250px, 1.5%);
+  margin: 5%;
+}

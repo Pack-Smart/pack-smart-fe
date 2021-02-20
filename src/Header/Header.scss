@@ -18,15 +18,19 @@
 .header-logo-anchor {
   height: 90px;
   margin: 2%;
+  &:hover {
+    transform: scale(1.05);
+    transition-duration: 0.4s;
+	}
+  &.pack-smart-title:hover {
+    transform: scale(1.05);
+    transition-duration: 0.4s;
+  }
 }
 
 .header-logo {
   height: 90px;
   align-self: center;
-  &:hover {
-    transform: scale(1.05);
-    transition-duration: 0.4s;
-	}
 }
 
 .pack-smart-title {
@@ -34,6 +38,7 @@
   margin: 0;
   color: $text-color;
   align-self: center;
+  cursor: pointer;
 }
 
 .header-btn {

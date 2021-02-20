@@ -1,0 +1,14 @@
+@import '../mixins.scss';
+
+.error-section {
+  @include column-center;
+  width: 100%;
+}
+
+.error-section {
+  margin-top: 5%;
+}
+
+.error-btn {
+  @include button-primary(x-large, 250px, 1.5%)
+}

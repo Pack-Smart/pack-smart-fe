@@ -7,6 +7,12 @@
   justify-content: space-around;
 }
 
+@mixin row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 @mixin column-center {
   display: flex;
   flex-direction: column;
@@ -43,4 +49,36 @@
 
 @mixin button-secondary {
   @include button-all;
+}
+
+@mixin button-quiz-answer {
+  @include button-all;
+  background-color: $offwhite;
+  border: 1px solid $text-color;
+  width: 100px;
+  margin: .75%;
+  height: 35px;
+}
+
+@mixin input-all {
+  outline: none;
+  padding: 1%;
+  font-size: 16px;
+}
+
+@mixin input-line($width) {
+  @include input-all;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: $width;
+  height: 15px;
+  align-self: center;
+  background-color: $gray;
+  margin: 0 1%;
+}
+
+@mixin quiz-question {
+  width: 100%;
+  margin: 1%;
 }
