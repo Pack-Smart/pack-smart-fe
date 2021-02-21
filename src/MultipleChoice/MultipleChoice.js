@@ -1,7 +1,7 @@
 import './MultipleChoice.scss'
 
 const MultipleChoice = (props) => {
-  const { category, question, buttons } = props.questionDetails
+  const { category, question, subtext, buttons } = props.questionDetails
   const { handleClick } = props
 
   const handleButtonClick = (event) => {
@@ -36,7 +36,9 @@ const MultipleChoice = (props) => {
   return (
     <div className={`trip-${category}-field`}>
       <h2>{question}</h2>
-      <p className="select-all-txt">(Select all that apply)</p>
+      {subtext.length > 0 &&
+        <p className="select-all-txt">{subtext}</p>
+      }
       <div className="quiz-answer-btns">
         {createButtons(buttons)}
       </div>
