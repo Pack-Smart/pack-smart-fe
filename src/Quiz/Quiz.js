@@ -37,7 +37,6 @@ const Quiz = (props) => {
   }
 
   const updateMultipleSelections = (type, name) => {
-    console.log(type, name)
     if (quizData[type].includes(name)) {
       setQuizData({
         ...quizData, [type]: quizData[type].filter(property => property !== name)
