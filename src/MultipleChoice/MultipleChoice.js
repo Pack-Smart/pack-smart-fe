@@ -5,18 +5,25 @@ const MultipleChoice = ({ category, question, firstRowBtns, secRowBtns, handleCl
     handleClick(event, handleClickArg)
     
     if (category === 'gender') {
-      event.target.closest('div').children[0].className = '' 
-      event.target.closest('div').children[1].className = '' 
-      event.target.closest('div').children[2].className = '' 
-      event.target.className = 'selected-answer-btns' 
-      
+      toggleGenderButtonClass(event)
     } else {
-      event.target.className === '' ? 
-      (event.target.className = 'selected-answer-btns') : 
-      (event.target.className = '')  
+      toggleSelectAllClass(event)
     }
   }
-  
+
+  const toggleGenderButtonClass = (event) => {
+    event.target.closest('div').children[0].className = '' 
+    event.target.closest('div').children[1].className = '' 
+    event.target.closest('div').children[2].className = '' 
+    event.target.className = 'selected-answer-btns' 
+  }
+
+  const toggleSelectAllClass = (event) => {
+    event.target.className === '' ? 
+    (event.target.className = 'selected-answer-btns') : 
+    (event.target.className = '')  
+  }
+
   const createButtons = (buttonNames) => {
     return buttonNames.map(name => {
       return <button key={name} name={name} className='' onClick={(event) => handleButtonClick(event)}>{name}</button>
