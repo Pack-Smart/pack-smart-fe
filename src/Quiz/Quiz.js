@@ -57,7 +57,6 @@ const Quiz = (props) => {
     status ? setError(true) : submitForm()
   }
 
-
   const submitForm = () => {
     setError(false)
     const modifyWeatherData = quizData.weather.map(weather => {
@@ -77,6 +76,7 @@ const Quiz = (props) => {
       }
     }
     //TODO: make API call with submissionData
+    props.history.push('/packing-list')
   }
 
   return (
