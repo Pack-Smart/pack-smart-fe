@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import { quizDetails } from './quizDetails.js'
 import './Quiz.scss'
+import { getPackingListData } from '../apiCalls.js'
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
@@ -62,6 +63,25 @@ const Quiz = (props) => {
 
   const submitForm = () => {
     setError(false)
+    const modifyWeatherData = quizData.weather.map(weather => {
+      return `%${weather}%`
+    })
+    const submissionData = {
+      data: {
+        id: null,
+        type: 'survey',
+        attributes: {
+          gender: quizData.gender,
+          weather: modifyWeatherData,
+          destination: quizData.destination,
+          number_of_days: quizData.number_of_days,
+          categories: quizData.categories
+        }
+      }
+    }
+    //TODO: make API call with submissionData
+    getPackingListData()
+    props.history.push('/packing-list')
   }
 
   const generateQuizQuestions = () => {
