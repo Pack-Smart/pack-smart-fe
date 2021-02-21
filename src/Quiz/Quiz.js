@@ -49,19 +49,20 @@ const Quiz = (props) => {
   const submitForm = () => {
   }
 
-  const validateForm = () => {
+  const validateForm = (event) => {
+    event.preventDefault()
     const quizValues = Object.values(quizData)
-
-  
-    if (Object.values(quizData)) {
-      console.log('empty string')
-    }
+    quizValues.forEach(value => {
+      if (!value.length) {
+        setError(true)
+      }
+    })
 
     submitForm()
   }
 
   return (
-    <form className="quiz-form" onSubmit={validateForm()}>
+    <form className="quiz-form">
       <h1>Quiz!</h1>
       <p className="quizIntro">Answer all the questions below to get your custom packing list.</p>
       <div className="trip-name-field">
@@ -71,7 +72,6 @@ const Quiz = (props) => {
           placeholder="e.g. Cancun 20 08!"
           name="name"
           onChange={handleChange}
-          required
         />
       </div>
       <div className="trip-gender-field">
@@ -128,8 +128,10 @@ const Quiz = (props) => {
       </div>
       <button
         className="quiz-submit-btn"
+        onClick={validateForm}
       >Get My Packing List!
       </button>
+      {error && <h3>Please answer all the questions in the quiz before proceeding.</h3>}
     </form>
   )
 }
