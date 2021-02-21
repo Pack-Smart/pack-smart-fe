@@ -14,6 +14,7 @@ const App = (props) => {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/packing-quiz' component={Quiz}/>
+          <Route exact path='/packing-list' component={PackingList}/>
           <Route exact path='/saved-packing-lists' component={PackingList}/>
           <Route path='/' component={Error} />
         </Switch>
