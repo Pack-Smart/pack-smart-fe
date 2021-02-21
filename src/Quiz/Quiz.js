@@ -96,6 +96,7 @@ const Quiz = (props) => {
           placeholder="e.g. 3"
           name="number_of_days"
           onChange={handleChange}
+          min="1"
         />
       </div>
       <div className="trip-weather-field">
