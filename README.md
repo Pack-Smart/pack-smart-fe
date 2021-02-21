@@ -1,4 +1,4 @@
-# Intention Timer Group Project
+# Pack Smart
 
 ## Project Description
 
