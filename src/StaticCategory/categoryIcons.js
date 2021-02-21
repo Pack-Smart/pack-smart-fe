@@ -1,8 +1,8 @@
-import { FaTshirt, FaUmbrellaBeach, FaBaby, FaHiking, FaSkiing, FaChild, FaCamera } from 'react-icons/fa';
-import { ImBriefcase } from 'react-icons/im';
-import { BsBagFill } from 'react-icons/bs';
-import { GiPerson, GiSoap, GiStairsCake, GiBilledCap} from 'react-icons/gi';
-import { BiGlasses, BiDrink } from 'react-icons/bi';
+import { FaTshirt, FaUmbrellaBeach, FaBaby, FaHiking, FaSkiing, FaChild, FaCamera } from 'react-icons/fa'
+import { ImBriefcase } from 'react-icons/im'
+import { BsBagFill } from 'react-icons/bs'
+import { GiPerson, GiSoap, GiStairsCake, GiBilledCap} from 'react-icons/gi'
+import { BiGlasses, BiDrink } from 'react-icons/bi'
 
 export const categoryIcons = [
   {

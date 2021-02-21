@@ -1,4 +1,4 @@
-import { categoryIcons } from './categoryIcons.js';
+import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
 import './StaticCategory.scss'
 
