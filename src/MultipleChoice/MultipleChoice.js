@@ -1,8 +1,11 @@
 import './MultipleChoice.scss'
 
-const MultipleChoice = ({ category, question, firstRowBtns, secRowBtns, handleClick, handleClickArg }) => {
+const MultipleChoice = (props) => {
+  const { category, question, firstRowBtns, secRowBtns } = props.questionDetails
+  const { handleClick } = props
+
   const handleButtonClick = (event) => {
-    handleClick(event, handleClickArg)
+    handleClick(event, category)
     
     if (category === 'gender') {
       toggleGenderButtonClass(event)

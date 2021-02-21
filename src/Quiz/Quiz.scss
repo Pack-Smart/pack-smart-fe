@@ -13,7 +13,7 @@
   margin-top: 0;
 }
 
-.trip-name-field, .trip-weather-field, .trip-activities-field {
+.trip-name-field, .trip-weather-field, .trip-categories-field {
   @include column-center;
   @include quiz-question;
 }
@@ -45,11 +45,11 @@
   width: 100%;
 }
 
-.trip-activities-field p, .trip-weather-field p {
+.trip-categories-field p, .trip-weather-field p {
   margin-top: 0;
 }
 
-.trip-activities-field h2, .trip-weather-field h2 {
+.trip-categories-field h2, .trip-weather-field h2 {
   margin-bottom: 0;
 }
 

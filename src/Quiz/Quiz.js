@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
+import { quizDetails } from './quizDetails.js'
 import './Quiz.scss'
 
 const Quiz = (props) => {
@@ -36,6 +37,7 @@ const Quiz = (props) => {
   }
 
   const updateMultipleSelections = (type, name) => {
+    console.log(type, name)
     if (quizData[type].includes(name)) {
       setQuizData({
         ...quizData, [type]: quizData[type].filter(property => property !== name)
@@ -63,6 +65,24 @@ const Quiz = (props) => {
     setError(false)
   }
 
+  const generateQuizQuestions = () => {
+    return quizDetails.map(question => {
+      if (question.type === 'MultipleChoice') {
+        return generateMultipleChoice(question)
+      }
+    })
+  }
+
+  const generateMultipleChoice = (question) => {
+    return (
+      <MultipleChoice
+        key={question.id}
+        questionDetails={question}
+        handleClick={handleClick}
+      />  
+    )
+  }
+
   return (
     <form className="quiz-form">
       <h1>Quiz!</h1>
@@ -76,17 +96,6 @@ const Quiz = (props) => {
           onChange={handleChange}
         />
       </div>
-
-
-      <MultipleChoice
-        key='gender'
-        category='gender'
-        question={`2. I'm packing for:`}
-        firstRowBtns={['Female', 'Male', 'Non-Binary']}
-        secRowBtns={['', '', '']}
-        handleClick={handleClick}
-        handleClickArg='gender'
-      />  
 
       <div className="trip-location-field">
         <h2>3. Going to:</h2>
@@ -107,42 +116,9 @@ const Quiz = (props) => {
           min="1"
         />
       </div>
-
-      <MultipleChoice
-        key='weather'
-        category='weather'
-        question='5. What will the weather be like?'
-        firstRowBtns={['Cold', 'Cool', 'Warm']}
-        secRowBtns={['Hot', 'Rainy', 'Snowy']}
-        handleClick={handleClick}
-        handleClickArg='weather'
-      />  
-     
-      <MultipleChoice
-        key='activities'
-        category='activities'
-        question='6. What activities do you plan to do?'
-        firstRowBtns={['Skiing', 'Beach', 'Hiking']}
-        secRowBtns={['Night Life', 'Wedding', 'Business']}
-        handleClick={handleClick}
-        handleClickArg='categories'
-      />  
-
-      {/* <div className="trip-activities-field">
-        <h2>6. What activities do you plan to do</h2>
-        <p className="select-all-txt">(Select all that apply)</p>
-        <div className="quiz-answer-btns">
-          <button name='skiing' onClick={(event) => handleClick(event, 'categories')}>Skiing</button>
-          <button name='beach' onClick={(event) => handleClick(event, 'categories')}>Beach</button>
-          <button name='hiking' onClick={(event) => handleClick(event, 'categories')}>Hiking</button>
-        </div>
-        <div className="quiz-answer-btns">
-          <button name='night life' onClick={(event) => handleClick(event, 'categories')}>Night Life</button>
-          <button name='wedding' onClick={(event) => handleClick(event, 'categories')}>Wedding</button>
-          <button name='business' onClick={(event) => handleClick(event, 'categories')}>Business</button>
-        </div>
-      </div> */}
       
+      {generateQuizQuestions()}
+          
       <button
         className="quiz-submit-btn"
         onClick={validateForm}
