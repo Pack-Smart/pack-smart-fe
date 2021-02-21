@@ -131,7 +131,7 @@ const Quiz = (props) => {
         onClick={validateForm}
       >Get My Packing List!
       </button>
-      {error && <h3>Please answer all the questions in the quiz before proceeding.</h3>}
+      {error && <h3 className="invalid-message">Please answer all the questions in the quiz before proceeding.</h3>}
     </form>
   )
 }
