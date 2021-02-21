@@ -1,0 +1,36 @@
+@import '../mixins.scss';
+
+.input-container {
+  @include column-center;
+  justify-content: center;
+}
+
+.static-item {
+  @include row-center;
+  border: solid black 1px;
+  margin: 0.1em;
+}
+
+.item-box {
+  width: 50%;
+}
+
+input[type=checkbox]
+{
+  -ms-transform: scale(2);
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2); 
+  -o-transform: scale(2); 
+  transform: scale(2);
+  padding: 10px;
+}
+
+.quantity-container {
+  @extend .input-container;
+  margin-right: 2em;
+  
+}
+
+.static-item-quantity {
+  // width: 15px;
+}
