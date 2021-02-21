@@ -7,7 +7,7 @@ const Quiz = (props) => {
     gender: '',
     weather: [],
     destination: '',
-    number_of_days: 0,
+    number_of_days: "",
     categories: []
   })
   const [error, setError] = useState(false)
@@ -116,14 +116,14 @@ const Quiz = (props) => {
         <h2>6. What activities do you plan to do</h2>
         <p className="select-all-txt">(Select all that apply)</p>
         <div className="quiz-answer-btns">
-          <button name='skiing' onClick={(event) => handleClick(event, 'weather')}>Skiing</button>
-          <button name='beach' onClick={(event) => handleClick(event, 'weather')}>Beach</button>
-          <button name='hiking' onClick={(event) => handleClick(event, 'weather')}>Hiking</button>
+          <button name='skiing' onClick={(event) => handleClick(event, 'categories')}>Skiing</button>
+          <button name='beach' onClick={(event) => handleClick(event, 'categories')}>Beach</button>
+          <button name='hiking' onClick={(event) => handleClick(event, 'categories')}>Hiking</button>
         </div>
         <div className="quiz-answer-btns">
-          <button name='night life' onClick={(event) => handleClick(event, 'weather')}>Night Life</button>
-          <button name='wedding' onClick={(event) => handleClick(event, 'weather')}>Wedding</button>
-          <button name='business' onClick={(event) => handleClick(event, 'weather')}>Business</button>
+          <button name='night life' onClick={(event) => handleClick(event, 'categories')}>Night Life</button>
+          <button name='wedding' onClick={(event) => handleClick(event, 'categories')}>Wedding</button>
+          <button name='business' onClick={(event) => handleClick(event, 'categories')}>Business</button>
         </div>
       </div>
       <button
