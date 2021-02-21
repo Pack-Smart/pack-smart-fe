@@ -3,3 +3,11 @@
 body {
   background-color: $gray;
 }
+
+.div#blockColorblindContent {
+  display: none;
+}
+
+svg#colorBlindSVG {
+  display: none;
+}

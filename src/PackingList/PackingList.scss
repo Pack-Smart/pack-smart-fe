@@ -1,0 +1,13 @@
+@import '../mixins.scss';
+
+.packing-list-main {
+  @include column-center;
+}
+
+.packing-list-header {
+  @include column-center;
+}
+
+.save-list-button {
+  @include button-primary(medium, 175px, .75%);
+}
