@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Quiz.scss'
+import { getPackingListData } from '../apiCalls.js'
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
@@ -75,7 +76,9 @@ const Quiz = (props) => {
         }
       }
     }
+    console.log(submissionData)
     //TODO: make API call with submissionData
+    getPackingListData()
     props.history.push('/packing-list')
   }
 
