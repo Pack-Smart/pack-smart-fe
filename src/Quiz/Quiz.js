@@ -103,6 +103,7 @@ const Quiz = (props) => {
       </div>
 
       <MultipleChoice
+        key='weather'
         category='weather'
         question='5. What will the weather be like?'
         firstRowBtns={['Cold', 'Cool', 'Warm']}
@@ -112,6 +113,7 @@ const Quiz = (props) => {
       />  
      
       <MultipleChoice
+        key='activities'
         category='activities'
         question='6. What activities do you plan to do?'
         firstRowBtns={['Skiing', 'Beach', 'Hiking']}

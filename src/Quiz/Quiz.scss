@@ -57,6 +57,10 @@
   @include button-quiz-answer;
 }
 
+.selected-answer-btns {
+  background-color: $blue !important;
+}
+
 .quiz-submit-btn {
   @include button-primary(18px, 250px, 1.5%);
   margin: 5% 5% 1% 5%;

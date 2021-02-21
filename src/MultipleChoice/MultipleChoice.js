@@ -1,10 +1,15 @@
 import './MultipleChoice.scss'
 
 const MultipleChoice = ({ category, question, firstRowBtns, secRowBtns, handleClick, handleClickArg }) => {
-  
+  const handleButtonClick = (event) => {
+    handleClick(event, handleClickArg)
+    event.target.className === '' ? 
+    (event.target.className = 'selected-answer-btns') : 
+    (event.target.className = '')
+  }
   const createButtons = (buttonNames) => {
     return buttonNames.map(name => {
-      return <button name={name.toLowerCase()} onClick={(event) => handleClick(event, handleClickArg)}>{name}</button>
+      return <button key={name} name={name.toLowerCase()} className='' onClick={(event) => handleButtonClick(event)}>{name}</button>
     })
   }
 
