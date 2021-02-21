@@ -48,13 +48,12 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
-    Object.values(quizData).forEach(value => {
-      if (!value.length) {
-        setError(true)
-      } else {
-        submitForm()
-      }
-    })
+
+    const formStatus = Object.values(quizData).reduce((status, value) => {
+      !value.length ? (status = true) : (status = false)
+      return status
+    }, false)
+    formStatus ? setError(true) : submitForm()
   }
 
   const submitForm = () => {
