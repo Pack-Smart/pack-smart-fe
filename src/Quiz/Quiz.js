@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import './Quiz.scss'
 
 const Quiz = (props) => {
@@ -50,7 +51,9 @@ const Quiz = (props) => {
     event.preventDefault()
 
     const formStatus = Object.values(quizData).reduce((status, value) => {
-      !value.length ? (status = true) : (status = false)
+      if (!value.length) {
+        status = true
+      }
       return status
     }, false)
     formStatus ? setError(true) : submitForm()
@@ -98,21 +101,26 @@ const Quiz = (props) => {
           min="1"
         />
       </div>
-      <div className="trip-weather-field">
-        <h2>5. What will the weather be like?</h2>
-        <p className="select-all-txt">(Select all that apply)</p>
-        <div className="quiz-answer-btns">
-          <button name='cold' onClick={(event) => handleClick(event, 'weather')}>Cold</button>
-          <button name='cool' onClick={(event) => handleClick(event, 'weather')}>Cool</button>
-          <button name='warm' onClick={(event) => handleClick(event, 'weather')}>Warm</button>
-        </div>
-        <div className="quiz-answer-btns">
-          <button name='hot' onClick={(event) => handleClick(event, 'weather')}>Hot</button>
-          <button name='rainy' onClick={(event) => handleClick(event, 'weather')}>Rainy</button>
-          <button name='snowy' onClick={(event) => handleClick(event, 'weather')}>Snowy</button>
-        </div>
-      </div>
-      <div className="trip-activities-field">
+
+      <MultipleChoice
+        category='weather'
+        question='5. What will the weather be like?'
+        firstRowBtns={['Cold', 'Cool', 'Warm']}
+        secRowBtns={['Hot', 'Rainy', 'Snowy']}
+        handleClick={handleClick}
+        handleClickArg='weather'
+      />  
+     
+      <MultipleChoice
+        category='activities'
+        question='6. What activities do you plan to do?'
+        firstRowBtns={['Skiing', 'Beach', 'Hiking']}
+        secRowBtns={['Night Life', 'Wedding', 'Business']}
+        handleClick={handleClick}
+        handleClickArg='categories'
+      />  
+
+      {/* <div className="trip-activities-field">
         <h2>6. What activities do you plan to do</h2>
         <p className="select-all-txt">(Select all that apply)</p>
         <div className="quiz-answer-btns">
@@ -125,7 +133,8 @@ const Quiz = (props) => {
           <button name='wedding' onClick={(event) => handleClick(event, 'categories')}>Wedding</button>
           <button name='business' onClick={(event) => handleClick(event, 'categories')}>Business</button>
         </div>
-      </div>
+      </div> */}
+      
       <button
         className="quiz-submit-btn"
         onClick={validateForm}
