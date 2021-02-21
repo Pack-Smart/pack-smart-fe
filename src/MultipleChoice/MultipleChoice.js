@@ -3,13 +3,23 @@ import './MultipleChoice.scss'
 const MultipleChoice = ({ category, question, firstRowBtns, secRowBtns, handleClick, handleClickArg }) => {
   const handleButtonClick = (event) => {
     handleClick(event, handleClickArg)
-    event.target.className === '' ? 
-    (event.target.className = 'selected-answer-btns') : 
-    (event.target.className = '')
+    
+    if (category === 'gender') {
+      event.target.closest('div').children[0].className = '' 
+      event.target.closest('div').children[1].className = '' 
+      event.target.closest('div').children[2].className = '' 
+      event.target.className = 'selected-answer-btns' 
+      
+    } else {
+      event.target.className === '' ? 
+      (event.target.className = 'selected-answer-btns') : 
+      (event.target.className = '')  
+    }
   }
+  
   const createButtons = (buttonNames) => {
     return buttonNames.map(name => {
-      return <button key={name} name={name.toLowerCase()} className='' onClick={(event) => handleButtonClick(event)}>{name}</button>
+      return <button key={name} name={name} className='' onClick={(event) => handleButtonClick(event)}>{name}</button>
     })
   }
 

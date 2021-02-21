@@ -76,12 +76,18 @@ const Quiz = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className="trip-gender-field">
-        <h2>2. I'm packing for:</h2>
-        <button name='female' onClick={(event) => handleClick(event, 'gender')}>Female</button>
-        <button name='male' onClick={(event) => handleClick(event, 'gender')}>Male</button>
-        <button name='non-binary' onClick={(event) => handleClick(event, 'gender')}>Non-Binary</button>
-      </div>
+
+
+      <MultipleChoice
+        key='gender'
+        category='gender'
+        question={`2. I'm packing for:`}
+        firstRowBtns={['Female', 'Male', 'Non-Binary']}
+        secRowBtns={['', '', '']}
+        handleClick={handleClick}
+        handleClickArg='gender'
+      />  
+
       <div className="trip-location-field">
         <h2>3. Going to:</h2>
         <input
