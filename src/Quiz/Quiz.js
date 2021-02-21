@@ -48,17 +48,35 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
+    let status = false
     Object.values(quizData).forEach(value => {
       if (!value.length) {
-        setError(true)
-      } else {
-        submitForm()
+        status = true
       }
     })
+    status ? setError(true) : submitForm()
   }
+
 
   const submitForm = () => {
     setError(false)
+    const modifyWeatherData = quizData.weather.map(weather => {
+      return `%${weather}%`
+    })
+    const submissionData = {
+      data: {
+        id: null,
+        type: 'survey',
+        attributes: {
+          gender: quizData.gender,
+          weather: modifyWeatherData,
+          destination: quizData.destination,
+          number_of_days: quizData.number_of_days,
+          categories: quizData.categories
+        }
+      }
+    }
+    //TODO: make API call with submissionData
   }
 
   return (
