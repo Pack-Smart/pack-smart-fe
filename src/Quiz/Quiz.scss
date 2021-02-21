@@ -42,7 +42,8 @@
 
 .quiz-answer-btns {
   @include row-center;
-  width: 100%;
+  width: 25%;
+  flex-wrap: wrap;
 }
 
 .trip-categories-field p, .trip-weather-field p {

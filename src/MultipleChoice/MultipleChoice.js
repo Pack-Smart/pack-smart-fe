@@ -1,7 +1,7 @@
 import './MultipleChoice.scss'
 
 const MultipleChoice = (props) => {
-  const { category, question, firstRowBtns, secRowBtns } = props.questionDetails
+  const { category, question, buttons } = props.questionDetails
   const { handleClick } = props
 
   const handleButtonClick = (event) => {
@@ -38,10 +38,7 @@ const MultipleChoice = (props) => {
       <h2>{question}</h2>
       <p className="select-all-txt">(Select all that apply)</p>
       <div className="quiz-answer-btns">
-        {createButtons(firstRowBtns)}
-      </div>
-      <div className="quiz-answer-btns">
-        {createButtons(secRowBtns)}
+        {createButtons(buttons)}
       </div>
     </div>
   )

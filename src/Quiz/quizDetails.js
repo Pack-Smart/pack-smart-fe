@@ -11,8 +11,7 @@ const quizDetails = [
     question: `2. I'm packing for:`,
     type: 'MultipleChoice',
     category: 'gender',
-    firstRowBtns: ['Female', 'Male', 'Non-Binary'],
-    secRowBtns: [],
+    buttons: ['Female', 'Male', 'Non-Binary']
   }, 
   {
     id: 3,
@@ -34,16 +33,14 @@ const quizDetails = [
     question: '5. What will the weather be like?',
     type: 'MultipleChoice',
     category: 'weather',
-    firstRowBtns: ['Cold', 'Cool', 'Warm'],
-    secRowBtns: ['Hot', 'Rainy', 'Snowy'],
+    buttons: ['Cold', 'Cool', 'Warm', 'Hot', 'Rainy', 'Snowy']
   },
   {
     id: 6,
     question: '6. What activities do you plan to do?',
     type: 'MultipleChoice',
     category: 'categories',
-    firstRowBtns: ['Skiing', 'Beach', 'Hiking'],
-    secRowBtns: ['Night Life', 'Wedding', 'Business'],
+    buttons: ['Skiing', 'Beach', 'Hiking', 'Night Life', 'Wedding', 'Business']
   }
 ]
 
