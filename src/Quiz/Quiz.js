@@ -79,7 +79,6 @@ const Quiz = (props) => {
         }
       }
     }
-    console.log(submissionData)
     //TODO: make API call with submissionData
     getPackingListData()
     props.history.push('/packing-list')
