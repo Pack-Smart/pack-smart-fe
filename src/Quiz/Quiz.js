@@ -70,7 +70,7 @@ const Quiz = (props) => {
 
     const submissionData = {
       data: {
-        id: null,
+        id: 0,
         type: 'survey',
         attributes: {
           gender: ['All', quizData.gender],
@@ -88,6 +88,7 @@ const Quiz = (props) => {
         }
       }
     }
+
     console.log('submission', submissionData)
     getPackingListData(submissionData)
     .then(data => console.log(data))
