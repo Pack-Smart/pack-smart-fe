@@ -119,38 +119,7 @@ const Quiz = (props) => {
     <form className="quiz-form">
       <h1>Quiz!</h1>
       <p className="quizIntro">Answer all the questions below to get your custom packing list.</p>
-      <div className="trip-name-field">
-        <h2>1. Packing list name</h2>
-        <input
-          type="text"
-          placeholder="e.g. Cancun 20 08!"
-          name="name"
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className="trip-location-field">
-        <h2>3. Going to:</h2>
-        <input
-          type="text"
-          placeholder="e.g. Mexico"
-          name="destination"
-          onChange={handleChange}
-        />
-      </div>
-      <div className="trip-duration-field">
-        <h2>4. Number of days:</h2>
-        <input 
-          type="number"
-          placeholder="e.g. 3"
-          name="number_of_days"
-          onChange={handleChange}
-          min="1"
-        />
-      </div>
-      
-      {generateQuizQuestions()}
-          
+      {generateQuizQuestions()}  
       <button
         className="quiz-submit-btn"
         onClick={validateForm}

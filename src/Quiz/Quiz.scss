@@ -18,7 +18,7 @@
   @include quiz-question;
 }
 
-.trip-location-field, .trip-duration-field {
+.trip-destination-field, .trip-number_of_days-field {
   @include row-center;
   @include quiz-question;
 }
@@ -27,11 +27,11 @@
   @include input-line(300px)
 }
 
-.trip-location-field input {
+.trip-destination-field input {
   @include input-line(300px);
 }
 
-.trip-duration-field input {
+.trip-number_of_days-field input {
   @include input-line(60px);
 }
 
