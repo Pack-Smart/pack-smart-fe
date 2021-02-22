@@ -67,21 +67,31 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
+
     const submissionData = {
       data: {
         id: null,
         type: 'survey',
         attributes: {
-          gender: quizData.gender,
-          weather: modifyWeatherData,
+          gender: ['All', quizData.gender],
+          weather: ['All', ...modifyWeatherData],
           destination: quizData.destination,
           number_of_days: quizData.number_of_days,
-          categories: quizData.categories
+          categories: [
+            'Accessories', 
+            'Clothing', 
+            'Essentials', 
+            'Toiletries', 
+            'Misc.',
+            ...quizData.categories
+          ]
         }
       }
     }
-    //TODO: make API call with submissionData
-    getPackingListData()
+    console.log('submission', submissionData)
+    getPackingListData(submissionData)
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
     props.history.push('/packing-list')
   }
 
