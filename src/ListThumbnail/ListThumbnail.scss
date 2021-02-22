@@ -1,19 +1,31 @@
 @import '../mixins.scss';
+@import '../variables.scss';
 
 .thumbnail-main {
   @include column-center;
-  max-width: 300px;
-  max-height: 100px;
+  width: 25em;
+  max-height: 12em;
+  margin: 15px;
+  background-color: $offwhite;
+
+}
+
+.thumbnail-main:hover {
+  cursor: pointer;
+  background-color: $red;
+
 }
 
 .thumbnail-title {
-
+  border-bottom: 0.2em $red solid;
+  font-size: x-large;
+  margin: 1em 0 .75em 0;
 }
 
 .thumbnail-destination {
-
+  margin: 0;
 }
 
 .thumbnail-duration {
-
+  margin-top: 5px;
 }

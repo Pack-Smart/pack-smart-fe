@@ -1,6 +1,8 @@
 import './ListThumbnail.scss'
 
 const ListThumbnail = (props) => {
+
+  
   return(
     <section className='thumbnail-main'>
       <h1 className='thumbnail-title'>Cabo 20 08 Betches</h1>
