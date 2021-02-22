@@ -13,28 +13,6 @@
   margin-top: 0;
 }
 
-.trip-name-field {
-  @include column-center;
-  @include quiz-question;
-}
-
-.trip-destination-field, .trip-number_of_days-field {
-  @include row-center;
-  @include quiz-question;
-}
-
-.trip-name-field input {
-  @include input-line(300px)
-}
-
-.trip-destination-field input {
-  @include input-line(300px);
-}
-
-.trip-number_of_days-field input {
-  @include input-line(60px);
-}
-
 .quiz-submit-btn {
   @include button-primary(18px, 250px, 1.5%);
   margin: 5% 5% 1% 5%;
