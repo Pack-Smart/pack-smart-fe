@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
+import QuestionInput from '../QuestionInput/QuestionInput'
 import { quizDetails } from './quizDetails.js'
 import './Quiz.scss'
 import { getPackingListData } from '../apiCalls.js'
@@ -88,6 +89,8 @@ const Quiz = (props) => {
     return quizDetails.map(question => {
       if (question.type === 'MultipleChoice') {
         return generateMultipleChoice(question)
+      } else {
+        return generateQuestionInput(question)
       }
     })
   }
@@ -102,42 +105,21 @@ const Quiz = (props) => {
     )
   }
 
+  const generateQuestionInput = (question) => {
+    return (
+      <QuestionInput 
+        key={question.id}
+        questionDetails={question}
+        handleChange={handleChange}
+      />
+    )
+  }
+
   return (
     <form className="quiz-form">
       <h1>Quiz!</h1>
       <p className="quizIntro">Answer all the questions below to get your custom packing list.</p>
-      <div className="trip-name-field">
-        <h2>1. Packing list name</h2>
-        <input
-          type="text"
-          placeholder="e.g. Cancun 20 08!"
-          name="name"
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className="trip-location-field">
-        <h2>3. Going to:</h2>
-        <input
-          type="text"
-          placeholder="e.g. Mexico"
-          name="destination"
-          onChange={handleChange}
-        />
-      </div>
-      <div className="trip-duration-field">
-        <h2>4. Number of days:</h2>
-        <input 
-          type="number"
-          placeholder="e.g. 3"
-          name="number_of_days"
-          onChange={handleChange}
-          min="1"
-        />
-      </div>
-      
-      {generateQuizQuestions()}
-          
+      {generateQuizQuestions()}  
       <button
         className="quiz-submit-btn"
         onClick={validateForm}
