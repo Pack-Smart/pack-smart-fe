@@ -1,5 +1,12 @@
 # Pack Smart
 
+## Set Up Instructions
+
+* clone down this repository to your local machine with `git clone git@github.com:Pack-Smart/pack-smart-fe.git`
+* Change into the directory with `cd pack-smart-fe`
+* Install the necessary dependencies with `npm i`
+* Spin up the local server on http://localhost:3000/ with `npm start`
+
 ## Project Description
 
 Description...Coming Soon!
@@ -31,9 +38,12 @@ Challenges...Coming Soon!
 
 Wins...Coming Soon!
 
-## Set Up Instructions
+## Next Steps
 
-Instructions...Coming Soon!
+Next Steps... Coming Soon!
+
+##Investors?
+Possibly you!
 
 ## Contributors
 
