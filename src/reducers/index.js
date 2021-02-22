@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import { currentList } from './reducers'
+import { packingList } from './reducers'
 
 const rootReducer = combineReducers({
-  currentList
+  packingList
 })
 
 export default rootReducer

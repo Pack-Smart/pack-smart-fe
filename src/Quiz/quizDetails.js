@@ -44,7 +44,7 @@ const quizDetails = [
     type: 'MultipleChoice',
     category: 'categories',
     subtext: 'Select any that apply',
-    buttons: ['Skiing', 'Beach', 'Hiking', 'Night Life', 'Wedding', 'Business'],
+    buttons: ['Skiing', 'Beach', 'Hiking', 'Night Life', 'Wedding/Formal', 'Business'],
     isRequired: false,
   }
 ]

@@ -1,7 +1,7 @@
-export const currentList = (state = {}, action) => {
+export const packingList = (state = {}, action) => {
   switch(action.type) {
     case 'SAVE_CURRENT_LIST':
-      return action
+      return action.packingList
     default:
       return state
   }

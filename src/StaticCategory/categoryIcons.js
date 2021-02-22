@@ -46,7 +46,7 @@ export const categoryIcons = [
     icon:  <FaHiking size={50}/>
   },
   {
-    name: 'Misc',
+    name: 'Misc.',
     icon:  <FaCamera size={50}/>
   },
   {

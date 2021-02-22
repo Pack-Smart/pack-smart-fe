@@ -1,20 +1,22 @@
 import StaticCategory from '../StaticCategory/StaticCategory'
-import { samplePackingList } from '../sampleData'
+// import { samplePackingList } from '../sampleData'
 import './PackingList.scss'
+import { connect } from 'react-redux'
 
 // TODO: Update samplePackingList to props
 
-const PackingList = () => {
+const PackingList = ({ packingList }) => {
 
   const createCategoryCards = () => {
-    const categories = Object.keys(samplePackingList)
+    console.log('list', packingList)
+    const categories = Object.keys(packingList)
 
     return categories.map(cat => {
       return (
         <StaticCategory 
           key={cat}
           catTitle={cat}
-          items={samplePackingList[cat]}
+          items={packingList[cat]}
         />
       )
     })
@@ -40,4 +42,8 @@ const PackingList = () => {
   )
 }
 
-export default PackingList
+const mapStateToProps = (state) => ({
+  packingList: state.packingList
+})
+
+export default connect(mapStateToProps)(PackingList)

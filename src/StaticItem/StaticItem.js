@@ -1,7 +1,7 @@
 import './StaticItem.scss'
 
 const StaticItem = ({ item, quantity }) => {
-
+  console.log('static item', item)
   return (
     <article className='static-item'>
       
@@ -10,7 +10,7 @@ const StaticItem = ({ item, quantity }) => {
       </div>
 
       <div className='item-box'>
-        <p>{item}</p>
+        <p>{item.name}</p>
       </div>
 
       <div className='input-container'> 
