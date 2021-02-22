@@ -1,0 +1,19 @@
+@import '../mixins.scss';
+
+.thumbnail-main {
+  @include column-center;
+  max-width: 300px;
+  max-height: 100px;
+}
+
+.thumbnail-title {
+
+}
+
+.thumbnail-destination {
+
+}
+
+.thumbnail-duration {
+
+}
