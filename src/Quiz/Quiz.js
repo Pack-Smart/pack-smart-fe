@@ -4,6 +4,8 @@ import QuestionInput from '../QuestionInput/QuestionInput'
 import { quizDetails } from './quizDetails.js'
 import './Quiz.scss'
 import { getPackingListData } from '../apiCalls.js'
+import { connect } from 'react-redux'
+import { saveCurrentList } from '../actions/actions'
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
@@ -91,7 +93,7 @@ const Quiz = (props) => {
 
     console.log('submission', submissionData)
     getPackingListData(submissionData)
-    .then(data => console.log(data))
+    .then(data => props.saveCurrentList(data.data.attributes.categories))
     .catch(error => console.log(error))
     props.history.push('/packing-list')
   }
@@ -141,4 +143,9 @@ const Quiz = (props) => {
   )
 }
 
-export default Quiz
+const mapDispatchToProps = (dispatch) => ({
+  saveCurrentList: data => dispatch(saveCurrentList(data))
+})
+
+export default connect(null, mapDispatchToProps)(Quiz)
+
