@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
+import QuestionInput from '../QuestionInput/QuestionInput'
 import { quizDetails } from './quizDetails.js'
 import './Quiz.scss'
 import { getPackingListData } from '../apiCalls.js'
@@ -88,6 +89,8 @@ const Quiz = (props) => {
     return quizDetails.map(question => {
       if (question.type === 'MultipleChoice') {
         return generateMultipleChoice(question)
+      } else {
+        return generateQuestionInput(question)
       }
     })
   }
@@ -99,6 +102,16 @@ const Quiz = (props) => {
         questionDetails={question}
         handleClick={handleClick}
       />  
+    )
+  }
+
+  const generateQuestionInput = (question) => {
+    return (
+      <QuestionInput 
+        key={question.id}
+        questionDetails={question}
+        handleChange={handleChange}
+      />
     )
   }
 
