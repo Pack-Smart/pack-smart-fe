@@ -28,6 +28,10 @@ const StaticItem = ({ item, category, quantity, toggleIsChecked }) => {
         />
       </div>
 
+      <div className='delete'>
+        <button className='delete-item'>X</button>
+      </div>
+
     </article>
   )
 }
