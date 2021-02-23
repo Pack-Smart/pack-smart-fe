@@ -18,16 +18,15 @@
 .header-logo-anchor {
   display: flex;
   align-items: center;
+  flex-direction: flex-start;
   height: 80px;
   margin: 2%;
+  width: 100%;
+  text-decoration: none;
   &:hover {
     transform: scale(1.05);
     transition-duration: 0.4s;
 	}
-  &.pack-smart-title:hover {
-    transform: scale(1.05);
-    transition-duration: 0.4s;
-  }
 }
 
 .header-logo {
@@ -36,10 +35,11 @@
 }
 
 .pack-smart-title {
-  font-size: 3.5em;
+  font-size: 2.5em;
   margin: 0;
   color: $text-color;
   align-self: center;
+  width: 50%;
   cursor: pointer;
   font-family: $title-font;
   font-weight: 400;

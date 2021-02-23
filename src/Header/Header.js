@@ -15,8 +15,8 @@ const Header = (props) => {
           alt="pack smart logo"
           className="header-logo" 
         />
+        <h1 className='pack-smart-title'>Pack Smart</h1>
       </Link>
-      <h1 className='pack-smart-title'>Pack Smart</h1>
       </div>
       <Link
         className="header-btn"
