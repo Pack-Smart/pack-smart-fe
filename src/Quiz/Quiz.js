@@ -13,7 +13,7 @@ const Quiz = (props) => {
     gender: '',
     weather: [],
     destination: '',
-    number_of_days: "",
+    number_of_days: '',
     categories: []
   })
   const [error, setError] = useState(false)

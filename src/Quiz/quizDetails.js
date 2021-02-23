@@ -5,30 +5,30 @@ const quizDetails = [
     type: 'text',
     placeholder: 'e.g. Cancun 20 08!',
     name: 'name'
-  }, 
+  },
   {
     id: 2,
-    question: `2. I'm packing for:`,
-    type: 'MultipleChoice',
-    category: 'gender',
-    subtext: '',
-    buttons: ['Female', 'Male', 'Non-Binary']
-  }, 
-  {
-    id: 3,
-    question: '3. Going to: ',
+    question: '2. Going to: ',
     type: 'text',
     placeholder: 'e.g. Mexico',
     name: 'destination'
   }, 
   { 
-    id: 4,
-    question: '4. Number of days: ',
+    id: 3,
+    question: '3. Number of days: ',
     type: 'number',
     placeholder: 'e.g. 3',
     name: 'number_of_days',
     min: '1'
   },
+    {
+    id: 4,
+    question: `4. Do you want to see items for?`,
+    type: 'MultipleChoice',
+    category: 'gender',
+    subtext: '',
+    buttons: ['Female', 'Male', 'All']
+  }, 
   { 
     id: 5,
     question: '5. What will the weather be like?',
