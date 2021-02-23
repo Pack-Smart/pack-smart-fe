@@ -14,11 +14,8 @@ const PackingList = ({ packingList }) => {
           <header className='packing-list-header'>
             <h1>{tripDetails.title}</h1>
             <h2>{tripDetails.destination}</h2>
-            <h3>{tripDetails.number_of_days} days</h3>
+            <h3>{tripDetails.number_of_days} {tripDetails.number_of_days > 1 ? 'days' : 'day'}</h3>
           </header>
-          <button className='save-list-button'>
-            Save List
-          </button>
           <section>
             {createCategoryCards()}
           </section>
