@@ -10,6 +10,7 @@
 
 .save-list-button {
   @include button-primary(medium, 175px, .75%);
+  margin: 3em;
 }
 
 .edit-title {
