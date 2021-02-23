@@ -4,6 +4,8 @@ import QuestionInput from '../QuestionInput/QuestionInput'
 import { quizDetails } from './quizDetails.js'
 import './Quiz.scss'
 import { getPackingListData } from '../apiCalls.js'
+import { connect } from 'react-redux'
+import { saveCurrentList } from '../actions/actions'
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
@@ -67,21 +69,34 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
+
     const submissionData = {
       data: {
-        id: null,
+        id: 0,
         type: 'survey',
         attributes: {
-          gender: quizData.gender,
-          weather: modifyWeatherData,
-          destination: quizData.destination,
-          number_of_days: quizData.number_of_days,
-          categories: quizData.categories
+          gender: ['All', quizData.gender],
+          weather: ['All', ...modifyWeatherData],
+          tripDetails: {
+            title: quizData.name,
+            destination: quizData.destination,
+            number_of_days: quizData.number_of_days,
+          },
+          categories: [
+            'Accessories', 
+            'Clothing', 
+            'Essentials', 
+            'Toiletries', 
+            'Misc.',
+            ...quizData.categories
+          ]
         }
       }
     }
-    //TODO: make API call with submissionData
-    getPackingListData()
+
+    getPackingListData(submissionData)
+    .then(data => props.saveCurrentList(data.data.attributes))
+    .catch(error => console.log(error))
     props.history.push('/packing-list')
   }
 
@@ -130,4 +145,9 @@ const Quiz = (props) => {
   )
 }
 
-export default Quiz
+const mapDispatchToProps = (dispatch) => ({
+  saveCurrentList: data => dispatch(saveCurrentList(data))
+})
+
+export default connect(mapDispatchToProps, {saveCurrentList})(Quiz)
+

@@ -4,7 +4,7 @@ import './Error.scss'
 const Error = (props) => {
   return(
     <section className="error-section">
-      <h1>Oops! This page does not exist.</h1>
+      <h1>{props.errorMessage}</h1>
       <Link
         to="/"
         className="error-btn"

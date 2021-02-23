@@ -1,20 +1,51 @@
 import StaticCategory from '../StaticCategory/StaticCategory'
-import { samplePackingList } from '../sampleData'
+import Error from '../Error/Error'
 import './PackingList.scss'
+import { connect } from 'react-redux'
 
-// TODO: Update samplePackingList to props
+const PackingList = ({ packingList }) => {
 
-const PackingList = () => {
+  const { tripDetails, categories } = packingList
+  const { title, destination, number_of_days } = tripDetails
+
+  const verifyPackingList = () => {
+    if (packingList.categories) {
+      return (
+        <>
+          <header className='packing-list-header'>
+            <h1>{title}</h1>
+            <h2>{destination}</h2>
+            <h3>{number_of_days} days</h3>
+          </header>
+          <button className='save-list-button'>
+            Save List
+          </button>
+          <section>
+            {createCategoryCards()}
+          </section>
+          <button className='save-list-button'>
+            Save List
+          </button>
+        </>
+      )
+    } else {
+      return(
+        <Error 
+          errorMessage='Oops! No packing list exists.'
+        />
+      )
+    }
+  }
 
   const createCategoryCards = () => {
-    const categories = Object.keys(samplePackingList)
+    const listCategories = Object.keys(categories)
 
-    return categories.map(cat => {
+    return listCategories.map(cat => {
       return (
         <StaticCategory 
           key={cat}
           catTitle={cat}
-          items={samplePackingList[cat]}
+          items={categories[cat]}
         />
       )
     })
@@ -22,22 +53,13 @@ const PackingList = () => {
 
   return (
     <section className='packing-list-main'>
-      <header className='packing-list-header'>
-        <h1>Trip Title</h1>
-        <h2>Destination</h2>
-        <h3>Duration</h3>
-      </header>
-      <button className='save-list-button'>
-        Save List
-      </button>
-      <section>
-        {createCategoryCards()}
-      </section>
-      <button className='save-list-button'>
-        Save List
-      </button>
-    </section>
+      {verifyPackingList()}
+    </section> 
   )
 }
 
-export default PackingList
+const mapStateToProps = (state) => ({
+  packingList: state.packingList
+})
+
+export default connect(mapStateToProps)(PackingList)
