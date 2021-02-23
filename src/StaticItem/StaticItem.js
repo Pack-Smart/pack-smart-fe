@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { toggleIsChecked, deleteItem } from '../actions/actions'
+import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
 import './StaticItem.scss'
 
 const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem }) => {
@@ -15,7 +15,17 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
   return (
     <article className='static-item'>  
       <div className='quantity-container'>
-        {quantity}
+        <input
+          type='number'
+          name='quantity'
+          aria-label='item quantity'
+          role='quantity input'
+          placeholder={quantity}
+          value={quantity}
+          onChange={(event) => {
+            editItemQuantity(category, item.name, event.target.value)
+          }}
+        />
       </div>
       <div className='item-box'>
         <p>{item.name}</p>
@@ -44,7 +54,8 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
 
 const mapDispatchToProps = (dispatch) => ({
   toggleIsChecked: (category, name, status) => dispatch(toggleIsChecked(category, name, status)),
-  deleteItem: (category, name) => dispatch(deleteItem(category, name))  
+  deleteItem: (category, name) => dispatch(deleteItem(category, name)),
+  editItemQuantity: (category, name, quantity) => dispatch(editItemQuantity(category, name, quantity))
 })
 
-export default connect(mapDispatchToProps, {toggleIsChecked, deleteItem})(StaticItem)
+export default connect(mapDispatchToProps, { toggleIsChecked, deleteItem, editItemQuantity })(StaticItem)

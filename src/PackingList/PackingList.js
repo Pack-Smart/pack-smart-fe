@@ -74,6 +74,8 @@ const PackingList = ({ packingList, deleteItem }) => {
     })
   }
 
+  
+
   return (
     <section className='packing-list-main'>
       {verifyPackingList()}

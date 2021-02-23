@@ -31,6 +31,23 @@ export const packingList = (state = {}, action) => {
         }
       }
       return (updatedItems) 
+    case 'EDIT_ITEM_QUANTITY':
+      const itemToUpdate = state.categories[action.payload.category].find(item => {
+        return item.name === action.payload.name
+      })
+      itemToUpdate.quantity = action.payload.quantity
+
+      const filteredAllItems = state.categories[action.payload.category].filter(item => {
+        return item.name !== action.payload.name
+      })
+      const updatedNewState = {
+        ...state,
+        categories: {
+          ...state.categories,
+          [action.payload.category]: [...filteredAllItems, itemToUpdate]
+        }
+      }
+      return (updatedNewState)   
     default:
       return (state)
   }
