@@ -8,7 +8,7 @@ export const customStyles = {
     transform             : 'translate(-50%, -50%)'
   }, 
   overlay: {
-    backgroundColor: 'rgb(0 0 0/75%)',
+    backgroundColor: 'rgb(0 0 0/65%)',
   }
 
 };

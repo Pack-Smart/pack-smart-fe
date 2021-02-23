@@ -79,28 +79,33 @@ const PackingList = ({ packingList, deleteItem }) => {
       {verifyPackingList()}
       <Modal
           isOpen={modalIsOpen}
-          // onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel="Example Modal"
         >
           <h1>Are you sure you want to delete this item from your packing list?</h1>
-          <input
-            type='checkbox'
-            name='are-you-sure'
-            aria-label='are you sure checkbox'
-            role='checkbox'
-            onChange={() => {
-              setVerifyDeletion(false)}
-          } />
-          <label for='are-you-sure'>
-            Please don't show me this message again.
-          </label>
-          <button onClick={() => {
-            deleteItem(categoryToDelete, itemToDelete)
-            closeModal()
-            }}>DELETE ITEM</button>
-          <button onClick={() => closeModal()}>No, take me back!</button>
+          <div className='checkbox-question'>
+            <input
+              type='checkbox'
+              name='are-you-sure'
+              aria-label='are you sure checkbox'
+              role='checkbox'
+              onChange={() => {
+                setVerifyDeletion(false)}
+            }/>
+            <label for='are-you-sure' className='checkbox-text'>
+              Please don't show me this message again.
+            </label>
+          </div>
+          <div className='modal-buttons'>
+            <button className='modal-button' onClick={() => {
+              deleteItem(categoryToDelete, itemToDelete)
+              closeModal()
+              }}>DELETE ITEM</button>
+            <button className='modal-button' onClick={() => closeModal()}>
+              No, take me back!
+            </button>
+          </div>
       </Modal>
     </section> 
   )
