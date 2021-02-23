@@ -14,7 +14,7 @@ const StaticCategory = ({ catTitle, items }) => {
     return sortedItems.map(item => {
       return (
         <StaticItem
-          key={item.id} 
+          key={item.item_id} 
           item={item}
           category={catTitle}
           quantity='Qty.'

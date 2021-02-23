@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import { toggleIsChecked } from '../actions/actions'
+import { toggleIsChecked, deleteItem } from '../actions/actions'
 import './StaticItem.scss'
 
-const StaticItem = ({ item, category, quantity, toggleIsChecked }) => {
+const StaticItem = ({ item, category, quantity, toggleIsChecked, deleteItem }) => {
   
   return (
     <article className='static-item'>
@@ -29,7 +29,10 @@ const StaticItem = ({ item, category, quantity, toggleIsChecked }) => {
       </div>
 
       <div className='delete'>
-        <button className='delete-item'>X</button>
+        <button className='delete-item' onClick={() => {
+          deleteItem(category, item.name)}}>
+            X
+        </button>
       </div>
 
     </article>
@@ -37,7 +40,8 @@ const StaticItem = ({ item, category, quantity, toggleIsChecked }) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleIsChecked: (category, name, status) => dispatch(toggleIsChecked(category, name, status)) 
+  toggleIsChecked: (category, name, status) => dispatch(toggleIsChecked(category, name, status)), 
+  deleteItem: (category, name) => dispatch(deleteItem(category, name)) 
 })
 
-export default connect(mapDispatchToProps, {toggleIsChecked})(StaticItem)
+export default connect(mapDispatchToProps, {toggleIsChecked, deleteItem})(StaticItem)

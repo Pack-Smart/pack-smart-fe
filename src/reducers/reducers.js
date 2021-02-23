@@ -1,7 +1,7 @@
 export const packingList = (state = {}, action) => {
   switch(action.type) {
     case 'SAVE_CURRENT_LIST':
-      return action.packingList
+      return (action.packingList)
     case 'TOGGLE_IS_CHECKED':
       const itemToToggle = state.categories[action.payload.category].find(item => {
         return item.name === action.payload.name
@@ -19,7 +19,20 @@ export const packingList = (state = {}, action) => {
         }
       }
       return (updatedState)  
+    case 'DELETE_ITEM':
+      const remainingItems = state.categories[action.payload.category].filter(item => {
+        return item.name !== action.payload.name
+      })
+      debugger
+      const updatedItems = {
+        ...state,
+        categories: {
+          ...state.categories,
+          [action.payload.category]: [...remainingItems]
+        }
+      }
+      return (updatedItems) 
     default:
-      return state
+      return (state)
   }
 }
