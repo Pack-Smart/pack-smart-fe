@@ -1,5 +1,6 @@
 import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
+import { BiPencil } from 'react-icons/bi'
 import './StaticCategory.scss'
 
 const StaticCategory = ({ catTitle, items }) => {
@@ -10,7 +11,6 @@ const StaticCategory = ({ catTitle, items }) => {
       if(a.name > b.name) { return 1; }
       return 0;
     })
-    console.log(sortedItems)
     return sortedItems.map(item => {
       return (
         <StaticItem
@@ -32,7 +32,13 @@ const StaticCategory = ({ catTitle, items }) => {
 
   return (
     <section>
-      <h1 className='cat-title'>{generateCategoryIcon(catTitle)}{catTitle}</h1>
+        <h1 className='cat-title'>
+          {generateCategoryIcon(catTitle)}
+          <div className='edit-cat'>
+            {catTitle}
+            <button className='edit-category'><BiPencil size={25} /></button>
+          </div>
+        </h1>
       <article className='list-items'>
         {generateListItems()}
       </article>
