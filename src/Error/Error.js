@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import './Error.scss'
 
 const Error = (props) => {
-  console.log(props)
   return(
     <section className="error-section">
       <h1>{props.errorMessage}</h1>
