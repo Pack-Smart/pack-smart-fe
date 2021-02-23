@@ -81,11 +81,17 @@ const PackingList = ({ packingList, deleteItem }) => {
           contentLabel="Example Modal"
         >
           <h1>Are you sure you want to delete this item from your packing list?</h1>
-          {/* <input
+          <input
             type='checkbox'
-          >
+            name='are-you-sure'
+            aria-label='are you sure checkbox'
+            role='checkbox'
+            onChange={() => {
+              setAreYouSure(true)}
+          } />
+          <label for='are-you-sure'>
             Please don't show me this message again.
-          </input> */}
+          </label>
           <button onClick={() => {
             deleteItem(categoryToDelete, itemToDelete)
             closeModal()
