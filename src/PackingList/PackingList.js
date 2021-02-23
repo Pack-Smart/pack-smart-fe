@@ -13,7 +13,7 @@ const PackingList = ({ packingList, deleteItem }) => {
   const [modalIsOpen,setIsOpen] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
-  const [areYouSure, setAreYouSure] = useState(false)
+  const [verifyDeletion, setVerifyDeletion] = useState(true)
   
   useEffect(() => {
     Modal.setAppElement('body');
@@ -22,7 +22,9 @@ const PackingList = ({ packingList, deleteItem }) => {
   const openModal = (category, name) => {
     setCategoryToDelete(category)
     setItemToDelete(name)
-    setIsOpen(true);
+    if(verifyDeletion === true) {
+      setIsOpen(true);
+    } 
   }
 
   const closeModal = () =>{
@@ -65,6 +67,7 @@ const PackingList = ({ packingList, deleteItem }) => {
           catTitle={cat}
           items={categories[cat]}
           openModal={openModal}
+          verifyDeletion={verifyDeletion}
         />
       )
     })
@@ -87,7 +90,7 @@ const PackingList = ({ packingList, deleteItem }) => {
             aria-label='are you sure checkbox'
             role='checkbox'
             onChange={() => {
-              setAreYouSure(true)}
+              setVerifyDeletion(false)}
           } />
           <label for='are-you-sure'>
             Please don't show me this message again.
