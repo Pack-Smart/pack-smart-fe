@@ -3,18 +3,16 @@ import Error from '../Error/Error'
 import './PackingList.scss'
 import { connect } from 'react-redux'
 
-// TODO: Update samplePackingList to props
-
 const PackingList = ({ packingList }) => {
 
   const verifyPackingList = () => {
-    if (packingList.Accessories) {
+    if (packingList.categories) {
       return (
         <>
           <header className='packing-list-header'>
-            <h1>Trip Title</h1>
-            <h2>Destination</h2>
-            <h3>Duration</h3>
+            <h1>{packingList.tripDetails.title}</h1>
+            <h2>{packingList.tripDetails.destination}</h2>
+            <h3>{packingList.tripDetails.number_of_days} days</h3>
           </header>
           <button className='save-list-button'>
             Save List
@@ -37,15 +35,14 @@ const PackingList = ({ packingList }) => {
   }
 
   const createCategoryCards = () => {
-
-    const categories = Object.keys(packingList)
+    const categories = Object.keys(packingList.categories)
 
     return categories.map(cat => {
       return (
         <StaticCategory 
           key={cat}
           catTitle={cat}
-          items={packingList[cat]}
+          items={packingList.categories[cat]}
         />
       )
     })
