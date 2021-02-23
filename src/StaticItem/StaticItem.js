@@ -4,6 +4,7 @@ import './StaticItem.scss'
 
 const StaticItem = ({ item, category, quantity, toggleIsChecked }) => {
   // const { item, category, quantity, toggleIsChecked } = props
+  
   return (
     <article className='static-item'>
       
@@ -20,10 +21,11 @@ const StaticItem = ({ item, category, quantity, toggleIsChecked }) => {
           type='checkbox' 
           name='checkbox' 
           aria-label='item checkbox'
-          role='checkbox' 
+          role='checkbox'
           onChange={() => {
             toggleIsChecked(category, item.name, item.is_checked)} 
           }
+          checked={item.is_checked}
         />
       </div>
 

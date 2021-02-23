@@ -3,22 +3,23 @@ export const packingList = (state = {}, action) => {
     case 'SAVE_CURRENT_LIST':
       return action.packingList
     case 'TOGGLE_IS_CHECKED':
-      debugger
         const itemToToggle = state.categories[action.payload.category].find(item => {
         return item.name === action.payload.name
       })
-
       itemToToggle.is_checked = !itemToToggle.is_checked
 
       const filteredItems = state.categories[action.payload.category].filter(item => {
         return item.name !== action.payload.name
       })
-      return ({
+      const updatedState = {
         ...state,
         categories: {
-          [action.category]: [...filteredItems, itemToToggle]
+          ...state.categories,
+          [action.payload.category]: [...filteredItems, itemToToggle]
         }
-      })  
+      }
+      console.log(updatedState)
+      return (updatedState)  
     default:
       return state
   }

@@ -21,7 +21,6 @@ const StaticCategory = ({ catTitle, items }) => {
     let category = categoryIcons.find(icon => {
       return icon.name === cat
     })
-    debugger
     return category.icon
   }
 
