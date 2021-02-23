@@ -11,3 +11,15 @@
 .save-list-button {
   @include button-primary(medium, 175px, .75%);
 }
+
+.edit-title {
+  margin-left: 0.5em;
+  border: none;
+  background-color: $gray;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+    transition-duration: 0.4s;
+	}
+}

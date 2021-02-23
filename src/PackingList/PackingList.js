@@ -1,5 +1,6 @@
 import StaticCategory from '../StaticCategory/StaticCategory'
 import Error from '../Error/Error'
+import { BiPencil } from 'react-icons/bi'
 import './PackingList.scss'
 import { connect } from 'react-redux'
 
@@ -12,7 +13,7 @@ const PackingList = ({ packingList }) => {
       return (
         <>
           <header className='packing-list-header'>
-            <h1>{tripDetails.title}</h1>
+            <h1>{tripDetails.title} <BiPencil className='edit-title' size={25}/></h1>
             <h2>{tripDetails.destination}</h2>
             <h3>{tripDetails.number_of_days} {tripDetails.number_of_days > 1 ? 'days' : 'day'}</h3>
           </header>
