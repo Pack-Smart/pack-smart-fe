@@ -5,14 +5,17 @@ import { connect } from 'react-redux'
 
 const PackingList = ({ packingList }) => {
 
+  const { tripDetails, categories } = packingList
+  const { title, destination, number_of_days } = tripDetails
+
   const verifyPackingList = () => {
     if (packingList.categories) {
       return (
         <>
           <header className='packing-list-header'>
-            <h1>{packingList.tripDetails.title}</h1>
-            <h2>{packingList.tripDetails.destination}</h2>
-            <h3>{packingList.tripDetails.number_of_days} days</h3>
+            <h1>{title}</h1>
+            <h2>{destination}</h2>
+            <h3>{number_of_days} days</h3>
           </header>
           <button className='save-list-button'>
             Save List
@@ -35,14 +38,14 @@ const PackingList = ({ packingList }) => {
   }
 
   const createCategoryCards = () => {
-    const categories = Object.keys(packingList.categories)
+    const listCategories = Object.keys(categories)
 
-    return categories.map(cat => {
+    return listCategories.map(cat => {
       return (
         <StaticCategory 
           key={cat}
           catTitle={cat}
-          items={packingList.categories[cat]}
+          items={categories[cat]}
         />
       )
     })

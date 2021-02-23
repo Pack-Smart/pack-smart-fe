@@ -20,12 +20,7 @@ const StaticCategory = ({ catTitle, items }) => {
     let category = categoryIcons.find(icon => {
       return icon.name === cat
     })
-    // TODO: take out console.log once all icons are confirmed working
-    if (category !== undefined) {
-      return category.icon
-    } else {
-      console.log(cat)
-    }
+    return category.icon
   }
 
   return (
