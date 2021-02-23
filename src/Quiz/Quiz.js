@@ -28,9 +28,7 @@ const Quiz = (props) => {
 
   const handleClick = (event, type) => {
     event.preventDefault()
-
     const name = event.target.name
-
     type === 'gender' ? updateGender(name) : updateMultipleSelections(type, name)
   }
 
@@ -54,14 +52,7 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
-    const { name, weather, gender, destination, number_of_days } = quizData
-    let valuesToCheck = [
-      name, 
-      weather, 
-      gender, 
-      destination,
-      number_of_days
-    ]
+    const valuesToCheck = createRequiredList()
     const formStatus = valuesToCheck.reduce((status, value) => {
       if (!value.length) {
         status = true
@@ -69,6 +60,17 @@ const Quiz = (props) => {
       return status
     }, false)
     formStatus ? setError(true) : submitForm()
+  }
+
+  const createRequiredList = () => {
+    const { name, weather, gender, destination, number_of_days } = quizData
+    return ([
+      name, 
+      weather, 
+      gender, 
+      destination,
+      number_of_days
+    ])
   }
 
   const submitForm = () => {
@@ -140,7 +142,7 @@ const Quiz = (props) => {
   return (
     <form className="quiz-form">
       <h1>Quiz!</h1>
-      <p className="quizIntro">Answer all the questions below to get your custom packing list.</p>
+      <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
       {generateQuizQuestions()}  
       <button
         className="quiz-submit-btn"
