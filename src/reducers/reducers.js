@@ -23,7 +23,6 @@ export const packingList = (state = {}, action) => {
       const remainingItems = state.categories[action.payload.category].filter(item => {
         return item.name !== action.payload.name
       })
-      debugger
       const updatedItems = {
         ...state,
         categories: {

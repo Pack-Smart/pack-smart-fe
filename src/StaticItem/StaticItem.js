@@ -1,20 +1,27 @@
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { toggleIsChecked, deleteItem } from '../actions/actions'
 import './StaticItem.scss'
 
-const StaticItem = ({ item, category, quantity, toggleIsChecked, deleteItem }) => {
+const StaticItem = ({ item, category, quantity, openModal, toggleIsChecked, deleteItem }) => {
+  const [areYouSure, setAreYouSure] = useState(false)
+
+  const verifyDeletion = (category, name) => {
+    openModal(category, name)
+    // if(areYouSure === false) {
+    //   alert('Are you sure you want to delete this item?')
+    //   deleteItem(category, item.name)
+    // }
+  }
   
   return (
-    <article className='static-item'>
-      
+    <article className='static-item'>  
       <div className='quantity-container'>
         {quantity}
       </div>
-
       <div className='item-box'>
         <p>{item.name}</p>
       </div>
-
       <div className='input-container'> 
         <input
           type='checkbox' 
@@ -27,10 +34,9 @@ const StaticItem = ({ item, category, quantity, toggleIsChecked, deleteItem }) =
           checked={item.is_checked}
         />
       </div>
-
       <div className='delete'>
         <button className='delete-item' onClick={() => {
-          deleteItem(category, item.name)}}>
+          verifyDeletion(category, item.name)}}>
             X
         </button>
       </div>
@@ -41,7 +47,7 @@ const StaticItem = ({ item, category, quantity, toggleIsChecked, deleteItem }) =
 
 const mapDispatchToProps = (dispatch) => ({
   toggleIsChecked: (category, name, status) => dispatch(toggleIsChecked(category, name, status)), 
-  deleteItem: (category, name) => dispatch(deleteItem(category, name)) 
+  // deleteItem: (category, name) => dispatch(deleteItem(category, name)) 
 })
 
 export default connect(mapDispatchToProps, {toggleIsChecked, deleteItem})(StaticItem)

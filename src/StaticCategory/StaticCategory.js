@@ -3,7 +3,7 @@ import StaticItem from '../StaticItem/StaticItem'
 import { BiPencil } from 'react-icons/bi'
 import './StaticCategory.scss'
 
-const StaticCategory = ({ catTitle, items }) => {
+const StaticCategory = ({ catTitle, items, openModal }) => {
 
   const generateListItems = () => {
     let sortedItems = items.sort((a, b) => {
@@ -18,6 +18,7 @@ const StaticCategory = ({ catTitle, items }) => {
           item={item}
           category={catTitle}
           quantity='Qty.'
+          openModal={openModal}
         />
       )
     })
