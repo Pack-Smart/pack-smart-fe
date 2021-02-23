@@ -3,7 +3,6 @@ import { toggleIsChecked } from '../actions/actions'
 import './StaticItem.scss'
 
 const StaticItem = ({ item, category, quantity, toggleIsChecked }) => {
-  // const { item, category, quantity, toggleIsChecked } = props
   
   return (
     <article className='static-item'>

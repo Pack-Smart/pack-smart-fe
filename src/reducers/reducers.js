@@ -18,7 +18,6 @@ export const packingList = (state = {}, action) => {
           [action.payload.category]: [...filteredItems, itemToToggle]
         }
       }
-      console.log(updatedState)
       return (updatedState)  
     default:
       return state
