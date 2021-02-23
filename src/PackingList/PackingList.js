@@ -6,6 +6,7 @@ import './PackingList.scss'
 import { deleteItem } from '../actions/actions'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
+import { customStyles } from './modalStyles'
 
 const PackingList = ({ packingList, deleteItem }) => {
 
@@ -80,7 +81,7 @@ const PackingList = ({ packingList, deleteItem }) => {
           isOpen={modalIsOpen}
           // onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
-          // style={customStyles}
+          style={customStyles}
           contentLabel="Example Modal"
         >
           <h1>Are you sure you want to delete this item from your packing list?</h1>
