@@ -52,7 +52,7 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
-    const valuesToCheck = createRequiredList()
+    const valuesToCheck = compileRequiredList()
     const formStatus = valuesToCheck.reduce((status, value) => {
       if (!value.length) {
         status = true
@@ -62,7 +62,7 @@ const Quiz = (props) => {
     formStatus ? setError(true) : submitForm()
   }
 
-  const createRequiredList = () => {
+  const compileRequiredList = () => {
     const { name, weather, gender, destination, number_of_days } = quizData
     return ([
       name, 
@@ -75,11 +75,18 @@ const Quiz = (props) => {
 
   const submitForm = () => {
     setError(false)
+    const submissionData = compileSubmissionData()
+    getPackingListData(submissionData)
+      .then(data => props.saveCurrentList(data.data.attributes))
+      .catch(error => console.log(error))
+    props.history.push('/packing-list')
+  }
+
+  const compileSubmissionData = () => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-
-    const submissionData = {
+    return ({
       data: {
         id: 0,
         type: 'survey',
@@ -101,12 +108,7 @@ const Quiz = (props) => {
           ]
         }
       }
-    }
-
-    getPackingListData(submissionData)
-    .then(data => props.saveCurrentList(data.data.attributes))
-    .catch(error => console.log(error))
-    props.history.push('/packing-list')
+    })
   }
 
   const generateQuizQuestions = () => {
