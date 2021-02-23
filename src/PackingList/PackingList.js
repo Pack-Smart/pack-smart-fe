@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import Error from '../Error/Error'
 import { BiPencil } from 'react-icons/bi'
@@ -6,7 +6,6 @@ import './PackingList.scss'
 import { deleteItem } from '../actions/actions'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
-import { ImTerminal } from 'react-icons/im'
 
 const PackingList = ({ packingList, deleteItem }) => {
 
@@ -14,6 +13,11 @@ const PackingList = ({ packingList, deleteItem }) => {
   const [modalIsOpen,setIsOpen] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
+  const [areYouSure, setAreYouSure] = useState(false)
+  
+  useEffect(() => {
+    Modal.setAppElement('body');
+  }, [])
    
   const openModal = (category, name) => {
     setCategoryToDelete(category)
@@ -76,11 +80,17 @@ const PackingList = ({ packingList, deleteItem }) => {
           // style={customStyles}
           contentLabel="Example Modal"
         >
-          <h1>MODAL!!!!!!</h1>
+          <h1>Are you sure you want to delete this item from your packing list?</h1>
+          {/* <input
+            type='checkbox'
+          >
+            Please don't show me this message again.
+          </input> */}
           <button onClick={() => {
             deleteItem(categoryToDelete, itemToDelete)
             closeModal()
             }}>DELETE ITEM</button>
+          <button onClick={() => closeModal()}>No, take me back!</button>
       </Modal>
     </section> 
   )

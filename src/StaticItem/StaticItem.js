@@ -4,8 +4,6 @@ import { toggleIsChecked } from '../actions/actions'
 import './StaticItem.scss'
 
 const StaticItem = ({ item, category, quantity, openModal, toggleIsChecked }) => {
-  const [areYouSure, setAreYouSure] = useState(false)
-
   const verifyDeletion = (category, name) => {
     openModal(category, name)
   }
