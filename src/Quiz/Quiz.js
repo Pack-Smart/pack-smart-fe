@@ -54,8 +54,15 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
-
-    const formStatus = Object.values(quizData).reduce((status, value) => {
+    const { name, weather, gender, destination, number_of_days } = quizData
+    let valuesToCheck = [
+      name, 
+      weather, 
+      gender, 
+      destination,
+      number_of_days
+    ]
+    const formStatus = valuesToCheck.reduce((status, value) => {
       if (!value.length) {
         status = true
       }
