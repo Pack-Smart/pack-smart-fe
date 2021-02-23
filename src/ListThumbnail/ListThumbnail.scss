@@ -3,29 +3,35 @@
 
 .thumbnail-main {
   @include column-center;
-  width: 25em;
+  width: 20em;
   max-height: 12em;
   margin: 15px;
   background-color: $offwhite;
-
+  border-radius: 5px;
 }
 
 .thumbnail-main:hover {
   cursor: pointer;
-  background-color: $red;
-
+  background-color: rgba(44,189,209, 0.5);
 }
 
 .thumbnail-title {
-  border-bottom: 0.2em $red solid;
+  border-bottom: 0.1em $red solid;
   font-size: x-large;
-  margin: 1em 0 .75em 0;
+  margin: 1em 0 .55em 0;
+}
+
+.thumbnail-title {
+  border-bottom: 0.1em $red solid;
+
 }
 
 .thumbnail-destination {
   margin: 0;
+  font-weight: 400;
 }
 
 .thumbnail-duration {
   margin-top: 5px;
+  font-weight: 300;
 }
