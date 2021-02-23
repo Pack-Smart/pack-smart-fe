@@ -39,7 +39,7 @@ const MultipleChoice = (props) => {
       {subtext.length > 0 &&
         <p className="select-all-txt">{subtext}</p>
       }
-      <div className="quiz-answer-btns">
+      <div className={`${category}-answer-btns`}>
         {createButtons(buttons)}
       </div>
     </div>
