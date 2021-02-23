@@ -5,7 +5,13 @@ import './StaticCategory.scss'
 const StaticCategory = ({ catTitle, items }) => {
 
   const generateListItems = () => {
-    return items.map(item => {
+    let sortedItems = items.sort((a, b) => {
+      if(a.name < b.name) { return -1; }
+      if(a.name > b.name) { return 1; }
+      return 0;
+    })
+    console.log(sortedItems)
+    return sortedItems.map(item => {
       return (
         <StaticItem
           key={item.id} 
