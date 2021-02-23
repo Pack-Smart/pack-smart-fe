@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { toggleIsChecked, deleteItem } from '../actions/actions'
+import { toggleIsChecked } from '../actions/actions'
 import './StaticItem.scss'
 
-const StaticItem = ({ item, category, quantity, openModal, toggleIsChecked, deleteItem }) => {
+const StaticItem = ({ item, category, quantity, openModal, toggleIsChecked }) => {
   const [areYouSure, setAreYouSure] = useState(false)
 
   const verifyDeletion = (category, name) => {
     openModal(category, name)
-    // if(areYouSure === false) {
-    //   alert('Are you sure you want to delete this item?')
-    //   deleteItem(category, item.name)
-    // }
   }
   
   return (
@@ -47,7 +43,6 @@ const StaticItem = ({ item, category, quantity, openModal, toggleIsChecked, dele
 
 const mapDispatchToProps = (dispatch) => ({
   toggleIsChecked: (category, name, status) => dispatch(toggleIsChecked(category, name, status)), 
-  // deleteItem: (category, name) => dispatch(deleteItem(category, name)) 
 })
 
-export default connect(mapDispatchToProps, {toggleIsChecked, deleteItem})(StaticItem)
+export default connect(mapDispatchToProps, {toggleIsChecked})(StaticItem)
