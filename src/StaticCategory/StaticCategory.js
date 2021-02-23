@@ -8,8 +8,9 @@ const StaticCategory = ({ catTitle, items }) => {
     return items.map(item => {
       return (
         <StaticItem
-          key={item} 
+          key={item.id} 
           item={item}
+          category={catTitle}
           quantity='Qty.'
         />
       )
@@ -20,6 +21,7 @@ const StaticCategory = ({ catTitle, items }) => {
     let category = categoryIcons.find(icon => {
       return icon.name === cat
     })
+    debugger
     return category.icon
   }
 

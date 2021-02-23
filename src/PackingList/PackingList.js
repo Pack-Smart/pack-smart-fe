@@ -6,16 +6,15 @@ import { connect } from 'react-redux'
 const PackingList = ({ packingList }) => {
 
   const { tripDetails, categories } = packingList
-  const { title, destination, number_of_days } = tripDetails
-
+  
   const verifyPackingList = () => {
     if (packingList.categories) {
       return (
         <>
           <header className='packing-list-header'>
-            <h1>{title}</h1>
-            <h2>{destination}</h2>
-            <h3>{number_of_days} days</h3>
+            <h1>{tripDetails.title}</h1>
+            <h2>{tripDetails.destination}</h2>
+            <h3>{tripDetails.number_of_days} days</h3>
           </header>
           <button className='save-list-button'>
             Save List
