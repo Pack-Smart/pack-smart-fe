@@ -19,8 +19,6 @@ const Quiz = (props) => {
   const [error, setError] = useState(false)
 
   const handleChange = (event) => {
-    event.preventDefault()
-
     setQuizData({
       ...quizData, [event.target.name]: event.target.value
     })
@@ -143,7 +141,9 @@ const Quiz = (props) => {
 
   return (
     <form className="quiz-form">
+      {error && <h3 className="invalid-message">Please answer all the questions in the quiz before proceeding.</h3>}
       <h1>Quiz!</h1>
+      {error && window.scrollTo(0,0)} 
       <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
       {generateQuizQuestions()}  
       <button
@@ -151,7 +151,6 @@ const Quiz = (props) => {
         onClick={validateForm}
       >Get My Packing List!
       </button>
-      {error && <h3 className="invalid-message">Please answer all the questions in the quiz before proceeding.</h3>}
     </form>
   )
 }
@@ -161,4 +160,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapDispatchToProps, {saveCurrentList})(Quiz)
-
