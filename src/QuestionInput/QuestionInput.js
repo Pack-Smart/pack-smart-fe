@@ -11,6 +11,7 @@ const QuestionInput = (props) => {
           placeholder={placeholder}
           name={name}
           onChange={handleChange}
+          min='1'
         />
       </div>
   )

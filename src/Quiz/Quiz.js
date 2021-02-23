@@ -77,8 +77,11 @@ const Quiz = (props) => {
         attributes: {
           gender: ['All', quizData.gender],
           weather: ['All', ...modifyWeatherData],
-          destination: quizData.destination,
-          number_of_days: quizData.number_of_days,
+          tripDetails: {
+            title: quizData.name,
+            destination: quizData.destination,
+            number_of_days: quizData.number_of_days,
+          },
           categories: [
             'Accessories', 
             'Clothing', 
@@ -91,7 +94,6 @@ const Quiz = (props) => {
       }
     }
 
-    console.log('submission', submissionData)
     getPackingListData(submissionData)
     .then(data => props.saveCurrentList(data.data.attributes.categories))
     .catch(error => console.log(error))
