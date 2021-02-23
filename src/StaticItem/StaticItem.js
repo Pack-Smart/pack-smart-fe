@@ -1,7 +1,6 @@
 import './StaticItem.scss'
 
 const StaticItem = ({ item, quantity }) => {
-  console.log('static item', item)
   return (
     <article className='static-item'>
       
