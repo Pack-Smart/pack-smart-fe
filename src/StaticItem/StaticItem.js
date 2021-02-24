@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
 import './StaticItem.scss'
 
-const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem }) => {
+const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem, editItemQuantity }) => {
+  const [itemQuantity, setItemQuantity] = useState(0)
   const determineModalOpen = (category, name) => {
     if (verifyDeletion === true) {
       openModal(category, name)
@@ -11,6 +12,12 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
       deleteItem(category, item.name)
     }
   }
+
+const handleQuantityChange = (event) => {
+  event.preventDefault()
+  setItemQuantity(event.target.value)
+  editItemQuantity(category, item.name, itemQuantity)
+}
   
   return (
     <article className='static-item'>  
@@ -21,9 +28,9 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
           aria-label='item quantity'
           role='quantity input'
           placeholder={quantity}
-          value={quantity}
+          value={itemQuantity}
           onChange={(event) => {
-            editItemQuantity(category, item.name, event.target.value)
+            handleQuantityChange(event)
           }}
         />
       </div>
