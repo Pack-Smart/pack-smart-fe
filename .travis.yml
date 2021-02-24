@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- node
+notifications:
+  email: false
+deploy:
+  provider: heroku
+  app: packsmart
+  skip_cleanup: true
+  api_key:
+    secure: tNWp/K1k6RKSaKcpYA+wN12LwzACJFhEPNFSqXGsYP7HTMhay5qvZ0A50AYKysD2E6gLZn2MjAEaP4DfiYpoG4FicbkxaHcT4KfQHWp30f0BxVlE/mNOt+ZU/f9lHRQkjiMxQRcmE7DOsHGrguvsY8u5Ric1mtqyzUuy3+z3PRM+VWN661lKuBSl+QJr4BQx0K1seeumYLSQKkDkIfTCd3aEB4cyNEeHLqSj8p+gX7HAqt/R06/qPkDkCqxufTuULhh+fFFPRjQs6xJ8paphPxijTN5Nt7+j5osHzkub38tsis5iFsm0Ov9fI/XB1UmAagFussMERlUgw6vb3/ZZZYD8AKu+/pYML4re0WoDqfuC8sE6umpRL6S6K/B++qHm8+lw3Vkr4mIILASsnY+Za8BzyRO/zPWY0DU/xR4olNGDqioy7pdTFLEDTrqoFL8LREtSKg+L9CCywbEFpGHcMd6Lumit2Joydw5KxO/AW9dVbUMZbEFOT+3ICe9sdkdo8mLH0eQMh9cNrcX2ITOJf/hiONF9fHy8SE+/cPk+QVRR/VF1+aSiJ1vn4lBmp9Lvle4MeTmHTpoly+ITzCbzggHKYvCJH5+3BdvqkwYk0XUygM8FXDhbNVL0xXIUDeY4P8ILXwC3VmdNDSX6oc77NKbCp4SsI7EY91sO8sHpoeY=
+  on: main

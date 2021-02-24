@@ -11,7 +11,7 @@ import rootReducer from './reducers'
 const store = createStore(rootReducer, composeWithDevTools())
 
 const router = 
-<BrowserRouter basename='/packsmart'>
+<BrowserRouter>
   <Provider store={store}>
     <App />
   </Provider>

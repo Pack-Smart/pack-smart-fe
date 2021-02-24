@@ -16,3 +16,21 @@
   color: $text-color;
   border-bottom: 0.2em $red solid;
 }
+
+.edit-category-container {
+  display: flex;
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
+
+.edit-category-btn {
+  margin-left: 1em;
+  border: none;
+  background-color: $gray;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+    transition-duration: 0.4s;
+	}
+}

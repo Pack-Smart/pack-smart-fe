@@ -1,16 +1,25 @@
 import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
+import { BsPlusCircle } from 'react-icons/bs'
 import './StaticCategory.scss'
 
-const StaticCategory = ({ catTitle, items }) => {
+const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
 
   const generateListItems = () => {
-    return items.map(item => {
+    let sortedItems = items.sort((a, b) => {
+      if(a.name < b.name) { return -1; }
+      if(a.name > b.name) { return 1; }
+      return 0;
+    })
+    return sortedItems.map(item => {
       return (
         <StaticItem
-          key={item} 
+          key={item.item_id} 
           item={item}
-          quantity='Qty.'
+          category={catTitle}
+          quantity='Qty.' //TODO: Possible change when we change input style for quantity
+          openModal={openModal}
+          verifyDeletion={verifyDeletion}
         />
       )
     })
@@ -25,7 +34,13 @@ const StaticCategory = ({ catTitle, items }) => {
 
   return (
     <section>
-      <h1 className='cat-title'>{generateCategoryIcon(catTitle)}{catTitle}</h1>
+        <h1 className='cat-title'>
+          {generateCategoryIcon(catTitle)}
+          <div className='edit-category-container'>
+            {catTitle}
+            <button className='edit-category-btn'><BsPlusCircle size={20} /></button>
+          </div>
+        </h1>
       <article className='list-items'>
         {generateListItems()}
       </article>
