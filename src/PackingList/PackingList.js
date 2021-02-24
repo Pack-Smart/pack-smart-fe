@@ -6,7 +6,7 @@ import './PackingList.scss'
 import { deleteItem } from '../actions/actions'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
-import { customStyles } from './modalStyles'
+import { verifyDeletionStyles } from './modalStyles'
 
 const PackingList = ({ packingList, deleteItem }) => {
 
@@ -74,28 +74,26 @@ const PackingList = ({ packingList, deleteItem }) => {
     })
   }
 
-
-
   return (
     <section className='packing-list-main'>
       {verifyPackingList()}
       <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
+          style={verifyDeletionStyles}
+          contentLabel="Delete Item Modal"
         >
           <h1>Are you sure you want to delete this item from your packing list?</h1>
           <div className='checkbox-question'>
             <input
               type='checkbox'
-              name='are-you-sure'
-              aria-label='are you sure checkbox'
+              name='verify-deletion'
+              aria-label='verify-deletion-checkbox'
               role='checkbox'
               onChange={() => {
                 setVerifyDeletion(false)}
             }/>
-            <label forhtml='are-you-sure' className='checkbox-text'>
+            <label forhtml='verify-deletion' className='checkbox-text'>
               Please don't show me this message again.
             </label>
           </div>

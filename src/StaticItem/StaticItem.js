@@ -26,7 +26,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
           aria-label='item quantity'
           role='quantity input'
           placeholder={quantity}
-          min='1'
+          min='0'
           onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
           value={itemQuantity}
           onChange={(event) => {

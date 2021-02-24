@@ -1,4 +1,4 @@
-export const customStyles = {
+export const verifyDeletionStyles = {
   content : {
     top                   : '50%',
     left                  : '50%',

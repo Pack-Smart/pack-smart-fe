@@ -17,7 +17,7 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
           key={item.item_id} 
           item={item}
           category={catTitle}
-          quantity='Qty.'
+          quantity='Qty.' //TODO: Possible change when we change input style for quantity
           openModal={openModal}
           verifyDeletion={verifyDeletion}
         />
@@ -36,9 +36,9 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
     <section>
         <h1 className='cat-title'>
           {generateCategoryIcon(catTitle)}
-          <div className='edit-cat'>
+          <div className='edit-category-container'>
             {catTitle}
-            <button className='edit-category'><BsPlusCircle size={20} /></button>
+            <button className='edit-category-btn'><BsPlusCircle size={20} /></button>
           </div>
         </h1>
       <article className='list-items'>
