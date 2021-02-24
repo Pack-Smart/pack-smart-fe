@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import Modal from 'react-modal'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
 import { verifyDeletionStyles } from './modalStyles'
+import { Link } from 'react-router-dom'
 
 const PackingList = ({ packingList, deleteItem }) => {
 
@@ -50,9 +51,12 @@ const PackingList = ({ packingList, deleteItem }) => {
           <section>
             {createCategoryCards()}
           </section>
-          <button className='save-list-button'>
-            Save List
-          </button>
+          <Link
+            className='save-list-button'
+            onClick={saveNewPackingList} 
+            to="/saved-packing-lists" 
+          >Save List
+          </Link>
         </>
       )
     } else {
@@ -78,6 +82,10 @@ const PackingList = ({ packingList, deleteItem }) => {
         />
       )
     })
+  }
+
+  const saveNewPackingList = () => {
+
   }
 
   return (
