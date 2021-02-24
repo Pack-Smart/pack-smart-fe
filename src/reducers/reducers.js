@@ -33,7 +33,6 @@ export const packingList = (state = {}, action) => {
       return (updatedItems) 
     case 'EDIT_ITEM_QUANTITY':
       const itemToUpdate = state.categories[action.payload.category].find(item => {
-        console.log(item.name)
         return item.name === action.payload.name
       })
       itemToUpdate.quantity = action.payload.quantity

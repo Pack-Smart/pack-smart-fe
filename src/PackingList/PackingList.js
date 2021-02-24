@@ -95,7 +95,7 @@ const PackingList = ({ packingList, deleteItem }) => {
               onChange={() => {
                 setVerifyDeletion(false)}
             }/>
-            <label for='are-you-sure' className='checkbox-text'>
+            <label forhtml='are-you-sure' className='checkbox-text'>
               Please don't show me this message again.
             </label>
           </div>

@@ -1,6 +1,6 @@
 import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
-import { BiPencil } from 'react-icons/bi'
+import { BsPlusCircle } from 'react-icons/bs'
 import './StaticCategory.scss'
 
 const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
@@ -38,7 +38,7 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
           {generateCategoryIcon(catTitle)}
           <div className='edit-cat'>
             {catTitle}
-            <button className='edit-category'><BiPencil size={25} /></button>
+            <button className='edit-category'><BsPlusCircle size={20} /></button>
           </div>
         </h1>
       <article className='list-items'>
