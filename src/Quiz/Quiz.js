@@ -95,6 +95,7 @@ const Quiz = (props) => {
             title: quizData.name,
             destination: quizData.destination,
             number_of_days: quizData.number_of_days,
+            //TODO lets put a packing list ID here
           },
           categories: [
             'Accessories', 

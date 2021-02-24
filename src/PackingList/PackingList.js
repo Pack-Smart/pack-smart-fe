@@ -37,7 +37,12 @@ const PackingList = ({ packingList, deleteItem }) => {
       return (
         <>
           <header className='packing-list-header'>
-            <h1>{tripDetails.title} <BiPencil className='edit-title' size={25}/></h1>
+            <h1>{tripDetails.title} 
+              <BiPencil 
+                className='edit-title' 
+                size={25}
+              />
+            </h1>
             <h2>{tripDetails.destination}</h2>
             <h3>{tripDetails.number_of_days} {tripDetails.number_of_days > 1 ? 'days' : 'day'}</h3>
           </header>

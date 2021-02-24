@@ -6,3 +6,5 @@ const rootReducer = combineReducers({
 })
 
 export default rootReducer
+
+//TODO add new user reducer to combineReducers

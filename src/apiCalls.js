@@ -14,4 +14,6 @@ export const getPackingListData = (submissionData) => {
   })
 }
 
+//TODO add a post request when the user has submitted the suggested packing list
+
 

@@ -52,3 +52,5 @@ export const packingList = (state = {}, action) => {
       return (state)
   }
 }
+
+//TODO create a new reducer as the USER ID
