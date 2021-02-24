@@ -1,5 +1,4 @@
 export const packingList = (state = {}, action) => {
-  console.log('reducer is working')
   switch(action.type) {
     case 'SAVE_CURRENT_LIST':
       return (action.packingList)
