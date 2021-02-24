@@ -1,7 +1,7 @@
 export const packingList = (state = {}, action) => {
   switch(action.type) {
     case 'SET_CURRENT_LIST':
-      return (action.packingList)
+      return (action.payload.packingList)
     case 'TOGGLE_IS_CHECKED':
       const itemToToggle = state.categories[action.payload.category].find(item => {
         return item.name === action.payload.name
@@ -52,5 +52,3 @@ export const packingList = (state = {}, action) => {
       return (state)
   }
 }
-
-//TODO create a new reducer as the USER ID

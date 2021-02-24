@@ -1,7 +1,11 @@
+export const setUser = (userInfo) => ({
+  type: 'SET_USER',
+  payload: { userInfo }
+})
+
 export const setCurrentList = (packingList) => ({
   type: 'SET_CURRENT_LIST',
-  packingList
-  //TODO generateCurrentList (new name)
+  payload: { packingList }
 })
 
 export const toggleIsChecked = (category, name, status) => ({
