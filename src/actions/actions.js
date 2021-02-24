@@ -1,5 +1,5 @@
-export const saveCurrentList = (packingList) => ({
-  type: 'SAVE_CURRENT_LIST',
+export const setCurrentList = (packingList) => ({
+  type: 'SET_CURRENT_LIST',
   packingList
   //TODO generateCurrentList (new name)
 })

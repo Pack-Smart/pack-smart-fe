@@ -1,6 +1,6 @@
 export const packingList = (state = {}, action) => {
   switch(action.type) {
-    case 'SAVE_CURRENT_LIST':
+    case 'SET_CURRENT_LIST':
       return (action.packingList)
     case 'TOGGLE_IS_CHECKED':
       const itemToToggle = state.categories[action.payload.category].find(item => {
