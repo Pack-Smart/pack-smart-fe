@@ -6,6 +6,7 @@ import './PackingList.scss'
 import { deleteItem } from '../actions/actions'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
+import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
 import { verifyDeletionStyles } from './modalStyles'
 
 const PackingList = ({ packingList, deleteItem }) => {
@@ -83,6 +84,13 @@ const PackingList = ({ packingList, deleteItem }) => {
           style={verifyDeletionStyles}
           contentLabel="Delete Item Modal"
         >
+          {/* <VerifyDeletionModal 
+            setVerifyDeletion={setVerifyDeletion}
+            deleteItem={deleteItem}
+            closeModal={closeModal}
+            categoryToDelete={categoryToDelete}
+            itemToDelete={itemToDelete}
+          /> */}
           <h1>Are you sure you want to delete this item from your packing list?</h1>
           <div className='checkbox-question'>
             <input
