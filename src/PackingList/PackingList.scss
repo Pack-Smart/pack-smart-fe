@@ -10,4 +10,35 @@
 
 .save-list-button {
   @include button-primary(medium, 175px, .75%);
+  margin: 3em;
+}
+
+.edit-title {
+  margin-left: 0.5em;
+  border: none;
+  background-color: $gray;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+    transition-duration: 0.4s;
+	}
+}
+
+.checkbox-question {
+  display: flex;
+  margin: 0 2em 2em 0;
+}
+
+.checkbox-text {
+  margin-left: 0.75em;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-button {
+  @include button-primary(18px, 250px, 1.5%);
 }
