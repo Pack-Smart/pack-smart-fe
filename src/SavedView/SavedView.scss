@@ -1,0 +1,6 @@
+@import '../mixins.scss';
+
+.saved-thumbnail-container {
+  @include row-wrap-around;
+}
+
