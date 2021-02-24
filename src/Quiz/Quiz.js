@@ -4,6 +4,8 @@ import QuestionInput from '../QuestionInput/QuestionInput'
 import { quizDetails } from './quizDetails.js'
 import './Quiz.scss'
 import { getPackingListData } from '../apiCalls.js'
+import { connect } from 'react-redux'
+import { saveCurrentList } from '../actions/actions'
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
@@ -11,14 +13,12 @@ const Quiz = (props) => {
     gender: '',
     weather: [],
     destination: '',
-    number_of_days: "",
+    number_of_days: '',
     categories: []
   })
   const [error, setError] = useState(false)
 
   const handleChange = (event) => {
-    event.preventDefault()
-
     setQuizData({
       ...quizData, [event.target.name]: event.target.value
     })
@@ -26,9 +26,7 @@ const Quiz = (props) => {
 
   const handleClick = (event, type) => {
     event.preventDefault()
-
     const name = event.target.name
-
     type === 'gender' ? updateGender(name) : updateMultipleSelections(type, name)
   }
 
@@ -52,8 +50,8 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
-
-    const formStatus = Object.values(quizData).reduce((status, value) => {
+    const valuesToCheck = compileRequiredList()
+    const formStatus = valuesToCheck.reduce((status, value) => {
       if (!value.length) {
         status = true
       }
@@ -62,27 +60,53 @@ const Quiz = (props) => {
     formStatus ? setError(true) : submitForm()
   }
 
+  const compileRequiredList = () => {
+    const { name, weather, gender, destination, number_of_days } = quizData
+    return ([
+      name, 
+      weather, 
+      gender, 
+      destination,
+      number_of_days
+    ])
+  }
+
   const submitForm = () => {
     setError(false)
+    const submissionData = compileSubmissionData()
+    getPackingListData(submissionData)
+      .then(data => props.saveCurrentList(data.data.attributes))
+      .catch(error => console.log(error))
+    props.history.push('/packing-list')
+  }
+
+  const compileSubmissionData = () => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-    const submissionData = {
+    return ({
       data: {
-        id: null,
+        id: 0,
         type: 'survey',
         attributes: {
-          gender: quizData.gender,
-          weather: modifyWeatherData,
-          destination: quizData.destination,
-          number_of_days: quizData.number_of_days,
-          categories: quizData.categories
+          gender: ['All', quizData.gender],
+          weather: ['All', ...modifyWeatherData],
+          tripDetails: {
+            title: quizData.name,
+            destination: quizData.destination,
+            number_of_days: quizData.number_of_days,
+          },
+          categories: [
+            'Accessories', 
+            'Clothing', 
+            'Essentials', 
+            'Toiletries', 
+            'Misc.',
+            ...quizData.categories
+          ]
         }
       }
-    }
-    //TODO: make API call with submissionData
-    getPackingListData()
-    props.history.push('/packing-list')
+    })
   }
 
   const generateQuizQuestions = () => {
@@ -117,17 +141,22 @@ const Quiz = (props) => {
 
   return (
     <form className="quiz-form">
+      {error && <h3 className="invalid-message">Please answer all the questions in the quiz before proceeding.</h3>}
       <h1>Quiz!</h1>
-      <p className="quizIntro">Answer all the questions below to get your custom packing list.</p>
+      {error && window.scrollTo(0,0)} 
+      <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
       {generateQuizQuestions()}  
       <button
         className="quiz-submit-btn"
         onClick={validateForm}
       >Get My Packing List!
       </button>
-      {error && <h3 className="invalid-message">Please answer all the questions in the quiz before proceeding.</h3>}
     </form>
   )
 }
 
-export default Quiz
+const mapDispatchToProps = (dispatch) => ({
+  saveCurrentList: data => dispatch(saveCurrentList(data))
+})
+
+export default connect(mapDispatchToProps, {saveCurrentList})(Quiz)

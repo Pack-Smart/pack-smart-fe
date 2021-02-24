@@ -17,7 +17,11 @@ const App = (props) => {
           <Route exact path='/packing-quiz' component={Quiz}/>
           <Route exact path='/packing-list' component={PackingList}/>
           <Route exact path='/saved-packing-lists' component={SavedView}/>
-          <Route path='/' component={Error} />
+          <Route path='/' render={() => {
+            return (<Error 
+              errorMessage='Oops! The page you are looking for does not exist.'
+            />)}
+          }/>
         </Switch>
       </main>
     </div>
