@@ -6,6 +6,7 @@ import './PackingList.scss'
 import { deleteItem } from '../actions/actions'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
+import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
 import { verifyDeletionStyles } from './modalStyles'
 
 const PackingList = ({ packingList, deleteItem }) => {
@@ -88,29 +89,13 @@ const PackingList = ({ packingList, deleteItem }) => {
           style={verifyDeletionStyles}
           contentLabel="Delete Item Modal"
         >
-          <h1>Are you sure you want to delete this item from your packing list?</h1>
-          <div className='checkbox-question'>
-            <input
-              type='checkbox'
-              name='verify-deletion'
-              aria-label='verify-deletion-checkbox'
-              role='checkbox'
-              onChange={() => {
-                setVerifyDeletion(false)}
-            }/>
-            <label forhtml='verify-deletion' className='checkbox-text'>
-              Please don't show me this message again.
-            </label>
-          </div>
-          <div className='modal-buttons'>
-            <button className='modal-button' onClick={() => {
-              deleteItem(categoryToDelete, itemToDelete)
-              closeModal()
-              }}>DELETE ITEM</button>
-            <button className='modal-button' onClick={() => closeModal()}>
-              No, take me back!
-            </button>
-          </div>
+          <VerifyDeletionModal 
+            setVerifyDeletion={setVerifyDeletion}
+            deleteItem={deleteItem}
+            closeModal={closeModal}
+            categoryToDelete={categoryToDelete}
+            itemToDelete={itemToDelete}
+          />
       </Modal>
     </section> 
   )
