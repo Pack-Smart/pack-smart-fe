@@ -1,4 +1,4 @@
-export const samplePackingList = {
+export const sampleCategories = {
   Accessories: [
     'Belts',
     'Hat',
