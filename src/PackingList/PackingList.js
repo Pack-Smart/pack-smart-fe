@@ -8,17 +8,21 @@ import { connect } from 'react-redux'
 import Modal from 'react-modal'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
 import { verifyDeletionStyles } from './modalStyles'
+import { Link } from 'react-router-dom'
+import { saveNewPackingList } from '../apiCalls'
 
-const PackingList = ({ packingList, deleteItem }) => {
+const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
 
   const { tripDetails, categories } = packingList
   const [modalIsOpen,setIsOpen] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
+  const [userId, setUserId] = useState(null)
   
   useEffect(() => {
     Modal.setAppElement('body');
+    setUserId(userInfo.userId)
   }, [])
    
   const openModal = (category, name) => {
@@ -37,23 +41,32 @@ const PackingList = ({ packingList, deleteItem }) => {
     if (packingList.categories) {
       return (
         <>
+          {window.scrollTo(0,0)}
           <header className='packing-list-header'>
-            <h1>{tripDetails.title} <BiPencil className='edit-title' size={25}/></h1>
+            <h1>{tripDetails.title} 
+              <BiPencil 
+                className='edit-title' 
+                size={25}
+              />
+            </h1>
             <h2>{tripDetails.destination}</h2>
             <h3>{tripDetails.number_of_days} {tripDetails.number_of_days > 1 ? 'days' : 'day'}</h3>
           </header>
           <section>
             {createCategoryCards()}
           </section>
-          <button className='save-list-button'>
-            Save List
-          </button>
+          <Link
+            className='save-list-button'
+            onClick={saveNewPackingList} 
+            to="/saved-packing-lists" 
+          >Save List
+          </Link>
         </>
       )
     } else {
       return(
         <Error 
-          errorMessage='Oops! No packing list exists.'
+          errorMessage='Packing list is loading...If nothing shows up in the next 10 seconds, please try again!'
         />
       )
     }
@@ -72,6 +85,23 @@ const PackingList = ({ packingList, deleteItem }) => {
           verifyDeletion={verifyDeletion}
         />
       )
+    })
+  }
+
+  const saveNewPackingList = () => {
+    let listToSave = compilePackingList()
+    console.log(listToSave)
+    history.push('/')
+    // saveNewPackingList(listToSave)
+    // and thennnnnnnnnn
+  }
+
+  const compilePackingList = () => {
+    const items = Object.values(packingList.categories).flat()
+    return ({
+      userId: userId,
+      tripDetails,
+      items
     })
   }
 
@@ -97,7 +127,8 @@ const PackingList = ({ packingList, deleteItem }) => {
 }
 
 const mapStateToProps = (state) => ({
-  packingList: state.packingList
+  packingList: state.packingList,
+  userInfo: state.userInfo
 })
 
 const mapDispatchToProps = (dispatch) => ({

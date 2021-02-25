@@ -7,11 +7,22 @@ export const getPackingListData = (submissionData) => {
     body: JSON.stringify(submissionData)
   })
   .then((response) => {
-    if (!response.ok) {
-      throw Error("Sorry, there was an error fetching your packing list. Please try again.")
-    }
     return response.json()
   })
 }
+
+// export const saveNewPackingList = (packingListData) => {
+//   return fetch("", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(packingListData)
+//   })
+//   .then((response) => {
+//     return response.json()
+//   })
+// }
+
 
 
