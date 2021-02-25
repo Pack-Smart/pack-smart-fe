@@ -11,7 +11,10 @@
 }
 
 .quizIntro {
-  margin-top: 0;
+  margin: 0 .8em 0 .8em;
+  text-align: center;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $blue;
 }
 
 .quiz-submit-btn {

@@ -18,6 +18,7 @@ const QuestionInput = (props) => {
           type={type}
           placeholder={placeholder}
           name={name}
+          className='number-input'
           onChange={handleChange}
           min='1'
           onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
