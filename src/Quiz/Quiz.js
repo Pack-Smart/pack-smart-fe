@@ -25,6 +25,7 @@ const Quiz = (props) => {
   }
 
   const handleClick = (event, type) => {
+    setError(false)
     event.preventDefault()
     const name = event.target.name
     type === 'gender' ? updateGender(name) : updateMultipleSelections(type, name)
@@ -139,18 +140,29 @@ const Quiz = (props) => {
     )
   }
 
+  const displayErrorMessage = () => {
+    window.scrollTo(0,0) 
+    return(
+    <h3 className="invalid-message">
+      Please answer all the questions in the quiz before proceeding.
+    </h3>)
+  }
+
   return (
-    <form className="quiz-form">
-      {error && <h3 className="invalid-message">Please answer all the questions in the quiz before proceeding.</h3>}
-      <h1>Quiz!</h1>
-      {error && window.scrollTo(0,0)} 
-      <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
-      {generateQuizQuestions()}  
-      <button
-        className="quiz-submit-btn"
-        onClick={validateForm}
-      >Get My Packing List!
-      </button>
+    <form className="quiz-container">
+      {error && displayErrorMessage()}
+      <section className="quiz-form">
+        <div className='quiz-header'>
+          <h1>Trip Details</h1>
+          <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
+        </div>
+        {generateQuizQuestions()}  
+        <button
+          className="quiz-submit-btn"
+          onClick={validateForm}
+        >Get My Packing List!
+        </button>
+      </section>
     </form>
   )
 }

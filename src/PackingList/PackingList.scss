@@ -2,6 +2,8 @@
 
 .packing-list-main {
   @include column-center;
+  background: url('./background.png') no-repeat fixed center;
+  background-size: cover;
 }
 
 .packing-list-header {
@@ -24,3 +26,8 @@
     transition-duration: 0.4s;
 	}
 }
+
+// .packing-list-main {
+
+// }
+

@@ -23,6 +23,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
         <input
           type='number'
           name='quantity'
+          className='quantity-input'
           aria-label='item quantity'
           role='quantity input'
           placeholder={quantity}
