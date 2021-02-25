@@ -41,6 +41,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
     if (packingList.categories) {
       return (
         <>
+          {window.scrollTo(0,0)}
           <header className='packing-list-header'>
             <h1>{tripDetails.title} 
               <BiPencil 
@@ -65,7 +66,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
     } else {
       return(
         <Error 
-          errorMessage='Oops! No packing list exists.'
+          errorMessage='Packing list is loading...If nothing shows up in the next 10 seconds, please try again!'
         />
       )
     }
@@ -92,7 +93,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
     console.log(listToSave)
     history.push('/')
     // saveNewPackingList(listToSave)
-    //and thennnnnnnnnn
+    // and thennnnnnnnnn
   }
 
   const compilePackingList = () => {
