@@ -10,10 +10,11 @@
 }
 
 .category-container {
+  border: solid $text-color 0.1em;
+  padding: 1.5em;
+  margin: 1em;
   background-color: $offwhite;
   box-shadow: 1px 3px 12px black;
-  border-radius: 0.5em;
-  padding: 1em;
 }
 
 .cat-title {
@@ -22,6 +23,7 @@
   padding-bottom: 0.5em;
   color: $text-color;
   border-bottom: 0.2em $red solid;
+  margin-top: 0;
 }
 
 .edit-category-container {
@@ -39,5 +41,5 @@
     cursor: pointer;
     transform: scale(1.25);
     transition-duration: 0.4s;
-	}
+  }
 }
