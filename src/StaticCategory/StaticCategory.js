@@ -33,7 +33,7 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
   }
 
   return (
-    <section>
+    <section className='category-container'>
         <h1 className='cat-title'>
           {generateCategoryIcon(catTitle)}
           <div className='edit-category-container'>

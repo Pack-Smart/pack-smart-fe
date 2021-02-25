@@ -1,5 +1,5 @@
 export const getPackingListData = (submissionData) => {
-  return fetch("http://127.0.0.1:5000/api/v1/list/new", {
+  return fetch("https://pack-smart-be.herokuapp.com/api/v1/list/new", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

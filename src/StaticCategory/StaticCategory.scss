@@ -9,6 +9,13 @@
   display: flex;
 }
 
+.category-container {
+  background-color: $offwhite;
+  box-shadow: 1px 3px 12px black;
+  border-radius: 0.5em;
+  padding: 1em;
+}
+
 .cat-title {
   font-size: 1.5em;
   @include column-center;
