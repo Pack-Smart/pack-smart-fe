@@ -5,10 +5,12 @@
   background-color: $blue !important;
 }
 
+
 .trip-gender-field {
   @include row-center;
   @include quiz-question;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .trip-gender-field button {
@@ -38,6 +40,10 @@
   margin-bottom: 0;
 }
 
+.multiple-choice-question {
+  @include multiple-choice-question;
+}
+
 .weather-answer-btns, .categories-answer-btns {
   @include row-center;
   width: 25%;
@@ -52,4 +58,16 @@
 
 .quiz-answer-btns button {
   @include button-quiz-answer;
+}
+
+@media only screen and (max-width: 1025px) {
+  .weather-answer-btns, .categories-answer-btns {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .weather-answer-btns, .categories-answer-btns {
+    width: 75%;
+  }
 }

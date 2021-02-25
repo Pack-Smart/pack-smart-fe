@@ -5,6 +5,10 @@
   @include quiz-question;
 }
 
+.question-input-question {
+  @include multiple-choice-question;
+}
+
 .trip-destination-field, .trip-number_of_days-field {
   @include row-center;
   @include quiz-question;

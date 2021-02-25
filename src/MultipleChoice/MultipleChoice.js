@@ -35,7 +35,7 @@ const MultipleChoice = (props) => {
 
   return (
     <div className={`trip-${category}-field`}>
-      <h2>{question}</h2>
+      <h2 className='multiple-choice-question'>{question}</h2>
       {subtext.length > 0 &&
         <p className="select-all-txt">{subtext}</p>
       }
