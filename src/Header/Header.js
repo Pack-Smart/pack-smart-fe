@@ -1,6 +1,5 @@
 import './Header.scss'
 import { Link } from 'react-router-dom'
-import cases from './cases.png'
 
 const Header = (props) => {
   return(
