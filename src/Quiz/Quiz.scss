@@ -4,7 +4,7 @@
 .quiz-container{
   background: url('./background.png') no-repeat fixed center;
   background-size: cover;
-  padding: 3%;
+  padding: 3% 0%;
 }
 
 .quiz-form {
@@ -38,7 +38,11 @@
 }
 
 .invalid-message {
-  color: $red;
-  text-decoration: underline;
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  color: $offwhite;
+  background-color: $red;
+  width: 100%;
+  padding: 1em;
+  margin: 0em 0em 1.5em 0em;
 }
