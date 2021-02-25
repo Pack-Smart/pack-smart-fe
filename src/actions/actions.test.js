@@ -51,4 +51,33 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction)
   })
 
+  it('should have a type of DELETE_ITEM', () => {
+    const category = 'Accessories'
+    const name = 'Necklace'
+
+    const expectedAction = {
+      type: 'DELETE_ITEM',
+      payload: { category, name }
+    }
+    
+    const result = actions.deleteItem(category, name)
+
+    expect(result).toEqual(expectedAction)
+  })
+
+  it('should have a type of EDIT_ITEM_QUANTITY', () => {
+    const category = 'Accessories'
+    const name = 'Necklace'
+    const quantity = '17'
+
+    const expectedAction = {
+      type: 'EDIT_ITEM_QUANTITY',
+      payload: { category, name, quantity }
+    }
+    
+    const result = actions.editItemQuantity(category, name, quantity)
+
+    expect(result).toEqual(expectedAction)
+  })
+
 })
