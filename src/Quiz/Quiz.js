@@ -143,9 +143,11 @@ const Quiz = (props) => {
     <form className="quiz-container">
       {error && <h3 className="invalid-message">Please answer all the questions in the quiz before proceeding.</h3>}
       <section className="quiz-form">
-        <h1>Quiz!</h1>
-        {error && window.scrollTo(0,0)} 
-        <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
+        <div className='quiz-header'>
+          <h1>Trip Details</h1>
+          {error && window.scrollTo(0,0)} 
+          <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
+        </div>
         {generateQuizQuestions()}  
         <button
           className="quiz-submit-btn"
