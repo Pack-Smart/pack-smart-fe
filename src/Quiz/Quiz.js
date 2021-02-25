@@ -61,13 +61,13 @@ const Quiz = (props) => {
   }
 
   const compileRequiredList = () => {
-    const { name, weather, gender, destination, number_of_days } = quizData
+    const { name, weather, gender, destination, number_of_days, } = quizData
     return ([
       name, 
       weather, 
       gender, 
       destination,
-      number_of_days
+      number_of_days,
     ])
   }
 
