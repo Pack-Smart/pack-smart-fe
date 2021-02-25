@@ -52,3 +52,10 @@
   align-self: center;
 }
 
+@media only screen and (max-width: 414px) {
+  .header-btn {
+    height: 40px;
+    align-items: center;
+    display: flex;
+  }
+}
