@@ -1,5 +1,7 @@
 import './Header.scss'
 import { Link } from 'react-router-dom'
+import { GiHamburgerMenu } from 'react-icons/gi'
+import Hamburger from '../Hamburger/Hamburger'
 import cases from './cases.png'
 
 const Header = (props) => {
@@ -28,7 +30,12 @@ const Header = (props) => {
         to="/saved-packing-lists"
       >Saved Lists
       </Link>
-      
+      <Hamburger 
+        // mobile='mobile'
+        width={ 50 }
+        // customBurgerIcon={ GiHamburgerMenu } 
+        // pageWrapId={ 'header' }
+      />
     </nav>
   )
 }

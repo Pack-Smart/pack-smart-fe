@@ -52,6 +52,10 @@
   align-self: center;
 }
 
+.mobile {
+  display: none;
+}
+
 @media only screen and (max-width: 1025px) {
   // .header-btn {
   //   display: none;
@@ -59,12 +63,15 @@
 }
 
 @media only screen and (max-width: 414px) {
-  // .header-btn {
-  //   display: none;
-  // }
   .header-btn {
-    height: 40px;
-    align-items: center;
-    display: flex;
+    display: none;
+  }
+  // .header-btn {
+  //   height: 40px;
+  //   align-items: center;
+  //   display: flex;
+  // }
+  .mobile {
+    display: block
   }
 }
