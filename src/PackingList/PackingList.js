@@ -21,6 +21,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   
   useEffect(() => {
     Modal.setAppElement('body');
+    
   }, [])
    
   const openModal = (category, name) => {
@@ -86,7 +87,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   }
 
   const saveNewPackingList = () => {
-    const listToSave = compilePackingList()
+    let listToSave = compilePackingList()
     saveNewPackingList(listToSave)
     //and thennnnnnnnnn
   }
@@ -94,9 +95,9 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   const compilePackingList = () => {
     const items = Object.values(packingList.categories).flat()
     return ({
-        userID: 1,
-        tripDetails,
-        items
+      userId: 1,
+      tripDetails,
+      items
     })
   }
 
@@ -122,6 +123,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
 }
 
 const mapStateToProps = (state) => ({
+  userInfo: state.userInfo,
   packingList: state.packingList
 })
 
