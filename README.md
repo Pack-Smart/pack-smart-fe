@@ -12,7 +12,7 @@
 Description...Coming Soon!
 
 - [Project Brief and Rubric](https://mod4.turing.io/projects/capstone.html)
-- [Deployed Github Page...Coming Soon!]
+- [Deployed Heroku Page](https://packsmart.herokuapp.com/)
 
 ## Learning Goals
 
@@ -42,7 +42,8 @@ Wins...Coming Soon!
 
 Next Steps... Coming Soon!
 
-##Investors?
+## Investors?
+
 Possibly you!
 
 ## Contributors
@@ -50,6 +51,6 @@ Possibly you!
 * [Alyssa Bull](https://github.com/alyssabull)
 * [JP Carey](https://github.com/jaypeasee)
 * [Kara Caputo](https://github.com/kncaputo)
-* [Sarah Osgood] (https://github.com/saraho1123)
+* [Sarah Osgood](https://github.com/saraho1123)
 
 * [Will Mitchell](https://github.com/wvmitchell) - Project Manager

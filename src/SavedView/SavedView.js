@@ -3,8 +3,8 @@ import './SavedView.scss'
 
 const SavedView = (props) => {
   return(
-    <section>
-      <h1>Saved View</h1>
+    <section className='saved-view'>
+      <h1 className='saved-title'>Saved Trips</h1>
       <section className='saved-thumbnail-container'>
         <ListThumbnail />
         <ListThumbnail />

@@ -45,8 +45,9 @@
 }
 
 .weather-answer-btns, .categories-answer-btns {
-  @include row-center;
-  width: 25%;
+  display: flex;
+  justify-content: center;
+  width: 50%;
   flex-wrap: wrap;
 }
 

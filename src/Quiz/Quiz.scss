@@ -1,12 +1,30 @@
 @import '../mixins.scss';
 @import '../variables.scss';
 
+.quiz-container{
+  background: url('./background.png') no-repeat fixed center;
+  background-size: cover;
+  padding: 3% 0%;
+}
+
 .quiz-form {
   @include column-center;
-  margin-bottom: 5%;
+  margin: 0% 25%;
+  background-color: $offwhite;
+  border-radius: 0.75em;
+  box-shadow: 1px 3px 12px black;
+}
+
+.quiz-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: solid $red 0.2em;
+  width: 80%;
 }
 
 .quiz-form h1 {
+  font-size: 2.75em;
   margin-bottom: .5%;
 }
 
@@ -18,12 +36,16 @@
 }
 
 .quiz-submit-btn {
-  @include button-primary(18px, 250px, 1.5%);
-  margin: 5% 5% 1% 5%;
+  @include button-primary(20px, 250px, 1.5%);
+  margin: 5% 5% 5% 5%;
 }
 
 .invalid-message {
-  color: $red;
-  text-decoration: underline;
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  color: $offwhite;
+  background-color: $red;
+  width: 100%;
+  padding: 1em;
+  margin: 0em 0em 1.5em 0em;
 }

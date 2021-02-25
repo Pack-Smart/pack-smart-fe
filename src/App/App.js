@@ -5,6 +5,7 @@ import Error from '../Error/Error'
 import Quiz from '../Quiz/Quiz'
 import SavedView from '../SavedView/SavedView'
 import PackingList from '../PackingList/PackingList'
+import HowItWorks from '../HowItWorks/HowItWorks'
 import './App.scss'
 
 const App = (props) => {
@@ -17,6 +18,7 @@ const App = (props) => {
           <Route exact path='/packing-quiz' component={Quiz}/>
           <Route exact path='/packing-list' component={PackingList}/>
           <Route exact path='/saved-packing-lists' component={SavedView}/>
+          <Route exact path='/how-it-works' component={HowItWorks} />
           <Route path='/' render={() => {
             return (<Error 
               errorMessage='Oops! The page you are looking for does not exist.'
