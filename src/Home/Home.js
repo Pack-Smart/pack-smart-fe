@@ -6,8 +6,8 @@ const Home = (props) => {
   return(
     <div className='home-container'>
       <section className='home'>
-        <p>Having trouble figuring out what to pack for your next trip? Take our 30 second quiz to build the perfect list!</p>
-        <img src={ lady }/>
+        {/* <p>Having trouble figuring out what to pack for your next trip? Take our 30 second quiz to build the perfect list!</p> */}
+        {/* <img src={ lady }/> */}
         <Link to='/packing-quiz' className='start-button'>
           Get Started!
         </Link>
