@@ -9,9 +9,9 @@
 
 .home {
   @include column-center;
-  // background-color: rgba(245,246,248, .8);
-  // margin: 4% 25%;
-  margin: 20%;
+  background-color: rgba(245,246,248);
+  box-shadow: 1px 3px 12px black;
+  margin: 4% 25%;
   padding: 2em;
   border-radius: 1em;
 }

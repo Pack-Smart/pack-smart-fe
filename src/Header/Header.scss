@@ -65,7 +65,7 @@
 }
 
 .header-btn {
-  @include button-primary(medium, 175px, .75%);
+  @include button-primary(large, 175px, .75%);
   height: 20px;
   margin: 2%;
   align-self: center;
