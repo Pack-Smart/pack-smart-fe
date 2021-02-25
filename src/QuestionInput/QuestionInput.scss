@@ -13,10 +13,6 @@
   @include multiple-choice-question;
 }
 
-.number-input {
-  margin: 0 1em 0 1em;
-}
-
 .trip-destination-field, .trip-number_of_days-field {
   @include row-center;
   @include quiz-question;
