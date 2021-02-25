@@ -1,6 +1,18 @@
 @import '../mixins.scss';
 @import '../variables.scss';
 
+.menu-item {
+  font-size: 20px;
+  color: $text-color;
+  margin-bottom: 5px;
+}
+
+.burger-icon {
+  margin-right: 15px;
+  // filter: invert(13%) sepia(4%) saturate(6297%) hue-rotate(196deg) brightness(88%) contrast(81%);
+
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -22,13 +34,14 @@
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  height: 35px;
+  width: 35px;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  // background: #bdc3c7;
+  background: $red;
 }
 
 /*
@@ -42,7 +55,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: rgba(44,189,209, 0.9);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -61,6 +74,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Individual item */
 .bm-item {
   display: inline-block;
+  margin: 1em;
+  text-decoration: none;
 }
 
 /* Styling of overlay */
