@@ -10,11 +10,13 @@ const Header = (props) => {
         to='/'
         className="header-logo-anchor"
       >
-        <img
+        {/* <img
           src={cases}
           alt="pack smart logo"
           className="header-logo" 
-        />
+        /> */}
+        <p className='letter-p'>P</p>
+        <p className='letter-s'>S</p>
         <h1 className='pack-smart-title'>Pack Smart</h1>
       </Link>
       </div>
