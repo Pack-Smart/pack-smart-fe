@@ -37,4 +37,18 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction)
   })
 
+  it('should have a type of TOGGLE_IS_CHECKED', () => {
+    const category = 'Accessories'
+    const name = 'Necklace'
+    const status = true
+    const expectedAction = {
+      type: 'TOGGLE_IS_CHECKED',
+      payload: { category, name, isChecked: status }
+    }
+    
+    const result = actions.toggleIsChecked(category, name, status)
+
+    expect(result).toEqual(expectedAction)
+  })
+
 })
