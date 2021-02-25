@@ -1,6 +1,11 @@
-export const saveCurrentList = (packingList) => ({
-  type: 'SAVE_CURRENT_LIST',
-  packingList
+export const setUser = (userInfo) => ({
+  type: 'SET_USER',
+  payload: { userInfo }
+})
+
+export const setCurrentList = (packingList) => ({
+  type: 'SET_CURRENT_LIST',
+  payload: { packingList }
 })
 
 export const toggleIsChecked = (category, name, status) => ({
@@ -17,3 +22,5 @@ export const editItemQuantity = (category, name, quantity) => ({
   type: 'EDIT_ITEM_QUANTITY',
   payload: { category, name, quantity } 
 })
+
+//TODO add action to generate a user id

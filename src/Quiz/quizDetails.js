@@ -46,7 +46,16 @@ const quizDetails = [
     subtext: 'Optional - select any that apply',
     buttons: ['Skiing', 'Beach', 'Hiking', 'Night Life', 'Wedding/Formal', 'Business'],
     isRequired: false,
-  }
+  },
+  {
+    id: 7,
+    question: '7. Are you traveling with children?',
+    type: 'MultipleChoice',
+    category: 'categories',
+    subtext: 'Optional - select any that apply',
+    buttons: ['Child 0-2', 'Child 3-6', 'Child 7-12'],
+    isRequired: false,
+  },
 ]
 
 export { quizDetails }
