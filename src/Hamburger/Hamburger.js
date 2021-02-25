@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { slide as Menu } from 'react-burger-menu'
-import { GrWorkshop } from 'react-icons/gr'
 import { GiGears } from 'react-icons/gi'
 import { BsBookmarkPlus } from 'react-icons/bs'
 import './Hamburger.scss'
@@ -15,7 +14,6 @@ class Hamburger extends Component {
             size={25} 
             className='burger-icon'
             color='#2d3045'
-            // filter: invert(13%) sepia(4%) saturate(6297%) hue-rotate(196deg) brightness(88%) contrast(81%);
           />
             How It Works
         </a>
@@ -23,7 +21,6 @@ class Hamburger extends Component {
           <BsBookmarkPlus
             size={25}
             className='burger-icon'
-            // color='#white'
             color='#2d3045'
           />
           Saved Lists
