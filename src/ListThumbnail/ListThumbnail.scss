@@ -14,15 +14,16 @@
 
 .thumbnail-main:hover {
   cursor: pointer;
-  background-color: rgb(235, 108, 90, 0.85);
+  transform: scale(1.05);
+  transition-duration: 0.4s;
 }
 
 .thumbnail-main:hover .thumbnail-title{
-  border-bottom: 0.1em $offwhite solid;
+  color: $red;
 }
 
 .thumbnail-title {
-  border-bottom: 0.1em $blue solid;
+  border-bottom: 0.1em $red solid;
   font-size: 1.75em;
   margin: 1em 0 .55em 0;
 }
