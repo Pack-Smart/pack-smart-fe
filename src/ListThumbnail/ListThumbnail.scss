@@ -5,25 +5,26 @@
   @include column-center;
   width: 20em;
   max-height: 12em;
-  margin: 15px;
+  margin: 30px;
+  padding: 15px;
   background-color: $offwhite;
   border-radius: 5px;
+  box-shadow: 1px 3px 12px black;
 }
 
 .thumbnail-main:hover {
   cursor: pointer;
-  background-color: rgba(44,189,209, 0.5);
+  background-color: rgb(235, 108, 90, 0.85);
+}
+
+.thumbnail-main:hover .thumbnail-title{
+  border-bottom: 0.1em $offwhite solid;
 }
 
 .thumbnail-title {
-  border-bottom: 0.1em $red solid;
-  font-size: x-large;
+  border-bottom: 0.1em $blue solid;
+  font-size: 1.75em;
   margin: 1em 0 .55em 0;
-}
-
-.thumbnail-title {
-  border-bottom: 0.1em $red solid;
-
 }
 
 .thumbnail-destination {
