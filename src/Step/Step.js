@@ -5,7 +5,7 @@ import { FaSuitcaseRolling } from 'react-icons/fa'
 import { RiEmotionHappyLine } from 'react-icons/ri'
 import { AiFillStar } from 'react-icons/ai'
 
-const HowItWorks = ({ icon, stepNum, description}) => {
+const Step = ({ icon, stepNum, description}) => {
   const generateSteps = () => {
     return(
       <div className='step'>
@@ -16,9 +16,7 @@ const HowItWorks = ({ icon, stepNum, description}) => {
     )
   }
 
-  return(
-    generateSteps()
-  )
+  return generateSteps()
 }
 
-export default HowItWorks
+export default Step
