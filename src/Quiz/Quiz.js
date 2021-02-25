@@ -6,7 +6,6 @@ import './Quiz.scss'
 import { getPackingListData } from '../apiCalls.js'
 import { connect } from 'react-redux'
 import { setCurrentList } from '../actions/actions'
-import Error from '../Error/Error'
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({

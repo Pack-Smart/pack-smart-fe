@@ -11,17 +11,18 @@ import { verifyDeletionStyles } from './modalStyles'
 import { Link } from 'react-router-dom'
 import { saveNewPackingList } from '../apiCalls'
 
-const PackingList = ({ packingList, deleteItem, userInfo }) => {
+const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
 
   const { tripDetails, categories } = packingList
   const [modalIsOpen,setIsOpen] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
+  const [userId, setUserId] = useState(null)
   
   useEffect(() => {
     Modal.setAppElement('body');
-    
+    setUserId(userInfo.userId)
   }, [])
    
   const openModal = (category, name) => {
@@ -88,14 +89,16 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
 
   const saveNewPackingList = () => {
     let listToSave = compilePackingList()
-    saveNewPackingList(listToSave)
+    console.log(listToSave)
+    history.push('/')
+    // saveNewPackingList(listToSave)
     //and thennnnnnnnnn
   }
 
   const compilePackingList = () => {
     const items = Object.values(packingList.categories).flat()
     return ({
-      userId: 1,
+      userId: userId,
       tripDetails,
       items
     })
@@ -123,8 +126,8 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
 }
 
 const mapStateToProps = (state) => ({
-  userInfo: state.userInfo,
-  packingList: state.packingList
+  packingList: state.packingList,
+  userInfo: state.userInfo
 })
 
 const mapDispatchToProps = (dispatch) => ({
