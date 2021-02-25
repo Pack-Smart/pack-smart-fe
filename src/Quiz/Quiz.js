@@ -5,7 +5,7 @@ import { quizDetails } from './quizDetails.js'
 import './Quiz.scss'
 import { getPackingListData } from '../apiCalls.js'
 import { connect } from 'react-redux'
-import { saveCurrentList } from '../actions/actions'
+import { setCurrentList } from '../actions/actions'
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
@@ -75,7 +75,7 @@ const Quiz = (props) => {
     setError(false)
     const submissionData = compileSubmissionData()
     getPackingListData(submissionData)
-      .then(data => props.saveCurrentList(data.data.attributes))
+      .then(data => props.setCurrentList(data.data.attributes))
       .catch(error => console.log(error))
     props.history.push('/packing-list')
   }
@@ -156,7 +156,7 @@ const Quiz = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  saveCurrentList: data => dispatch(saveCurrentList(data))
+  setCurrentList: data => dispatch(setCurrentList(data))
 })
 
-export default connect(mapDispatchToProps, {saveCurrentList})(Quiz)
+export default connect(mapDispatchToProps, {setCurrentList})(Quiz)
