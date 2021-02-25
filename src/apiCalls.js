@@ -12,18 +12,18 @@ export const getPackingListData = (submissionData) => {
   })
 }
 
-export const saveNewPackingList = (packingListData) => {
-  return fetch("", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(packingListData)
-  })
-  .then((response) => {
-    return response.json()
-  })
-}
+// export const saveNewPackingList = (packingListData) => {
+//   return fetch("", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(packingListData)
+//   })
+//   .then((response) => {
+//     return response.json()
+//   })
+// }
 
 
 
