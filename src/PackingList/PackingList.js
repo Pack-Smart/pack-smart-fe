@@ -9,8 +9,9 @@ import Modal from 'react-modal'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
 import { verifyDeletionStyles } from './modalStyles'
 import { Link } from 'react-router-dom'
+import { saveNewPackingList } from '../apiCalls'
 
-const PackingList = ({ packingList, deleteItem }) => {
+const PackingList = ({ packingList, deleteItem, userInfo }) => {
 
   const { tripDetails, categories } = packingList
   const [modalIsOpen,setIsOpen] = useState(false);
@@ -85,7 +86,18 @@ const PackingList = ({ packingList, deleteItem }) => {
   }
 
   const saveNewPackingList = () => {
+    const listToSave = compilePackingList()
+    saveNewPackingList(listToSave)
+    //and thennnnnnnnnn
+  }
 
+  const compilePackingList = () => {
+    const items = Object.values(packingList.categories).flat()
+    return ({
+        userID: 1,
+        tripDetails,
+        items
+    })
   }
 
   return (
