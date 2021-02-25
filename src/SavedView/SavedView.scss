@@ -1,5 +1,18 @@
 @import '../mixins.scss';
 
+.saved-view {
+  background: url('./background.png') no-repeat fixed center;
+  background-size: cover;
+  height: 100vh;
+}
+
+h1 {
+  @include column-center;
+  margin-top: 0;
+  padding: 1em;
+  font-size: 2.5em;
+}
+
 .saved-thumbnail-container {
   @include row-wrap-around;
 }
