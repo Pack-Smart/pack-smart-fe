@@ -13,8 +13,8 @@
   margin: 1%;
 }
 
-.aside {
-  flex-grow: 2;
+.quiz-aside {
+  @include aside;
 }
 
 .quiz-form {

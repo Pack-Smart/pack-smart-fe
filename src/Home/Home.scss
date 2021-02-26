@@ -5,15 +5,24 @@
   background-image: url('https://markfunkhouser.com/wp-content/uploads/2019/12/best-beaches-in-bali.jpg');
   height: 100vh;
   overflow-x: hidden;
+  display: flex;
+}
+
+.home-aside {
+  flex-grow: 3;
+  // @include aside;
 }
 
 .home {
   @include column-center;
   background-color: rgba(245,246,248);
   box-shadow: 1px 3px 12px black;
-  margin: 4% 25%;
+  margin: 4% 1% 1% 1%;
+  // margin: 4% 25%;
   padding: 2em;
   border-radius: 1em;
+  flex-grow: 1;
+  max-width: 450px;
 }
 
 .home p {

@@ -87,3 +87,7 @@
 @mixin multiple-choice-question {
   margin: 1.2em .8em 1em .8em;
 }
+
+@mixin aside {
+  flex-grow: 2;
+}

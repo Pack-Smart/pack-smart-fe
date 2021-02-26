@@ -150,7 +150,7 @@ const Quiz = (props) => {
 
   return (
     <section className='quiz-wrapper'>
-      <div className='aside'></div>
+      <div className='quiz-aside'></div>
       <form className="quiz-container">
         {error && displayErrorMessage()}
         <section className="quiz-form">
@@ -166,7 +166,7 @@ const Quiz = (props) => {
           </button>
         </section>
       </form>
-      <div className='aside'></div>
+      <div className='quiz-aside'></div>
     </section>
   )
 }
