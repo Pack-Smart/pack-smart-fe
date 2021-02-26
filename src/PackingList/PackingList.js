@@ -90,11 +90,8 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
 
   const submitNewPackingList = () => {
     let listToSave = compilePackingList()
-    console.log('list to save', listToSave)
-    history.push('/')
     saveNewPackingList(listToSave)
-      .then(data => console.log(data))
-      .catch(error => console.log(error))
+      .catch(() => console.error)
   }
 
   const compilePackingList = () => {
