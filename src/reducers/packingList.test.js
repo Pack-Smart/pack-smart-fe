@@ -1,6 +1,8 @@
 import { packingList, itemToToggle } from './packingList'
 import * as actions from '../actions/actions'
 import { mockState as categories } from '../sampleData'
+import { waitFor } from '@testing-library/react'
+
 
 describe('packingList', () => {
   it('should return the initial state', () => {
@@ -42,7 +44,7 @@ describe('packing list updates', () => {
     state = packingList(initialState, newAction)
   })
 
-  it('should toggle checked on an item', () => {
+  it('should toggle checked on an item', async () => {
     const status = true
     const category = 'Accessories'
     const name = 'Purses'
@@ -52,7 +54,6 @@ describe('packing list updates', () => {
       {name: 'Belts', quantity: 0, is_checked: false},
       {name, quantity: 0, is_checked: true},
     ]
-    console.log(state)
     
     const updatedCheckedState = {
       ...state.packingList, 
@@ -61,12 +62,13 @@ describe('packing list updates', () => {
         [category]: sampleCheckedCategory
       }}
 
-      
-    expect(state).not.toEqual(updatedCheckedState)
+    // expect(state).not.toEqual(updatedCheckedState)
       
     actions.toggleIsChecked(category, name, status)
-      
-    expect(state).toEqual(updatedCheckedState)
+    
+    await waitFor (() => {
+      expect(state).toEqual(updatedCheckedState)
+    })
   })
 
   // it('should update the quantity on an item', () => {
