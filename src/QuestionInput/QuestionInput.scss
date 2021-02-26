@@ -33,5 +33,17 @@
 .input-wrapper {
   display: flex;
   align-items: center;
-  margin: .8em;
+}
+
+.number-input {
+  margin-top: 8px;
+  margin-right: 8px;
+  display: flex;
+}
+
+.unselected-answer-button {
+  @include button-secondary;
+  background-color: $gray !important; 
+  // The color property of the button-quiz-answer is overriding 
+  // the color of the seconardy - if anyone can untangle this... SOS
 }
