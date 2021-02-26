@@ -29,3 +29,9 @@
 .trip-number_of_days-field input {
   @include input-line(60px);
 }
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  margin: .8em;
+}

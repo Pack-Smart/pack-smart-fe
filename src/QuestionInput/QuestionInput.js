@@ -8,6 +8,7 @@ const QuestionInput = (props) => {
   return (
     <div className={`trip-${name}-field`}>
         <h2 className='question-input-question'>{question}</h2>
+        <section className='input-wrapper'>
         {type === "text" && <input
           type={type}
           placeholder={placeholder}
@@ -22,6 +23,7 @@ const QuestionInput = (props) => {
           min='1'
           onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
         />}
+        </section>
       </div>
   )
 }

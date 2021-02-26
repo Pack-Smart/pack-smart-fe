@@ -42,6 +42,7 @@
 
 .multiple-choice-question {
   @include multiple-choice-question;
+  text-align: center;
 }
 
 .weather-answer-btns, .categories-answer-btns {
