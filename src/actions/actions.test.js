@@ -1,5 +1,5 @@
 import * as actions from './actions'
-import { sampleCategories } from './sampleData'
+import { sampleCategories } from '../sampleData'
 
 describe('actions', () => {
 
@@ -19,7 +19,6 @@ describe('actions', () => {
 
   it('should have a type of SET_CURRENT_LIST', () => {
     const packingList = {
-      userId: 1,
       tripDetails: {
         title: 'Cabo 2008 Betches',
         destination: 'Mexico',
