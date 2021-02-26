@@ -1,26 +1,21 @@
-import { userInfo } from './userInfo'
 import '@testing-library/jest-dom'
+import * as actions from '../actions/actions'
+import { userInfoReducer } from './userInfo'
 
 describe('userInfoReducer', () => {
   it('should return the initial state', () => {
     const expected = {}
 
-    const result = userInfo(undefined, {})
+    const result = userInfoReducer(undefined, {})
 
     expect(result).toEqual(expected)
   })
 
   it('should return state with a user', () => {
-    // const dispatch = jest.fn()
-    // const action = {
-    //   type: 'SET_USER',
-    //   payload: { userId: 1 }
-    // }
-    // const expected = {userId: 1 }
-
-    // const result = userInfo(action)
-    // console.log(result)
-
-    // expect(result).toEqual(expected)
+    const initialState = {}
+    const user = { userId: 1 }
+    const newAction = actions.setUser(user)
+    const state = userInfoReducer(initialState, newAction)
+    expect(state).toEqual({userId: 1})
   })
 })
