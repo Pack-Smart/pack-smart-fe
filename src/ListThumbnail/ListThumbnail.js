@@ -1,12 +1,12 @@
 import './ListThumbnail.scss'
 
-const ListThumbnail = (props) => {
+const ListThumbnail = ({title, destination, duration}) => {
 
   return(
     <section className='thumbnail-main'>
-      <h1 className='thumbnail-title'>Cabo 2008 Betches</h1>
-      <h2 className='thumbnail-destination'>Destination</h2>
-      <h3 className='thumbnail-duration'>Duration</h3>
+      <h1 className='thumbnail-title'>{title}</h1>
+      <h2 className='thumbnail-destination'>{destination}</h2>
+      <h3 className='thumbnail-duration'>{duration} {duration > 1 ? 'days' : 'day'}</h3>
     </section>
   )
 }

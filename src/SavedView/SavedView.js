@@ -8,18 +8,29 @@ const SavedView = (props) => {
 
   useEffect(() =>  {
     getAllPackingLists()
-      .then(data => setAllPackingLists(data.data.attributes))
+      .then(data => setAllPackingLists(data.data.attributes['PackingLists']))
   }, [])
+
+  const createListThumbnails = () => {
+    if(allPackingLists) {
+      return allPackingLists.map(list => {
+        return (
+          <ListThumbnail 
+          key={list.list_id}
+          title={list.title}
+          destination={list.destination}
+          duration={list.num_of_days}
+          />
+          )
+        })
+      }
+  }
 
   return(
     <section className='saved-view'>
       <h1 className='saved-title'>Saved Trips</h1>
       <section className='saved-thumbnail-container'>
-        <ListThumbnail />
-        <ListThumbnail />
-        <ListThumbnail />
-        <ListThumbnail />
-        <ListThumbnail />
+        {createListThumbnails()}
       </section>
     </section>
   )
