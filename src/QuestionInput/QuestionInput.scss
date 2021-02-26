@@ -43,7 +43,7 @@
 
 .unselected-answer-button {
   @include button-secondary;
-  background-color: $gray !important; 
+  background-color: $offwhite !important; 
   // The color property of the button-quiz-answer is overriding 
   // the color of the seconardy - if anyone can untangle this... SOS
 }

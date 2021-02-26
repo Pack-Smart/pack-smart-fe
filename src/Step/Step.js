@@ -9,8 +9,10 @@ const Step = ({ icon, stepNum, description}) => {
   const generateSteps = () => {
     return(
       <div className='step'>
-        {icon}
-        <h1 className='step-title'>Step {stepNum}</h1>
+        <section className='image-title-wrapper'>
+          {icon}
+          <h1 className='step-title'>Step {stepNum}</h1>
+        </section>
         <p className='step-description'>{description}</p>
       </div>
     )
