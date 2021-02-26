@@ -9,7 +9,7 @@
 
 .quiz-form {
   @include column-center;
-  margin: 0% 25%;
+  margin: 0% 20%;
   background-color: $offwhite;
   border-radius: 0.75em;
   box-shadow: 1px 3px 12px black;
@@ -32,7 +32,6 @@
   margin: 0 .8em 0 .8em;
   text-align: center;
   padding-bottom: 1em;
-  border-bottom: 1px solid $blue;
 }
 
 .quiz-submit-btn {
