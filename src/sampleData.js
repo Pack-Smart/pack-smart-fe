@@ -65,7 +65,7 @@ export const mockState = {
     categories: {
       'Accessories': [
         {name: 'Hat', quantity: 0, is_checked: false},
-        {name: 'Belts', quantity: 1, is_checked: false},
+        {name: 'Belts', quantity: 0, is_checked: false},
         {name: 'Purses', quantity: 0, is_checked: false},
       ],
       'Beach': [],
