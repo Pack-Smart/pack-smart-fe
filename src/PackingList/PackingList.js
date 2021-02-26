@@ -57,7 +57,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
           </section>
           <Link
             className='save-list-button'
-            onClick={() => submitNewPackingList()} 
+            onClick={submitNewPackingList} 
             to="/saved-packing-lists" 
           >Save List
           </Link>
