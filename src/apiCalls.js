@@ -26,12 +26,17 @@ export const saveNewPackingList = (packingListData) => {
   })
 }
 
-export const getAllPackingLists = (packingListData) => {
+export const getAllPackingLists = () => {
   return fetch(`${endpoint}/api/v1/users/1/packing_lists`)
     .then((response) => {
       return response.json()
     })
 }
 
-
+// export const getSinglePackingList = (packingListId, userId) => {
+//   return fetch(`${endpoint}/api/v1/users/${userId}/${packingListId}`)
+//     .then((response) => {
+//       return response.json()
+//     })
+// }
 
