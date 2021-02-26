@@ -1,15 +1,24 @@
 @import '../mixins.scss';
 @import '../variables.scss';
 
-.quiz-container{
+.quiz-wrapper {
+  display: flex;
   background: url('./background.png') no-repeat fixed center;
   background-size: cover;
   padding: 3% 0%;
 }
 
+.quiz-container{
+  flex-grow: 1;
+  margin: 1%;
+}
+
+.aside {
+  flex-grow: 2;
+}
+
 .quiz-form {
   @include column-center;
-  margin: 0% 20%;
   background-color: $offwhite;
   border-radius: 0.75em;
   box-shadow: 1px 3px 12px black;
@@ -53,8 +62,16 @@
 
 }
 
-@media only screen and (max-width: 414px) {
+// is it okay to suddenly have a 500 media query after most are 414? 
+// check on phone
+@media only screen and (max-width: 500px) {
+// @media only screen and (max-width: 414px) {
+  // .aside {
+  //   display: none;
+  // }
+
   .quiz-form {
     margin: 0 4%;
   }
+
 }
