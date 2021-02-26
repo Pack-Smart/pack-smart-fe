@@ -51,3 +51,34 @@ export const sampleCategories = {
     'Lotion'
   ]
 }
+
+export const mockState = {
+  userInfo: {
+    userId: 1
+  },
+  packingList: {
+    tripDetails: {
+      destination: 'Mexico',
+      number_of_days: '7',
+      title: 'Graduation Parrrtay'
+    },
+    categories: {
+      'Accessories': [
+        {name: 'Hats', quantity: 0, is_checked: false, item_id: 1},
+        {name: 'Belts', quantity: 0, is_checked: false, item_id: 2},
+        {name: 'Purses', quantity: 0, is_checked: false, item_id: 3},
+      ],
+      'Beach': [
+        {name: 'Bathing Suit', quantity: 0, is_checked: false, item_id: 4},
+        {name: 'Beach Games', quantity: 0, is_checked: false, item_id: 5},
+        {name: 'Sun Hat', quantity: 0, is_checked: false, item_id: 6}
+      ],
+      'Business': [],
+      'Child 0-2': [],
+      'Child 3-6': [],
+      'Child 7-12': [],
+      'Clothing': [],
+      'Essentials': [],
+    }
+  }
+}
