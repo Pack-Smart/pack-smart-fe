@@ -61,6 +61,8 @@
   @include button-quiz-answer;
 }
 
+// MEDIA QUERIES ----------------------------------------
+
 @media only screen and (max-width: 1025px) {
   .weather-answer-btns, .categories-answer-btns {
     width: 50%;

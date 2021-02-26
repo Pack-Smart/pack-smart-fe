@@ -49,3 +49,13 @@
   padding: 1em;
   margin: 0em 0em 1.5em 0em;
 }
+
+@media only screen and (max-width: 1025px) {
+
+}
+
+@media only screen and (max-width: 414px) {
+  .quiz-form {
+    margin: 0 4%;
+  }
+}
