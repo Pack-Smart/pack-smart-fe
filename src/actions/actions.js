@@ -22,5 +22,3 @@ export const editItemQuantity = (category, name, quantity) => ({
   type: 'EDIT_ITEM_QUANTITY',
   payload: { category, name, quantity } 
 })
-
-//TODO add action to generate a user id

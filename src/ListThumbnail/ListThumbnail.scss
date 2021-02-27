@@ -10,6 +10,7 @@
   background-color: $offwhite;
   border-radius: 5px;
   box-shadow: 1px 3px 12px black;
+  text-decoration: none;
 }
 
 .thumbnail-main:hover {
@@ -26,14 +27,17 @@
   border-bottom: 0.1em $red solid;
   font-size: 1.75em;
   margin: 1em 0 .55em 0;
+  color: $text-color;
 }
 
 .thumbnail-destination {
   margin: 0;
   font-weight: 400;
+  color: $text-color;
 }
 
 .thumbnail-duration {
   margin-top: 5px;
   font-weight: 300;
+  color: $text-color;
 }

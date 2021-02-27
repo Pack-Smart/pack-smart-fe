@@ -1,13 +1,21 @@
+import { getSinglePackingList } from '../apiCalls'
+import { Link } from 'react-router-dom'
 import './ListThumbnail.scss'
 
-const ListThumbnail = (props) => {
-
+const ListThumbnail = ({ title, destination, duration, id}) => {
+  
+  const viewPackingList = () => {
+    // getSinglePackingList(id, userId)
+    //   .then(data => setCurrentList(data.data))
+    //   .catch(() => console.error)
+  }
+  
   return(
-    <section className='thumbnail-main'>
-      <h1 className='thumbnail-title'>Cabo 2008 Betches</h1>
-      <h2 className='thumbnail-destination'>Destination</h2>
-      <h3 className='thumbnail-duration'>Duration</h3>
-    </section>
+    <Link to='/packing-list' className='thumbnail-main' onClick={viewPackingList}>
+      <h1 className='thumbnail-title'>{title}</h1>
+      <h2 className='thumbnail-destination'>{destination}</h2>
+      <h3 className='thumbnail-duration'>{duration} {duration > 1 ? 'days' : 'day'}</h3>
+    </Link>
   )
 }
 
