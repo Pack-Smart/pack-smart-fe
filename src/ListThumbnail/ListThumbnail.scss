@@ -4,8 +4,8 @@
 .thumbnail-main {
   @include column-center;
   width: 20em;
-  max-height: 12em;
-  margin: 30px;
+  max-height: 10em;
+  margin: 20px;
   padding: 15px;
   background-color: $offwhite;
   border-radius: 5px;
@@ -25,19 +25,21 @@
 
 .thumbnail-title {
   border-bottom: 0.1em $red solid;
-  font-size: 1.75em;
+  font-size: 1.5em;
   margin: 1em 0 .55em 0;
   color: $text-color;
 }
 
 .thumbnail-destination {
-  margin: 0;
+  margin: 0 0 0.5em 0;
   font-weight: 400;
   color: $text-color;
+  font-size: 1.25em;
 }
 
 .thumbnail-duration {
   margin-top: 5px;
   font-weight: 300;
   color: $text-color;
+  font-size: 1em;
 }
