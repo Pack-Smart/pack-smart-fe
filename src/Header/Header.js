@@ -1,8 +1,6 @@
 import './Header.scss'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { connect } from 'react-redux'
-import { setUser } from '../actions/actions'
 import Hamburger from '../Hamburger/Hamburger'
 
 const Header = (props) => {
@@ -25,7 +23,6 @@ const Header = (props) => {
         >How It Works
         </Link>
         <Link
-          onClick={() => props.setUser({userId: 1})} //TODO: if initialize Auth0, change this to render login!
           className="header-btn"
           to="/saved-packing-lists"
         >Saved Lists
@@ -46,8 +43,4 @@ const Header = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  setUser: userInfo => dispatch(setUser(userInfo))
-})
-
-export default connect(mapDispatchToProps, {setUser})(Header)
+export default Header
