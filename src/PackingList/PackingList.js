@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import Error from '../Error/Error'
 import { BiPencil } from 'react-icons/bi'
-import './PackingList.scss'
+import './PackingList.scss' 
 import { deleteItem } from '../actions/actions'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
@@ -39,7 +39,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   }
   
   const verifyPackingList = () => {
-    // if (Object.keys(packingList).length > 0) {
+    if (Object.keys(packingList).length > 0) {
       return (
         <>
           {window.scrollTo(0,0)}
@@ -63,13 +63,13 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
           </button>
         </>
       )
-    // } else {
-    //   return(
-    //     <Error 
-    //       errorMessage='Packing list is loading...If nothing shows up in the next 10 seconds, please try again!'
-    //     />
-    //   )
-    // }
+    } else {
+      return(
+        <Error 
+          errorMessage='Packing list is loading...If nothing shows up in the next 10 seconds, please try again!'
+        />
+      )
+    }
   }
 
   const createCategoryCards = () => {

@@ -8,24 +8,20 @@ import './ListThumbnail.scss'
 const ListThumbnail = ({ title, destination, duration, listId, setCurrentList }) => {
   let history = useHistory()
   const viewPackingList = async () => {
-    // loading ... message
     getSinglePackingList(listId)
-      // .then(data => console.log(data.data.attributes))
       .then(data => {
         setCurrentList({
-        tripDetails: {
-          title,
-          destination,
-          duration,
-        },
-        categories:
-          data.data.attributes.categories
+          tripDetails: {
+            title,
+            destination,
+            duration,
+          },
+          categories:
+            data.data.attributes.categories
       })
-      // history.push('/packing-list')
     })
-    // .then(() => history.push('/packing-list'))
+    .then(() => history.push('/packing-list'))
     .catch(() => console.error)
-    // await history.push('.packing-list')
   
   }
   

@@ -39,4 +39,3 @@ export const getSinglePackingList = (listId) => {
       return response.json()
     })
 }
-
