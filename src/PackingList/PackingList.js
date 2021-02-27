@@ -8,11 +8,12 @@ import { connect } from 'react-redux'
 import Modal from 'react-modal'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
 import { verifyDeletionStyles } from './modalStyles'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { saveNewPackingList } from '../apiCalls'
+import { useHistory } from 'react-router-dom'
 
-const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
-
+const PackingList = ({ packingList, deleteItem, userInfo }) => {
+  let history = useHistory()
   const { tripDetails, categories } = packingList
   const [modalIsOpen,setIsOpen] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState('')
@@ -55,12 +56,11 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
           <section>
             {createCategoryCards()}
           </section>
-          <Link
+          <button
             className='save-list-button'
             onClick={submitNewPackingList} 
-            to="/saved-packing-lists" 
           >Save List
-          </Link>
+          </button>
         </>
       )
     } else {
@@ -91,6 +91,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
   const submitNewPackingList = () => {
     let listToSave = compilePackingList()
     saveNewPackingList(listToSave)
+      .then(() => history.push('/saved-packing-lists'))
       .catch(() => console.error)
   }
 
@@ -109,6 +110,12 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
         items: cleanedItems
       }
     })
+  }
+
+  const directToSavedView = () => {
+    return (
+      <Redirect to='/saved-packing-lists' />
+    )
   }
 
   return (
