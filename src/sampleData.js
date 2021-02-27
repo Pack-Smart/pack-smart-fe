@@ -51,3 +51,27 @@ export const samplePackingList = {
     'Lotion'
   ]
 }
+
+export const mockSubmissionData = {
+  data: {
+    id: 0,
+    type: 'survey',
+    attributes: {
+      gender: ['All', 'Female'],
+      weather: ['All', '%Hot%'],
+      tripDetails: {
+        title: 'Cabo 2008',
+        destination: 'Italy???',
+        number_of_days: '3',
+      },
+      categories: [
+        'Accessories', 
+        'Clothing', 
+        'Essentials', 
+        'Toiletries', 
+        'Misc.',
+        'Beach'
+      ]
+    }
+  }
+}
