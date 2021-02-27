@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import Hamburger from '../Hamburger/Hamburger'
 
 const Header = (props) => {
+
   return(
     <div id='outer-container'>
       <nav className="header">
@@ -32,7 +33,7 @@ const Header = (props) => {
         <div className='mobile'>
           <Hamburger 
             width={ 50 }
-            // customBurgerIcon={ GiHamburgerMenu } 
+            // customBurgerIcon={ GiHamburgerMenu }
             pageWrapId={ 'header' }
             outerContainerId={ "outer-container" }
           />
