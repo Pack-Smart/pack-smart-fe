@@ -6,19 +6,15 @@ import { RiEmotionHappyLine } from 'react-icons/ri'
 import { AiFillStar } from 'react-icons/ai'
 
 const Step = ({ icon, stepNum, description}) => {
-  const generateSteps = () => {
-    return(
-      <div className='step'>
-        <section className='image-title-wrapper'>
-          {icon}
-          <h1 className='step-title'>Step {stepNum}</h1>
-        </section>
-        <p className='step-description'>{description}</p>
-      </div>
-    )
-  }
-
-  return generateSteps()
+  return(
+    <div className='step'>
+      <section className='image-title-wrapper'>
+        {icon}
+        <h1 className='step-title'>Step {stepNum}</h1>
+      </section>
+      <p className='step-description'>{description}</p>
+    </div>
+  )
 }
 
 export default Step
