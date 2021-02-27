@@ -1,7 +1,7 @@
-import ListThumbnail from '../ListThumbnail/ListThumbnail'
-import React, { useEffect, useState } from 'react'
 import './SavedView.scss'
 import { getAllPackingLists } from '../apiCalls'
+import ListThumbnail from '../ListThumbnail/ListThumbnail'
+import React, { useEffect, useState } from 'react'
 
 const SavedView = (props) => {
   const [allPackingLists, setAllPackingLists] = useState([])

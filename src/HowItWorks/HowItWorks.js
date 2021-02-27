@@ -1,3 +1,4 @@
+// UI Imports
 import './HowItWorks.scss'
 import Step from '../Step/Step'
 import Review from '../Review/Review'

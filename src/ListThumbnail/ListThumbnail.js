@@ -1,6 +1,6 @@
+import './ListThumbnail.scss'
 import { getSinglePackingList } from '../apiCalls'
 import { Link } from 'react-router-dom'
-import './ListThumbnail.scss'
 
 const ListThumbnail = ({ title, destination, duration, id}) => {
   
