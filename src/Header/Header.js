@@ -14,7 +14,6 @@ const Header = (props) => {
         >
           <p className='letter-p'>P</p>
           <p className='letter-s'>S</p>
-          <h1 className='pack-smart-title'>Pack Smart</h1>
         </Link>
         </div>
         <Link
