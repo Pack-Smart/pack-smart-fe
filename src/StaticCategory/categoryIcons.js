@@ -1,7 +1,7 @@
 import { FaTshirt, FaUmbrellaBeach, FaBaby, FaHiking, FaSkiing, FaChild, FaCamera } from 'react-icons/fa'
 import { ImBriefcase } from 'react-icons/im'
 import { BsBagFill } from 'react-icons/bs'
-import { GiPerson, GiSoap, GiStairsCake, GiBilledCap} from 'react-icons/gi'
+import { GiPerson, GiSoap, GiStairsCake, GiBilledCap, GiCampingTent, GiPassport } from 'react-icons/gi'
 import { BiGlasses, BiDrink } from 'react-icons/bi'
 
 export const categoryIcons = [
@@ -64,5 +64,13 @@ export const categoryIcons = [
   {
     name: 'Wedding/Formal',
     icon:  <GiStairsCake size={50}/>
+  },
+  {
+    name: 'Camping',
+    icon: <GiCampingTent size={50} />
+  },
+  {
+    name: 'International',
+    icon: <GiPassport size={50} />
   }
 ]

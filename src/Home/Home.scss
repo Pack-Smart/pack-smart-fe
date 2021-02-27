@@ -25,7 +25,7 @@
 }
 
 .home p {
-  font-size: 1.2em;
+  font-size: 1em;
   width: 90%;
   text-align: center;
 }
@@ -38,4 +38,15 @@
 img {
   margin: 5%;
   height: 300px;
+}
+
+.pack-smart-title {
+  font-size: 2.5em;
+  margin: 0;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  font-family: $title-font;
+  font-weight: 400;
 }
