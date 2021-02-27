@@ -52,9 +52,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
             <h2>{tripDetails.destination}</h2>
             <h3>{tripDetails.number_of_days} {tripDetails.number_of_days > 1 ? 'days' : 'day'}</h3>
           </header>
-          <section>
             {createCategoryCards()}
-          </section>
           <Link
             className='save-list-button'
             onClick={submitNewPackingList} 
