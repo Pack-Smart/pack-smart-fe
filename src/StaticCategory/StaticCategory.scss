@@ -44,16 +44,24 @@
     transition-duration: 0.4s;
   }
 }
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .category-container {
     @include column-center;
     width: 80%;
   }
+
+  .list-items {
+    @include row-wrap-around;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 700px) {
   .list-items {
     @include column-center;
     width: 100%;
     align-self: center;
-
   }
 }
