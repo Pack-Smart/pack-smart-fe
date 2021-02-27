@@ -1,10 +1,13 @@
+// UI Imports
 import './HowItWorks.scss'
-import Step from '../Step/Step'
-import Review from '../Review/Review'
-import { GiEarthAmerica } from 'react-icons/gi'
 import { BsCardChecklist } from 'react-icons/bs'
 import { FaSuitcaseRolling } from 'react-icons/fa'
+import { GiEarthAmerica } from 'react-icons/gi'
 import { RiEmotionHappyLine } from 'react-icons/ri'
+
+// App Imports
+import Review from '../Review/Review'
+import Step from '../Step/Step'
 
 const HowItWorks = (props) => {
   return(

@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import StaticCategory from '../StaticCategory/StaticCategory'
-import Error from '../Error/Error'
-import { BiPencil } from 'react-icons/bi'
-import './PackingList.scss'
-import { deleteItem } from '../actions/actions'
 import { connect } from 'react-redux'
-import Modal from 'react-modal'
-import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { verifyDeletionStyles } from './modalStyles'
 import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+
+// UI Imports
+import './PackingList.scss'
+import { BiPencil } from 'react-icons/bi'
+import { verifyDeletionStyles } from './modalStyles'
+
+// App Imports
+import { deleteItem } from '../actions/actions'
 import { saveNewPackingList } from '../apiCalls'
+import Error from '../Error/Error'
+import Modal from 'react-modal'
+import StaticCategory from '../StaticCategory/StaticCategory'
+import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
+
 
 const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
 

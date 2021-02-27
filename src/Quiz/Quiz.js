@@ -1,11 +1,16 @@
+import { connect } from 'react-redux'
 import React, { useState } from 'react'
+
+// UI Imports
+import './Quiz.scss'
+
+// App Imports
+import { getPackingListData } from '../apiCalls.js'
+import { quizDetails } from './quizDetails.js'
+import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
-import { quizDetails } from './quizDetails.js'
-import './Quiz.scss'
-import { getPackingListData } from '../apiCalls.js'
-import { connect } from 'react-redux'
-import { setCurrentList } from '../actions/actions'
+
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
