@@ -30,12 +30,14 @@ const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, d
   
   return(
     <section className='thumbnail-main'>
-      <div onClick={viewPackingList}>
+      <div className='delete-btn-container'>
+        <button className='thumbnail-deleteBtn' onClick={() => deleteList(listId)}>X</button>
+      </div>
+      <div className='thumbnail-contents' onClick={viewPackingList}>
         <h1 className='thumbnail-title'>{title}</h1>
         <h2 className='thumbnail-destination'>{destination}</h2>
         <h3 className='thumbnail-duration'>{duration} {duration > 1 ? 'days' : 'day'}</h3>
       </div>
-      <button className='thumbnail-deleteBtn' onClick={() => deleteList(listId)}>X</button>
     </section>
   )
 }

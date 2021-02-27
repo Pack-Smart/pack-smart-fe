@@ -11,6 +11,7 @@
   border-radius: 5px;
   box-shadow: 1px 3px 12px black;
   text-decoration: none;
+  text-align: center;
 }
 
 .thumbnail-main:hover {
@@ -23,11 +24,19 @@
   color: $red;
 }
 
+.thumbnail-contents {
+  @include column-center;
+  width: 100%;
+
+}
+
+
 .thumbnail-title {
   border-bottom: 0.1em $red solid;
   font-size: 1.75em;
-  margin: 1em 0 .55em 0;
+  margin: 0.5em 0 .55em 0;
   color: $text-color;
+  width: 75%;
 }
 
 .thumbnail-destination {
@@ -42,6 +51,18 @@
   color: $text-color;
 }
 
-.thumbnail-deleteBtn {
+.delete-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
 
+.thumbnail-deleteBtn {
+  background-color: $red;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1%;
+  color: $offwhite;
+  width: 8.5%;
 }
