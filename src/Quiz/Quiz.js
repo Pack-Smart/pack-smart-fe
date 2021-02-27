@@ -149,21 +149,25 @@ const Quiz = (props) => {
   }
 
   return (
-    <form className="quiz-container">
-      {error && displayErrorMessage()}
-      <section className="quiz-form">
-        <div className='quiz-header'>
-          <h1>Trip Details</h1>
-          <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
-        </div>
-        {generateQuizQuestions()}  
-        <button
-          className="quiz-submit-btn"
-          onClick={validateForm}
-        >Get My Packing List!
-        </button>
-      </section>
-    </form>
+    <section className='quiz-wrapper'>
+      <div className='quiz-aside'></div>
+      <form className="quiz-container">
+        {error && displayErrorMessage()}
+        <section className="quiz-form">
+          <div className='quiz-header'>
+            <h1>Trip Details</h1>
+            <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
+          </div>
+          {generateQuizQuestions()}  
+          <button
+            className="quiz-submit-btn"
+            onClick={validateForm}
+          >Get My Packing List!
+          </button>
+        </section>
+      </form>
+      <div className='quiz-aside'></div>
+    </section>
   )
 }
 

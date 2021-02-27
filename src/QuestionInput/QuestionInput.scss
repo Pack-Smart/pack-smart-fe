@@ -5,6 +5,14 @@
   @include quiz-question;
 }
 
+.text-input-question {
+  @include multiple-choice-question;
+}
+
+.question-input-question {
+  @include multiple-choice-question;
+}
+
 .trip-destination-field, .trip-number_of_days-field {
   @include row-center;
   @include quiz-question;
@@ -20,4 +28,22 @@
 
 .trip-number_of_days-field input {
   @include input-line(60px);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.number-input {
+  margin-top: 8px;
+  margin-right: 8px;
+  display: flex;
+}
+
+.unselected-answer-button {
+  @include button-secondary;
+  background-color: $offwhite !important; 
+  // The color property of the button-quiz-answer is overriding 
+  // the color of the seconardy - if anyone can untangle this... SOS
 }

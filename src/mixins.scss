@@ -81,5 +81,9 @@
 @mixin quiz-question {
   width: 100%;
   margin: 1%;
+  flex-wrap: wrap;
 }
 
+@mixin multiple-choice-question {
+  margin: 1.2em .8em 1em .8em;
+}

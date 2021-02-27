@@ -11,26 +11,30 @@ const HowItWorks = (props) => {
     <section className='how-it-works-container'>
       <h1 className='how-it-works-title'>How Pack Smart Makes Packing Easy</h1>
       <article className='steps-container'>
-        <Step 
-          icon={<GiEarthAmerica size={125} />}
-          stepNum={1}
-          description='Pick Your Next Perfect Vacation Destination'
-        />
-        <Step 
-          icon={<BsCardChecklist size={125} />}
-          stepNum={2}
-          description='Fill out your Trip Details and Packing Preferences'
-        />
-        <Step 
-          icon={<FaSuitcaseRolling size={125} />}
-          stepNum={3}
-          description='Review and Edit Your Perfectly Curated Packing List'
-        />
-        <Step 
-          icon={<RiEmotionHappyLine size={125} />}
-          stepNum={4}
-          description='Never Forget a Packing Item Again!'
-        />
+        <section className='steps-1and2'>
+          <Step 
+            icon={<GiEarthAmerica size={70} />}
+            stepNum={1}
+            description='Pick Your Next Perfect Vacation Destination'
+          />
+          <Step 
+            icon={<BsCardChecklist size={70} />}
+            stepNum={2}
+            description='Fill out your Trip Details and Packing Preferences'
+          />
+        </section>
+        <section className='steps-3and4'> 
+          <Step 
+            icon={<FaSuitcaseRolling size={70} />}
+            stepNum={3}
+            description='Review and Edit Your Perfectly Curated Packing List'
+          />
+          <Step 
+            icon={<RiEmotionHappyLine size={70} />}
+            stepNum={4}
+            description='Never Forget a Packing Item Again!'
+          />
+        </section>
       </article>
       <article className='reviews-container'>
         <Review 
