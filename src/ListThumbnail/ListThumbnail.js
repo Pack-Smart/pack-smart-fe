@@ -1,11 +1,14 @@
-import { getSinglePackingList } from '../apiCalls'
+import { getSinglePackingList, getAllPackingLists } from '../apiCalls'
 import { setCurrentList } from '../actions/actions'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './ListThumbnail.scss'
+import { useEffect } from 'react'
 
-const ListThumbnail = ({ title, destination, duration, listId, setCurrentList }) => {
+const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, deleteList }) => {
+
+
   let history = useHistory()
   const viewPackingList = async () => {
     getSinglePackingList(listId)
@@ -22,14 +25,17 @@ const ListThumbnail = ({ title, destination, duration, listId, setCurrentList })
     })
     .then(() => history.push('/packing-list'))
     .catch(() => console.error)
-  
+
   }
   
   return(
-    <section className='thumbnail-main' onClick={viewPackingList}>
-      <h1 className='thumbnail-title'>{title}</h1>
-      <h2 className='thumbnail-destination'>{destination}</h2>
-      <h3 className='thumbnail-duration'>{duration} {duration > 1 ? 'days' : 'day'}</h3>
+    <section className='thumbnail-main'>
+      <div onClick={viewPackingList}>
+        <h1 className='thumbnail-title'>{title}</h1>
+        <h2 className='thumbnail-destination'>{destination}</h2>
+        <h3 className='thumbnail-duration'>{duration} {duration > 1 ? 'days' : 'day'}</h3>
+      </div>
+      <button className='thumbnail-deleteBtn' onClick={() => deleteList(listId)}>X</button>
     </section>
   )
 }

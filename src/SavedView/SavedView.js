@@ -1,7 +1,7 @@
 import ListThumbnail from '../ListThumbnail/ListThumbnail'
 import React, { useEffect, useState } from 'react'
 import './SavedView.scss'
-import { getAllPackingLists } from '../apiCalls'
+import { getAllPackingLists, deletePackingList } from '../apiCalls'
 
 const SavedView = (props) => {
   const [allPackingLists, setAllPackingLists] = useState([])
@@ -21,10 +21,21 @@ const SavedView = (props) => {
           title={list.title}
           destination={list.destination}
           duration={list.num_of_days}
+          deleteList={deleteList}
           />
           )
         })
       }
+  }
+
+  const deleteList = (listId) => {
+    deletePackingList(listId)
+      .then(() => {
+        getAllPackingLists()
+        .then(data => setAllPackingLists(data.data.attributes['PackingLists']))
+        .catch(error => console.error)
+      })
+      .catch(() => console.error)
   }
 
   return(
