@@ -1,6 +1,5 @@
 import './Header.scss'
 import { Link } from 'react-router-dom'
-import { GiHamburgerMenu } from 'react-icons/gi'
 import Hamburger from '../Hamburger/Hamburger'
 
 const Header = (props) => {
@@ -33,7 +32,6 @@ const Header = (props) => {
         <div className='mobile'>
           <Hamburger 
             width={ 50 }
-            // customBurgerIcon={ GiHamburgerMenu }
             pageWrapId={ 'header' }
             outerContainerId={ "outer-container" }
           />
