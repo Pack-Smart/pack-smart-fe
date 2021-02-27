@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import './StaticItem.scss'
 import { connect } from 'react-redux'
 import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
-import './StaticItem.scss'
+import React, { useEffect, useState } from 'react'
 
 const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem, editItemQuantity }) => {
   const [itemQuantity, setItemQuantity] = useState(0)
