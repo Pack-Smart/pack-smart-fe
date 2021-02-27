@@ -33,10 +33,10 @@ export const getAllPackingLists = () => {
     })
 }
 
-// export const getSinglePackingList = (packingListId, userId) => {
-//   return fetch(`${endpoint}/api/v1/users/${userId}/${packingListId}`)
-//     .then((response) => {
-//       return response.json()
-//     })
-// }
+export const getSinglePackingList = (listId) => {
+  return fetch(`${endpoint}/api/v1/packing_lists/${listId}`)
+    .then((response) => {
+      return response.json()
+    })
+}
 

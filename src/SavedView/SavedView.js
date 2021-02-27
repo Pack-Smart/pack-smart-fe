@@ -17,7 +17,7 @@ const SavedView = (props) => {
         return (
           <ListThumbnail 
           key={list.list_id}
-          id={list.list_id}
+          listId={list.list_id}
           title={list.title}
           destination={list.destination}
           duration={list.num_of_days}

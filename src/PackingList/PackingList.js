@@ -19,11 +19,11 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
-  const [userId, setUserId] = useState(null)
+  // const [userId, setUserId] = useState(null)
   
   useEffect(() => {
     Modal.setAppElement('body');
-    setUserId(userInfo.userId)
+    // setUserId(userInfo.userId)
   }, [])
    
   const openModal = (category, name) => {
@@ -39,7 +39,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   }
   
   const verifyPackingList = () => {
-    if (packingList.categories) {
+    // if (Object.keys(packingList).length > 0) {
       return (
         <>
           {window.scrollTo(0,0)}
@@ -63,13 +63,13 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
           </button>
         </>
       )
-    } else {
-      return(
-        <Error 
-          errorMessage='Packing list is loading...If nothing shows up in the next 10 seconds, please try again!'
-        />
-      )
-    }
+    // } else {
+    //   return(
+    //     <Error 
+    //       errorMessage='Packing list is loading...If nothing shows up in the next 10 seconds, please try again!'
+    //     />
+    //   )
+    // }
   }
 
   const createCategoryCards = () => {
@@ -105,17 +105,11 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     })
     return ({
       data: {
-        userID: userId,
+        userID: userInfo.userId,
         tripDetails,
         items: cleanedItems
       }
     })
-  }
-
-  const directToSavedView = () => {
-    return (
-      <Redirect to='/saved-packing-lists' />
-    )
   }
 
   return (
