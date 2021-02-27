@@ -15,7 +15,6 @@ import Modal from 'react-modal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
 
-
 const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
 
   const { tripDetails, categories } = packingList

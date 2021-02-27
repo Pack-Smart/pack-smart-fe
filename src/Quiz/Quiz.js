@@ -11,7 +11,6 @@ import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
 
-
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
     name: '',

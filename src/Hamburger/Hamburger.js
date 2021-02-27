@@ -3,7 +3,6 @@ import { BsBookmarkPlus } from 'react-icons/bs'
 import { GiGears } from 'react-icons/gi'
 import { slide as Menu } from 'react-burger-menu'
 import React, { Component } from 'react'
-
 class Hamburger extends Component {
 
   render () {
