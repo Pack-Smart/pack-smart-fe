@@ -57,7 +57,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
           </section>
           <Link
             className='save-list-button'
-            onClick={saveNewPackingList} 
+            onClick={submitNewPackingList} 
             to="/saved-packing-lists" 
           >Save List
           </Link>
@@ -88,20 +88,26 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
     })
   }
 
-  const saveNewPackingList = () => {
+  const submitNewPackingList = () => {
     let listToSave = compilePackingList()
-    console.log(listToSave)
-    history.push('/')
-    // saveNewPackingList(listToSave)
-    // and thennnnnnnnnn
+    saveNewPackingList(listToSave)
+      .catch(() => console.error)
   }
 
   const compilePackingList = () => {
     const items = Object.values(packingList.categories).flat()
+    const cleanedItems = items.map(item => {
+      return {
+        item_id: item.item_id, 
+        quantity: item.quantity, 
+        is_checked: item.is_checked}
+    })
     return ({
-      userId: userId,
-      tripDetails,
-      items
+      data: {
+        userID: userId,
+        tripDetails,
+        items: cleanedItems
+      }
     })
   }
 
