@@ -1,9 +1,9 @@
 import './Step.scss'
-import { GiEarthAmerica } from 'react-icons/gi'
+import { AiFillStar } from 'react-icons/ai'
 import { BsCardChecklist } from 'react-icons/bs'
 import { FaSuitcaseRolling } from 'react-icons/fa'
+import { GiEarthAmerica } from 'react-icons/gi'
 import { RiEmotionHappyLine } from 'react-icons/ri'
-import { AiFillStar } from 'react-icons/ai'
 
 const Step = ({ icon, stepNum, description}) => {
   const generateSteps = () => {

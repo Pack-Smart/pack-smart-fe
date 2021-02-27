@@ -1,6 +1,6 @@
 import './Header.scss'
-import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { Link } from 'react-router-dom'
 import Hamburger from '../Hamburger/Hamburger'
 
 const Header = (props) => {

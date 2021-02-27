@@ -4,12 +4,10 @@ import { connect } from 'react-redux'
 import { setUser } from '../actions/actions'
 import Header from '../Header/Header'
 import Home from '../Home/Home'
-import Error from '../Error/Error'
+import HowItWorks from '../HowItWorks/HowItWorks'
+import PackingList from '../PackingList/PackingList'
 import Quiz from '../Quiz/Quiz'
 import SavedView from '../SavedView/SavedView'
-import PackingList from '../PackingList/PackingList'
-import HowItWorks from '../HowItWorks/HowItWorks'
-import './App.scss'
 
 const App = (props) => {
 
