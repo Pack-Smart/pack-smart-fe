@@ -1,9 +1,9 @@
 import './Header.scss'
-import { GiHamburgerMenu } from 'react-icons/gi'
 import { Link } from 'react-router-dom'
 import Hamburger from '../Hamburger/Hamburger'
 
 const Header = (props) => {
+
   return(
     <div id='outer-container'>
       <nav className="header">
@@ -14,7 +14,6 @@ const Header = (props) => {
         >
           <p className='letter-p'>P</p>
           <p className='letter-s'>S</p>
-          <h1 className='pack-smart-title'>Pack Smart</h1>
         </Link>
         </div>
         <Link
@@ -32,7 +31,6 @@ const Header = (props) => {
         <div className='mobile'>
           <Hamburger 
             width={ 50 }
-            // customBurgerIcon={ GiHamburgerMenu } 
             pageWrapId={ 'header' }
             outerContainerId={ "outer-container" }
           />

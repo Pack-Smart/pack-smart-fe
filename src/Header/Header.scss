@@ -10,7 +10,7 @@
 }
 
 .letter-p {
-  font-size: 3.5em;
+  font-size: 3em;
   font-family: $title-font;
   font-weight: 200;
   color: $text-color;
@@ -19,17 +19,13 @@
 }
 
 .letter-s {
-  font-size: 3.5em;
+  font-size: 3em;
   font-family: $title-font;
   font-weight: 200;
   color: $text-color;
   margin-right: 0.35em;
   margin-top: 1.6em;
   margin-left: -0.35em;
-}
-
-#outer-container {
-  
 }
 
 .side-nav {
@@ -52,27 +48,12 @@
   }
 }
 
-.header-logo {
-  height: 60px;
-  align-self: center;
-}
-
-.pack-smart-title {
-  font-size: 2.75em;
-  margin: 0;
-  color: $text-color;
-  align-self: center;
-  width: 50%;
-  cursor: pointer;
-  font-family: $title-font;
-  font-weight: 300;
-}
-
 .header-btn {
   @include button-primary(large, 175px, .75%);
   height: 20px;
   margin: 2%;
   align-self: center;
+  font-size: medium;
 }
 
 .mobile {
