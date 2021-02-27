@@ -8,12 +8,10 @@ import { verifyDeletionStyles } from './modalStyles'
 
 // App Imports
 import { deleteItem } from '../actions/actions'
-import { saveNewPackingList } from '../apiCalls'
 import Error from '../Error/Error'
 import Modal from 'react-modal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { verifyDeletionStyles } from './modalStyles'
 import { saveNewPackingList } from '../apiCalls'
 import { useHistory } from 'react-router-dom'
 
