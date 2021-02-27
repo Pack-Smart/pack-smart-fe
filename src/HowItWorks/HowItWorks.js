@@ -6,16 +6,16 @@ import { steps, reviews } from './howItWorksData'
 const HowItWorks = () => {
 
   const generateSteps = (stepNum1, stepNum2) => {
-    return steps.filter(step => {
-      if (step.stepNum === stepNum1 || step.stepNum === stepNum2) {
-        return(
-          <Step 
-            icon={step.icon}
-            stepNum={step.stepNum}
-            description={step.description}
-          />
-        )
-      }
+    let stepsToDisplay = steps.filter(step => {
+      return step.stepNum === stepNum1 || step.stepNum === stepNum2
+    })
+    return stepsToDisplay.map(step => {
+      return(
+        <Step 
+          icon={step.icon}
+          stepNum={step.stepNum}
+          description={step.description}
+        />)
     })
   }
 
