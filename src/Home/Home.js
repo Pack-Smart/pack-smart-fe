@@ -1,8 +1,8 @@
 import './Home.scss'
-import { Link } from 'react-router-dom'
-import lady from './lady.png'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { setUser } from '../actions/actions'
+import lady from './lady.png'
 
 const Home = (props) => {
 

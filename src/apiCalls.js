@@ -39,4 +39,3 @@ export const getAllPackingLists = () => {
 //       return response.json()
 //     })
 // }
-

@@ -1,6 +1,5 @@
 import './QuestionInput.scss'
 
-
 const QuestionInput = (props) => {
   const { question, type, placeholder, name } = props.questionDetails
   const { handleChange } = props
