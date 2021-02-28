@@ -4,12 +4,13 @@ import React, { useState, useEffect } from 'react'
 // UI Imports
 import './PackingList.scss'
 import { BiPencil } from 'react-icons/bi'
-import { verifyDeletionStyles } from './modalStyles'
+import { modalStructure } from './modalStyles'
 
 // App Imports
 import { deleteItem } from '../actions/actions'
 import Error from '../Error/Error'
 import Modal from 'react-modal'
+import UpdateDetailsModal from '../UpdateDetailsModal/UpdateDetailsModal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
 import { saveNewPackingList } from '../apiCalls'
@@ -18,7 +19,8 @@ import { useHistory } from 'react-router-dom'
 const PackingList = ({ packingList, deleteItem, userInfo }) => {
   let history = useHistory()
   const { tripDetails, categories } = packingList
-  const [modalIsOpen,setIsOpen] = useState(false);
+  const [deletionModalIsOpen, setDeletionModalIsOpen] = useState(false)
+  const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
@@ -31,12 +33,17 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     setCategoryToDelete(category)
     setItemToDelete(name)
     if(verifyDeletion === true) {
-      setIsOpen(true);
-    } 
+      setDeletionModalIsOpen(true);
+    }
   }
 
-  const closeModal = () =>{
-    setIsOpen(false);
+  const closeModal = () => {
+    setDeletionModalIsOpen(false)
+    setDetailsModalIsOpen(false)
+  }
+
+  const editTripDetails = () => {
+
   }
   
   const verifyPackingList = () => {
@@ -49,6 +56,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
               <BiPencil 
                 className='edit-title' 
                 size={25}
+                onClick={editTripDetails}
               />
             </h1>
             <h2>{tripDetails.destination}</h2>
@@ -115,9 +123,9 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     <section className='packing-list-main'>
       {verifyPackingList()}
       <Modal
-          isOpen={modalIsOpen}
+          isOpen={deletionModalIsOpen}
           onRequestClose={closeModal}
-          style={verifyDeletionStyles}
+          style={modalStructure}
           contentLabel="Delete Item Modal"
         >
           <VerifyDeletionModal 
@@ -126,6 +134,19 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
             closeModal={closeModal}
             categoryToDelete={categoryToDelete}
             itemToDelete={itemToDelete}
+          />
+      </Modal>
+      <Modal
+          isOpen={detailsModalIsOpen}
+          onRequestClose={closeModal}
+          style={modalStructure}
+          contentLabel="Update Trip Details Modal"
+        >
+          <UpdateDetailsModal
+            setDetailsModalIsOpen={setDetailsModalIsOpen}
+            deleteItem={deleteItem}
+            closeModal={closeModal}
+            editTripDetails={editTripDetails}
           />
       </Modal>
     </section> 

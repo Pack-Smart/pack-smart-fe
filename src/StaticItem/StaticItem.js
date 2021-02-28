@@ -34,7 +34,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
       .then(data => console.log(data))
       .catch(() => console.error)
   }
-  // {id: 1, is_checked: true, item_id: 1, name: "Belts", quantity: 0}
+  
   return (
     <article className='static-item'>  
       <div className='quantity-container'>
