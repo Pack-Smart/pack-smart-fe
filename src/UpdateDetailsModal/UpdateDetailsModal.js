@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import './UpdateDetailsModal.scss'
 import React, { useState } from 'react'
 import { editTripDetails } from '../actions/actions'
+import { patchTripDetails } from '../apiCalls'
 
 const UpdateDetailsModal = (props) => {
   const [tripDetails, setTripDetails] = useState({
@@ -22,6 +23,20 @@ const UpdateDetailsModal = (props) => {
     const { title, destination, duration} = tripDetails
     props.closeModal()
     props.editTripDetails(title, destination, duration)
+
+    const updatedTripDetails = compileTripDetails()
+    
+    patchTripDetails(props.packingList.tripDetails.listId, updatedTripDetails)
+    .then(data => console.log('patch data', data))
+    .catch(() => console.error)
+  }
+  
+  const compileTripDetails = () => {
+    return ({
+      title: tripDetails.title, 
+      destination: tripDetails.destination,
+      num_of_days: tripDetails.duration,
+    })
   }
 
   return (
