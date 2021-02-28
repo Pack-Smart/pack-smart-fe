@@ -19,10 +19,10 @@ const UpdateDetailsModal = (props) => {
 
   const submitUpdate = (event) => {
     event.preventDefault()
-    props.editTripDetails(tripDetails.title, tripDetails.destination, tripDetails.duration)
+    
     const { title, destination, duration} = tripDetails
-    props.closeModal()
     props.editTripDetails(title, destination, duration)
+    props.closeModal()
 
     const updatedTripDetails = compileTripDetails()
     
