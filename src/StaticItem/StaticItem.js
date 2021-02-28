@@ -19,13 +19,13 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
     }
   }
 
-  const updateListItem = async () => {
+  const updateListItem = (newQuantity) => {
     const updatedItem = {
       "data": {
         "items": [{
           id: item.id,
           is_checked: item.is_checked,
-          quantity: +itemQuantity
+          quantity: newQuantity
         }]
       }
     }
@@ -37,7 +37,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
 
   const updateItemQuantity = (event) => {
     setItemQuantity(event.target.value)
-    updateListItem() 
+    updateListItem(event.target.value)
   }
   
   return (
