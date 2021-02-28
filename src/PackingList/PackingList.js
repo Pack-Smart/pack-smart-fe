@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 
 // UI Imports
@@ -9,24 +8,23 @@ import { verifyDeletionStyles } from './modalStyles'
 
 // App Imports
 import { deleteItem } from '../actions/actions'
-import { saveNewPackingList } from '../apiCalls'
 import Error from '../Error/Error'
 import Modal from 'react-modal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
+import { saveNewPackingList } from '../apiCalls'
+import { useHistory } from 'react-router-dom'
 
-const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
-
+const PackingList = ({ packingList, deleteItem, userInfo }) => {
+  let history = useHistory()
   const { tripDetails, categories } = packingList
   const [modalIsOpen,setIsOpen] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
-  const [userId, setUserId] = useState(null)
   
   useEffect(() => {
     Modal.setAppElement('body');
-    setUserId(userInfo.userId)
   }, [])
    
   const openModal = (category, name) => {
@@ -42,7 +40,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
   }
   
   const verifyPackingList = () => {
-    if (packingList.categories) {
+    if (Object.keys(packingList).length > 0) {
       return (
         <>
           {window.scrollTo(0,0)}
@@ -57,12 +55,11 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
             <h3>{tripDetails.number_of_days} {tripDetails.number_of_days > 1 ? 'days' : 'day'}</h3>
           </header>
             {createCategoryCards()}
-          <Link
+          <button
             className='save-list-button'
             onClick={submitNewPackingList} 
-            to="/saved-packing-lists" 
           >Save List
-          </Link>
+          </button>
         </>
       )
     } else {
@@ -93,6 +90,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
   const submitNewPackingList = () => {
     let listToSave = compilePackingList()
     saveNewPackingList(listToSave)
+      .then(() => history.push('/saved-packing-lists'))
       .catch(() => console.error)
   }
 
@@ -106,7 +104,7 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
     })
     return ({
       data: {
-        userID: userId,
+        userID: userInfo.userId,
         tripDetails,
         items: cleanedItems
       }

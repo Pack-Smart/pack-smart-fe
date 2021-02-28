@@ -1,22 +1,49 @@
-import './ListThumbnail.scss'
-import { getSinglePackingList } from '../apiCalls'
+import { getSinglePackingList, getAllPackingLists } from '../apiCalls'
+import { setCurrentList } from '../actions/actions'
+import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import './ListThumbnail.scss'
+import { useEffect } from 'react'
 
-const ListThumbnail = ({ title, destination, duration, id}) => {
-  
+const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, deleteList }) => {
+
+
+  let history = useHistory()
   const viewPackingList = () => {
-    // getSinglePackingList(id, userId)
-    //   .then(data => setCurrentList(data.data))
-    //   .catch(() => console.error)
+    getSinglePackingList(listId)
+      .then(data => {
+        setCurrentList({
+          tripDetails: {
+            title,
+            destination,
+            duration,
+          },
+          categories:
+            data.data.attributes.categories
+      })
+    })
+    .then(() => history.push('/packing-list'))
+    .catch(() => console.error)
+
   }
   
   return(
-    <Link to='/packing-list' className='thumbnail-main' onClick={viewPackingList}>
-      <h1 className='thumbnail-title'>{title}</h1>
-      <h2 className='thumbnail-destination'>{destination}</h2>
-      <h3 className='thumbnail-duration'>{duration} {duration > 1 ? 'days' : 'day'}</h3>
-    </Link>
+    <section className='thumbnail-main'>
+      <div className='delete-btn-container'>
+        <button className='thumbnail-deleteBtn' onClick={() => deleteList(listId)}>X</button>
+      </div>
+      <div className='thumbnail-contents' onClick={viewPackingList}>
+        <h1 className='thumbnail-title'>{title}</h1>
+        <h2 className='thumbnail-destination'>{destination}</h2>
+        <h3 className='thumbnail-duration'>{duration} {duration > 1 ? 'days' : 'day'}</h3>
+      </div>
+    </section>
   )
 }
 
-export default ListThumbnail
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentList: data => dispatch(setCurrentList(data))
+})
+
+export default connect(mapDispatchToProps, {setCurrentList})(ListThumbnail)

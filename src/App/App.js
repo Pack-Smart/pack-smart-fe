@@ -1,9 +1,7 @@
 import { Switch, Route } from 'react-router-dom'
-
-//UI Imports
-import './App.scss'
-
-// App Imports
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { setUser } from '../actions/actions'
 import Error from '../Error/Error'
 import Header from '../Header/Header'
 import Home from '../Home/Home'
@@ -11,8 +9,14 @@ import HowItWorks from '../HowItWorks/HowItWorks'
 import PackingList from '../PackingList/PackingList'
 import Quiz from '../Quiz/Quiz'
 import SavedView from '../SavedView/SavedView'
+import './App.scss'
 
 const App = (props) => {
+
+  useEffect(() => {
+    props.setUser({userId: 1})
+  }, [])
+
   return(
     <div>
       <Header />
@@ -34,4 +38,8 @@ const App = (props) => {
   )
 }
 
-export default App
+const mapDispatchToProps = (dispatch) => ({
+  setUser: userInfo => dispatch(setUser(userInfo))
+})
+
+export default connect(mapDispatchToProps, {setUser})(App)
