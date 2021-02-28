@@ -64,14 +64,7 @@
 
 }
 
-// is it okay to suddenly have a 500 media query after most are 414? 
-// check on phone
 @media only screen and (max-width: 500px) {
-// @media only screen and (max-width: 414px) {
-  // .aside {
-  //   display: none;
-  // }
-
   .quiz-form {
     margin: 0 4%;
   }

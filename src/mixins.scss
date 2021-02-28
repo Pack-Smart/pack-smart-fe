@@ -87,3 +87,9 @@
 @mixin multiple-choice-question {
   margin: 1.2em .8em 1em .8em;
 }
+
+@mixin content-style($weight) {
+  font-weight: $weight;
+  font-family: $general-text;
+  color: $text-color;
+}
