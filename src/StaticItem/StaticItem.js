@@ -5,7 +5,7 @@ import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/action
 import React, { useEffect, useState } from 'react'
 
 const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem, editItemQuantity }) => {
-  const [itemQuantity, setItemQuantity] = useState(0)
+  const [itemQuantity, setItemQuantity] = useState(item.quantity)
   
   useEffect(() => {
     editItemQuantity(category, item.name, itemQuantity)
@@ -19,20 +19,25 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
     }
   }
 
-  const updateListItem = () => {
+  const updateListItem = async () => {
     const updatedItem = {
       "data": {
         "items": [{
           id: item.id,
           is_checked: item.is_checked,
-          quantity: item.quantity
+          quantity: +itemQuantity
         }]
       }
     }
     
-    editPackingListItem(updatedItem)
+   editPackingListItem(updatedItem)
       .then(data => console.log(data))
       .catch(() => console.error)
+  }
+
+  const updateItemQuantity = (event) => {
+    setItemQuantity(event.target.value)
+    updateListItem() 
   }
   
   return (
@@ -48,9 +53,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
           min='0'
           onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
           value={itemQuantity}
-          onChange={(event) => {
-            setItemQuantity(event.target.value)
-          }}
+          onChange={updateItemQuantity}
         />
       </div>
       <div className='item-box'>

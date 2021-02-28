@@ -46,7 +46,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     if (Object.keys(packingList).length > 0) {
       return (
         <>
-          {window.scrollTo(0,0)}
+          {/* {window.scrollTo(0,0)} */}
           <header className='packing-list-header'>
             <h1>{tripDetails.title} 
               <BiPencil 
