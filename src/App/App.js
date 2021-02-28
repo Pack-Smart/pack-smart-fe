@@ -9,6 +9,7 @@ import HowItWorks from '../HowItWorks/HowItWorks'
 import PackingList from '../PackingList/PackingList'
 import Quiz from '../Quiz/Quiz'
 import SavedView from '../SavedView/SavedView'
+import App from './App.scss'
 
 const App = (props) => {
 
