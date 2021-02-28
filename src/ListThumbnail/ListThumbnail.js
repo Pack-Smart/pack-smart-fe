@@ -8,7 +8,6 @@ import { useEffect } from 'react'
 
 const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, deleteList }) => {
 
-
   let history = useHistory()
   const viewPackingList = () => {
     getSinglePackingList(listId)

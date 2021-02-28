@@ -41,3 +41,15 @@ export const deletePackingList = (listId) => {
   })
   .then(response => response.json())
 }
+
+export const editPackingListItem = (itemToUpdate) => {
+  console.log(itemToUpdate)
+  return fetch(`${endpoint}/api/v1/item_lists/update`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(itemToUpdate)
+  })
+  .then(response => response.json())
+}

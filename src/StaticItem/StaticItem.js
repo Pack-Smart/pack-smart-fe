@@ -1,10 +1,16 @@
 import './StaticItem.scss'
 import { connect } from 'react-redux'
+import { editPackingListItem } from '../apiCalls'
 import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
 import React, { useEffect, useState } from 'react'
 
 const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem, editItemQuantity }) => {
   const [itemQuantity, setItemQuantity] = useState(0)
+  
+  useEffect(() => {
+    editItemQuantity(category, item.name, itemQuantity)
+  }, [itemQuantity])
+
   const determineModalOpen = (category, name) => {
     if (verifyDeletion === true) {
       openModal(category, name)
@@ -12,11 +18,19 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
       deleteItem(category, item.name)
     }
   }
-  
-  useEffect(() => {
-    editItemQuantity(category, item.name, itemQuantity)
-  }, [itemQuantity])
-  
+
+  const updateListItem = () => {
+    const updatedItem = {
+      "data": {
+        "items": [{
+          id: item.id,
+          is_checked: item.is_checked,
+          quantity: item.quantity
+        }]
+      }
+    }
+  }
+
   return (
     <article className='static-item'>  
       <div className='quantity-container'>
@@ -45,8 +59,9 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
           aria-label='item checkbox'
           role='checkbox'
           onChange={() => {
-            toggleIsChecked(category, item.name, item.is_checked)} 
-          }
+            toggleIsChecked(category, item.name, item.is_checked)
+            updateListItem() 
+          }}
           checked={item.is_checked}
         />
       </div>
