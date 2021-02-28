@@ -24,7 +24,8 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   const [verifyDeletion, setVerifyDeletion] = useState(true)
   
   useEffect(() => {
-    Modal.setAppElement('body');
+    Modal.setAppElement('body')
+    window.scrollTo(0,0)
   }, [])
    
   const openModal = (category, name) => {
@@ -43,7 +44,6 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     if (Object.keys(packingList).length > 0) {
       return (
         <>
-          {window.scrollTo(0,0)}
           <header className='packing-list-header'>
             <h1>{tripDetails.title} 
               <BiPencil 
