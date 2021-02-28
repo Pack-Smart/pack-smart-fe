@@ -43,7 +43,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   }
 
   const editTripDetails = () => {
-
+    //to update the store, and make patch call
   }
   
   const verifyPackingList = () => {
@@ -56,7 +56,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
               <BiPencil 
                 className='edit-title' 
                 size={25}
-                onClick={editTripDetails}
+                onClick={() => setDetailsModalIsOpen(true)}
               />
             </h1>
             <h2>{tripDetails.destination}</h2>
@@ -144,7 +144,6 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
         >
           <UpdateDetailsModal
             setDetailsModalIsOpen={setDetailsModalIsOpen}
-            deleteItem={deleteItem}
             closeModal={closeModal}
             editTripDetails={editTripDetails}
           />
