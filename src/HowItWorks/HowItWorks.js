@@ -13,6 +13,7 @@ const HowItWorks = () => {
     return stepsToDisplay.map(step => {
       return(
         <Step 
+          key={step.stepNum}
           icon={step.icon}
           stepNum={step.stepNum}
           description={step.description}
@@ -23,7 +24,8 @@ const HowItWorks = () => {
   const generateReviews = () => {
     return reviews.map(review => {
       return(
-        <Review 
+        <Review
+          key={review.name} 
           review={review.customerReview}
           name={review.name}
           location={review.location}
