@@ -22,3 +22,18 @@
 .modal-button {
   @include button-primary(18px, 250px, 1.5%);
 }
+
+
+@media only screen and (max-width: 600px) {
+  .modal-buttons {
+    @include column-center;
+  }
+
+  .modal-button {
+    margin: 3%;
+  }
+
+  .modal-title {
+    text-align: center;
+  }
+}
