@@ -31,7 +31,6 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
     }
     
    editPackingListItem(updatedItem)
-      .then(data => console.log(data))
       .catch(() => console.error)
   }
 
