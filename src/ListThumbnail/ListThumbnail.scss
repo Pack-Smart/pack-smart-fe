@@ -4,7 +4,6 @@
 .thumbnail-main {
   @include column-center;
   width: 20em;
-  max-height: 10em;
   margin: 20px;
   padding: 15px;
   background-color: $offwhite;
@@ -27,7 +26,8 @@
 .thumbnail-contents {
   @include column-center;
   width: 100%;
-
+  margin-bottom: 5%;
+  height: 80%;
 }
 
 
@@ -67,4 +67,9 @@
   padding: 1%;
   color: $offwhite;
   width: 8.5%;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    transition-duration: 0.4s;
+  }
 }
