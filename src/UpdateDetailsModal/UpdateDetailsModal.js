@@ -27,7 +27,6 @@ const UpdateDetailsModal = (props) => {
     const updatedTripDetails = compileTripDetails()
     
     patchTripDetails(props.packingList.tripDetails.listId, updatedTripDetails)
-    .then(data => console.log('patch data', data))
     .catch(() => console.error)
   }
   
