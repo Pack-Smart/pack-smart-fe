@@ -22,3 +22,8 @@ export const editItemQuantity = (category, name, quantity) => ({
   type: 'EDIT_ITEM_QUANTITY',
   payload: { category, name, quantity } 
 })
+
+export const editTripDetails = (title, destination, duration) => ({
+  type: 'EDIT_TRIP_DETAILS',
+  payload: { title, destination, duration }
+})

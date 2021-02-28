@@ -41,10 +41,6 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     setDeletionModalIsOpen(false)
     setDetailsModalIsOpen(false)
   }
-
-  const editTripDetails = () => {
-    //to update the store, and make patch call
-  }
   
   const verifyPackingList = () => {
     if (Object.keys(packingList).length > 0) {
@@ -145,7 +141,6 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
           <UpdateDetailsModal
             setDetailsModalIsOpen={setDetailsModalIsOpen}
             closeModal={closeModal}
-            editTripDetails={editTripDetails}
           />
       </Modal>
     </section> 

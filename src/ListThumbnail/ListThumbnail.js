@@ -17,6 +17,7 @@ const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, d
             title,
             destination,
             duration,
+            listId
           },
           categories:
             data.data.attributes.categories
