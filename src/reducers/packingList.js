@@ -52,7 +52,7 @@ export const packingList = (state = {}, action) => {
       const updatedTripDetails = {
         ...state,
         tripDetails: {
-          listId: state.packingList.tripDetails.listId,
+          listId: state.tripDetails.listId,
           ...action.payload
         }
       }

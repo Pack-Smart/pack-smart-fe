@@ -56,7 +56,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
               />
             </h1>
             <h2>{tripDetails.destination}</h2>
-            <h3>{tripDetails.number_of_days} {tripDetails.number_of_days > 1 ? 'days' : 'day'}</h3>
+            <h3>{tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</h3>
           </header>
             {createCategoryCards()}
           <button

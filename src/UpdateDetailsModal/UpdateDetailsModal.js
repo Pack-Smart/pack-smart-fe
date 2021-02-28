@@ -5,9 +5,9 @@ import { editTripDetails } from '../actions/actions'
 
 const UpdateDetailsModal = (props) => {
   const [tripDetails, setTripDetails] = useState({
-    title: '',
-    destination: '',
-    duration: ''
+    title: props.packingList.tripDetails.title,
+    destination: props.packingList.tripDetails.destination,
+    duration: props.packingList.tripDetails.duration
   })
 
   const handleChange = (event) => {
@@ -18,8 +18,10 @@ const UpdateDetailsModal = (props) => {
 
   const submitUpdate = (event) => {
     event.preventDefault()
-    props.closeModal()
     props.editTripDetails(tripDetails.title, tripDetails.destination, tripDetails.duration)
+    const { title, destination, duration} = tripDetails
+    props.closeModal()
+    props.editTripDetails(title, destination, duration)
   }
 
   return (
@@ -31,24 +33,27 @@ const UpdateDetailsModal = (props) => {
       <p>Trip Name</p>
       <input
         placeholder="i.e. Spring Break 20 08"
-        name="name"
+        name="title"
         onChange={handleChange}
         type="text"
+        value={tripDetails.title}
       />
       <p>Trip Destination</p>
       <input
-        placeholder="Cabo, Mexico"
+        placeholder="i.e. Cabo, Mexico"
         name="destination"
         onChange={handleChange}
         type="text"
+        value={tripDetails.destination}
       />
       <p>Number of Days</p>
       <input
-        placeholder="3"
+        placeholder="i.e. 3"
         min="1"
-        name="number_of_days"
+        name="duration"
         onChange={handleChange}
         type="number"
+        value={tripDetails.duration}
       />
       <button
         onClick={submitUpdate}
