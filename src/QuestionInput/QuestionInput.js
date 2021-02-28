@@ -12,6 +12,7 @@ const QuestionInput = (props) => {
           placeholder={placeholder}
           name={name}
           onChange={handleChange}
+          maxInput=''
         />}
         {type === "number" && 
           <section className='number-input'>

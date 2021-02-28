@@ -24,7 +24,7 @@ const SavedView = (props) => {
           deleteList={deleteList}
           />
           )
-        })
+        }).reverse()
       }
   }
 
