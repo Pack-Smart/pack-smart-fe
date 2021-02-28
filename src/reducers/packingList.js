@@ -48,6 +48,16 @@ export const packingList = (state = {}, action) => {
         }
       }
       return (updatedNewState)   
+    case 'EDIT_TRIP_DETAILS':
+      const updatedTripDetails = {
+        ...state,
+        tripDetails: {
+          listId: state.tripDetails.listId,
+          ...action.payload
+        }
+      }
+      return updatedTripDetails
+      
     default:
       return (state)
   }

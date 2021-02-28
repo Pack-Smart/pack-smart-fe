@@ -8,7 +8,6 @@ import { useEffect } from 'react'
 
 const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, deleteList }) => {
 
-
   let history = useHistory()
   const viewPackingList = () => {
     getSinglePackingList(listId)
@@ -18,6 +17,7 @@ const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, d
             title,
             destination,
             duration,
+            listId
           },
           categories:
             data.data.attributes.categories

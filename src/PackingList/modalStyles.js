@@ -1,4 +1,4 @@
-export const verifyDeletionStyles = {
+export const modalStructure = {
   content : {
     top                   : '50%',
     left                  : '50%',

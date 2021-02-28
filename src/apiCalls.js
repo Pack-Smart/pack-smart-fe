@@ -41,3 +41,25 @@ export const deletePackingList = (listId) => {
   })
   .then(response => response.json())
 }
+
+export const editPackingListItem = (itemToUpdate) => {
+  return fetch(`${endpoint}/api/v1/item_list/update`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(itemToUpdate)
+  })
+  .then(response => response.json())
+}
+
+export const patchTripDetails = (packingListId, updatedTripDetails) => {
+  return fetch(`${endpoint}/api/v1/packing_lists/${packingListId}`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updatedTripDetails)
+  })
+  .then(response => response.json())
+}
