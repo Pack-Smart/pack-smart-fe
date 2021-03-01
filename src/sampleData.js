@@ -59,8 +59,9 @@ export const mockState = {
   packingList: {
     tripDetails: {
       destination: 'Mexico',
-      number_of_days: '7',
-      title: 'Graduation Parrrtay'
+      duration: '7',
+      title: 'Graduation Parrrtay',
+      listId: "1"
     },
     categories: {
       'Accessories': [
