@@ -5,6 +5,7 @@
   @include column-center;
   background-color: $gray;
   padding: 5%;
+  text-align: center;
 }
 
 .update-trip-details-btn {
@@ -22,3 +23,9 @@
   @include delete-btn;
 }
 
+@media only screen and (max-width: 450px) {
+  .update-trip-details-btn {
+    width: 80%;
+    margin: 10% 0;
+  }
+}

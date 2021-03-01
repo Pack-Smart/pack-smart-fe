@@ -45,3 +45,9 @@
   @include button-secondary;
   background-color: $offwhite !important; 
 }
+
+@media only screen and (max-width: 450px) {
+  .trip-title-field input, .trip-destination-field input, .trip-name-field input{
+    width: 80%;
+  }
+}
