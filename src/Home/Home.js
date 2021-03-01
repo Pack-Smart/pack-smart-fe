@@ -19,8 +19,4 @@ const Home = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  setUser: userInfo => dispatch(setUser(userInfo))
-})
-
-export default connect(mapDispatchToProps, {setUser})(Home)
+export default Home
