@@ -89,17 +89,18 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-    return ({
+    return  ({
       data: {
         id: 0,
         type: 'survey',
         attributes: {
           gender: ['All', quizData.gender],
           weather: ['All', ...modifyWeatherData],
+          // child: ['%All%', ...child]
           tripDetails: {
             title: quizData.name,
             destination: quizData.destination,
-            number_of_days: quizData.number_of_days,
+            number_of_days: quizData.number_of_days, // TODO: change to duration when BE updates us!
           },
           categories: [
             'Accessories', 
