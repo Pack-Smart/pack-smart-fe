@@ -25,7 +25,7 @@ input[type=checkbox]
   -moz-transform: scale(2);
   -webkit-transform: scale(2); 
   -o-transform: scale(2); 
-  transform: scale(2);
+  transform: scale(1.8);
   padding: 10px;
 }
 
@@ -58,6 +58,15 @@ input[type=checkbox]
   .quantity-container, .delete {
     margin: 0 5%;
   }
+
+  input[type=checkbox] {
+    -ms-transform: scale(2);
+    -moz-transform: scale(2);
+    -webkit-transform: scale(2); 
+    -o-transform: scale(2); 
+    transform: scale(1.5);
+    padding: 10px;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -74,13 +83,12 @@ input[type=checkbox]
     width: 80%;
   }
 
-  input[type=checkbox]
-{
+  input[type=checkbox] {
   -ms-transform: scale(2);
   -moz-transform: scale(2);
   -webkit-transform: scale(2); 
   -o-transform: scale(2); 
   transform: scale(1.25);
   padding: 10px;
-}
+  }
 }

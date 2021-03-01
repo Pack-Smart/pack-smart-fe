@@ -2,11 +2,13 @@
 
 .modal-title {
   margin: 1em 1em 1.5em 1em;
+  font-size: 22px;
 }
 
 .checkbox-question {
   display: flex;
   margin: 2em 2em 0 0;
+  font-size: 14px;
 }
 
 .checkbox-text {
@@ -20,7 +22,7 @@
 }
 
 .modal-button {
-  @include button-primary(18px, 250px, 1.5%);
+  @include button-primary(15px, 200px, 1.5%);
 }
 
 @media only screen and (max-width: 600px) {
