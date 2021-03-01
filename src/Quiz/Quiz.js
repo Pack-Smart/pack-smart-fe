@@ -81,7 +81,7 @@ const Quiz = (props) => {
     const submissionData = compileSubmissionData()
     getPackingListData(submissionData)
       .then(data => props.setCurrentList(data.data.attributes))
-      .catch(error => console.log(error))
+      .catch(error => console.error)
     props.history.push('/packing-list')
   }
 

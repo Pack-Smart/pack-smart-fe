@@ -64,6 +64,7 @@ input[type=checkbox]
   .static-item {
     width: 100%;
   }
+
   .quantity-container {
     margin: 0 5%;
     width: 20%;
@@ -72,4 +73,14 @@ input[type=checkbox]
   .quantity-input {
     width: 80%;
   }
+
+  input[type=checkbox]
+{
+  -ms-transform: scale(2);
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2); 
+  -o-transform: scale(2); 
+  transform: scale(1.25);
+  padding: 10px;
+}
 }
