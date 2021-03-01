@@ -1,9 +1,12 @@
+import React, { useState } from 'react'
 import './StaticCategory.scss'
-import { BsPlusCircle } from 'react-icons/bs'
+import { FiPlusCircle } from 'react-icons/fi'
+import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
 
 const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
+  const [displayItems, setDisplayItems] = useState(false)
 
   const generateListItems = () => {
     let sortedItems = items.sort((a, b) => {
@@ -17,7 +20,7 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
           key={item.item_id} 
           item={item}
           category={catTitle}
-          quantity='Qty.' //TODO: Possible change when we change input style for quantity
+          quantity='Qty.'
           openModal={openModal}
           verifyDeletion={verifyDeletion}
         />
@@ -32,17 +35,24 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
     return category.icon
   }
 
+  const toggleListItems = () => {
+    setDisplayItems(!displayItems)
+  }
+
   return (
     <section className='category-container'>
         <h1 className='cat-title'>
           {generateCategoryIcon(catTitle)}
           <div className='edit-category-container'>
             {catTitle}
-            <button className='edit-category-btn'><BsPlusCircle size={20} /></button>
+            <button className='add-item-btn'><FiPlusCircle size={20} /></button>
           </div>
         </h1>
       <article className='list-items'>
-        {generateListItems()}
+        {displayItems === true && generateListItems()}
+      </article>
+      <article className='arrow-container'>
+        <button className='edit-category-btn' onClick={toggleListItems}>{displayItems === true ? <FaChevronUp size={25} /> : <FaChevronDown size={25} />}</button>
       </article>
     </section>
   )
