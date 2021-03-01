@@ -79,4 +79,18 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction)
   })
 
+  it('should have a type of EDIT_TRIP_DETAILS', () => {
+    const title = 'Commissary Ridge Yurt Trip'
+    const destination = 'Idaho'
+    const duration = '3'
+
+    const expectedAction = {
+      type:'EDIT_TRIP_DETAILS',
+      payload: { title, destination, duration }
+    }
+
+    const result = actions.editTripDetails(title, destination, duration)
+
+    expect(result).toEqual(expectedAction)
+  })
 })
