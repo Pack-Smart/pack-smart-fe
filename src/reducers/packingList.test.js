@@ -109,28 +109,28 @@ describe('packing list updates', () => {
     expect(quantityState).toEqual(updatedQuantityState)
   })
 
-  // it('should delete an item', () => {
-  //   const category = 'Accessories'
-  //   const name = 'Hats'
+  it('should delete an item', () => {
+    const category = 'Accessories'
+    const name = 'Hats'
 
-  //   const sampleDeleteCategory = [
-  //     {name: 'Belts', quantity: 1, "item_id": 2, is_checked: false},
-  //     {name: 'Purses', quantity: 0, "item_id": 3, is_checked: true},
-  //   ]
+    const sampleDeleteCategory = [
+      {name: 'Belts', quantity: 1, "item_id": 2, is_checked: false},
+      {name: 'Purses', quantity: 0, "item_id": 3, is_checked: true},
+    ]
 
-  //   const updatedDeleteItemState = {
-  //     ...state.packingList,
-  //     categories: {
-  //       ...state.packingList.categories,
-  //       [category]: sampleDeleteCategory
-  //     }
-  //   }
+    const updatedDeleteItemState = {
+      ...state,
+      categories: {
+        ...state.categories,
+        [category]: sampleDeleteCategory
+      }
+    }
 
-  //   expect(state).not.toEqual(updatedDeleteItemState)
+    expect(state).not.toEqual(updatedDeleteItemState)
     
-  //   let deleteAction = actions.deleteItem(category, name)
-  //   let deleteState = packingList(state.packingList, deleteAction)
+    let deleteAction = actions.deleteItem(category, name)
+    let deleteState = packingList(state, deleteAction)
 
-  //   expect(deleteState).toEqual(updatedDeleteItemState)
-  // })
+    expect(deleteState).toEqual(updatedDeleteItemState)
+  })
 })
