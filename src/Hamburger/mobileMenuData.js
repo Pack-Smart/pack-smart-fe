@@ -1,4 +1,4 @@
-import { TiHomeOutline } from 'react-icons/Ti'
+import { TiHomeOutline } from 'react-icons/ti'
 import { BiBookmarkPlus } from 'react-icons/bi'
 import { GiGears } from 'react-icons/gi'
 import { RiFileListLine } from 'react-icons/ri'
