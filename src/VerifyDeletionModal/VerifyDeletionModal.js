@@ -1,12 +1,18 @@
 import './VerifyDeletionModal.scss'
+import { deleteSingleItem } from '../apiCalls'
 
-const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete }) => {
+const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete, itemIdToDelete }) => {
+  const compileDeletionData = () => ({ data: { item: { id: itemIdToDelete } }})
+
   return (
     <>
       <h1 className='modal-title'>Are you sure you want to delete this item from your packing list?</h1>
       <div className='modal-buttons'>
         <button className='modal-button' onClick={() => {
           deleteItem(categoryToDelete, itemToDelete)
+          const deletionData = compileDeletionData()
+          deleteSingleItem(deletionData)
+            .catch(() => console.error)
           closeModal()
           }}>DELETE ITEM</button>
         <button className='modal-button' onClick={() => closeModal()}>

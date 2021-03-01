@@ -20,7 +20,7 @@ const SavedView = (props) => {
           listId={list.list_id}
           title={list.title}
           destination={list.destination}
-          duration={list.num_of_days}
+          duration={list.num_of_days} // TODO: change to duration when BE updates us!
           deleteList={deleteList}
           />
           )
