@@ -1,5 +1,13 @@
 @import '../mixins.scss';
+@import '../variables.scss';
 
 .updateDetailsModal {
+  @include column-center;
+  background-color: $gray;
+  padding: 5%;
+}
 
+.update-trip-details-btn {
+  @include button-primary(20px, 200px, 1.5%);
+  margin: 5%;
 }

@@ -60,32 +60,8 @@ const UpdateDetailsModal = (props) => {
       >x</button>
       <h1>Update your Trip Details</h1>
       {displayQuestionInputs()}
-      {/* <p>Trip Name</p>
-      <input
-        placeholder="i.e. Spring Break 20 08"
-        name="title"
-        onChange={handleChange}
-        type="text"
-        value={tripDetails.title}
-      />
-      <p>Trip Destination</p>
-      <input
-        placeholder="i.e. Cabo, Mexico"
-        name="destination"
-        onChange={handleChange}
-        type="text"
-        value={tripDetails.destination}
-      />
-      <p>Number of Days</p>
-      <input
-        placeholder="i.e. 3"
-        min="1"
-        name="duration"
-        onChange={handleChange}
-        type="number"
-        value={tripDetails.duration}
-      /> */}
       <button
+        className="update-trip-details-btn"
         onClick={submitUpdate}
       >Save</button>
     </form>

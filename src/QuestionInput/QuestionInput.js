@@ -1,7 +1,7 @@
 import './QuestionInput.scss'
 
 const QuestionInput = (props) => {
-  const { question, type, placeholder, name } = props.questionDetails
+  const { question, type, placeholder, name, value } = props.questionDetails
   const { handleChange } = props
 
   return (
@@ -23,6 +23,7 @@ const QuestionInput = (props) => {
               onChange={handleChange}
               min='1'
               max='99'
+              value={[value]}
               onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
             />
           </section>

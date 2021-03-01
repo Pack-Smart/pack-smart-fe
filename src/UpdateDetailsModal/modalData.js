@@ -5,7 +5,6 @@ const modalData = [
     name: "title",
     placeholder: "i.e. Yurt Trip",
     type: "text",
-    value: "tripDetails.title"
   },
   {
     id: 2,
@@ -13,7 +12,6 @@ const modalData = [
     name: "destination",
     placeholder: "i.e. Grand Targhee",
     type: "text",
-    value: "tripDetails.destination"
   },
   {
     id: 3,
@@ -21,7 +19,6 @@ const modalData = [
     name: "duration",
     placeholder: "i.e. 3",
     type: "number",
-    value: "tripDetails.duration"
   }
 ]
 
