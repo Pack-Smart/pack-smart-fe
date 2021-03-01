@@ -1,6 +1,6 @@
 import './StaticItem.scss'
 import { connect } from 'react-redux'
-import { editPackingListItem } from '../apiCalls'
+import { editPackingListItem } from '../apiCalls/apiCalls'
 import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
 import { HiPlus, HiMinusSm } from 'react-icons/hi'
 import React, { useEffect, useState } from 'react'

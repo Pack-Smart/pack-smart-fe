@@ -13,7 +13,7 @@ import Modal from 'react-modal'
 import UpdateDetailsModal from '../UpdateDetailsModal/UpdateDetailsModal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { saveNewPackingList, deleteSingleItem } from '../apiCalls'
+import { saveNewPackingList, deleteSingleItem } from '../apiCalls/apiCalls'
 import { useHistory } from 'react-router-dom'
 
 const PackingList = ({ packingList, deleteItem, userInfo }) => {

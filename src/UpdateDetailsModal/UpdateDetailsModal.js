@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import './UpdateDetailsModal.scss'
 import React, { useState } from 'react'
 import { editTripDetails } from '../actions/actions'
-import { patchTripDetails } from '../apiCalls'
+import { patchTripDetails } from '../apiCalls/apiCalls'
 import { modalData } from './modalData.js'
 import QuestionInput from '../QuestionInput/QuestionInput'
 
