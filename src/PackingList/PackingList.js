@@ -1,66 +1,69 @@
-import React, { useState, useEffect } from 'react'
-import StaticCategory from '../StaticCategory/StaticCategory'
-import Error from '../Error/Error'
-import { BiPencil } from 'react-icons/bi'
-import './PackingList.scss'
-import { deleteItem } from '../actions/actions'
 import { connect } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+
+// UI Imports
+import './PackingList.scss'
+import { BiPencil } from 'react-icons/bi'
+import { modalStructure } from './modalStyles'
+
+// App Imports
+import { deleteItem } from '../actions/actions'
+import Error from '../Error/Error'
 import Modal from 'react-modal'
+import UpdateDetailsModal from '../UpdateDetailsModal/UpdateDetailsModal'
+import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { verifyDeletionStyles } from './modalStyles'
-import { Link } from 'react-router-dom'
 import { saveNewPackingList } from '../apiCalls'
+import { useHistory } from 'react-router-dom'
 
-const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
-
+const PackingList = ({ packingList, deleteItem, userInfo }) => {
+  let history = useHistory()
   const { tripDetails, categories } = packingList
-  const [modalIsOpen,setIsOpen] = useState(false);
+  const [deletionModalIsOpen, setDeletionModalIsOpen] = useState(false)
+  const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
-  const [userId, setUserId] = useState(null)
   
   useEffect(() => {
-    Modal.setAppElement('body');
-    setUserId(userInfo.userId)
+    Modal.setAppElement('body')
+    window.scrollTo(0,0)
   }, [])
    
   const openModal = (category, name) => {
     setCategoryToDelete(category)
     setItemToDelete(name)
     if(verifyDeletion === true) {
-      setIsOpen(true);
-    } 
+      setDeletionModalIsOpen(true);
+    }
   }
 
-  const closeModal = () =>{
-    setIsOpen(false);
+  const closeModal = () => {
+    setDeletionModalIsOpen(false)
+    setDetailsModalIsOpen(false)
   }
   
   const verifyPackingList = () => {
-    if (packingList.categories) {
+    if (Object.keys(packingList).length > 0) {
       return (
         <>
-          {window.scrollTo(0,0)}
           <header className='packing-list-header'>
             <h1>{tripDetails.title} 
               <BiPencil 
                 className='edit-title' 
                 size={25}
+                onClick={() => setDetailsModalIsOpen(true)}
               />
             </h1>
             <h2>{tripDetails.destination}</h2>
-            <h3>{tripDetails.number_of_days} {tripDetails.number_of_days > 1 ? 'days' : 'day'}</h3>
+            <h3>{tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</h3>
           </header>
-          <section>
             {createCategoryCards()}
-          </section>
-          <Link
+          <button
             className='save-list-button'
-            onClick={saveNewPackingList} 
-            to="/saved-packing-lists" 
+            onClick={submitNewPackingList} 
           >Save List
-          </Link>
+          </button>
         </>
       )
     } else {
@@ -88,20 +91,27 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
     })
   }
 
-  const saveNewPackingList = () => {
+  const submitNewPackingList = () => {
     let listToSave = compilePackingList()
-    console.log(listToSave)
-    history.push('/')
-    // saveNewPackingList(listToSave)
-    // and thennnnnnnnnn
+    saveNewPackingList(listToSave)
+      .then(() => history.push('/saved-packing-lists'))
+      .catch(() => console.error)
   }
 
   const compilePackingList = () => {
     const items = Object.values(packingList.categories).flat()
+    const cleanedItems = items.map(item => {
+      return {
+        item_id: item.item_id, 
+        quantity: item.quantity, 
+        is_checked: item.is_checked}
+    })
     return ({
-      userId: userId,
-      tripDetails,
-      items
+      data: {
+        userID: userInfo.userId,
+        tripDetails,
+        items: cleanedItems
+      }
     })
   }
 
@@ -109,9 +119,9 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
     <section className='packing-list-main'>
       {verifyPackingList()}
       <Modal
-          isOpen={modalIsOpen}
+          isOpen={deletionModalIsOpen}
           onRequestClose={closeModal}
-          style={verifyDeletionStyles}
+          style={modalStructure}
           contentLabel="Delete Item Modal"
         >
           <VerifyDeletionModal 
@@ -120,6 +130,17 @@ const PackingList = ({ packingList, deleteItem, history, userInfo }) => {
             closeModal={closeModal}
             categoryToDelete={categoryToDelete}
             itemToDelete={itemToDelete}
+          />
+      </Modal>
+      <Modal
+          isOpen={detailsModalIsOpen}
+          onRequestClose={closeModal}
+          style={modalStructure}
+          contentLabel="Update Trip Details Modal"
+        >
+          <UpdateDetailsModal
+            setDetailsModalIsOpen={setDetailsModalIsOpen}
+            closeModal={closeModal}
           />
       </Modal>
     </section> 

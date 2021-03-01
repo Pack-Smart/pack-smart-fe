@@ -1,16 +1,24 @@
 @import '../mixins.scss';
 
-.trip-name-field {
+.trip-name-field, .trip-title-field {
   @include column-center;
   @include quiz-question;
 }
 
-.trip-destination-field, .trip-number_of_days-field {
+.text-input-question {
+  @include multiple-choice-question;
+}
+
+.question-input-question {
+  @include multiple-choice-question;
+}
+
+.trip-destination-field, .trip-number_of_days-field, .trip-duration-field {
   @include row-center;
   @include quiz-question;
 }
 
-.trip-name-field input {
+.trip-name-field input, .trip-title-field input {
   @include input-line(300px)
 }
 
@@ -18,6 +26,28 @@
   @include input-line(300px);
 }
 
-.trip-number_of_days-field input {
+.trip-number_of_days-field input, .trip-duration-field input {
   @include input-line(60px);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.number-input {
+  margin-top: 8px;
+  margin-right: 8px;
+  display: flex;
+}
+
+.unselected-answer-button {
+  @include button-secondary;
+  background-color: $offwhite !important; 
+}
+
+@media only screen and (max-width: 450px) {
+  .trip-title-field input, .trip-destination-field input, .trip-name-field input{
+    width: 80%;
+  }
 }

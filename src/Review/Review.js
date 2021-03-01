@@ -9,11 +9,11 @@ const Review = ({ review, name, location}) => {
         <p>{name}</p>
         <p>{location}</p>
         <div className='star-rating'>
-          <AiFillStar size={30}/>
-          <AiFillStar size={30}/>
-          <AiFillStar size={30}/>
-          <AiFillStar size={30}/>
-          <AiFillStar size={30}/>
+          <AiFillStar size={25}/>
+          <AiFillStar size={25}/>
+          <AiFillStar size={25}/>
+          <AiFillStar size={25}/>
+          <AiFillStar size={25}/>
         </div>
       </div>
     )

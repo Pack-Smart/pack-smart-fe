@@ -1,0 +1,26 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.step {
+  @include column-center;
+  width: 200px;
+  padding: 1em .75em 1em .75em;
+  margin: 0 1.5em;
+}
+
+.image-title-wrapper {
+  @include column-center;
+}
+
+.step-title {
+  font-size: 1.75em;
+  margin: .75em;
+  margin: 0.4em 0 .2em 0;
+}
+
+.step-description {
+  text-align: center;
+  font-size: 1em;
+  margin: .2em 0 1em 0;
+}
+

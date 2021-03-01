@@ -1,7 +1,7 @@
+import './StaticCategory.scss'
+import { BsPlusCircle } from 'react-icons/bs'
 import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
-import { BsPlusCircle } from 'react-icons/bs'
-import './StaticCategory.scss'
 
 const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
 

@@ -1,0 +1,29 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.updateDetailsModal {
+  @include column-center;
+  background-color: $gray;
+  padding: 5%;
+  text-align: center;
+}
+
+.update-trip-details-btn {
+  @include button-primary(20px, 200px, 1.5%);
+  margin: 5%;
+}
+
+.close-modal-btn-container {
+  @include row-end;
+}
+
+.close-modal-btn {
+  @include delete-btn;
+}
+
+@media only screen and (max-width: 450px) {
+  .update-trip-details-btn {
+    width: 80%;
+    margin: 10% 0;
+  }
+}

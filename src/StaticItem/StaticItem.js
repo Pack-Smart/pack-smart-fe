@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
-import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
 import './StaticItem.scss'
+import { connect } from 'react-redux'
+import { editPackingListItem } from '../apiCalls'
+import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
+import React, { useEffect, useState } from 'react'
 
 const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem, editItemQuantity }) => {
-  const [itemQuantity, setItemQuantity] = useState(0)
+  const [itemQuantity, setItemQuantity] = useState(item.quantity)
+  
+  useEffect(() => {
+    editItemQuantity(category, item.name, itemQuantity)
+  }, [itemQuantity])
+
   const determineModalOpen = (category, name) => {
     if (verifyDeletion === true) {
       openModal(category, name)
@@ -12,10 +18,26 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
       deleteItem(category, item.name)
     }
   }
-  
-  useEffect(() => {
-    editItemQuantity(category, item.name, itemQuantity)
-  }, [itemQuantity])
+
+  const updateListItem = (newQuantity) => {
+    const updatedItem = {
+      "data": {
+        "items": [{
+          id: item.id,
+          is_checked: item.is_checked,
+          quantity: newQuantity
+        }]
+      }
+    }
+    
+   editPackingListItem(updatedItem)
+      .catch(() => console.error)
+  }
+
+  const updateItemQuantity = (event) => {
+    setItemQuantity(event.target.value)
+    updateListItem(event.target.value)
+  }
   
   return (
     <article className='static-item'>  
@@ -30,9 +52,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
           min='0'
           onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
           value={itemQuantity}
-          onChange={(event) => {
-            setItemQuantity(event.target.value)
-          }}
+          onChange={updateItemQuantity}
         />
       </div>
       <div className='item-box'>
@@ -45,8 +65,9 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
           aria-label='item checkbox'
           role='checkbox'
           onChange={() => {
-            toggleIsChecked(category, item.name, item.is_checked)} 
-          }
+            toggleIsChecked(category, item.name, item.is_checked)
+            updateListItem() 
+          }}
           checked={item.is_checked}
         />
       </div>

@@ -4,33 +4,34 @@
 .how-it-works-container {
   background: url('./background.png') no-repeat fixed center;
   background-size: cover;
+  text-align: center;
 }
 
 .how-it-works-title {
   @include column-center;
-  margin-top: 0;
   padding-top: 1em;
-  font-size: 3em;
+  font-size: 2.3em;
   font-weight: 300;
+  margin: 0em 2em .75em 2em;
 }
 
 .steps-container {
   display: flex;
-  justify-content: space-around;
-  margin: 6em 2em 4em 2em;
+  justify-content: center;
+  margin: 4.5em 2em 2em 2em;
   flex-wrap: wrap;
 }
 
-.step {
+.steps-1and2 {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.step-description {
-  font-size: 1.2em;
+.steps-3and4 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .reviews-container {
@@ -44,20 +45,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 300px;
+  max-width: 225px;
   border: solid $text-color 0.2em;
   border-radius: 1em;
   padding: 1.75em;
-  margin: 3em;
+  margin: 2em;
   box-shadow: 1px 3px 12px black;
   background-color: $offwhite;
+  font-size: 0.75em;
 }
 
 .star-rating {
   display: flex;
-}
-
-.step-title {
-  font-size: 2em;
-  margin: 1em;
 }

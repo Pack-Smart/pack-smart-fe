@@ -5,6 +5,7 @@
   background-color: $blue !important;
 }
 
+
 .trip-gender-field {
   @include row-center;
   @include quiz-question;
@@ -15,6 +16,7 @@
   @include button-quiz-answer;
   align-self: center;
   margin: 2%;
+  width: 120px;
 }
 
 .trip-weather-field button, .trip-categories-field button {
@@ -38,6 +40,11 @@
   margin-bottom: 0;
 }
 
+.multiple-choice-question {
+  @include multiple-choice-question;
+  text-align: center;
+}
+
 .weather-answer-btns, .categories-answer-btns {
   display: flex;
   justify-content: center;
@@ -47,10 +54,34 @@
 
 .gender-answer-btns {
   display: flex;
-  margin: 1%;
+  margin: 1% 3% 1% 3%;
   align-self: center;
 }
 
 .quiz-answer-btns button {
   @include button-quiz-answer;
+}
+
+// MEDIA QUERIES ----------------------------------------
+
+@media only screen and (max-width: 1025px) {
+  .weather-answer-btns, .categories-answer-btns {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .weather-answer-btns, .categories-answer-btns {
+    width: 75%;
+  }
+
+  .multiple-choice-question {
+    margin: 3.79;
+  }
+
+  .gender-answer-btns {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

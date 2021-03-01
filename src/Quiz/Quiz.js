@@ -1,11 +1,15 @@
+import { connect } from 'react-redux'
 import React, { useState } from 'react'
+
+// UI Imports
+import './Quiz.scss'
+
+// App Imports
+import { getPackingListData } from '../apiCalls.js'
+import { quizDetails } from './quizDetails.js'
+import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
-import { quizDetails } from './quizDetails.js'
-import './Quiz.scss'
-import { getPackingListData } from '../apiCalls.js'
-import { connect } from 'react-redux'
-import { setCurrentList } from '../actions/actions'
 
 const Quiz = (props) => {
   const [quizData, setQuizData] = useState({
@@ -150,21 +154,25 @@ const Quiz = (props) => {
   }
 
   return (
-    <form className="quiz-container">
-      {error && displayErrorMessage()}
-      <section className="quiz-form">
-        <div className='quiz-header'>
-          <h1>Trip Details</h1>
-          <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
-        </div>
-        {generateQuizQuestions()}  
-        <button
-          className="quiz-submit-btn"
-          onClick={validateForm}
-        >Get My Packing List!
-        </button>
-      </section>
-    </form>
+    <section className='quiz-wrapper'>
+      <div className='quiz-aside'></div>
+      <form className="quiz-container">
+        {error && displayErrorMessage()}
+        <section className="quiz-form">
+          <div className='quiz-header'>
+            <h1>Trip Details</h1>
+            <p className="quizIntro">Answer the required questions below to get your custom packing list.</p>
+          </div>
+          {generateQuizQuestions()}  
+          <button
+            className="quiz-submit-btn"
+            onClick={validateForm}
+          >Get My Packing List!
+          </button>
+        </section>
+      </form>
+      <div className='quiz-aside'></div>
+    </section>
   )
 }
 

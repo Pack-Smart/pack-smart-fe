@@ -27,7 +27,7 @@ const quizDetails = [
     type: 'MultipleChoice',
     category: 'gender',
     subtext: '',
-    buttons: ['Female', 'Male', 'All']
+    buttons: ['Female Typical', 'Male Typical', 'All']
   }, 
   { 
     id: 5,
