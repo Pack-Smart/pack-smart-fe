@@ -1,8 +1,8 @@
 @import '../mixins.scss';
 
 .input-container {
-  @include column-center;
-  justify-content: center;
+  @include row-center;
+  align-items: center;
   margin-right: 2em;
   margin-left: 0.75em;
 }
@@ -16,7 +16,7 @@
 }
 
 .item-box {
-  width: 50%;
+  width: 45%;
 }
 
 input[type=checkbox]
@@ -33,7 +33,7 @@ input[type=checkbox]
   @extend .input-container;
   margin-right: 1.5em;
   margin-left: 0;
-  width: 35px;
+  width: 80px;
 }
 
 .delete {
@@ -41,12 +41,18 @@ input[type=checkbox]
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 50%;
 }
 
 .quantity-input {
-  width: 100%;
-  height: 50%;
+  width: 85%;
+  height: 1.75em;
   font-size: 1em;
+  margin: 0 0.25em;
+}
+
+.plus-minus-btn:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 900px) {
