@@ -9,6 +9,9 @@ const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, catego
       deleteItem(itemToDelete)
     } else {
       deleteItem(categoryToDelete, itemToDelete)
+      const deletionData = compileDeletionData()
+      deleteSingleItem(deletionData)
+        .catch(() => console.error)
     }
   }
 
@@ -26,9 +29,6 @@ const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, catego
       <div className='modal-buttons'>
         <button className='modal-button' onClick={() => {
           determineItemToDelete()
-          const deletionData = compileDeletionData()
-          deleteSingleItem(deletionData)
-            .catch(() => console.error)
           closeModal()
           }}>DELETE</button>
         <button className='modal-button' onClick={() => closeModal()}>
