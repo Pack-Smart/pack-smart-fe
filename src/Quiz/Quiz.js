@@ -179,4 +179,4 @@ const mapDispatchToProps = (dispatch) => ({
   setCurrentList: data => dispatch(setCurrentList(data))
 })
 
-export default connect(mapDispatchToProps, {setCurrentList})(Quiz)
+export default connect(null, mapDispatchToProps)(Quiz)

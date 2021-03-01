@@ -55,4 +55,4 @@ const mapDispatchToProps = (dispatch) => ({
   setCurrentList: data => dispatch(setCurrentList(data))
 })
 
-export default connect(mapDispatchToProps, {setCurrentList})(ListThumbnail)
+export default connect(null, mapDispatchToProps)(ListThumbnail)

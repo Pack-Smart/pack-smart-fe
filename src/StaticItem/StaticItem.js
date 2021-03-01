@@ -90,4 +90,4 @@ const mapDispatchToProps = (dispatch) => ({
   editItemQuantity: (category, name, quantity) => dispatch(editItemQuantity(category, name, quantity))
 })
 
-export default connect(mapDispatchToProps, { toggleIsChecked, deleteItem, editItemQuantity })(StaticItem)
+export default connect(null, mapDispatchToProps)(StaticItem)
