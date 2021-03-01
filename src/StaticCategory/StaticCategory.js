@@ -20,7 +20,7 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
           key={item.item_id} 
           item={item}
           category={catTitle}
-          quantity='Qty.' //TODO: Possible change when we change input style for quantity
+          quantity='Qty.'
           openModal={openModal}
           verifyDeletion={verifyDeletion}
         />
