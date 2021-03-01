@@ -20,14 +20,9 @@
   font-size: 20px;
 }
 
-<<<<<<< HEAD
 .trip-name-field input {
   @include input-line(300px);
   font-size: 14px;
-=======
-.trip-name-field input, .trip-title-field input {
-  @include input-line(300px)
->>>>>>> main
 }
 
 .trip-destination-field input {
