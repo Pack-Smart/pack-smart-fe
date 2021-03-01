@@ -2,15 +2,7 @@ import './VerifyDeletionModal.scss'
 import { deleteSingleItem } from '../apiCalls'
 
 const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete, itemIdToDelete }) => {
-  const compileDeletionData = () => {
-    return {
-      data: {
-          item: {
-              id: itemIdToDelete
-          }
-      }
-    }
-  }
+  const compileDeletionData = () => ({ data: { item: { id: itemIdToDelete } }})
 
   return (
     <>
