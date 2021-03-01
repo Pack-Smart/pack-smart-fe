@@ -1,6 +1,6 @@
 @import '../mixins.scss';
 
-.trip-name-field {
+.trip-name-field, .trip-title-field {
   @include column-center;
   @include quiz-question;
 }
@@ -14,7 +14,7 @@
   font-size: 20px;
 }
 
-.trip-destination-field, .trip-number_of_days-field {
+.trip-destination-field, .trip-number_of_days-field, .trip-duration-field {
   @include row-center;
   @include quiz-question;
   font-size: 20px;
@@ -30,7 +30,7 @@
   font-size: 14px;
 }
 
-.trip-number_of_days-field input {
+.trip-number_of_days-field input, .trip-duration-field input {
   @include input-line(60px);
   font-size: 14px;
 }
@@ -49,6 +49,10 @@
 .unselected-answer-button {
   @include button-secondary;
   background-color: $offwhite !important; 
-  // The color property of the button-quiz-answer is overriding 
-  // the color of the seconardy - if anyone can untangle this... SOS
+}
+
+@media only screen and (max-width: 450px) {
+  .trip-title-field input, .trip-destination-field input, .trip-name-field input{
+    width: 80%;
+  }
 }
