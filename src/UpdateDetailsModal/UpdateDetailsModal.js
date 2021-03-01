@@ -3,6 +3,8 @@ import './UpdateDetailsModal.scss'
 import React, { useState } from 'react'
 import { editTripDetails } from '../actions/actions'
 import { patchTripDetails } from '../apiCalls'
+import { modalData } from './modalData.js'
+import QuestionInput from '../QuestionInput/QuestionInput'
 
 const UpdateDetailsModal = (props) => {
   const [tripDetails, setTripDetails] = useState({
@@ -38,38 +40,31 @@ const UpdateDetailsModal = (props) => {
     })
   }
 
+  const displayQuestionInputs = () => {
+    return modalData.map(question => {
+      return (
+        <QuestionInput
+          key={question.id}
+          questionDetails={question}
+          handleChange={handleChange}
+          value={tripDetails[question.name]}
+        />
+      )
+    })
+  }
+
   return (
     <form className="updateDetailsModal">
-      <button
-        onClick={props.closeModal}
-      >x</button>
+        <div className="close-modal-btn-container">
+          <button
+          onClick={props.closeModal}
+          className="close-modal-btn"
+        >x</button>
+      </div>
       <h1>Update your Trip Details</h1>
-      <p>Trip Name</p>
-      <input
-        placeholder="i.e. Spring Break 20 08"
-        name="title"
-        onChange={handleChange}
-        type="text"
-        value={tripDetails.title}
-      />
-      <p>Trip Destination</p>
-      <input
-        placeholder="i.e. Cabo, Mexico"
-        name="destination"
-        onChange={handleChange}
-        type="text"
-        value={tripDetails.destination}
-      />
-      <p>Number of Days</p>
-      <input
-        placeholder="i.e. 3"
-        min="1"
-        name="duration"
-        onChange={handleChange}
-        type="number"
-        value={tripDetails.duration}
-      />
+      {displayQuestionInputs()}
       <button
+        className="update-trip-details-btn"
         onClick={submitUpdate}
       >Save</button>
     </form>
