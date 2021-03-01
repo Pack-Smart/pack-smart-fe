@@ -145,7 +145,6 @@ const Quiz = (props) => {
   }
 
   const displayErrorMessage = () => {
-    console.log('error mesage')
     window.scrollTo(0,0) 
     return(
     <h3 className="invalid-message">
