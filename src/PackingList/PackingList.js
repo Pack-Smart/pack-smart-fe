@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 // UI Imports
 import './PackingList.scss'
 import { BiPencil } from 'react-icons/bi'
-import { modalStructure } from './modalStyles'
+import { modalStructure } from '../VerifyDeletionModal/modalStyles'
 
 // App Imports
 import { deleteItem } from '../actions/actions'
