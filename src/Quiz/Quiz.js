@@ -81,7 +81,7 @@ const Quiz = (props) => {
     const submissionData = compileSubmissionData()
     getPackingListData(submissionData)
       .then(data => props.setCurrentList(data.data.attributes))
-      .catch(error => console.log(error))
+      .catch(error => console.error)
     props.history.push('/packing-list')
   }
 
@@ -96,11 +96,10 @@ const Quiz = (props) => {
         attributes: {
           gender: ['All', quizData.gender],
           weather: ['All', ...modifyWeatherData],
-          // child: ['%All%', ...child]
           tripDetails: {
             title: quizData.name,
             destination: quizData.destination,
-            number_of_days: quizData.number_of_days, // TODO: change to duration when BE updates us!
+            duration: quizData.number_of_days,
           },
           categories: [
             'Accessories', 

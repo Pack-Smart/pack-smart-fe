@@ -2,7 +2,7 @@ import './Home.scss'
 import { Link } from 'react-router-dom'
 import lady from './lady.png'
 
-const Home = (props) => {
+const Home = () => {
   return(
     <div className='home-container'>
       <section className='home-aside'></section>

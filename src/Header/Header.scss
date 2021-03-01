@@ -40,7 +40,7 @@
   flex-direction: flex-start;
   height: 80px;
   margin: 2%;
-  width: 100%;
+  width: 70px;
   text-decoration: none;
   &:hover {
     transform: scale(1.02);
@@ -49,22 +49,17 @@
 }
 
 .header-btn {
-  @include button-primary(large, 175px, .75%);
-  height: 20px;
-  margin: 2%;
+  @include button-primary(14px, 150px, .75%);
+  height: 18px;
+  margin: 1.75%;
   align-self: center;
-  font-size: medium;
 }
 
 .mobile {
   display: none;
 }
 
-@media only screen and (max-width: 1025px) {
-
-}
-
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .header-btn {
     display: none;
   }

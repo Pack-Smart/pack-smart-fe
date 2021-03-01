@@ -31,12 +31,12 @@
 }
 
 .start-button {
-  @include button-primary(x-large, 250px, 1.5%);
+  @include button-primary(large, 225px, 1.5%);
   width: 250px;
 }
 
 img {
-  margin: 5%;
+  margin: 6%;
   height: 300px;
 }
 

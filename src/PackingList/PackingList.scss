@@ -8,11 +8,22 @@
 
 .packing-list-header {
   @include column-center;
+  font-size: 18px;
+}
+
+.packing-list-details {
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 .save-list-button {
   @include button-primary(medium, 175px, .75%);
   margin: 3em;
+}
+
+.save-list-button-top {
+  @include button-primary(medium, 175px, .75%);
+  margin: 1.5em;
 }
 
 .edit-title {
