@@ -1,6 +1,7 @@
 import './Hamburger.scss'
 import { BsBookmarkPlus } from 'react-icons/bs'
 import { GiGears } from 'react-icons/gi'
+import { RiFileListLine } from 'react-icons/ri'
 import { slide as Menu } from 'react-burger-menu'
 import React, { Component } from 'react'
 class Hamburger extends Component {
@@ -26,6 +27,19 @@ class Hamburger extends Component {
         isOpen={this.state.menuOpen}
         onStateChange={(state) => this.handleStateChange(state)}
       >
+        <a 
+          id="quiz" 
+          className="menu-item" 
+          href="/packing-quiz"
+          onClick={() => this.closeMenu()}
+        >
+          <RiFileListLine 
+            size={25} 
+            className='burger-icon'
+            color='#2d3045'
+          />
+            Start New List
+        </a>
         <a 
           id="home" 
           className="menu-item" 
