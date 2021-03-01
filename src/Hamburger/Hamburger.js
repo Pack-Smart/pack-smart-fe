@@ -1,5 +1,5 @@
 import './Hamburger.scss'
-import { BsBookmarkPlus } from 'react-icons/bs'
+import { BiBookmarkPlus } from 'react-icons/bi'
 import { GiGears } from 'react-icons/gi'
 import { RiFileListLine } from 'react-icons/ri'
 import { slide as Menu } from 'react-burger-menu'
@@ -27,45 +27,51 @@ class Hamburger extends Component {
         isOpen={this.state.menuOpen}
         onStateChange={(state) => this.handleStateChange(state)}
       >
-        <a 
-          id="quiz" 
-          className="menu-item" 
-          href="/packing-quiz"
-          onClick={() => this.closeMenu()}
-        >
-          <RiFileListLine 
-            size={25} 
-            className='burger-icon'
-            color='#2d3045'
-          />
-            Start New List
-        </a>
-        <a 
-          id="home" 
-          className="menu-item" 
-          href="/how-it-works"
-          onClick={() => this.closeMenu()}
-        >
-          <GiGears 
-            size={25} 
-            className='burger-icon'
-            color='#2d3045'
-          />
-            How It Works
-        </a>
-        <a 
-          id="about" 
-          className="menu-item" 
-          href="/saved-packing-lists"
-          onClick={() => this.closeMenu()}
-        >
-          <BsBookmarkPlus
-            size={25}
-            className='burger-icon'
-            color='#2d3045'
-          />
-          Saved Lists
-        </a>
+        <h2>
+          <a 
+            id="quiz" 
+            className="menu-item" 
+            href="/packing-quiz"
+            onClick={() => this.closeMenu()}
+          >
+            <RiFileListLine 
+              size={25} 
+              className='burger-icon'
+              color='#2d3045'
+            />
+              Start New List
+          </a>
+        </h2>
+        <h2>
+          <a 
+            id="home" 
+            className="menu-item" 
+            href="/how-it-works"
+            onClick={() => this.closeMenu()}
+          >
+            <GiGears 
+              size={25} 
+              className='burger-icon'
+              color='#2d3045'
+            />
+              How It Works
+          </a>
+        </h2>
+        <h2>
+          <a 
+            id="about" 
+            className="menu-item" 
+            href="/saved-packing-lists"
+            onClick={() => this.closeMenu()}
+          >
+            <BiBookmarkPlus
+              size={25}
+              className='burger-icon'
+              color='#2d3045'
+            />
+            Saved Lists
+          </a>
+        </h2>
       </Menu>
     );
   }
