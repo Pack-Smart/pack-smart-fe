@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './StaticCategory.scss'
-import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi'
+import { FiPlusCircle } from 'react-icons/fi'
+import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
 
@@ -44,11 +45,14 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
           {generateCategoryIcon(catTitle)}
           <div className='edit-category-container'>
             {catTitle}
-            <button className='edit-category-btn' onClick={toggleListItems}>{displayItems === true ? <FiMinusCircle size={20} /> : <FiPlusCircle size={20} />}</button>
+            <button className='add-item-btn'><FiPlusCircle size={20} /></button>
           </div>
         </h1>
       <article className='list-items'>
         {displayItems === true && generateListItems()}
+      </article>
+      <article className='arrow-container'>
+        <button className='edit-category-btn' onClick={toggleListItems}>{displayItems === true ? <FaChevronUp size={25} /> : <FaChevronDown size={25} />}</button>
       </article>
     </section>
   )
