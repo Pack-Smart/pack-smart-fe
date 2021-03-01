@@ -41,13 +41,13 @@ const UpdateDetailsModal = (props) => {
   }
 
   const displayQuestionInputs = () => {
-    console.log(modalData)
     return modalData.map(question => {
       return (
         <QuestionInput
           key={question.id}
           questionDetails={question}
           handleChange={handleChange}
+          value={tripDetails[question.name]}
         />
       )
     })
