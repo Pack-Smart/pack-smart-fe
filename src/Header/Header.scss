@@ -49,11 +49,10 @@
 }
 
 .header-btn {
-  @include button-primary(large, 175px, .75%);
-  height: 20px;
-  margin: 2%;
+  @include button-primary(14px, 150px, .75%);
+  height: 18px;
+  margin: 1.75%;
   align-self: center;
-  font-size: medium;
 }
 
 .mobile {
