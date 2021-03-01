@@ -91,7 +91,7 @@ const Quiz = (props) => {
     })
 
     console.log(quizData)
-    const modifyChildData = quizData.categories.reduce((cat) => {
+    const modifyChildData = quizData.categories.filter((cat) => {
       return cat.includes('Child')
     })
    console.log('child', modifyChildData)
@@ -123,6 +123,7 @@ const Quiz = (props) => {
       }
     })
     console.log(dataInfo)
+    return dataInfo
   }
 
   const generateQuizQuestions = () => {
