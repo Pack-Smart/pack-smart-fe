@@ -11,6 +11,7 @@
   box-shadow: 1px 3px 12px black;
   text-decoration: none;
   text-align: center;
+  font-size: 14px;
 }
 
 .thumbnail-main:hover {
@@ -38,6 +39,7 @@
   color: $text-color;
   width: 75%;
   overflow: scroll;
+  padding-bottom: 0.2em;
 }
 
 .thumbnail-destination {
