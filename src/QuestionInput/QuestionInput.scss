@@ -22,17 +22,17 @@
 
 .trip-name-field input {
   @include input-line(300px);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .trip-destination-field input {
   @include input-line(300px);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .trip-number_of_days-field input {
   @include input-line(60px);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .input-wrapper {
