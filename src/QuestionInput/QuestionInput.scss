@@ -20,19 +20,18 @@
   font-size: 20px;
 }
 
-.trip-name-field input {
+.trip-name-field input, .trip-title-field input {
   @include input-line(300px);
   font-size: 14px;
 }
 
 .trip-destination-field input {
-  @include input-line(225px);
+  @include input-line(300px);
   font-size: 14px;
 }
 
 .trip-number_of_days-field input, .trip-duration-field input {
   @include input-line(60px);
-  font-size: 14px;
 }
 
 .input-wrapper {
