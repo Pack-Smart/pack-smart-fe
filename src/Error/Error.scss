@@ -12,6 +12,11 @@
   font-size: 15px;
 }
 
+.error-message {
+  margin: 5% 10% 10% 10%;
+  text-align: center;
+}
+
 .error-btn {
   @include button-primary(medium, 175px, 1.25%)
 }

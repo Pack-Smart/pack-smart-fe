@@ -1,9 +1,8 @@
 import './Hamburger.scss'
-import { BsBookmarkPlus } from 'react-icons/bs'
-import { GiGears } from 'react-icons/gi'
-import { RiFileListLine } from 'react-icons/ri'
+import { burgerMenuData } from './mobileMenuData'
 import { slide as Menu } from 'react-burger-menu'
 import React, { Component } from 'react'
+
 class Hamburger extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +19,24 @@ class Hamburger extends Component {
     this.setState({menuOpen: false})
   }
 
+  generateBurgerMenu = () => {
+    return burgerMenuData.map(menuItem => {
+      return (
+        <h2 key={menuItem.id}>
+          <a 
+            id={menuItem.id}
+            className='menu-item' 
+            href={menuItem.href}
+            onClick={() => this.closeMenu()}
+          >
+            {menuItem.icon}
+            {menuItem.text}
+          </a>
+        </h2>
+      )
+    })
+  }
+
   render () {
     return (
       <Menu 
@@ -27,45 +44,7 @@ class Hamburger extends Component {
         isOpen={this.state.menuOpen}
         onStateChange={(state) => this.handleStateChange(state)}
       >
-        <a 
-          id="quiz" 
-          className="menu-item" 
-          href="/packing-quiz"
-          onClick={() => this.closeMenu()}
-        >
-          <RiFileListLine 
-            size={25} 
-            className='burger-icon'
-            color='#2d3045'
-          />
-            Start New List
-        </a>
-        <a 
-          id="home" 
-          className="menu-item" 
-          href="/how-it-works"
-          onClick={() => this.closeMenu()}
-        >
-          <GiGears 
-            size={25} 
-            className='burger-icon'
-            color='#2d3045'
-          />
-            How It Works
-        </a>
-        <a 
-          id="about" 
-          className="menu-item" 
-          href="/saved-packing-lists"
-          onClick={() => this.closeMenu()}
-        >
-          <BsBookmarkPlus
-            size={25}
-            className='burger-icon'
-            color='#2d3045'
-          />
-          Saved Lists
-        </a>
+        {this.generateBurgerMenu()}
       </Menu>
     );
   }

@@ -48,15 +48,14 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
       return (
         <>
           <header className='packing-list-header'>
-            <h1 className='packing-list-details'>{tripDetails.title} 
+            <h2 className='packing-list-details'>{tripDetails.title} 
               <BiPencil 
                 className='edit-title' 
                 size={25}
                 onClick={() => setDetailsModalIsOpen(true)}
               />
-            </h1>
-            <h2 className='packing-list-details'>{tripDetails.destination}</h2>
-            <h3 className='packing-list-details'>{tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</h3>
+            </h2>
+            <p className='packing-list-details'>{tripDetails.destination}  |  {tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</p>
           </header>
           <button
             className='save-list-button-top'
