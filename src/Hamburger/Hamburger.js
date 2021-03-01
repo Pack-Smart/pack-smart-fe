@@ -22,7 +22,7 @@ class Hamburger extends Component {
   generateBurgerMenu = () => {
     return burgerMenuData.map(menuItem => {
       return (
-        <h2>
+        <h2 key={menuItem.id}>
           <a 
             id={menuItem.id}
             className='menu-item' 
