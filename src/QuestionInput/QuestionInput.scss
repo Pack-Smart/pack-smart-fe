@@ -11,23 +11,28 @@
 
 .question-input-question {
   @include multiple-choice-question;
+  font-size: 20px;
 }
 
 .trip-destination-field, .trip-number_of_days-field {
   @include row-center;
   @include quiz-question;
+  font-size: 20px;
 }
 
 .trip-name-field input {
-  @include input-line(300px)
+  @include input-line(300px);
+  font-size: 12px;
 }
 
 .trip-destination-field input {
   @include input-line(300px);
+  font-size: 12px;
 }
 
 .trip-number_of_days-field input {
   @include input-line(60px);
+  font-size: 12px;
 }
 
 .input-wrapper {

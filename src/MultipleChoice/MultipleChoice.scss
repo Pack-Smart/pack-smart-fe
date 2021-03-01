@@ -5,9 +5,12 @@
   background-color: $blue !important;
 }
 
+.select-all-txt {
+  font-size: 14px;
+}
 
 .trip-gender-field {
-  @include row-center;
+  @include column-center;
   @include quiz-question;
   width: 100%;
 }
@@ -29,7 +32,6 @@
 .trip-weather-field, .trip-categories-field {
   @include column-center;
   @include quiz-question;
-
 }
 
 .trip-categories-field p, .trip-weather-field p {
@@ -43,6 +45,7 @@
 .multiple-choice-question {
   @include multiple-choice-question;
   text-align: center;
+  font-size: 20px;
 }
 
 .weather-answer-btns, .categories-answer-btns {
