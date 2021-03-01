@@ -94,9 +94,9 @@ describe('packing list updates', () => {
     ]
 
     const updatedQuantityState = {
-      ...state.packingList,
+      ...state,
       categories: {
-        ...state.packingList.categories,
+        ...state.categories,
         [category]: sampleQuantityCategory
       }
     }
@@ -104,7 +104,7 @@ describe('packing list updates', () => {
     expect(state).not.toEqual(updatedQuantityState)
     
     let quantityAction = actions.editItemQuantity(category, name, quantity)
-    let quantityState = packingList(state.packingList, quantityAction)
+    let quantityState = packingList(state, quantityAction)
 
     expect(quantityState).toEqual(updatedQuantityState)
   })
