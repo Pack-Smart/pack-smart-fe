@@ -57,7 +57,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
                 onClick={() => setDetailsModalIsOpen(true)}
               />
             </h2>
-            <p className='packing-list-details'>{tripDetails.destination}  |  {tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</p>
+            <p className='packing-list-details'>{tripDetails.destination} for {tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</p>
           </header>
           <button
             className='save-list-button-top'
