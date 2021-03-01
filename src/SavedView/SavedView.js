@@ -49,7 +49,6 @@ const SavedView = (props) => {
   }
 
   const deleteList = (listId) => {
-    console.log(listId)
     deletePackingList(listId)
       .then(() => {
         getAllPackingLists()
