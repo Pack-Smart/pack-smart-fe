@@ -59,17 +59,17 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
             </h2>
             <p className='packing-list-details'>{tripDetails.destination} for {tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</p>
           </header>
-          <button
+          {/* <button
             className='save-list-button-top'
             onClick={submitNewPackingList} 
           >Save List
-          </button>
+          </button> */}
             {createCategoryCards()}
-          <button
+          {/* <button
             className='save-list-button'
             onClick={submitNewPackingList} 
           >Save List
-          </button>
+          </button> */}
         </>
       )
     } else {
@@ -97,29 +97,29 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     })
   }
 
-  const submitNewPackingList = () => {
-    let listToSave = compilePackingList()
-    saveNewPackingList(listToSave)
-      .then(() => history.push('/saved-packing-lists'))
-      .catch(() => console.error)
-  }
+  // const submitNewPackingList = () => {
+  //   let listToSave = compilePackingList()
+  //   saveNewPackingList(listToSave)
+  //     .then(() => history.push('/saved-packing-lists'))
+  //     .catch(() => console.error)
+  // }
 
-  const compilePackingList = () => {
-    const items = Object.values(packingList.categories).flat()
-    const cleanedItems = items.map(item => {
-      return {
-        item_id: item.item_id, 
-        quantity: item.quantity, 
-        is_checked: item.is_checked}
-    })
-    return ({
-      data: {
-        userID: userInfo.userId,
-        tripDetails,
-        items: cleanedItems
-      }
-    })
-  }
+  // const compilePackingList = () => {
+  //   const items = Object.values(packingList.categories).flat()
+  //   const cleanedItems = items.map(item => {
+  //     return {
+  //       item_id: item.item_id, 
+  //       quantity: item.quantity, 
+  //       is_checked: item.is_checked}
+  //   })
+  //   return ({
+  //     data: {
+  //       userID: userInfo.userId,
+  //       tripDetails,
+  //       items: cleanedItems
+  //     }
+  //   })
+  // }
 
   return (
     <section className='packing-list-main'>

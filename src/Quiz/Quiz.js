@@ -5,13 +5,15 @@ import React, { useState } from 'react'
 import './Quiz.scss'
 
 // App Imports
-import { getPackingListData } from '../apiCalls.js'
+import { getPackingListData, getSinglePackingList, saveNewPackingList } from '../apiCalls.js'
 import { quizDetails } from './quizDetails.js'
 import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
+import { useHistory } from 'react-router-dom'
 
 const Quiz = (props) => {
+  let history = useHistory()
   const [quizData, setQuizData] = useState({
     name: '',
     gender: '',
@@ -80,9 +82,51 @@ const Quiz = (props) => {
     setError(false)
     const submissionData = compileSubmissionData()
     getPackingListData(submissionData)
+    .then(data => {
+      submitNewPackingList(data.data.attributes)
+    })
+    .then(() => props.history.push('/packing-list'))
+    .catch(() => console.error)
+  }
+
+  const submitNewPackingList = async (packingListData) => {
+    let listToSave = compilePackingList(packingListData)
+
+    await saveNewPackingList(listToSave)
+      .then(data => {
+        console.log('sanity check', data)
+        updateCurrentListInStore(data)
+      })
+      .catch(() => console.error)
+  }
+
+  const updateCurrentListInStore = (data) => {
+    // DATA WILL LIKELY BE DATA.LIST ID OR SOME SHIT
+    getSinglePackingList(data)
       .then(data => props.setCurrentList(data.data.attributes))
-      .catch(error => console.error)
-    props.history.push('/packing-list')
+      .catch(() => console.error)
+  }
+
+  const compilePackingList = (packingListData) => {
+    const items = Object.values(packingListData.categories).flat()
+    console.log('items', items)
+    const cleanedItems = items.map(item => {
+      return {
+        item_id: item.item_id, 
+        quantity: item.quantity, 
+        is_checked: item.is_checked}
+    })
+    return ({
+      data: {
+        userID: props.userInfo.userId,
+        tripDetails: {
+          destination: quizData.destination,
+          duration: quizData.number_of_days,
+          title: quizData.name
+        },
+        items: cleanedItems
+      }
+    })
   }
 
   const compileSubmissionData = () => {
@@ -175,8 +219,13 @@ const Quiz = (props) => {
   )
 }
 
+const mapStateToProps = (state) => ({
+  packingList: state.packingList,
+  userInfo: state.userInfo
+})
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentList: data => dispatch(setCurrentList(data))
 })
 
-export default connect(mapDispatchToProps, {setCurrentList})(Quiz)
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz)
