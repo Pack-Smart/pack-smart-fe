@@ -12,7 +12,7 @@
 .category-container {
   border: solid $text-color 0.1em;
   padding: 1.75em;
-  margin: 1em 5em 1em 5em;
+  margin: 0.5em 2em 0.5em 2em;
   background-color: $offwhite;
   box-shadow: 1px 3px 12px black;
   border-radius: 0.5em;
@@ -34,14 +34,13 @@
 }
 
 .edit-category-btn {
-  margin-left: 1em;
+  margin-left: 0.5em;
   border: none;
   background-color: $offwhite;
   outline: none;
+  padding-top: 0.15em;
   &:hover {
     cursor: pointer;
-    transform: scale(1.25);
-    transition-duration: 0.4s;
   }
 }
 @media only screen and (max-width: 900px) {

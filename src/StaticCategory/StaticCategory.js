@@ -1,9 +1,11 @@
+import React, { useState } from 'react'
 import './StaticCategory.scss'
-import { BsPlusCircle } from 'react-icons/bs'
+import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi'
 import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
 
 const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
+  const [displayItems, setDisplayItems] = useState(false)
 
   const generateListItems = () => {
     let sortedItems = items.sort((a, b) => {
@@ -32,17 +34,21 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
     return category.icon
   }
 
+  const toggleListItems = () => {
+    setDisplayItems(!displayItems)
+  }
+
   return (
     <section className='category-container'>
         <h1 className='cat-title'>
           {generateCategoryIcon(catTitle)}
           <div className='edit-category-container'>
             {catTitle}
-            <button className='edit-category-btn'><BsPlusCircle size={20} /></button>
+            <button className='edit-category-btn' onClick={toggleListItems}>{displayItems === true ? <FiMinusCircle size={20} /> : <FiPlusCircle size={20} />}</button>
           </div>
         </h1>
       <article className='list-items'>
-        {generateListItems()}
+        {displayItems === true && generateListItems()}
       </article>
     </section>
   )

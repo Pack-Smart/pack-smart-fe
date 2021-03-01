@@ -51,7 +51,8 @@
 .weather-answer-btns, .categories-answer-btns {
   display: flex;
   justify-content: center;
-  width: 50%;
+  min-width: 267px;
+  max-width: 267px;
   flex-wrap: wrap;
 }
 
