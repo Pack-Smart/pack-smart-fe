@@ -89,17 +89,13 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-
-    console.log(quizData)
     const modifyChildData = quizData.categories.filter((cat) => {
       return cat.includes('Child')
     })
-   console.log('child', modifyChildData)
    if (modifyChildData.length > 0) {
      quizData.categories.push('%Child All%')
    }
-    // return ({
-    const dataInfo = ({
+    return ({
       data: {
         id: 0,
         type: 'survey',
@@ -122,8 +118,6 @@ const Quiz = (props) => {
         }
       }
     })
-    console.log(dataInfo)
-    return dataInfo
   }
 
   const generateQuizQuestions = () => {
