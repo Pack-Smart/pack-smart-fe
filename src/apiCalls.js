@@ -63,3 +63,14 @@ export const patchTripDetails = (packingListId, updatedTripDetails) => {
   })
   .then(response => response.json())
 }
+
+export const deleteSingleItem = (deletedItemDetails) => {
+  return fetch(`${endpoint}/api/v1/item_list/update`, {
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(deletedItemDetails)
+  })
+  .then(response => response.json())
+}

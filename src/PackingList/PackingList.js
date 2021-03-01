@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 // UI Imports
 import './PackingList.scss'
 import { BiPencil } from 'react-icons/bi'
-import { modalStructure } from './modalStyles'
+import { modalStructure } from '../VerifyDeletionModal/modalStyles'
 
 // App Imports
 import { deleteItem } from '../actions/actions'
@@ -13,7 +13,7 @@ import Modal from 'react-modal'
 import UpdateDetailsModal from '../UpdateDetailsModal/UpdateDetailsModal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { saveNewPackingList } from '../apiCalls'
+import { saveNewPackingList, deleteSingleItem } from '../apiCalls'
 import { useHistory } from 'react-router-dom'
 
 const PackingList = ({ packingList, deleteItem, userInfo }) => {
@@ -23,6 +23,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
+  const [itemIdToDelete, setItemIdToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
   
   useEffect(() => {
@@ -30,12 +31,13 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     window.scrollTo(0,0)
   }, [])
    
-  const openModal = (category, name) => {
+  const openModal = (category, name, itemId) => {
     setCategoryToDelete(category)
+    setItemIdToDelete(itemId)
     setItemToDelete(name)
     if(verifyDeletion === true) {
-      setDeletionModalIsOpen(true);
-    }
+      setDeletionModalIsOpen(true)  
+    }  
   }
 
   const closeModal = () => {
@@ -48,16 +50,20 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
       return (
         <>
           <header className='packing-list-header'>
-            <h1>{tripDetails.title} 
+            <h2 className='packing-list-details'>{tripDetails.title} 
               <BiPencil 
                 className='edit-title' 
                 size={25}
                 onClick={() => setDetailsModalIsOpen(true)}
               />
-            </h1>
-            <h2>{tripDetails.destination}</h2>
-            <h3>{tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</h3>
+            </h2>
+            <p className='packing-list-details'>{tripDetails.destination} for {tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</p>
           </header>
+          <button
+            className='save-list-button-top'
+            onClick={submitNewPackingList} 
+          >Save List
+          </button>
             {createCategoryCards()}
           <button
             className='save-list-button'
@@ -130,6 +136,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
             closeModal={closeModal}
             categoryToDelete={categoryToDelete}
             itemToDelete={itemToDelete}
+            itemIdToDelete={itemIdToDelete}
           />
       </Modal>
       <Modal

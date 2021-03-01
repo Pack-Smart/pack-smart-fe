@@ -7,70 +7,70 @@ import { BiGlasses, BiDrink } from 'react-icons/bi'
 export const categoryIcons = [
   {
     name: 'Accessories',
-    icon:  <GiBilledCap size={50}/>
+    icon:  <GiBilledCap size={40}/>
   },
   {
     name: 'Beach',
-    icon:  <FaUmbrellaBeach size={50}/>
+    icon:  <FaUmbrellaBeach size={40}/>
   },
   {
     name: 'Business',
-    icon:  <ImBriefcase size={50}/>
+    icon:  <ImBriefcase size={40}/>
   },
   {
     name: 'Child All',
-    icon:  <BsBagFill size={50}/>
+    icon:  <BsBagFill size={40}/>
   },
   {
     name: 'Child 0-2',
-    icon:  <FaBaby size={50}/>
+    icon:  <FaBaby size={40}/>
   },
   {
     name: 'Child 3-6',
-    icon:  <FaChild size={50}/>
+    icon:  <FaChild size={40}/>
   },
   {
     name: 'Child 7-12',
-    icon:  <GiPerson size={50}/>
+    icon:  <GiPerson size={40}/>
   },
   {
     name: 'Clothing',
-    icon:  <FaTshirt size={50}/>
+    icon:  <FaTshirt size={40}/>
   },
   {
     name: 'Essentials',
-    icon:  <BiGlasses size={50}/>
+    icon:  <BiGlasses size={40}/>
   },
   {
     name: 'Hiking',
-    icon:  <FaHiking size={50}/>
+    icon:  <FaHiking size={40}/>
   },
   {
     name: 'Misc.',
-    icon:  <FaCamera size={50}/>
+    icon:  <FaCamera size={40}/>
   },
   {
     name: 'Nightlife',
-    icon:  <BiDrink size={50}/>
+    icon:  <BiDrink size={40}/>
   },
   {
     name: 'Skiing',
-    icon:  <FaSkiing size={50}/>
+    icon:  <FaSkiing size={40}/>
   },
   {
     name: 'Toiletries',
-    icon:  <GiSoap size={50}/>
+    icon:  <GiSoap size={40}/>
   },
   {
     name: 'Wedding/Formal',
-    icon:  <GiStairsCake size={50}/>
+    icon:  <GiStairsCake size={40}/>
   },
   {
     name: 'Camping',
-    icon: <GiCampingTent size={50} />
+    icon: <GiCampingTent size={40} />
   },
   {
     name: 'International',
-    icon: <GiPassport size={50} />
+    icon: <GiPassport size={40} />
   }
 ]

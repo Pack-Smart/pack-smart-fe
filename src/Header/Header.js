@@ -2,8 +2,7 @@ import './Header.scss'
 import { Link } from 'react-router-dom'
 import Hamburger from '../Hamburger/Hamburger'
 
-const Header = (props) => {
-
+const Header = () => {
   return(
     <div id='outer-container'>
       <nav className="header">
@@ -18,6 +17,11 @@ const Header = (props) => {
         </div>
         <Link
           className="header-btn"
+          to="/packing-quiz"
+        >Start New List
+        </Link>
+        <Link
+          className="header-btn"
           to="/how-it-works"
         >How It Works
         </Link>
@@ -26,7 +30,6 @@ const Header = (props) => {
           to="/saved-packing-lists"
         >Saved Lists
         </Link>
-
         {/* Mobile Nav */}
         <div className='mobile'>
           <Hamburger 

@@ -2,6 +2,7 @@ import './StaticItem.scss'
 import { connect } from 'react-redux'
 import { editPackingListItem } from '../apiCalls'
 import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
+import { HiPlus, HiMinusSm } from 'react-icons/hi'
 import React, { useEffect, useState } from 'react'
 
 const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem, editItemQuantity }) => {
@@ -11,9 +12,9 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
     editItemQuantity(category, item.name, itemQuantity)
   }, [itemQuantity])
 
-  const determineModalOpen = (category, name) => {
+  const determineModalOpen = (category, name, itemId) => {
     if (verifyDeletion === true) {
-      openModal(category, name)
+      openModal(category, name, itemId)
     } else {
       deleteItem(category, item.name)
     }
@@ -34,26 +35,28 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
       .catch(() => console.error)
   }
 
-  const updateItemQuantity = (event) => {
-    setItemQuantity(event.target.value)
-    updateListItem(event.target.value)
+  const updateItemQuantity = (newNum) => {
+    if (newNum >= 0) {
+      setItemQuantity(newNum)
+      updateListItem(newNum)
+    }
   }
   
   return (
     <article className='static-item'>  
       <div className='quantity-container'>
-        <input
-          type='number'
-          name='quantity'
-          className='quantity-input'
-          aria-label='item quantity'
-          role='quantity input'
-          placeholder={quantity}
-          min='0'
-          onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
-          value={itemQuantity}
-          onChange={updateItemQuantity}
-        />
+      <HiMinusSm className='plus-minus-btn' size={40} onClick={() => updateItemQuantity(itemQuantity - 1)}/>
+          <input
+            type='number'
+            name='quantity'
+            className='quantity-input'
+            aria-label='item quantity'
+            role='quantity input'
+            placeholder={quantity}
+            value={itemQuantity}
+            disabled
+          />
+        <HiPlus className='plus-minus-btn' size={40} onClick={() => updateItemQuantity(itemQuantity + 1)}/>
       </div>
       <div className='item-box'>
         <p>{item.name}</p>
@@ -73,7 +76,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
       </div>
       <div className='delete'>
         <button className='delete-item' onClick={() => {
-          determineModalOpen(category, item.name)}}>
+          determineModalOpen(category, item.name, item.id)}}>
             X
         </button>
       </div>

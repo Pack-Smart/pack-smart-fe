@@ -11,15 +11,15 @@
 
 .category-container {
   border: solid $text-color 0.1em;
-  padding: 1.5em;
-  margin: 1em;
+  padding: 1.75em;
+  margin: 0.5em 2em 0.5em 2em;
   background-color: $offwhite;
   box-shadow: 1px 3px 12px black;
   border-radius: 0.5em;
 }
 
 .cat-title {
-  font-size: 1.5em;
+  font-size: 1.25em;
   @include column-center;
   padding-bottom: 0.5em;
   color: $text-color;
@@ -34,16 +34,33 @@
 }
 
 .edit-category-btn {
-  margin-left: 1em;
+  margin-left: 0.5em;
+  color:$red;
   border: none;
-  background-color: $gray;
+  background-color: $offwhite;
   outline: none;
+  padding-top: 0.15em;
   &:hover {
     cursor: pointer;
-    transform: scale(1.25);
-    transition-duration: 0.4s;
   }
 }
+
+.arrow-container {
+  @include column-center;
+  margin-top: 0.5em;
+}
+
+.add-item-btn {
+  margin-left: 0.5em;
+  border: none;
+  background-color: $offwhite;
+  outline: none;
+  padding-top: 0.15em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .category-container {
     @include column-center;

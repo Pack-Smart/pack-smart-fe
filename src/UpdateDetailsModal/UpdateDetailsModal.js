@@ -61,7 +61,7 @@ const UpdateDetailsModal = (props) => {
           className="close-modal-btn"
         >x</button>
       </div>
-      <h1>Update your Trip Details</h1>
+      <h1 className='update-details-title'>Update your Trip Details</h1>
       {displayQuestionInputs()}
       <button
         className="update-trip-details-btn"

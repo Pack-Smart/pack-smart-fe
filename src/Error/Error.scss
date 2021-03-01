@@ -9,8 +9,14 @@
 
 .error-section {
   margin-top: 5%;
+  font-size: 15px;
+}
+
+.error-message {
+  margin: 5% 10%;
+  text-align: center;
 }
 
 .error-btn {
-  @include button-primary(x-large, 250px, 1.5%)
+  @include button-primary(medium, 175px, 1.25%)
 }
