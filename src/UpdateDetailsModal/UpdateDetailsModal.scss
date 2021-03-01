@@ -11,3 +11,14 @@
   @include button-primary(20px, 200px, 1.5%);
   margin: 5%;
 }
+
+.close-modal-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-modal-btn {
+  @include delete-btn;
+}
+

@@ -55,9 +55,12 @@ const UpdateDetailsModal = (props) => {
 
   return (
     <form className="updateDetailsModal">
-      <button
-        onClick={props.closeModal}
-      >x</button>
+        <div className="close-modal-btn-container">
+          <button
+          onClick={props.closeModal}
+          className="close-modal-btn"
+        >x</button>
+      </div>
       <h1>Update your Trip Details</h1>
       {displayQuestionInputs()}
       <button
