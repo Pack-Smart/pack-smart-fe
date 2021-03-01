@@ -20,9 +20,6 @@ const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, catego
           deleteItem(categoryToDelete, itemToDelete)
           const deletionData = compileDeletionData()
           deleteSingleItem(deletionData)
-            .then(data => console.log('data', data))
-            // I am leaving this here, as the success message could be helpful if we want a pop up
-            // that the delete was successful!
             .catch(() => console.error)
           closeModal()
           }}>DELETE ITEM</button>

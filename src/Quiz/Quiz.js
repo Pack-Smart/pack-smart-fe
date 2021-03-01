@@ -80,8 +80,6 @@ const Quiz = (props) => {
     setError(false)
     const submissionData = compileSubmissionData()
     getPackingListData(submissionData)
-    .then(data => console.log(data))
-
       .then(data => props.setCurrentList(data.data.attributes))
       .catch(error => console.log(error))
     props.history.push('/packing-list')
@@ -91,17 +89,18 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-    return ({
+    const dataInfo =  ({
       data: {
         id: 0,
         type: 'survey',
         attributes: {
           gender: ['All', quizData.gender],
           weather: ['All', ...modifyWeatherData],
+          // child: ['%All%', ...child]
           tripDetails: {
             title: quizData.name,
             destination: quizData.destination,
-            number_of_days: quizData.number_of_days,
+            number_of_days: quizData.number_of_days, // TODO: change to duration when BE updates us!
           },
           categories: [
             'Accessories', 
@@ -114,6 +113,8 @@ const Quiz = (props) => {
         }
       }
     })
+    console.log(dataInfo)
+    return dataInfo
   }
 
   const generateQuizQuestions = () => {
