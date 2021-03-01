@@ -3,6 +3,7 @@ export const packingList = (state = {}, action) => {
     case 'SET_CURRENT_LIST':
       return (action.payload.packingList)
     case 'TOGGLE_IS_CHECKED':
+      // console.log(state)
       const itemToToggle = state.categories[action.payload.category].find(item => {
         return item.name === action.payload.name
       })

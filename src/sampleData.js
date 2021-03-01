@@ -61,7 +61,7 @@ export const mockState = {
       destination: 'Mexico',
       duration: '7',
       title: 'Graduation Parrrtay',
-      listId: "1"
+      listId: 1
     },
     categories: {
       'Accessories': [
