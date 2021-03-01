@@ -109,4 +109,8 @@
   }
 }
 
-// thumbnail-deleteBtn
+@mixin row-end {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

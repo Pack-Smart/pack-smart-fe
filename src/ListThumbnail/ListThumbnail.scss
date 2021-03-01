@@ -55,9 +55,7 @@
 }
 
 .delete-btn-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  @include row-end
 }
 
 .thumbnail-deleteBtn {

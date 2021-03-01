@@ -14,9 +14,7 @@
 }
 
 .close-modal-btn-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+  @include row-end;
 }
 
 .close-modal-btn {
