@@ -3,6 +3,8 @@ import './UpdateDetailsModal.scss'
 import React, { useState } from 'react'
 import { editTripDetails } from '../actions/actions'
 import { patchTripDetails } from '../apiCalls'
+import { modalData } from './modalData.js'
+import QuestionInput from '../QuestionInput/QuestionInput'
 
 const UpdateDetailsModal = (props) => {
   const [tripDetails, setTripDetails] = useState({
@@ -38,13 +40,27 @@ const UpdateDetailsModal = (props) => {
     })
   }
 
+  const displayQuestionInputs = () => {
+    console.log(modalData)
+    return modalData.map(question => {
+      return (
+        <QuestionInput
+          key={question.id}
+          questionDetails={question}
+          handleChange={handleChange}
+        />
+      )
+    })
+  }
+
   return (
     <form className="updateDetailsModal">
       <button
         onClick={props.closeModal}
       >x</button>
       <h1>Update your Trip Details</h1>
-      <p>Trip Name</p>
+      {displayQuestionInputs()}
+      {/* <p>Trip Name</p>
       <input
         placeholder="i.e. Spring Break 20 08"
         name="title"
@@ -68,7 +84,7 @@ const UpdateDetailsModal = (props) => {
         onChange={handleChange}
         type="number"
         value={tripDetails.duration}
-      />
+      /> */}
       <button
         onClick={submitUpdate}
       >Save</button>
