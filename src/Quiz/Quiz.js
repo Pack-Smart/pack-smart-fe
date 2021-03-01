@@ -89,7 +89,7 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-    const dataInfo =  ({
+    return  ({
       data: {
         id: 0,
         type: 'survey',
@@ -113,8 +113,6 @@ const Quiz = (props) => {
         }
       }
     })
-    console.log(dataInfo)
-    return dataInfo
   }
 
   const generateQuizQuestions = () => {
