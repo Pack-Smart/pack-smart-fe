@@ -1,20 +1,31 @@
 import './VerifyDeletionModal.scss'
 import { deleteSingleItem } from '../apiCalls'
 
-const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete, itemIdToDelete }) => {
-  const compileDeletionData = () => ({ data: { item: { id: itemIdToDelete } }})
+const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete }) => {
+  const determineItemToDelete = () => {
+    if (categoryToDelete === 'list') {
+      deleteItem(itemToDelete)
+    } else {
+      deleteItem(categoryToDelete, itemToDelete)
+    }
+  }
+
+  const determineTitleString = () => {
+    if (categoryToDelete === 'list') {
+      return 'this list?'
+    } else {
+      return 'this item from your packing list?'
+    }
+  }
 
   return (
     <>
-      <h1 className='modal-title'>Are you sure you want to delete this item from your packing list?</h1>
+      <h1 className='modal-title'>Are you sure you want to delete {determineTitleString()}</h1>
       <div className='modal-buttons'>
         <button className='modal-button' onClick={() => {
-          deleteItem(categoryToDelete, itemToDelete)
-          const deletionData = compileDeletionData()
-          deleteSingleItem(deletionData)
-            .catch(() => console.error)
+          determineItemToDelete()
           closeModal()
-          }}>DELETE ITEM</button>
+          }}>DELETE</button>
         <button className='modal-button' onClick={() => closeModal()}>
           No, take me back!
         </button>

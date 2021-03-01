@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import './ListThumbnail.scss'
 import { useEffect } from 'react'
 
-const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, deleteList }) => {
+const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, deleteList, verifyDeletion, openModal }) => {
 
   let history = useHistory()
   const viewPackingList = () => {
@@ -25,13 +25,22 @@ const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, d
     })
     .then(() => history.push('/packing-list'))
     .catch(() => console.error)
+  }
 
+  const determineModalOpen = () => {
+    if (verifyDeletion === true) {
+      openModal(listId)
+    } else {
+      deleteList(listId)
+    }
   }
   
   return(
     <section className='thumbnail-main'>
       <div className='delete-btn-container'>
-        <button className='thumbnail-deleteBtn' onClick={() => deleteList(listId)}>X</button>
+        <button className='thumbnail-deleteBtn' onClick={() => {
+          determineModalOpen(listId)
+        }}>X</button>
       </div>
       <div className='thumbnail-contents' onClick={viewPackingList}>
         <h1 className='thumbnail-title'>{title}</h1>
