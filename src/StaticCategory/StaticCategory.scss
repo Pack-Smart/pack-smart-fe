@@ -35,6 +35,7 @@
 
 .edit-category-btn {
   margin-left: 0.5em;
+  color:$red;
   border: none;
   background-color: $offwhite;
   outline: none;
@@ -43,6 +44,23 @@
     cursor: pointer;
   }
 }
+
+.arrow-container {
+  @include column-center;
+  margin-top: 0.5em;
+}
+
+.add-item-btn {
+  margin-left: 0.5em;
+  border: none;
+  background-color: $offwhite;
+  outline: none;
+  padding-top: 0.15em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .category-container {
     @include column-center;

@@ -38,7 +38,7 @@ const SavedView = (props) => {
           listId={list.list_id}
           title={list.title}
           destination={list.destination}
-          duration={list.num_of_days}
+          duration={list.duration}
           deleteList={deleteList}
           verifyDeletion={verifyDeletion}
           openModal={openModal}
@@ -75,7 +75,7 @@ const SavedView = (props) => {
             setVerifyDeletion={setVerifyDeletion}
             deleteItem={deleteList}
             closeModal={closeModal}
-            categoryToDelete='list'
+            categoryToDelete={'list'}
             itemToDelete={listToDelete}
           />
       </Modal>

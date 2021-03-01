@@ -89,7 +89,7 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-    return ({
+    return  ({
       data: {
         id: 0,
         type: 'survey',
@@ -99,7 +99,7 @@ const Quiz = (props) => {
           tripDetails: {
             title: quizData.name,
             destination: quizData.destination,
-            number_of_days: quizData.number_of_days,
+            duration: quizData.number_of_days,
           },
           categories: [
             'Accessories', 

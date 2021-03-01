@@ -13,7 +13,7 @@ import Modal from 'react-modal'
 import UpdateDetailsModal from '../UpdateDetailsModal/UpdateDetailsModal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { saveNewPackingList } from '../apiCalls'
+import { saveNewPackingList, deleteSingleItem } from '../apiCalls'
 import { useHistory } from 'react-router-dom'
 
 const PackingList = ({ packingList, deleteItem, userInfo }) => {
@@ -23,6 +23,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
   const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
   const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
+  const [itemIdToDelete, setItemIdToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
   
   useEffect(() => {
@@ -30,12 +31,13 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
     window.scrollTo(0,0)
   }, [])
    
-  const openModal = (category, name) => {
+  const openModal = (category, name, itemId) => {
     setCategoryToDelete(category)
+    setItemIdToDelete(itemId)
     setItemToDelete(name)
     if(verifyDeletion === true) {
-      setDeletionModalIsOpen(true);
-    }
+      setDeletionModalIsOpen(true)  
+    }  
   }
 
   const closeModal = () => {
@@ -55,7 +57,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
                 onClick={() => setDetailsModalIsOpen(true)}
               />
             </h2>
-            <p className='packing-list-details'>{tripDetails.destination}  |  {tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</p>
+            <p className='packing-list-details'>{tripDetails.destination} for {tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</p>
           </header>
           <button
             className='save-list-button-top'
@@ -134,6 +136,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
             closeModal={closeModal}
             categoryToDelete={categoryToDelete}
             itemToDelete={itemToDelete}
+            itemIdToDelete={itemIdToDelete}
           />
       </Modal>
       <Modal
