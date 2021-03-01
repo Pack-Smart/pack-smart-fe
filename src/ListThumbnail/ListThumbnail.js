@@ -31,7 +31,6 @@ const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, d
     if (verifyDeletion === true) {
       openModal(listId)
     } else {
-      console.log(listId)
       deleteList(listId)
     }
   }
