@@ -89,12 +89,14 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
+    
     const modifyChildData = quizData.categories.filter((cat) => {
       return cat.includes('Child')
     })
-   if (modifyChildData.length > 0) {
-     quizData.categories.push('%Child All%')
-   }
+    if (modifyChildData.length > 0) {
+      quizData.categories.push('%Child All%')
+    }
+
     return ({
       data: {
         id: 0,
