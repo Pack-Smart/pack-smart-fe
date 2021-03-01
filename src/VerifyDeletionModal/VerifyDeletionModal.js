@@ -1,7 +1,6 @@
 import './VerifyDeletionModal.scss'
 import { deleteSingleItem } from '../apiCalls'
 
-
 const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete, itemIdToDelete }) => {
   const compileDeletionData = () => {
     return {
@@ -19,11 +18,11 @@ const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, catego
       <div className='modal-buttons'>
         <button className='modal-button' onClick={() => {
           deleteItem(categoryToDelete, itemToDelete)
-          console.log(itemIdToDelete)
-          console.log(itemToDelete)
           const deletionData = compileDeletionData()
           deleteSingleItem(deletionData)
             .then(data => console.log('data', data))
+            // I am leaving this here, as the success message could be helpful if we want a pop up
+            // that the delete was successful!
             .catch(() => console.error)
           closeModal()
           }}>DELETE ITEM</button>

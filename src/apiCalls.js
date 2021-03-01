@@ -65,7 +65,6 @@ export const patchTripDetails = (packingListId, updatedTripDetails) => {
 }
 
 export const deleteSingleItem = (deletedItemDetails) => {
-  console.log(deletedItemDetails)
   return fetch(`${endpoint}/api/v1/item_list/update`, {
     method: 'DELETE',
     headers: {
