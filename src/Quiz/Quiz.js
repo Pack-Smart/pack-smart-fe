@@ -89,7 +89,7 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-    return  ({
+    return ({
       data: {
         id: 0,
         type: 'survey',

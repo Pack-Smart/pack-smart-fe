@@ -1,7 +1,9 @@
 import './VerifyDeletionModal.scss'
 import { deleteSingleItem } from '../apiCalls'
 
-const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete }) => {
+const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete, itemIdToDelete }) => {
+  const compileDeletionData = () => ({ data: { item: { id: itemIdToDelete } }})
+
   const determineItemToDelete = () => {
     if (categoryToDelete === 'list') {
       deleteItem(itemToDelete)
@@ -24,6 +26,9 @@ const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, catego
       <div className='modal-buttons'>
         <button className='modal-button' onClick={() => {
           determineItemToDelete()
+          const deletionData = compileDeletionData()
+          deleteSingleItem(deletionData)
+            .catch(() => console.error)
           closeModal()
           }}>DELETE</button>
         <button className='modal-button' onClick={() => closeModal()}>
