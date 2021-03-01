@@ -11,9 +11,9 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
     editItemQuantity(category, item.name, itemQuantity)
   }, [itemQuantity])
 
-  const determineModalOpen = (category, name) => {
+  const determineModalOpen = (category, name, itemId) => {
     if (verifyDeletion === true) {
-      openModal(category, name)
+      openModal(category, name, itemId)
     } else {
       deleteItem(category, item.name)
     }
@@ -73,7 +73,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
       </div>
       <div className='delete'>
         <button className='delete-item' onClick={() => {
-          determineModalOpen(category, item.name)}}>
+          determineModalOpen(category, item.name, item.id)}}>
             X
         </button>
       </div>
