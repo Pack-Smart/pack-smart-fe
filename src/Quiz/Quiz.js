@@ -79,6 +79,7 @@ const Quiz = (props) => {
   const submitForm = () => {
     setError(false)
     const submissionData = compileSubmissionData()
+    console.log(submissionData)
     getPackingListData(submissionData)
       .then(data => props.setCurrentList(data.data.attributes))
       .catch(error => console.error)

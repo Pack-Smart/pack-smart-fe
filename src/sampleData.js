@@ -29,3 +29,28 @@ export const mockState = {
     }
   }
 }
+
+export const mockQuizData = {
+    data: {
+    id: 1,
+    type: "survey",
+    attributes: {
+      gender: ['All', 'Male Typical'],
+      weather: ['All', '%Cool%', '%Warm%'],
+      tripDetails: {
+        destination: 'Idaho',
+        duration: '4',
+        title: 'Middle Fork of the Salmon'
+      },
+      categories: [
+        'Accessories',
+        'Clothing',
+        'Essentials',
+        'Toiletries',
+        'Misc.',
+        'Beach',
+        'Hiking'
+      ]
+    }
+  }
+}
