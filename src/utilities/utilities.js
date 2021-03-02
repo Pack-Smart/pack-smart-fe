@@ -77,3 +77,20 @@ export const compileSubmissionData = (quizData) => {
     }
   })
 }
+
+
+// TODO: If the backend changes the format of tripDetails response, 
+// we can delete this helper
+export const filterRawSingleList = (data) => {
+  return {
+    tripDetails: {
+      destination: data.data.attributes.tripDetails.destination,
+      duration: data.data.attributes.tripDetails.num_of_days,
+      listId: data.data.attributes.tripDetails.packing_list_id,
+      title: data.data.attributes.tripDetails.title
+    }, 
+    categories: {
+      ...data.data.attributes.categories
+    }
+  }
+}

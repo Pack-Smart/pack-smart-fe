@@ -11,7 +11,7 @@ import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
 import { useHistory } from 'react-router-dom'
-import { compilePackingList, compileSubmissionData } from '../utilities/utilities'
+import { compilePackingList, compileSubmissionData, filterRawSingleList } from '../utilities/utilities'
 
 const Quiz = (props) => {
   let history = useHistory()
@@ -106,22 +106,6 @@ const Quiz = (props) => {
       })
       .catch(() => console.error)
 
-  }
-
-  // TODO: If the backend changes the format of tripDetails response, 
-  // we can delete this helper
-  const filterRawSingleList = (data) => {
-    return {
-      tripDetails: {
-        destination: data.data.attributes.tripDetails.destination,
-        duration: data.data.attributes.tripDetails.num_of_days,
-        listId: data.data.attributes.tripDetails.packing_list_id,
-        title: data.data.attributes.tripDetails.title
-      }, 
-      categories: {
-        ...data.data.attributes.categories
-      }
-    }
   }
 
   const generateQuizQuestions = () => {
