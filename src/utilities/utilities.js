@@ -52,29 +52,28 @@ export const compileSubmissionData = (quizData) => {
       }
     }
   }
-  console.log('result', result)
-  return (result)
-  // return ({
-  //   data: {
-  //     id: 0,
-  //     type: 'survey',
-  //     attributes: {
-  //       gender: ['All', quizData.gender],
-  //       weather: ['All', ...modifyWeatherData],
-  //       tripDetails: {
-  //         title: quizData.name,
-  //         destination: quizData.destination,
-  //         duration: quizData.number_of_days,
-  //       },
-  //       categories: [
-  //         'Accessories', 
-  //         'Clothing', 
-  //         'Essentials', 
-  //         'Toiletries', 
-  //         'Misc.',
-  //         ...quizData.categories
-  //       ]
-  //     }
-  //   }
-  // })
+
+  return ({
+    data: {
+      id: 0,
+      type: 'survey',
+      attributes: {
+        gender: ['All', quizData.gender],
+        weather: ['All', ...modifyWeatherData],
+        tripDetails: {
+          title: quizData.name,
+          destination: quizData.destination,
+          duration: quizData.number_of_days,
+        },
+        categories: [
+          'Accessories', 
+          'Clothing', 
+          'Essentials', 
+          'Toiletries', 
+          'Misc.',
+          ...quizData.categories
+        ]
+      }
+    }
+  })
 }
