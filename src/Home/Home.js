@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import lady from './lady.png'
 
 const Home = () => {
+  const generateRandomImage = () => {
+    let randomIndex = Math.floor(Math.random() * 49)
+  }
+
   return(
     <div className='home-container'>
       <section className='home-aside'></section>
