@@ -28,7 +28,6 @@ const UpdateDetailsModal = (props) => {
 
     const updatedTripDetails = compileTripDetails()
     
-    console.log(props.packingList.tripDetails.listId, updatedTripDetails)
     patchTripDetails(props.packingList.tripDetails.listId, updatedTripDetails)
     .catch(() => console.error)
   }

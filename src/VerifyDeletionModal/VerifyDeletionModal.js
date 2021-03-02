@@ -10,7 +10,6 @@ const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, catego
     } else {
       deleteItem(categoryToDelete, itemToDelete)
       const deletionData = compileDeletionData()
-      console.log(deletionData)
       deleteSingleItem(deletionData)
         .catch(() => console.error)
     }
