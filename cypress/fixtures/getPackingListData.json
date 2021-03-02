@@ -1,0 +1,11 @@
+{
+  "name": "Middle Fork of the Salmon",
+  "gender": "Male Typical",
+  "weather": ["Cool", "Warm"],
+  "destination": "Idaho",
+  "number_of_days": "4",
+  "categories": [
+    "Beach",
+    "Hiking"
+  ]
+}
