@@ -89,22 +89,33 @@ const Quiz = (props) => {
     .catch(() => console.error)
   }
 
-  const submitNewPackingList = async (packingListData) => {
+  const submitNewPackingList = (packingListData) => {
     let listToSave = compilePackingList(packingListData)
 
-    await saveNewPackingList(listToSave)
-      .then(data => {
-        console.log('sanity check', data)
-        updateCurrentListInStore(data)
-      })
+    saveNewPackingList(listToSave)
+      .then(data => updateCurrentListInStore(data.data.listId))
       .catch(() => console.error)
   }
 
-  const updateCurrentListInStore = (data) => {
-    // DATA WILL LIKELY BE DATA.LIST ID OR SOME SHIT
-    getSinglePackingList(data)
-      .then(data => props.setCurrentList(data.data.attributes))
+  const updateCurrentListInStore = (listId) => {
+    const currentListUserDetails = {
+      title: quizData.name,
+      destination: quizData.destination,
+      duration: quizData.number_of_days
+    }
+
+    getSinglePackingList(listId)
+      .then(data => {
+        const currentList = {
+          tripDetails: currentListUserDetails,
+          categories: {
+            ...data.data.attributes.categories
+          }
+        }
+        props.setCurrentList(currentList)
+      })
       .catch(() => console.error)
+
   }
 
   const compilePackingList = (packingListData) => {
