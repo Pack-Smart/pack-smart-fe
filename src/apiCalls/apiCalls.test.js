@@ -1,5 +1,5 @@
 import { getPackingListData, saveNewPackingList, getAllPackingLists, getSinglePackingList, deletePackingList, editPackingListItem, patchTripDetails, deleteSingleItem } from './apiCalls'
-import { mockQuizData, mockPackingList, mockItemData, mockTripDetails } from '../sampleData' 
+import { mockQuizData, mockPackingList, mockItemData, mockTripDetails, mockDeletionData } from '../sampleData' 
 import '@testing-library/jest-dom'
 
 describe('fetch', () => {
@@ -75,8 +75,11 @@ describe('fetch', () => {
   })
 
   it('should be called with the correct params when deleteSingleItem is called with an id', () => {
-    const headersAndMethod = { headers: type, method: 'DELETE' }
-
+    const bodyHeadersMethod = { body: JSON.stringify(mockDeletionData), headers: type, method: 'DELETE' }
     
+    deleteSingleItem(mockDeletionData)
+    
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(fetch).toHaveBeenCalledWith("https://pack-smart-be.herokuapp.com/api/v1/item_list/update", bodyHeadersMethod)
   })
 })

@@ -86,3 +86,11 @@ export const mockTripDetails = {
   destination: "Wyoming",
   num_of_days: 3
 }
+
+export const mockDeletionData = {
+  data: {
+    item: {
+      id: 4
+    }
+  }
+}
