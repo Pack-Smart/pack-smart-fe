@@ -61,7 +61,7 @@ describe('Get Started', () => {
 /*
 Start to new Packing List:
 - click on Get Started
-- Take the quiz (required)
+- Take the quiz (required sad path)
 - click 'Get My Packing List!'
 
 
@@ -76,7 +76,7 @@ Edit Packing List:
 
 Edit Title: 
 - click edit pencil
-- change trip details
+- change trip details (sad path for '')
 - click 'Save'
 
 
@@ -89,4 +89,7 @@ Headers:
 Saved Lists:
 - click delete trip
 - click trip
+
+Sad path for api calls:
+(We have a lot ... and I'm going to lunch right now. ;) )
 */
