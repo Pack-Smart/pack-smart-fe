@@ -5,13 +5,16 @@ import React, { useState } from 'react'
 import './Quiz.scss'
 
 // App Imports
-import { getPackingListData } from '../apiCalls/apiCalls'
+import { getPackingListData, getSinglePackingList, saveNewPackingList } from '../apiCalls/apiCalls.js'
 import { quizDetails } from './quizDetails.js'
 import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
+import { useHistory } from 'react-router-dom'
+import { compilePackingList, compileSubmissionData, compileRequiredList } from '../utilities/utilities'
 
 const Quiz = (props) => {
+  let history = useHistory()
   const [quizData, setQuizData] = useState({
     name: '',
     gender: '',
@@ -55,7 +58,7 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
-    const valuesToCheck = compileRequiredList()
+    const valuesToCheck = compileRequiredList(quizData)
     const formStatus = valuesToCheck.reduce((status, value) => {
       if (!value.length) {
         status = true
@@ -65,61 +68,32 @@ const Quiz = (props) => {
     formStatus ? setError(true) : submitForm()
   }
 
-  const compileRequiredList = () => {
-    const { name, weather, gender, destination, number_of_days } = quizData
-    return ([
-      name, 
-      weather, 
-      gender, 
-      destination,
-      number_of_days
-    ])
-  }
-
   const submitForm = () => {
     setError(false)
-    const submissionData = compileSubmissionData()
+    const submissionData = compileSubmissionData(quizData)
     getPackingListData(submissionData)
-      .then(data => props.setCurrentList(data.data.attributes))
-      .catch(error => console.error)
-    props.history.push('/packing-list')
+    .then(data => {
+      submitNewPackingList(data.data.attributes)
+    })
+    .then(() => props.history.push('/packing-list'))
+    .catch(() => console.error)
   }
 
-  const compileSubmissionData = () => {
-    const modifyWeatherData = quizData.weather.map(weather => {
-      return `%${weather}%`
-    })
-    
-    const modifyChildData = quizData.categories.filter((cat) => {
-      return cat.includes('Child')
-    })
-    if (modifyChildData.length > 0) {
-      quizData.categories.push('%Child All%')
-    }
+  const submitNewPackingList = (packingListData) => {
+    let listToSave = compilePackingList(packingListData, props.userInfo.userId)
 
-    return ({
-      data: {
-        id: 0,
-        type: 'survey',
-        attributes: {
-          gender: ['All', quizData.gender],
-          weather: ['All', ...modifyWeatherData],
-          tripDetails: {
-            title: quizData.name,
-            destination: quizData.destination,
-            duration: quizData.number_of_days,
-          },
-          categories: [
-            'Accessories', 
-            'Clothing', 
-            'Essentials', 
-            'Toiletries', 
-            'Misc.',
-            ...quizData.categories
-          ]
-        }
-      }
-    })
+    saveNewPackingList(listToSave)
+      .then(data => updateCurrentListInStore(data.data.listId))
+      .catch(() => console.error)
+  }
+
+  const updateCurrentListInStore = (listId) => {
+    getSinglePackingList(listId)
+      .then(data => {
+        props.setCurrentList(data.data.attributes)
+      })
+      .catch(() => console.error)
+
   }
 
   const generateQuizQuestions = () => {
@@ -183,8 +157,13 @@ const Quiz = (props) => {
   )
 }
 
+const mapStateToProps = (state) => ({
+  packingList: state.packingList,
+  userInfo: state.userInfo
+})
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentList: data => dispatch(setCurrentList(data))
 })
 
-export default connect(null, mapDispatchToProps)(Quiz)
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz)
