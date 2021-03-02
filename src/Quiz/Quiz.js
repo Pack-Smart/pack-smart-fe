@@ -11,6 +11,7 @@ import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
 import { useHistory } from 'react-router-dom'
+import { compilePackingList, compileSubmissionData, compileRequiredList } from '../utilities/utilities'
 
 const Quiz = (props) => {
   let history = useHistory()
@@ -57,7 +58,7 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
-    const valuesToCheck = compileRequiredList()
+    const valuesToCheck = compileRequiredList(quizData)
     const formStatus = valuesToCheck.reduce((status, value) => {
       if (!value.length) {
         status = true
@@ -67,20 +68,9 @@ const Quiz = (props) => {
     formStatus ? setError(true) : submitForm()
   }
 
-  const compileRequiredList = () => {
-    const { name, weather, gender, destination, number_of_days } = quizData
-    return ([
-      name, 
-      weather, 
-      gender, 
-      destination,
-      number_of_days
-    ])
-  }
-
   const submitForm = () => {
     setError(false)
-    const submissionData = compileSubmissionData()
+    const submissionData = compileSubmissionData(quizData)
     getPackingListData(submissionData)
     .then(data => {
       submitNewPackingList(data.data.attributes)
@@ -90,7 +80,7 @@ const Quiz = (props) => {
   }
 
   const submitNewPackingList = (packingListData) => {
-    let listToSave = compilePackingList(packingListData)
+    let listToSave = compilePackingList(packingListData, props.userInfo.userId)
 
     saveNewPackingList(listToSave)
       .then(data => updateCurrentListInStore(data.data.listId))
@@ -100,86 +90,10 @@ const Quiz = (props) => {
   const updateCurrentListInStore = (listId) => {
     getSinglePackingList(listId)
       .then(data => {
-        // TODO: if we delete the helper function, just pass data.data.attributes
-        props.setCurrentList(filterRawSingleList(data))
+        props.setCurrentList(data.data.attributes)
       })
       .catch(() => console.error)
 
-  }
-
-  // TODO: If the backend changes the format of tripDetails response, 
-  // we can delete this helper
-  const filterRawSingleList = (data) => {
-    return {
-      tripDetails: {
-        destination: data.data.attributes.tripDetails.destination,
-        duration: data.data.attributes.tripDetails.num_of_days,
-        listId: data.data.attributes.tripDetails.packing_list_id,
-        title: data.data.attributes.tripDetails.title
-      }, 
-      categories: {
-        ...data.data.attributes.categories
-      }
-    }
-  }
-
-  const compilePackingList = (packingListData) => {
-    const items = Object.values(packingListData.categories).flat()
-
-    const cleanedItems = items.map(item => {
-      return {
-        item_id: item.item_id, 
-        quantity: item.quantity, 
-        is_checked: item.is_checked}
-    })
-    return ({
-      data: {
-        userID: props.userInfo.userId,
-        tripDetails: {
-          destination: quizData.destination,
-          duration: quizData.number_of_days,
-          title: quizData.name
-        },
-        items: cleanedItems
-      }
-    })
-  }
-
-  const compileSubmissionData = () => {
-    const modifyWeatherData = quizData.weather.map(weather => {
-      return `%${weather}%`
-    })
-    
-    const modifyChildData = quizData.categories.filter((cat) => {
-      return cat.includes('Child')
-    })
-    if (modifyChildData.length > 0) {
-      quizData.categories.push('%Child All%')
-    }
-
-    return ({
-      data: {
-        id: 0,
-        type: 'survey',
-        attributes: {
-          gender: ['All', quizData.gender],
-          weather: ['All', ...modifyWeatherData],
-          tripDetails: {
-            title: quizData.name,
-            destination: quizData.destination,
-            duration: quizData.number_of_days,
-          },
-          categories: [
-            'Accessories', 
-            'Clothing', 
-            'Essentials', 
-            'Toiletries', 
-            'Misc.',
-            ...quizData.categories
-          ]
-        }
-      }
-    })
   }
 
   const generateQuizQuestions = () => {

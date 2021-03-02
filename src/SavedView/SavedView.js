@@ -53,7 +53,7 @@ const SavedView = (props) => {
       .then(() => {
         getAllPackingLists()
         .then(data => setAllPackingLists(data.data.attributes['PackingLists']))
-        .catch(error => console.error)
+        .catch(() => console.error)
       })
       .catch(() => console.error)
   }
