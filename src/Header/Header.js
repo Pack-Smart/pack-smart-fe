@@ -1,8 +1,23 @@
 import './Header.scss'
 import { Link } from 'react-router-dom'
 import Hamburger from '../Hamburger/Hamburger'
+import { navDetails } from './headerData'
 
 const Header = () => {
+
+  const generateNavButtons = () => {
+    return navDetails.map(navItem => {
+      return (
+        <Link
+          className='header-btn'
+          to={`${navItem.path}`}
+        >
+          {navItem.title}
+        </Link>
+      )
+    })
+  }
+
   return(
     <div id='outer-container'>
       <nav className="header">
@@ -15,21 +30,7 @@ const Header = () => {
           <p className='letter-s'>S</p>
         </Link>
         </div>
-        <Link
-          className="header-btn"
-          to="/packing-quiz"
-        >Start New List
-        </Link>
-        <Link
-          className="header-btn"
-          to="/how-it-works"
-        >How It Works
-        </Link>
-        <Link
-          className="header-btn"
-          to="/saved-packing-lists"
-        >Saved Lists
-        </Link>
+        {generateNavButtons()}
         {/* Mobile Nav */}
         <div className='mobile'>
           <Hamburger 
