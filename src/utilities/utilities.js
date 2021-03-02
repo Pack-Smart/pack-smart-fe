@@ -76,3 +76,15 @@ export const compileSubmissionData = (quizData) => {
     }
   })
 }
+
+export const compileRequiredList = (quizData) => {
+  const { name, weather, gender, destination, number_of_days } = quizData
+ 
+  return ([
+    name, 
+    weather, 
+    gender, 
+    destination,
+    number_of_days
+  ])
+}

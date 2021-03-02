@@ -11,7 +11,7 @@ import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
 import { useHistory } from 'react-router-dom'
-import { compilePackingList, compileSubmissionData } from '../utilities/utilities'
+import { compilePackingList, compileSubmissionData, compileRequiredList } from '../utilities/utilities'
 
 const Quiz = (props) => {
   let history = useHistory()
@@ -58,7 +58,7 @@ const Quiz = (props) => {
 
   const validateForm = (event) => {
     event.preventDefault()
-    const valuesToCheck = compileRequiredList()
+    const valuesToCheck = compileRequiredList(quizData)
     const formStatus = valuesToCheck.reduce((status, value) => {
       if (!value.length) {
         status = true
@@ -66,17 +66,6 @@ const Quiz = (props) => {
       return status
     }, false)
     formStatus ? setError(true) : submitForm()
-  }
-
-  const compileRequiredList = () => {
-    const { name, weather, gender, destination, number_of_days } = quizData
-    return ([
-      name, 
-      weather, 
-      gender, 
-      destination,
-      number_of_days
-    ])
   }
 
   const submitForm = () => {

@@ -1,4 +1,4 @@
-import { compilePackingList, compileSubmissionData } from './utilities'
+import { compilePackingList, compileSubmissionData, compileRequiredList } from './utilities'
 import { mockPrecompiledPackingList, mockPackingList, mockQuizSubmissionData, mockQuizData } from '../sampleData'
 
 describe('utilities', () => {
@@ -17,6 +17,16 @@ describe('utilities', () => {
       const result = compileSubmissionData(mockQuizSubmissionData)
 
       expect(result).toEqual(mockQuizData)
+    })
+  })
+
+  describe('should compileRequiredList', () => {
+    it('should return a formatted object when given quiz data', () => {
+      const result = compileRequiredList(mockQuizData)
+      const { name, weather, gender, destination, number_of_days } = mockQuizData
+      const compiledList = [name, weather, gender, destination, number_of_days]
+  
+      expect(result).toEqual(compiledList)
     })
   })
 })
