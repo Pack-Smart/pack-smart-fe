@@ -125,7 +125,7 @@ const Quiz = (props) => {
 
   const compilePackingList = (packingListData) => {
     const items = Object.values(packingListData.categories).flat()
-    console.log('items', items)
+
     const cleanedItems = items.map(item => {
       return {
         item_id: item.item_id, 
