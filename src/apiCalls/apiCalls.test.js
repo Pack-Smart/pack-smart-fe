@@ -48,7 +48,7 @@ describe('fetch', () => {
   })
 
   it('should be called with the correct params when deletePackingList is called with an id', () => {
-    const headersAndMethod = {headers: type, method: 'DELETE'}
+    const headersAndMethod = { headers: type, method: 'DELETE' }
 
     deletePackingList(1)
 
@@ -65,12 +65,18 @@ describe('fetch', () => {
     expect(fetch).toHaveBeenCalledWith("https://pack-smart-be.herokuapp.com/api/v1/item_list/update", bodyHeadersMethod)
   })
 
-  it('should be called with the coorect params when patchTripDetails is called with data', () => {
+  it('should be called with the correct params when patchTripDetails is called with data', () => {
     const bodyHeadersMethod = { body: JSON.stringify(mockTripDetails), headers: type, method: 'PATCH' }
     
     patchTripDetails(67, mockTripDetails)
 
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(fetch).toHaveBeenCalledWith('https://pack-smart-be.herokuapp.com/api/v1/packing_lists/67', bodyHeadersMethod)
+  })
+
+  it('should be called with the correct params when deleteSingleItem is called with an id', () => {
+    const headersAndMethod = { headers: type, method: 'DELETE' }
+
+    
   })
 })
