@@ -30,9 +30,21 @@ export const mockState = {
   }
 }
 
+export const mockQuizSubmissionData = {
+  name: 'Middle Fork of the Salmon',
+  gender: 'Male Typical',
+  weather: ['Cool', 'Warm'],
+  destination: 'Idaho',
+  number_of_days: '4',
+  categories: [
+    'Beach',
+    'Hiking'
+  ]
+}
+
 export const mockQuizData = {
   data: {
-    id: 1,
+    id: 0,
     type: "survey",
     attributes: {
       gender: ['All', 'Male Typical'],
@@ -52,6 +64,26 @@ export const mockQuizData = {
         'Hiking'
       ]
     }
+  }
+}
+
+// Should NOT include list id
+export const mockPrecompiledPackingList = {
+  tripDetails: {
+    destination: 'Arizona',
+    duration: '21',
+    title: 'Grand Canyon Rafting Trip'
+  },
+  categories: {
+    'Accessories': [
+      {name: 'Hats', quantity: 0, is_checked: false, item_id: 1},
+      {name: 'Purses', quantity: 0, is_checked: false, item_id: 3},
+    ],
+    'Beach': [
+      {name: 'Bathing Suit', quantity: 0, is_checked: false, item_id: 4},
+      {name: 'Beach Games', quantity: 0, is_checked: false, item_id: 6},
+      {name: 'Sun Hat', quantity: 0, is_checked: false, item_id: 7}
+    ]
   }
 }
 
@@ -92,25 +124,5 @@ export const mockDeletionData = {
     item: {
       id: 4
     }
-  }
-}
-
-// Should NOT include list id
-export const mockPrecompiledPackingList = {
-  tripDetails: {
-    destination: 'Arizona',
-    duration: '21',
-    title: 'Grand Canyon Rafting Trip'
-  },
-  categories: {
-    'Accessories': [
-      {name: 'Hats', quantity: 0, is_checked: false, item_id: 1},
-      {name: 'Purses', quantity: 0, is_checked: false, item_id: 3},
-    ],
-    'Beach': [
-      {name: 'Bathing Suit', quantity: 0, is_checked: false, item_id: 4},
-      {name: 'Beach Games', quantity: 0, is_checked: false, item_id: 6},
-      {name: 'Sun Hat', quantity: 0, is_checked: false, item_id: 7}
-    ]
   }
 }

@@ -18,6 +18,7 @@ export const compilePackingList = (packingListData, userID) => {
 }
 
 export const compileSubmissionData = (quizData) => {
+  console.log('quizData', quizData)
   const modifyWeatherData = quizData.weather.map(weather => {
     return `%${weather}%`
   })
@@ -28,8 +29,7 @@ export const compileSubmissionData = (quizData) => {
   if (modifyChildData.length > 0) {
     quizData.categories.push('%Child All%')
   }
-
-  return ({
+  const result = {
     data: {
       id: 0,
       type: 'survey',
@@ -51,5 +51,30 @@ export const compileSubmissionData = (quizData) => {
         ]
       }
     }
-  })
+  }
+  console.log('result', result)
+  return (result)
+  // return ({
+  //   data: {
+  //     id: 0,
+  //     type: 'survey',
+  //     attributes: {
+  //       gender: ['All', quizData.gender],
+  //       weather: ['All', ...modifyWeatherData],
+  //       tripDetails: {
+  //         title: quizData.name,
+  //         destination: quizData.destination,
+  //         duration: quizData.number_of_days,
+  //       },
+  //       categories: [
+  //         'Accessories', 
+  //         'Clothing', 
+  //         'Essentials', 
+  //         'Toiletries', 
+  //         'Misc.',
+  //         ...quizData.categories
+  //       ]
+  //     }
+  //   }
+  // })
 }
