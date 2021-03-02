@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import './Quiz.scss'
 
 // App Imports
-import { getPackingListData } from '../apiCalls.js'
+import { getPackingListData } from '../apiCalls/apiCalls'
 import { quizDetails } from './quizDetails.js'
 import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'

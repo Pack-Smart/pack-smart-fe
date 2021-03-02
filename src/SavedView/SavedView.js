@@ -1,5 +1,5 @@
 import './SavedView.scss'
-import { getAllPackingLists, deletePackingList } from '../apiCalls'
+import { getAllPackingLists, deletePackingList } from '../apiCalls/apiCalls'
 import ListThumbnail from '../ListThumbnail/ListThumbnail'
 import Modal from 'react-modal'
 import { modalStructure } from '../VerifyDeletionModal/modalStyles'
