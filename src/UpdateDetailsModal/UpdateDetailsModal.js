@@ -28,6 +28,7 @@ const UpdateDetailsModal = (props) => {
 
     const updatedTripDetails = compileTripDetails()
     
+    console.log(props.packingList.tripDetails.listId, updatedTripDetails)
     patchTripDetails(props.packingList.tripDetails.listId, updatedTripDetails)
     .catch(() => console.error)
   }
@@ -36,7 +37,7 @@ const UpdateDetailsModal = (props) => {
     return ({
       title: tripDetails.title, 
       destination: tripDetails.destination,
-      num_of_days: tripDetails.duration,
+      duration: tripDetails.duration,
     })
   }
 

@@ -72,3 +72,17 @@ export const mockPackingList = {
     userID: 1
   }
 }
+
+export const mockItemData = {
+  data: {
+    items: [
+      {id: 2779, is_checked: true, quantity: 1}
+    ]
+  }
+}
+
+export const mockTripDetails = {
+  title: "Yellowstone NP Canoe Trip",
+  destination: "Wyoming",
+  num_of_days: 3
+}
