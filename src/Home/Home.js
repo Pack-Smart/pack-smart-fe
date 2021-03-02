@@ -4,7 +4,7 @@ import { backgroundImages } from './images/imageData'
 
 const Home = () => {
   const generateRandomImage = () => {
-    let randomIndex = Math.floor(Math.random() * 50)
+    let randomIndex = Math.floor(Math.random() * backgroundImages.length)
     return backgroundImages[randomIndex]
   }
 
