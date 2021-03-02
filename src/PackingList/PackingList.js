@@ -59,17 +59,7 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
             </h2>
             <p className='packing-list-details'>{tripDetails.destination} for {tripDetails.duration} {tripDetails.duration > 1 ? 'days' : 'day'}</p>
           </header>
-          {/* <button
-            className='save-list-button-top'
-            onClick={submitNewPackingList} 
-          >Save List
-          </button> */}
-            {createCategoryCards()}
-          {/* <button
-            className='save-list-button'
-            onClick={submitNewPackingList} 
-          >Save List
-          </button> */}
+          {createCategoryCards()}
         </>
       )
     } else {

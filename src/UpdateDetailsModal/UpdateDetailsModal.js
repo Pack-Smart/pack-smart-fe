@@ -36,7 +36,7 @@ const UpdateDetailsModal = (props) => {
     return ({
       title: tripDetails.title, 
       destination: tripDetails.destination,
-      num_of_days: tripDetails.duration,
+      duration: tripDetails.duration,
     })
   }
 
