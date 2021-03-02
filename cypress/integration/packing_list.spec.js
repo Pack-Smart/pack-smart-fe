@@ -26,6 +26,8 @@ describe('Get Started', () => {
     .get(':nth-child(2) > .list-items > :nth-child(4) > .quantity-container > :nth-child(3)').click()
     .get(':nth-child(3) > .list-items > :nth-child(1) > .quantity-container > :nth-child(3)').click()
     .get(':nth-child(3) > .list-items > :nth-child(1) > .quantity-container > :nth-child(1)').click()
+    .get(':nth-child(4) > .list-items > :nth-child(2) > .quantity-container > :nth-child(3)').click()
+    .get(':nth-child(4) > .list-items > :nth-child(3) > .quantity-container > :nth-child(3)').click()
   })
 
 })
