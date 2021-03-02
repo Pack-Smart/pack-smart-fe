@@ -25,20 +25,21 @@
 }
 
 .home h3 {
-  font-size: 0.9em;
+  font-size: 1.05em;
   width: 100%;
   text-align: center;
   margin: 0;
-  color: $text-color;
+  color: $offwhite;
   // background-color: $text-color;
   // text-shadow: 2px 2px 7px black;
   font-weight: 600;
 }
 
 .pack-smart-description {
-  background-color: rgba(245,246,248);
-  box-shadow: 1px 3px 12px black;
-  border-radius: 5px;
+  // background-color: rgba(245,246,248);
+  background: radial-gradient(#000000eb, #00000000);  
+  // box-shadow: 0 0 15px 10px #141414;
+  // border-radius: 12px;
   padding: 1em;
 }
 
@@ -67,12 +68,20 @@ img {
 
 @media only screen and (max-width: 1025px) {
   .pack-smart-title {
-    font-size: 3.5em
+    font-size: 3.75em
+  }
+
+  .pack-smart-description {
+    font-size: 1em;
   }
 }
 
 @media only screen and (max-width: 414px) {
   .pack-smart-title {
-    font-size: 3em
+    font-size: 2.75em;
+  }
+
+  .pack-smart-description {
+    font-size: 0.8em;
   }
 }
