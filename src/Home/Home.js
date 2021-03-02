@@ -1,15 +1,17 @@
 import './Home.scss'
 import { Link } from 'react-router-dom'
-import lady from './lady.png'
+import { backgroundStyle } from './backgroundStyle'
 
 const Home = () => {
   return(
-    <div className='home-container'>
+    <div className='home-container' style={ backgroundStyle }>
       <section className='home-aside'></section>
       <section className='home'>
       <h1 className='pack-smart-title'>Pack Smart</h1>
-        <p>Having trouble figuring out what to pack for your next trip? Take our quiz to build the perfect list!</p>
-        <img src={ lady }/>
+      <section className='pack-smart-description'>
+        <h3>Having trouble figuring out what to pack for your next trip?</h3>
+        <h3>Take our quiz to build the perfect list!</h3>
+      </section>
         <Link to='/packing-quiz' className='start-button'>
           Get Started!
         </Link>
