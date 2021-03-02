@@ -98,19 +98,29 @@ const Quiz = (props) => {
   }
 
   const updateCurrentListInStore = (listId) => {
-    // const currentListUserDetails = {
-    //   title: quizData.name,
-    //   destination: quizData.destination,
-    //   duration: quizData.number_of_days
-    // }
-
     getSinglePackingList(listId)
       .then(data => {
-        console.log('data', data)
-        props.setCurrentList(data.data.attributes)
+        // TODO: if we delete the helper function, just pass data.data.attributes
+        props.setCurrentList(filterRawSingleList(data))
       })
       .catch(() => console.error)
 
+  }
+
+  // TODO: If the backend changes the format of tripDetails response, 
+  // we can delete this helper
+  const filterRawSingleList = (data) => {
+    return {
+      tripDetails: {
+        destination: data.data.attributes.tripDetails.destination,
+        duration: data.data.attributes.tripDetails.num_of_days,
+        listId: data.data.attributes.tripDetails.packing_list_id,
+        title: data.data.attributes.tripDetails.title
+      }, 
+      categories: {
+        ...data.data.attributes.categories
+      }
+    }
   }
 
   const compilePackingList = (packingListData) => {
