@@ -1,6 +1,6 @@
 describe('Get Started', () => {
    it('should display the packing list', () => {
-    cy.visit('https://packsmart.herokuapp.com/')
+    cy.visit('http://localhost:3000/')
       .get('.start-button').click()
       .get('input:first').type('Spring Break')
       .get('input').eq(1).type('Cabooooo')
@@ -66,4 +66,10 @@ describe('Get Started', () => {
       .get(':nth-child(5) > .arrow-container > .edit-category-btn > svg').click()
   })
 
+  it('should delete the packing list created in this test', () => {
+    cy.get('.header > :nth-child(4)').click()
+      .url().should('include', '/saved-packing-lists')
+      .get(':nth-child(1) > .delete-btn-container > .thumbnail-deleteBtn').click()
+      .get('.modal-buttons > :nth-child(1)').click()
+  })
 })
