@@ -10,8 +10,7 @@ const Home = () => {
 
   const backgroundStyle = {
     backgroundImage: `url(${generateRandomImage()})`,
-    backgroundSize: 'cover',
-    opacity: '0.9'
+    backgroundSize: 'cover'
   }
 
   return(
