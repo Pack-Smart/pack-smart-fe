@@ -1,4 +1,4 @@
-describe('Browser Header', () => {
+describe('Header', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
   })
@@ -22,19 +22,4 @@ describe('Browser Header', () => {
     cy.get('.header-logo-anchor').click()
       .get('.pack-smart-title').contains('Pack Smart')
   })
-
-  // // Mobile View Test
-  // it('should have a hamburger on a smaller viewport', () => {
-  //   cy.viewport(414, 800)
-  //     .get('#react-burger-menu-btn').click()
-  //     .get('#packing-quiz').click()
-  //     .get('h1').contains('Trip Details')
-  // })
 })
-
-
-// Headers:
-// - click 'How It Works'
-// - click 'Start New List'
-// - click 'Saved Lists'
-// - click 'PS'
