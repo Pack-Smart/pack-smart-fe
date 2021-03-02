@@ -4,13 +4,14 @@ import { backgroundImages } from './images/imageData'
 
 const Home = () => {
   const generateRandomImage = () => {
-    let randomIndex = Math.floor(Math.random() * 29)
+    let randomIndex = Math.floor(Math.random() * 51)
     return backgroundImages[randomIndex]
   }
 
   const backgroundStyle = {
     backgroundImage: `url(${generateRandomImage()})`,
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    opacity: '0.9'
   }
 
   return(

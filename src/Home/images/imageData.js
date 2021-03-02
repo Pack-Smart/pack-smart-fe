@@ -27,6 +27,27 @@ import background25 from './background25.jpg'
 import background26 from './background26.jpg'
 import background27 from './background27.jpg'
 import background28 from './background28.jpg'
+import background29 from './background29.jpg'
+import background30 from './background30.jpg'
+import background31 from './background31.jpg'
+import background32 from './background32.jpg'
+import background33 from './background33.jpg'
+import background34 from './background34.jpg'
+import background35 from './background35.jpg'
+import background36 from './background36.jpg'
+import background37 from './background37.jpg'
+import background38 from './background38.jpg'
+import background39 from './background39.jpg'
+import background40 from './background40.jpg'
+import background41 from './background41.jpg'
+import background42 from './background42.jpg'
+import background43 from './background43.jpg'
+import background44 from './background44.jpg'
+import background45 from './background45.jpg'
+import background46 from './background46.jpg'
+import background47 from './background47.jpg'
+import background48 from './background48.jpg'
+import background49 from './background49.jpg'
 
 export const backgroundImages = [
   background0, background1, background2, background3, 
@@ -36,5 +57,10 @@ export const backgroundImages = [
   background16, background17, background18, background19,
   background20, background21, background22, background23, 
   background24, background25, background26, background27,
-  background28
+  background28, background29, background30, background31, 
+  background32, background33, background34, background35,
+  background36, background37, background38, background39, 
+  background40, background41, background42, background43,
+  background44, background45, background46, background47,
+  background48, background49
 ]
