@@ -5,7 +5,7 @@ import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/action
 import { HiPlus, HiMinusSm } from 'react-icons/hi'
 import React, { useEffect, useState } from 'react'
 
-const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggleIsChecked, deleteItem, editItemQuantity }) => {
+const StaticItem = ({ item, category, openModal, verifyDeletion, toggleIsChecked, deleteItem, editItemQuantity }) => {
   const [itemQuantity, setItemQuantity] = useState(item.quantity)
   
   useEffect(() => {
@@ -21,12 +21,18 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
   }
 
   const updateListItem = (newQuantity) => {
+    const cleanQuantity = () => {
+      if (newQuantity === '--') {
+        return newQuantity = 0
+      }
+      return newQuantity
+    }
     const updatedItem = {
       data: {
         items: [{
           id: item.id,
           is_checked: item.is_checked,
-          quantity: newQuantity
+          quantity: cleanQuantity()
         }]
       }
     }
@@ -34,6 +40,21 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
    editPackingListItem(updatedItem)
       .catch(() => console.error)
   }
+
+  // const determineParse = (incrementDirection) => {
+  //   let quantity = itemQuantity;
+  //   if (itemQuantity === '--') {
+  //     quantity = 0
+  //   }
+
+  //   console.log('quantity', quantity)
+  //   console.log('itemQuantity', itemQuantity)
+  //   if (incrementDirection === 'decrease') {
+  //     updateItemQuantity(quantity - 1)
+  //   } else {
+  //     updateItemQuantity(quantity + 1)
+  //   }
+  // }
 
   const updateItemQuantity = (newNum) => {
     if (newNum >= 0) {
@@ -52,8 +73,8 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
             className='quantity-input'
             aria-label='item quantity'
             role='quantity input'
-            placeholder={quantity}
-            value={itemQuantity}
+            placeholder={'--'}
+            value={itemQuantity === 0 ? '--': itemQuantity}
             disabled
           />
         <HiPlus className='plus-minus-btn' size={40} onClick={() => updateItemQuantity(itemQuantity + 1)}/>
