@@ -34,4 +34,21 @@ describe('fetch', () => {
     expect(fetch).toHaveBeenCalledWith("https://pack-smart-be.herokuapp.com/api/v1/packing_lists/new", bodyHeadersMethod)
   })
 
+  it('should be called with the correct url when getAllPackingLists is called with no data', () => {
+    jest.restoreAllMocks()
+
+    getAllPackingLists()
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(fetch).toHaveBeenCalledWith("https://pack-smart-be.herokuapp.com/api/v1/users/1/packing_lists")
+  })
+
+  it('should be called with the correct url when getSinglePackingList is called with no data', () => {
+    jest.restoreAllMocks()
+
+    getSinglePackingList(1)
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(fetch).toHaveBeenCalledWith("https://pack-smart-be.herokuapp.com/api/v1/packing_lists/1")
+  })
 })

@@ -99,7 +99,6 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
 
   const submitNewPackingList = () => {
     let listToSave = compilePackingList()
-    console.log(listToSave)
     saveNewPackingList(listToSave)
       .then(() => history.push('/saved-packing-lists'))
       .catch(() => console.error)
