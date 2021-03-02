@@ -37,4 +37,11 @@ describe('Get Started', () => {
     .get('.modal-buttons > :nth-child(1)').click()
   })
 
+  it('should allow user to click take me back on the deletion modal', () => {
+    cy.get(':nth-child(4) > .list-items > :nth-child(6) > .delete > .delete-item').click()
+    .get('.modal-buttons > :nth-child(2)').click()
+    .get(':nth-child(5) > .list-items > :nth-child(2) > .delete > .delete-item').click()
+    .get('.modal-buttons > :nth-child(2)').click()
+  })
+
 })
