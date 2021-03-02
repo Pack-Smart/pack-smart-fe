@@ -1,30 +1,17 @@
-import { getSinglePackingList, getAllPackingLists } from '../apiCalls/apiCalls'
+import { getSinglePackingList } from '../apiCalls/apiCalls'
 import { setCurrentList } from '../actions/actions'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import './ListThumbnail.scss'
-import { useEffect } from 'react'
 
 const ListThumbnail = ({ title, destination, duration, listId, setCurrentList, deleteList, verifyDeletion, openModal }) => {
 
   let history = useHistory()
   const viewPackingList = () => {
     getSinglePackingList(listId)
-      .then(data => {
-        setCurrentList({
-          tripDetails: {
-            title,
-            destination,
-            duration,
-            listId
-          },
-          categories:
-            data.data.attributes.categories
-      })
-    })
-    .then(() => history.push('/packing-list'))
-    .catch(() => console.error)
+      .then(data => setCurrentList(data.data.attributes))
+      .then(() => history.push('/packing-list'))
+      .catch(() => console.error)
   }
 
   const determineModalOpen = () => {
