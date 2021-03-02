@@ -91,7 +91,7 @@ const Quiz = (props) => {
   }
 
   const submitNewPackingList = (packingListData) => {
-    let listToSave = compilePackingList(packingListData, quizData, props.userInfo.userId)
+    let listToSave = compilePackingList(packingListData, props.userInfo.userId)
 
     saveNewPackingList(listToSave)
       .then(data => updateCurrentListInStore(data.data.listId))

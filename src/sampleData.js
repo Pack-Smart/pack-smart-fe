@@ -58,7 +58,7 @@ export const mockQuizData = {
 export const mockPackingList = {
   data: {
     items: [
-      {item_id: 1, quantity: 0, isChecked: false},
+      {item_id: 1, quantity: 0, is_checked: false},
       {item_id: 3, quantity: 0, is_checked: false},
       {item_id: 4, quantity: 0, is_checked: false},
       {item_id: 6, quantity: 0, is_checked: false},
@@ -92,5 +92,25 @@ export const mockDeletionData = {
     item: {
       id: 4
     }
+  }
+}
+
+// Should NOT include list id
+export const mockPrecompiledPackingList = {
+  tripDetails: {
+    destination: 'Arizona',
+    duration: '21',
+    title: 'Grand Canyon Rafting Trip'
+  },
+  categories: {
+    'Accessories': [
+      {name: 'Hats', quantity: 0, is_checked: false, item_id: 1},
+      {name: 'Purses', quantity: 0, is_checked: false, item_id: 3},
+    ],
+    'Beach': [
+      {name: 'Bathing Suit', quantity: 0, is_checked: false, item_id: 4},
+      {name: 'Beach Games', quantity: 0, is_checked: false, item_id: 6},
+      {name: 'Sun Hat', quantity: 0, is_checked: false, item_id: 7}
+    ]
   }
 }

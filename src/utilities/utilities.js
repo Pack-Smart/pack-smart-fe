@@ -1,20 +1,17 @@
-export const compilePackingList = (packingListData, quizData, userID) => {
+export const compilePackingList = (packingListData, userID) => {
   const items = Object.values(packingListData.categories).flat()
-  console.log('items', items)
+
   const cleanedItems = items.map(item => {
     return {
       item_id: item.item_id, 
       quantity: item.quantity, 
       is_checked: item.is_checked}
   })
+
   return ({
     data: {
       userID,
-      tripDetails: {
-        destination: quizData.destination,
-        duration: quizData.number_of_days,
-        title: quizData.name
-      },
+      tripDetails: packingListData.tripDetails,
       items: cleanedItems
     }
   })
