@@ -129,7 +129,7 @@ const Quiz = (props) => {
   const displayErrorMessage = () => {
     window.scrollTo(0,0) 
     return(
-    <h3 className="invalid-message">
+    <h3 className="invalid-quiz-message">
       Please answer all the questions in the quiz before proceeding.
     </h3>)
   }
