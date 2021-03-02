@@ -18,7 +18,6 @@ export const compilePackingList = (packingListData, userID) => {
 }
 
 export const compileSubmissionData = (quizData) => {
-  console.log('quizData', quizData)
   const modifyWeatherData = quizData.weather.map(weather => {
     return `%${weather}%`
   })
@@ -77,7 +76,6 @@ export const compileSubmissionData = (quizData) => {
     }
   })
 }
-
 
 // TODO: If the backend changes the format of tripDetails response, 
 // we can delete this helper
