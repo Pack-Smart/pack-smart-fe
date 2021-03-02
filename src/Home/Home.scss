@@ -16,23 +16,25 @@
   @include column-center;
   background-color: rgba(245,246,248);
   box-shadow: 1px 3px 12px black;
-  margin: 4% 3% 1% 3%;
+  margin: 10% 3% 1% 3%;
   padding: 2em;
   border-radius: 1em;
   flex-grow: 1;
-  max-width: 440px;
-  height: 500px;
+  max-width: 520px;
+  height: 200px;
 }
 
 .home p {
   font-size: 1em;
   width: 90%;
   text-align: center;
+  margin: 0;
 }
 
 .start-button {
   @include button-primary(large, 225px, 1.5%);
   width: 250px;
+  margin-top: 1.5em;
 }
 
 img {
@@ -41,12 +43,24 @@ img {
 }
 
 .pack-smart-title {
-  font-size: 2.5em;
-  margin: 0;
+  font-size: 4.5em;
+  margin: 0 0 0.25em 0;
   color: $text-color;
   display: flex;
   justify-content: center;
   cursor: pointer;
   font-family: $title-font;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1025px) {
+  .pack-smart-title {
+    font-size: 3.5em
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .pack-smart-title {
+    font-size: 3em
+  }
 }
