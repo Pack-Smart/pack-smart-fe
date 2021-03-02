@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import './Quiz.scss'
 
 // App Imports
-import { getPackingListData, getSinglePackingList, saveNewPackingList } from '../apiCalls.js'
+import { getPackingListData, getSinglePackingList, saveNewPackingList } from '../apiCalls/apiCalls.js'
 import { quizDetails } from './quizDetails.js'
 import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
@@ -149,7 +149,15 @@ const Quiz = (props) => {
     const modifyWeatherData = quizData.weather.map(weather => {
       return `%${weather}%`
     })
-    return  ({
+    
+    const modifyChildData = quizData.categories.filter((cat) => {
+      return cat.includes('Child')
+    })
+    if (modifyChildData.length > 0) {
+      quizData.categories.push('%Child All%')
+    }
+
+    return ({
       data: {
         id: 0,
         type: 'survey',

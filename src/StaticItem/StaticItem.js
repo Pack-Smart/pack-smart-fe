@@ -1,6 +1,6 @@
 import './StaticItem.scss'
 import { connect } from 'react-redux'
-import { editPackingListItem } from '../apiCalls'
+import { editPackingListItem } from '../apiCalls/apiCalls'
 import { toggleIsChecked, deleteItem, editItemQuantity } from '../actions/actions'
 import { HiPlus, HiMinusSm } from 'react-icons/hi'
 import React, { useEffect, useState } from 'react'
@@ -22,8 +22,8 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
 
   const updateListItem = (newQuantity) => {
     const updatedItem = {
-      "data": {
-        "items": [{
+      data: {
+        items: [{
           id: item.id,
           is_checked: item.is_checked,
           quantity: newQuantity
@@ -90,4 +90,4 @@ const mapDispatchToProps = (dispatch) => ({
   editItemQuantity: (category, name, quantity) => dispatch(editItemQuantity(category, name, quantity))
 })
 
-export default connect(mapDispatchToProps, { toggleIsChecked, deleteItem, editItemQuantity })(StaticItem)
+export default connect(null, mapDispatchToProps)(StaticItem)

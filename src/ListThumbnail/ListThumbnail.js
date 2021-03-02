@@ -1,4 +1,4 @@
-import { getSinglePackingList, getAllPackingLists } from '../apiCalls'
+import { getSinglePackingList, getAllPackingLists } from '../apiCalls/apiCalls'
 import { setCurrentList } from '../actions/actions'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -55,4 +55,4 @@ const mapDispatchToProps = (dispatch) => ({
   setCurrentList: data => dispatch(setCurrentList(data))
 })
 
-export default connect(mapDispatchToProps, {setCurrentList})(ListThumbnail)
+export default connect(null, mapDispatchToProps)(ListThumbnail)

@@ -1,12 +1,17 @@
 import './VerifyDeletionModal.scss'
-import { deleteSingleItem } from '../apiCalls'
+import { deleteSingleItem } from '../apiCalls/apiCalls'
 
-const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete }) => {
+const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete, itemIdToDelete }) => {
+  const compileDeletionData = () => ({ data: { item: { id: itemIdToDelete } }})
+
   const determineItemToDelete = () => {
     if (categoryToDelete === 'list') {
       deleteItem(itemToDelete)
     } else {
       deleteItem(categoryToDelete, itemToDelete)
+      const deletionData = compileDeletionData()
+      deleteSingleItem(deletionData)
+        .catch(() => console.error)
     }
   }
 
