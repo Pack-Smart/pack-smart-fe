@@ -11,7 +11,7 @@ import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
 import { useHistory } from 'react-router-dom'
-import { compilePackingList, compileSubmissionData, filterRawSingleList } from '../utilities/utilities'
+import { compilePackingList, compileSubmissionData } from '../utilities/utilities'
 
 const Quiz = (props) => {
   let history = useHistory()
@@ -101,8 +101,7 @@ const Quiz = (props) => {
   const updateCurrentListInStore = (listId) => {
     getSinglePackingList(listId)
       .then(data => {
-        // TODO: if we delete the helper function, just pass data.data.attributes
-        props.setCurrentList(filterRawSingleList(data))
+        props.setCurrentList(data.data.attributes)
       })
       .catch(() => console.error)
 
