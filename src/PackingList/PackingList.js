@@ -13,10 +13,9 @@ import Modal from 'react-modal'
 import UpdateDetailsModal from '../UpdateDetailsModal/UpdateDetailsModal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { saveNewPackingList, deleteSingleItem } from '../apiCalls/apiCalls'
 import { useHistory } from 'react-router-dom'
 
-const PackingList = ({ packingList, deleteItem, userInfo }) => {
+const PackingList = ({ packingList, deleteItem }) => {
   let history = useHistory()
   const { tripDetails, categories } = packingList
   const [deletionModalIsOpen, setDeletionModalIsOpen] = useState(false)
@@ -86,30 +85,6 @@ const PackingList = ({ packingList, deleteItem, userInfo }) => {
       )
     })
   }
-
-  // const submitNewPackingList = () => {
-  //   let listToSave = compilePackingList()
-  //   saveNewPackingList(listToSave)
-  //     .then(() => history.push('/saved-packing-lists'))
-  //     .catch(() => console.error)
-  // }
-
-  // const compilePackingList = () => {
-  //   const items = Object.values(packingList.categories).flat()
-  //   const cleanedItems = items.map(item => {
-  //     return {
-  //       item_id: item.item_id, 
-  //       quantity: item.quantity, 
-  //       is_checked: item.is_checked}
-  //   })
-  //   return ({
-  //     data: {
-  //       userID: userInfo.userId,
-  //       tripDetails,
-  //       items: cleanedItems
-  //     }
-  //   })
-  // }
 
   return (
     <section className='packing-list-main'>
