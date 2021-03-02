@@ -7,12 +7,14 @@ const Header = () => {
 
   const generateNavButtons = () => {
     return navDetails.map(navItem => {
+      const { title, path } = navItem
       return (
         <Link
+          key={title}
           className='header-btn'
-          to={`${navItem.path}`}
+          to={`${path}`}
         >
-          {navItem.title}
+          {title}
         </Link>
       )
     })
