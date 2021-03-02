@@ -1,0 +1,58 @@
+export const compilePackingList = (packingListData, quizData, userID) => {
+  const items = Object.values(packingListData.categories).flat()
+  console.log('items', items)
+  const cleanedItems = items.map(item => {
+    return {
+      item_id: item.item_id, 
+      quantity: item.quantity, 
+      is_checked: item.is_checked}
+  })
+  return ({
+    data: {
+      userID,
+      tripDetails: {
+        destination: quizData.destination,
+        duration: quizData.number_of_days,
+        title: quizData.name
+      },
+      items: cleanedItems
+    }
+  })
+}
+
+export const compileSubmissionData = (quizData) => {
+  const modifyWeatherData = quizData.weather.map(weather => {
+    return `%${weather}%`
+  })
+  
+  const modifyChildData = quizData.categories.filter((cat) => {
+    return cat.includes('Child')
+  })
+  if (modifyChildData.length > 0) {
+    quizData.categories.push('%Child All%')
+  }
+
+  return ({
+    data: {
+      id: 0,
+      type: 'survey',
+      attributes: {
+        gender: ['All', quizData.gender],
+        weather: ['All', ...modifyWeatherData],
+        tripDetails: {
+          title: quizData.name,
+          destination: quizData.destination,
+          duration: quizData.number_of_days,
+        },
+        categories: [
+          'Accessories', 
+          'Clothing', 
+          'Essentials', 
+          'Toiletries', 
+          'Misc.',
+          ...quizData.categories
+        ]
+      }
+    }
+  })
+}

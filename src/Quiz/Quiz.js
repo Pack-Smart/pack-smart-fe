@@ -11,6 +11,7 @@ import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
 import { useHistory } from 'react-router-dom'
+import { compilePackingList, compileSubmissionData } from '../utilities/utilities'
 
 const Quiz = (props) => {
   let history = useHistory()
@@ -80,7 +81,7 @@ const Quiz = (props) => {
 
   const submitForm = () => {
     setError(false)
-    const submissionData = compileSubmissionData()
+    const submissionData = compileSubmissionData(quizData)
     getPackingListData(submissionData)
     .then(data => {
       submitNewPackingList(data.data.attributes)
@@ -90,7 +91,7 @@ const Quiz = (props) => {
   }
 
   const submitNewPackingList = (packingListData) => {
-    let listToSave = compilePackingList(packingListData)
+    let listToSave = compilePackingList(packingListData, quizData, props.userInfo.userId)
 
     saveNewPackingList(listToSave)
       .then(data => updateCurrentListInStore(data.data.listId))
@@ -123,64 +124,64 @@ const Quiz = (props) => {
     }
   }
 
-  const compilePackingList = (packingListData) => {
-    const items = Object.values(packingListData.categories).flat()
-    console.log('items', items)
-    const cleanedItems = items.map(item => {
-      return {
-        item_id: item.item_id, 
-        quantity: item.quantity, 
-        is_checked: item.is_checked}
-    })
-    return ({
-      data: {
-        userID: props.userInfo.userId,
-        tripDetails: {
-          destination: quizData.destination,
-          duration: quizData.number_of_days,
-          title: quizData.name
-        },
-        items: cleanedItems
-      }
-    })
-  }
+  // const compilePackingList = (packingListData, quizData) => {
+  //   const items = Object.values(packingListData.categories).flat()
 
-  const compileSubmissionData = () => {
-    const modifyWeatherData = quizData.weather.map(weather => {
-      return `%${weather}%`
-    })
+  //   const cleanedItems = items.map(item => {
+  //     return {
+  //       item_id: item.item_id, 
+  //       quantity: item.quantity, 
+  //       is_checked: item.is_checked}
+  //   })
+  //   return ({
+  //     data: {
+  //       userID: props.userInfo.userId,
+  //       tripDetails: {
+  //         destination: quizData.destination,
+  //         duration: quizData.number_of_days,
+  //         title: quizData.name
+  //       },
+  //       items: cleanedItems
+  //     }
+  //   })
+  // }
+
+  // const compileSubmissionData = (quizData) => {
+  //   const modifyWeatherData = quizData.weather.map(weather => {
+  //     return `%${weather}%`
+  //   })
     
-    const modifyChildData = quizData.categories.filter((cat) => {
-      return cat.includes('Child')
-    })
-    if (modifyChildData.length > 0) {
-      quizData.categories.push('%Child All%')
-    }
+  //   const modifyChildData = quizData.categories.filter((cat) => {
+  //     return cat.includes('Child')
+  //   })
+  //   if (modifyChildData.length > 0) {
+  //     quizData.categories.push('%Child All%')
+  //   }
 
-    return ({
-      data: {
-        id: 0,
-        type: 'survey',
-        attributes: {
-          gender: ['All', quizData.gender],
-          weather: ['All', ...modifyWeatherData],
-          tripDetails: {
-            title: quizData.name,
-            destination: quizData.destination,
-            duration: quizData.number_of_days,
-          },
-          categories: [
-            'Accessories', 
-            'Clothing', 
-            'Essentials', 
-            'Toiletries', 
-            'Misc.',
-            ...quizData.categories
-          ]
-        }
-      }
-    })
-  }
+  //   return ({
+  //     data: {
+  //       id: 0,
+  //       type: 'survey',
+  //       attributes: {
+  //         gender: ['All', quizData.gender],
+  //         weather: ['All', ...modifyWeatherData],
+  //         tripDetails: {
+  //           title: quizData.name,
+  //           destination: quizData.destination,
+  //           duration: quizData.number_of_days,
+  //         },
+  //         categories: [
+  //           'Accessories', 
+  //           'Clothing', 
+  //           'Essentials', 
+  //           'Toiletries', 
+  //           'Misc.',
+  //           ...quizData.categories
+  //         ]
+  //       }
+  //     }
+  //   })
+  // }
 
   const generateQuizQuestions = () => {
     return quizDetails.map(question => {
