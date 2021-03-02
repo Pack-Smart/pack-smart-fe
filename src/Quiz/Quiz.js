@@ -5,13 +5,15 @@ import React, { useState } from 'react'
 import './Quiz.scss'
 
 // App Imports
-import { getPackingListData } from '../apiCalls.js'
+import { getPackingListData, getSinglePackingList, saveNewPackingList } from '../apiCalls/apiCalls.js'
 import { quizDetails } from './quizDetails.js'
 import { setCurrentList } from '../actions/actions'
 import MultipleChoice from '../MultipleChoice/MultipleChoice'
 import QuestionInput from '../QuestionInput/QuestionInput'
+import { useHistory } from 'react-router-dom'
 
 const Quiz = (props) => {
+  let history = useHistory()
   const [quizData, setQuizData] = useState({
     name: '',
     gender: '',
@@ -80,9 +82,67 @@ const Quiz = (props) => {
     setError(false)
     const submissionData = compileSubmissionData()
     getPackingListData(submissionData)
-      .then(data => props.setCurrentList(data.data.attributes))
-      .catch(error => console.error)
-    props.history.push('/packing-list')
+    .then(data => {
+      submitNewPackingList(data.data.attributes)
+    })
+    .then(() => props.history.push('/packing-list'))
+    .catch(() => console.error)
+  }
+
+  const submitNewPackingList = (packingListData) => {
+    let listToSave = compilePackingList(packingListData)
+
+    saveNewPackingList(listToSave)
+      .then(data => updateCurrentListInStore(data.data.listId))
+      .catch(() => console.error)
+  }
+
+  const updateCurrentListInStore = (listId) => {
+    getSinglePackingList(listId)
+      .then(data => {
+        // TODO: if we delete the helper function, just pass data.data.attributes
+        props.setCurrentList(filterRawSingleList(data))
+      })
+      .catch(() => console.error)
+
+  }
+
+  // TODO: If the backend changes the format of tripDetails response, 
+  // we can delete this helper
+  const filterRawSingleList = (data) => {
+    return {
+      tripDetails: {
+        destination: data.data.attributes.tripDetails.destination,
+        duration: data.data.attributes.tripDetails.num_of_days,
+        listId: data.data.attributes.tripDetails.packing_list_id,
+        title: data.data.attributes.tripDetails.title
+      }, 
+      categories: {
+        ...data.data.attributes.categories
+      }
+    }
+  }
+
+  const compilePackingList = (packingListData) => {
+    const items = Object.values(packingListData.categories).flat()
+
+    const cleanedItems = items.map(item => {
+      return {
+        item_id: item.item_id, 
+        quantity: item.quantity, 
+        is_checked: item.is_checked}
+    })
+    return ({
+      data: {
+        userID: props.userInfo.userId,
+        tripDetails: {
+          destination: quizData.destination,
+          duration: quizData.number_of_days,
+          title: quizData.name
+        },
+        items: cleanedItems
+      }
+    })
   }
 
   const compileSubmissionData = () => {
@@ -183,8 +243,13 @@ const Quiz = (props) => {
   )
 }
 
+const mapStateToProps = (state) => ({
+  packingList: state.packingList,
+  userInfo: state.userInfo
+})
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentList: data => dispatch(setCurrentList(data))
 })
 
-export default connect(null, mapDispatchToProps)(Quiz)
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz)

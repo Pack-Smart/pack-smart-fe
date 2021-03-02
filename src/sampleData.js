@@ -29,3 +29,68 @@ export const mockState = {
     }
   }
 }
+
+export const mockQuizData = {
+  data: {
+    id: 1,
+    type: "survey",
+    attributes: {
+      gender: ['All', 'Male Typical'],
+      weather: ['All', '%Cool%', '%Warm%'],
+      tripDetails: {
+        destination: 'Idaho',
+        duration: '4',
+        title: 'Middle Fork of the Salmon'
+      },
+      categories: [
+        'Accessories',
+        'Clothing',
+        'Essentials',
+        'Toiletries',
+        'Misc.',
+        'Beach',
+        'Hiking'
+      ]
+    }
+  }
+}
+
+export const mockPackingList = {
+  data: {
+    items: [
+      {item_id: 1, quantity: 0, isChecked: false},
+      {item_id: 3, quantity: 0, is_checked: false},
+      {item_id: 4, quantity: 0, is_checked: false},
+      {item_id: 6, quantity: 0, is_checked: false},
+      {item_id: 7, quantity: 0, is_checked: false}
+    ],
+    tripDetails: {
+      destination: 'Arizona',
+      duration: '21',
+      title: 'Grand Canyon Rafting Trip'
+    },
+    userID: 1
+  }
+}
+
+export const mockItemData = {
+  data: {
+    items: [
+      {id: 2779, is_checked: true, quantity: 1}
+    ]
+  }
+}
+
+export const mockTripDetails = {
+  title: "Yellowstone NP Canoe Trip",
+  destination: "Wyoming",
+  num_of_days: 3
+}
+
+export const mockDeletionData = {
+  data: {
+    item: {
+      id: 4
+    }
+  }
+}
