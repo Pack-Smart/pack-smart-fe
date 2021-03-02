@@ -42,4 +42,4 @@ const mapDispatchToProps = (dispatch) => ({
   setUser: userInfo => dispatch(setUser(userInfo))
 })
 
-export default connect(mapDispatchToProps, {setUser})(App)
+export default connect(null, mapDispatchToProps)(App)
