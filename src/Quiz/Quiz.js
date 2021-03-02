@@ -98,21 +98,16 @@ const Quiz = (props) => {
   }
 
   const updateCurrentListInStore = (listId) => {
-    const currentListUserDetails = {
-      title: quizData.name,
-      destination: quizData.destination,
-      duration: quizData.number_of_days
-    }
+    // const currentListUserDetails = {
+    //   title: quizData.name,
+    //   destination: quizData.destination,
+    //   duration: quizData.number_of_days
+    // }
 
     getSinglePackingList(listId)
       .then(data => {
-        const currentList = {
-          tripDetails: currentListUserDetails,
-          categories: {
-            ...data.data.attributes.categories
-          }
-        }
-        props.setCurrentList(currentList)
+        console.log('data', data)
+        props.setCurrentList(data.data.attributes)
       })
       .catch(() => console.error)
 
