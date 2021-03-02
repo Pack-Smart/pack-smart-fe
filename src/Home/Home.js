@@ -1,18 +1,8 @@
 import './Home.scss'
 import { Link } from 'react-router-dom'
-import { backgroundImages } from './images/imageData'
+import { backgroundStyle } from './backgroundStyle'
 
 const Home = () => {
-  const generateRandomImage = () => {
-    let randomIndex = Math.floor(Math.random() * backgroundImages.length)
-    return backgroundImages[randomIndex]
-  }
-
-  const backgroundStyle = {
-    backgroundImage: `url(${generateRandomImage()})`,
-    backgroundSize: 'cover'
-  }
-
   return(
     <div className='home-container' style={ backgroundStyle }>
       <section className='home-aside'></section>
