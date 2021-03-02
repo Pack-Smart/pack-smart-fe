@@ -55,11 +55,12 @@ describe('Get Started', () => {
     .get('input:last').type('123456')
     .get('.quiz-submit-btn').click()
     .get('p.packing-list-details').should('contain', 'Will\'s House for 123456 days')
+    .url().should('include', '/packing-list')
   })
 })
   
 /*
-Start to new Packing List:
+Quiz:
 - click on Get Started
 - Take the quiz (required sad path)
 - click 'Get My Packing List!'
