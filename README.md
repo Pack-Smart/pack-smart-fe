@@ -7,7 +7,7 @@
 * Install the necessary dependencies with `npm i`
 * Spin up the local server on http://localhost:3000/ with `npm start`
 
-## Test Instructions
+## Test Instructions <img src="" />
 
 * To see the Jest tests, run `npm test`
 * To see the Cypress tests, run `npm run cypress`
