@@ -58,7 +58,6 @@ describe('Get Started', () => {
       })
     })
 
-
     cy.get('.quiz-submit-btn').click()
       .get('.packing-list-details').should('contain', "Will/'s House for 123456 days")
       .url().should('include', '/packing-list')
