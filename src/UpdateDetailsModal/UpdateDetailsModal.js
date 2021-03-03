@@ -13,23 +13,37 @@ const UpdateDetailsModal = (props) => {
     duration: props.packingList.tripDetails.duration
   })
 
+  const [formValid, setFormValid] = useState(true)
+
   const handleChange = (event) => {
     setTripDetails({
       ...tripDetails, [event.target.name]: event.target.value
     })
   }
 
-  const submitUpdate = (event) => {
+  const attemptSubmission = (event) => {
     event.preventDefault()
-    
     const { title, destination, duration} = tripDetails
+    if (title && destination && duration) {
+      submitForm(title, destination, duration)
+    } else {
+      invalidateSubmission()
+    }
+  }
+
+  const submitForm = (title, destination, duration) => {
+    setFormValid(true)
     props.editTripDetails(title, destination, duration)
     props.closeModal()
 
     const updatedTripDetails = compileTripDetails()
-    
+  
     patchTripDetails(props.packingList.tripDetails.listId, updatedTripDetails)
-    .catch(() => console.error)
+      .catch(() => console.error)
+  }
+
+  const invalidateSubmission = () => {
+    setFormValid(false)
   }
   
   const compileTripDetails = () => {
@@ -61,11 +75,13 @@ const UpdateDetailsModal = (props) => {
           className="close-modal-btn"
         >x</button>
       </div>
+      {!formValid && 
+      <p className="modal-invalid-msg">Please fill out all trip details before proceeding.</p>}
       <h1 className='update-details-title'>Update your Trip Details</h1>
       {displayQuestionInputs()}
       <button
         className="update-trip-details-btn"
-        onClick={submitUpdate}
+        onClick={attemptSubmission}
       >Save</button>
     </form>
   )
