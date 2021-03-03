@@ -1,6 +1,7 @@
+<p align="center">
 <img width="80" alt="fav-icon" src="https://user-images.githubusercontent.com/58453566/109877967-e3612100-7c30-11eb-87cb-c8241ca616a9.png">
-
-# [Pack Smart](https://packsmart.herokuapp.com/)
+<a href="https://packsmart.herokuapp.com/"> <h1 align="center">Pack Smart</h1> </a>
+</p>
 
 ## Set Up Instructions
 
