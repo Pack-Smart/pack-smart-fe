@@ -42,16 +42,16 @@ Next Steps... Coming Soon!
 ## Contributors
 
 ### Backend Team
-[Jose Lopez](https://github.com/JoseLopez235)
-[Kevin Cuadros](https://github.com/kevxo)
-[Roberto Basulto](https://github.com/Eternal-Flame085)
-[Sheryl Stillman](https://github.com/stillsheryl)
+* [Jose Lopez](https://github.com/JoseLopez235)
+* [Kevin Cuadros](https://github.com/kevxo)
+* [Roberto Basulto](https://github.com/Eternal-Flame085)
+* [Sheryl Stillman](https://github.com/stillsheryl)
 
 ### Frontend Team
-[Alyssa Bull](https://github.com/alyssabull)
-[JP Carey](https://github.com/jaypeasee)
-[Kara Caputo](https://github.com/kncaputo)
-[Sarah Osgood](https://github.com/saraho1123)
+* [Alyssa Bull](https://github.com/alyssabull)
+* [JP Carey](https://github.com/jaypeasee)
+* [Kara Caputo](https://github.com/kncaputo)
+* [Sarah Osgood](https://github.com/saraho1123)
 
 ### Project Manager
 * [Will Mitchell](https://github.com/wvmitchell)
