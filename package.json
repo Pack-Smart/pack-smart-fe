@@ -22,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "cypress open",
+    "coverage": "CI=true npm test -- --env=jsdom --coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -43,7 +45,9 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.2",
     "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5"
+    "@testing-library/react": "^11.2.5",
+    "cypress": "^6.6.0"
   }
 }
