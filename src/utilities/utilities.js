@@ -51,7 +51,7 @@ export const compileSubmissionData = (quizData) => {
       }
     }
   }
-
+  
   return ({
     data: {
       id: 0,

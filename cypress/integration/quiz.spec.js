@@ -1,24 +1,24 @@
 describe('Get Started', () => {
   beforeEach(() => {
-    cy.visit('https://packsmart.herokuapp.com/')
-    .get('.start-button').click()
-    .get('[name="Cold"]').click()
-    .get('[name="Cool"]').click()
-    .get('[name="Warm"]').click()
-    .get('[name="Hot"]').click()
-    .get('[name="Rainy"]').click()
-    .get('[name="Snowy"]').click()
-    .get('[name="Beach"]').click()
-    .get('[name="Business"]').click()
-    .get('[name="Camping"]').click()
-    .get('[name="Hiking"]').click()
-    .get('[name="International"]').click()
-    .get('[name="NightLife"]').click()
-    .get('[name="Skiing"]').click()
-    .get('[name="Wedding/Formal"]').click()
-    .get('[name="Child 0-2"]').click()
-    .get('[name="Child 3-6"]').click()
-    .get('[name="Child 7-12"]').click()
+  //   cy.fixture('getPackingListData.json')
+  //     .then((getPackingListData) => {cy.intercept('POST', 'http://localhost:3000/', {
+  //       statusCode: 200,
+  //       body: getPackingListData
+  //     })
+  //   })
+
+  //     cy.fixture('saveNewPackingList.json')
+  //     .then((saveNewPackingList) => {cy.intercept('POST', 'http://localhost:3000/', {
+  //       statusCode: 200,
+  //       body: saveNewPackingList
+  //     })
+  //   })
+    cy.visit('http://localhost:3000/').wait(1000)
+      .get('.start-button').click()
+      .get('[name="Cool"]').click()
+      .get('[name="Warm"]').click()
+      .get('[name="Beach"]').click()
+      .get('[name="Hiking"]').click()
   })
   
   it('should display the quiz', () => {
@@ -38,35 +38,56 @@ describe('Get Started', () => {
 
   it('user cannot proceed unless a weather button is clicked', () => {
     cy.get('[name="Male Typical"]').click()
-    .get('[name="Cold"]').click()
-    .get('[name="Cool"]').click()
-    .get('[name="Warm"]').click()
-    .get('[name="Hot"]').click()
-    .get('[name="Rainy"]').click()
-    .get('[name="Snowy"]').click()
-    .get('.quiz-submit-btn').click()
-    .get('.invalid-message').should('contain', 'Please answer all the questions in the quiz before proceeding.')
+      .get('[name="Cool"]').click()
+      .get('[name="Warm"]').click()
+      .get('.quiz-submit-btn').click()
+      .get('.invalid-message').should('contain', 'Please answer all the questions in the quiz before proceeding.')
   })
 
-  it('user will see their packing list if all required buttons are clicked', () => {
+  it.only('user will see their packing list if all required buttons are clicked', () => {
     cy.get('[name="Male Typical"]').click()
-    .get('input:first').type('Dream Team')
-    .get('input').eq(1).type('Will\'s House')
-    .get('input:last').type('123456')
-    .get('.quiz-submit-btn').click()
-    .get('p.packing-list-details').should('contain', 'Will\'s House for 123456 days')
-    .url().should('include', '/packing-list')
-  })
+      // .get('[name="Cool"]').click()
+      // .get('[name="Warm"]').click()
+      .get('input:first').type('Dream Team Test')
+      .get('input').eq(1).type('Will\'s House')
+      .get('input:last').type('123456')
+
+    cy.fixture('getPackingListData.json')
+      .then((getPackingListData) => {cy.intercept('POST', 'https://pack-smart-be.herokuapp.com/api/v1/list/new', {
+        statusCode: 200,
+        body: getPackingListData
+      })
+        .then(() => {
+          cy.fixture('saveNewPackingList.json')
+          .then((saveNewPackingList) => {cy.intercept('POST', 'https://pack-smart-be.herokuapp.com/api/v1/packing_lists/new', {
+            statusCode: 200,
+            body: saveNewPackingList
+          })
+        })
+      })
+        cy.fixture('getSinglePackingList.json')
+        .then((getSinglePackingList) => {cy.intercept('GET', 'https://pack-smart-be.herokuapp.com/api/v1/packing_lists/1', {
+          statusCode: 200,
+          body: getSinglePackingList
+        })
+      })
+    })
+
+
+    cy.get('.quiz-submit-btn').click()
+      .get('.packing-list-details').should('contain', "Will/'s House for 123456 days")
+      .url().should('include', '/packing-list')
+    })
 })
   
 /*
-Quiz:
+Quiz: All quiz.spec.js
 - click on Get Started
 - Take the quiz (required sad path)
 - click 'Get My Packing List!'
 
 
-Edit Packing List:
+Edit Packing List: Alyssa edit_packing_list.spec.js
 - click ^ and down carrot
 - change quantity
 - click checked
@@ -75,19 +96,19 @@ Edit Packing List:
     - click 'please dont ...'
     - click 'delete'
 
-Edit Title: 
+Edit Title: JP edit_trip_details.spec.js
 - click edit pencil
 - change trip details (sad path for '')
 - click 'Save'
 
 
-Headers:
+Headers: Kara headers.spec.js
 - click 'How It Works'
 - click 'Start New List'
 - click 'Saved Lists'
 - click 'PS'
 
-Saved Lists:
+Saved Lists: Sarah saved_list.spec.js
 - click delete trip
 - click trip
 
