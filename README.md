@@ -21,7 +21,7 @@ Pack Smart is a helpful tool for curating perfect packing lists to ease the stre
 - [Pack Smart Back End Repo](https://github.com/Pack-Smart/pack-smart-be)
 - [Project Board](https://github.com/orgs/Pack-Smart/projects/1)
 - [Project Brief and Rubric](https://mod4.turing.io/projects/capstone.html)
-- [Pack Smart Web Page](https://packsmart.herokuapp.com/)
+- [Pack Smart Heroku Page](https://packsmart.herokuapp.com/)
 
 ## Application Demo
 
