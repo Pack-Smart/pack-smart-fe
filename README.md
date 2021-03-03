@@ -64,7 +64,7 @@ Pack Smart is a helpful tool for curating perfect packing lists to ease the stre
 
 * Allow users to add custom items to a packing list category
 * Implement Auth0 for users to create a unique login
-* Create a drag and drop experienceto organize items into specific bags (carry-on, checked bag, etc.)
+* Create a drag and drop experience to organize items into specific bags (carry-on, checked bag, etc.)
 
 ## Contributors
 
