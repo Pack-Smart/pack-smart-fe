@@ -25,7 +25,7 @@ Pack Smart is a helpful tool for curating perfect packing lists to ease the stre
 
 ## Application Demo
 
-Functionality...Coming Soon!
+
 
 ## Languages and Frameworks
 
