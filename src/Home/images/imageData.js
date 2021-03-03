@@ -48,6 +48,14 @@ import background46 from './background46.jpg'
 import background47 from './background47.jpg'
 import background48 from './background48.jpg'
 import background49 from './background49.jpg'
+import background50 from './background50.jpg'
+import background51 from './background51.jpg'
+import background52 from './background52.jpg'
+import background53 from './background53.jpg'
+import background54 from './background54.jpg'
+import background55 from './background55.jpg'
+import background56 from './background56.jpg'
+import background57 from './background57.jpg'
 
 export const backgroundImages = [
   background0, background1, background2, background3, 
@@ -62,5 +70,7 @@ export const backgroundImages = [
   background36, background37, background38, background39, 
   background40, background41, background42, background43,
   background44, background45, background46, background47,
-  background48, background49
+  background48, background49, background50, background51,
+  background52, background53, background54, background55, 
+  background56, background57
 ]
