@@ -27,7 +27,9 @@ const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, catego
     <>
       <h1 className='modal-title'>Are you sure you want to delete {determineTitleString()}</h1>
       <div className='modal-buttons'>
-        <button className='modal-button' onClick={() => {
+        <button className='modal-button' 
+          id='delete-list-btn'
+          onClick={() => {
           determineItemToDelete()
           closeModal()
           }}>DELETE</button>
