@@ -1,6 +1,6 @@
 describe('Get Started', () => {
    it('should display the packing list', () => {
-    cy.visit('http://localhost:3000/').wait(1000)
+    cy.visit('http://localhost:3000/')
       .get('.start-button').click()
       .get('input:first').type('Dream Team Test')
       .get('input').eq(1).type("Will/'s House")
@@ -12,12 +12,13 @@ describe('Get Started', () => {
       .get('[name="Hiking"]').click()
       .get('.quiz-submit-btn').click()
 
-      cy.fixture('getPackingListData.json')
+    cy.fixture('getPackingListData.json')
       .then((getPackingListData) => {cy.intercept('POST', 'https://pack-smart-be.herokuapp.com/api/v1/list/new', {
         statusCode: 200,
         body: getPackingListData
       })
-        
+    })
+
     cy.contains("Will/'s House")
   })
 
@@ -71,12 +72,5 @@ describe('Get Started', () => {
       .get(':nth-child(3) > .arrow-container > .edit-category-btn > svg').click()
       .get(':nth-child(4) > .arrow-container > .edit-category-btn > svg').click()
       .get(':nth-child(5) > .arrow-container > .edit-category-btn > svg').click()
-  })
-
-  it('should delete the packing list created in this test', () => {
-    cy.get('.header > :nth-child(4)').click()
-      .url().should('include', '/saved-packing-lists')
-      .get(':nth-child(1) > .delete-btn-container > .thumbnail-deleteBtn').click()
-      .get('.modal-buttons > :nth-child(1)').click()
   })
 })
