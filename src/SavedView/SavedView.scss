@@ -1,10 +1,9 @@
 @import '../mixins.scss';
 
 .saved-view {
-  background: url('./background.png') no-repeat fixed center;
+  background: url('./background.png') fixed;
   background-size: cover;
   background-repeat: repeat;
-  height: 100vh;
 }
 
 .saved-title {
