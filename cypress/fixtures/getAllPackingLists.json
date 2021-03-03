@@ -1,0 +1,16 @@
+{
+  "data": {
+      "attributes": {
+          "PackingLists": [
+              {
+                  "destination": "Will/'s House",
+                  "duration": 123456,
+                  "list_id": 1,
+                  "title": "Dream Team Test"
+              }
+          ]
+      },
+      "id": "202103-0301-3413-efbfdf2a-d4f9-49b0-9b2d-c5ed97d664e6",
+      "type": "Packing_Lists"
+  }
+}
