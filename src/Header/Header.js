@@ -27,6 +27,7 @@ const Header = () => {
         </Link>
         <Link
           className="header-btn"
+          id='saved-lists-btn'
           to="/saved-packing-lists"
         >Saved Lists
         </Link>
