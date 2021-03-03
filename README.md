@@ -1,4 +1,6 @@
-# <img width="35" alt="fav-icon" src="https://user-images.githubusercontent.com/58453566/109877967-e3612100-7c30-11eb-87cb-c8241ca616a9.png">[Pack Smart](https://packsmart.herokuapp.com/)
+<img width="80" alt="fav-icon" src="https://user-images.githubusercontent.com/58453566/109877967-e3612100-7c30-11eb-87cb-c8241ca616a9.png">
+
+# [Pack Smart](https://packsmart.herokuapp.com/)
 
 ## Set Up Instructions
 
