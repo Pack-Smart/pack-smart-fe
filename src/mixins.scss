@@ -25,7 +25,6 @@
 }
 
 @mixin button-all {
-  outline: none;
   cursor: pointer;
   box-shadow: 5px 5px 5px $text-color;
   border-radius: 1.5em;

@@ -29,7 +29,17 @@ const MultipleChoice = (props) => {
 
   const createButtons = (buttonNames) => {
     return buttonNames.map(name => {
-      return <button key={name} name={name} className='unselected-answer-button' onClick={(event) => handleButtonClick(event)}>{name}</button>
+      return (
+        <button 
+          key={name} 
+          name={name} 
+          className='unselected-answer-button'
+          aria-label={`${name} button`} 
+          onClick={(event) => handleButtonClick(event)}
+        >
+          {name}
+        </button>
+      )
     })
   }
 

@@ -14,7 +14,6 @@ const Home = () => {
             Get Started!
           </Link>
         </section>
-
       </section>
     </div>
   )
