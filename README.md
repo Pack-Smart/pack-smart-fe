@@ -25,6 +25,22 @@ Pack Smart is a helpful tool for curating perfect packing lists to ease the stre
 
 ## Application Demo
 
+<h3 align="center">Navigating the Application</h3>
+<p align="center">
+ <img alt="gif navigation" src="https://media.giphy.com/media/cvrqtJkhtQYAEmoVNJ/giphy.gif")
+</p>
+ 
+<h3 align="center">Taking the Quiz</h3>
+<p align="center">
+ <img alt="gif quiz" src="https://media.giphy.com/media/4gOLQhlL0x8fQCQbwb/giphy.gif")
+</p>
+ 
+<h3 align="center"> Viewing the Saved Packing Lists</h3>
+<p align="center">
+ <img alt="gif saved lists" src="https://media.giphy.com/media/dQMzzAkeEUvsrMIdlr/giphy.gif")
+</p>
+ 
+ 
 
 
 ## Languages and Frameworks
