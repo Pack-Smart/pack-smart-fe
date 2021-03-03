@@ -1,0 +1,509 @@
+{
+  "data": {
+      "attributes": {
+          "categories": {
+              "Accessories": [
+                  {
+                      "is_checked": false,
+                      "item_id": 1,
+                      "name": "Belts",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 3,
+                      "name": "Hats",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 4,
+                      "name": "Jewelry",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 6,
+                      "name": "Scarves",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 7,
+                      "name": "Sunglasses",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 8,
+                      "name": "Sweatbands",
+                      "quantity": 0
+                  }
+              ],
+              "Beach": [
+                  {
+                      "is_checked": false,
+                      "item_id": 10,
+                      "name": "Bathing Suit",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 11,
+                      "name": "Beach Games",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 12,
+                      "name": "Sun Hat",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 13,
+                      "name": "Sunscreen",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 14,
+                      "name": "Towel",
+                      "quantity": 0
+                  }
+              ],
+              "Clothing": [
+                  {
+                      "is_checked": false,
+                      "item_id": 106,
+                      "name": "Blouses/ Dress Shirts",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 107,
+                      "name": "Boots",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 111,
+                      "name": "Jeans",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 113,
+                      "name": "Light Coat",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 114,
+                      "name": "Longsleeves",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 115,
+                      "name": "Pajamas",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 116,
+                      "name": "Pants",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 118,
+                      "name": "Sandals/Flip Flops",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 119,
+                      "name": "Shoes",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 120,
+                      "name": "Shorts",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 122,
+                      "name": "Sneakers",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 123,
+                      "name": "Socks",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 124,
+                      "name": "Sweaters",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 125,
+                      "name": "Sweatshirts",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 126,
+                      "name": "T-Shirts",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 128,
+                      "name": "Underwear",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 130,
+                      "name": "Work Out Bottoms",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 131,
+                      "name": "Work Out Tops",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 132,
+                      "name": "Work Out Undergarments",
+                      "quantity": 0
+                  }
+              ],
+              "Essentials": [
+                  {
+                      "is_checked": false,
+                      "item_id": 133,
+                      "name": "Cash",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 134,
+                      "name": "Eye-glasses",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 135,
+                      "name": "Hand Sanitizer",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 136,
+                      "name": "House/Car Keys",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 137,
+                      "name": "ID",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 138,
+                      "name": "Itinerary",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 139,
+                      "name": "Mask",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 140,
+                      "name": "Phone",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 141,
+                      "name": "Phone Charger",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 142,
+                      "name": "Wallet",
+                      "quantity": 0
+                  }
+              ],
+              "Hiking": [
+                  {
+                      "is_checked": false,
+                      "item_id": 143,
+                      "name": "Backpack",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 144,
+                      "name": "Bug Spray",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 145,
+                      "name": "Compass",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 146,
+                      "name": "Ferro Rod",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 147,
+                      "name": "Headlamp",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 148,
+                      "name": "Hiking Poles",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 149,
+                      "name": "Hiking Shoes",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 150,
+                      "name": "Hiking Socks",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 151,
+                      "name": "Map",
+                      "quantity": 0
+                  }
+              ],
+              "Misc.": [
+                  {
+                      "is_checked": false,
+                      "item_id": 156,
+                      "name": "Book",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 157,
+                      "name": "Camera",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 158,
+                      "name": "Camera Charger",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 159,
+                      "name": "Cards",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 160,
+                      "name": "Journal",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 161,
+                      "name": "Kindle",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 162,
+                      "name": "Pen/Pencil",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 163,
+                      "name": "Recreational Drugs",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 164,
+                      "name": "Travel Guide Book",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 165,
+                      "name": "Water Bottle",
+                      "quantity": 0
+                  }
+              ],
+              "Toiletries": [
+                  {
+                      "is_checked": false,
+                      "item_id": 184,
+                      "name": "Beard trimmer",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 186,
+                      "name": "Chapstick",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 187,
+                      "name": "Condoms",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 188,
+                      "name": "Deodorant",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 189,
+                      "name": "E.D. medications",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 190,
+                      "name": "Face Wash",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 191,
+                      "name": "First Aid Kit",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 192,
+                      "name": "Floss",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 193,
+                      "name": "Hair Brush/Comb",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 196,
+                      "name": "Medications",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 198,
+                      "name": "Moisturizer/ Lotion",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 199,
+                      "name": "Nail File/Clippers",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 200,
+                      "name": "Pain Medications",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 201,
+                      "name": "Razors",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 202,
+                      "name": "Shampoo",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 203,
+                      "name": "Shaving Cream",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 204,
+                      "name": "Soap",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 205,
+                      "name": "Toothbrush",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 206,
+                      "name": "Toothpaste",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 207,
+                      "name": "Tweezers",
+                      "quantity": 0
+                  },
+                  {
+                      "is_checked": false,
+                      "item_id": 208,
+                      "name": "Vitamins",
+                      "quantity": 0
+                  }
+              ]
+          },
+          "tripDetails": {
+              "destination": "Will/'s House",
+              "duration": "123456",
+              "title": "Dream Team Test"
+          }
+      },
+      "id": "202103-0223-4910-9b9caf08-0460-457b-91e5-6cd6ce0e0efd",
+      "type": "Survey_Results"
+  }
+}

@@ -1,17 +1,24 @@
 describe('Get Started', () => {
    it('should display the packing list', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/').wait(1000)
       .get('.start-button').click()
-      .get('input:first').type('Spring Break')
-      .get('input').eq(1).type('Cabooooo')
-      .get('input:last').type('47')
-      .get('[name="Female Typical"]').click()
+      .get('input:first').type('Dream Team Test')
+      .get('input').eq(1).type("Will/'s House")
+      .get('input:last').type('123456')
+      .get('[name="Male Typical"]').click()
+      .get('[name="Cool"]').click()
       .get('[name="Warm"]').click()
-      .get('[name="Hot"]').click()
       .get('[name="Beach"]').click()
-      .get('[name="NightLife"]').click()
+      .get('[name="Hiking"]').click()
       .get('.quiz-submit-btn').click()
-    cy.contains('Spring Break')
+
+      cy.fixture('getPackingListData.json')
+      .then((getPackingListData) => {cy.intercept('POST', 'https://pack-smart-be.herokuapp.com/api/v1/list/new', {
+        statusCode: 200,
+        body: getPackingListData
+      })
+        
+    cy.contains("Will/'s House")
   })
 
   it('should allow user to open categories', () => {
