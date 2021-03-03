@@ -21,6 +21,7 @@ Description...Coming Soon!
 - [Pack Smart Back End Repo](https://github.com/Pack-Smart/pack-smart-be)
 - [Project Board](https://github.com/orgs/Pack-Smart/projects/1)
 - [Project Brief and Rubric](https://mod4.turing.io/projects/capstone.html)
+- [Pack Smart Web Page](https://packsmart.herokuapp.com/)
 
 ## Application Demo
 
@@ -63,4 +64,4 @@ Next Steps... Coming Soon!
 * [Sarah Osgood](https://github.com/saraho1123)
 
 ### Project Manager
-* [Will Mitchell](https://github.com/wvmitchell)
+* [Will V. Mitchell](https://github.com/wvmitchell)
