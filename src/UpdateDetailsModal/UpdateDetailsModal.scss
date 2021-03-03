@@ -32,3 +32,8 @@
   font-size: 25px;
   margin-bottom: 0;
 }
+
+.modal-invalid-msg {
+  @include invalid-message;
+  margin-top: 8%;
+}
