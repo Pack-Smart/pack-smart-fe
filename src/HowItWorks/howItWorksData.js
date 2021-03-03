@@ -41,7 +41,7 @@ export const reviews = [
   },
   {
     id: 3,
-    customerReview: `"Pack Smart is an incredible App that ensures your are packed to perfection without lugging around anything extra."`,
+    customerReview: `"Pack Smart is an incredible App that ensures you are packed to perfection without lugging around anything extra."`,
     name: '- Villiam M.',
     location: 'Denver, CO'
   }
