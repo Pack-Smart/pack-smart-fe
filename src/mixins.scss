@@ -25,7 +25,6 @@
 }
 
 @mixin button-all {
-  outline: none;
   cursor: pointer;
   box-shadow: 5px 5px 5px $text-color;
   border-radius: 1.5em;
@@ -120,7 +119,6 @@
   justify-content: center;
   color: $offwhite;
   background-color: $red;
-  width: 100%;
   padding: 1em;
   margin: 0em 0em 1.5em 0em;
 }

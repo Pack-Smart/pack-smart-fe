@@ -9,7 +9,7 @@ const Header = () => {
     return navDetails.map(navItem => {
       const { title, id, path } = navItem
       return (
-        <Link key={id} className='header-btn' id={id} to={path} >
+        <Link key={id} className='header-btn' id={id} to={path} aria-label={`${title} nav link`}>
           {title}
         </Link>
       )
@@ -18,11 +18,12 @@ const Header = () => {
 
   return(
     <div id='outer-container'>
-      <nav className="header">
-        <div className="side-nav">
+      <nav className='header'>
+        <div className='side-nav'>
         <Link
           to='/'
-          className="header-logo-anchor"
+          className='header-logo-anchor'
+          aria-label='home nav lavel'
         >
           <p className='letter-p'>P</p>
           <p className='letter-s'>S</p>
@@ -34,7 +35,7 @@ const Header = () => {
           <Hamburger 
             width={ 50 }
             pageWrapId={ 'header' }
-            outerContainerId={ "outer-container" }
+            outerContainerId={ 'outer-container' }
           />
         </div>
       </nav>

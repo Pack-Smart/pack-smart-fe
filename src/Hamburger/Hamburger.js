@@ -27,6 +27,7 @@ class Hamburger extends Component {
             id={menuItem.id}
             className='menu-item' 
             href={menuItem.href}
+            aria-label={`${menuItem} mobile nav link`}
             onClick={() => this.closeMenu()}
           >
             {menuItem.icon}

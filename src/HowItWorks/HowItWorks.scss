@@ -2,11 +2,10 @@
 @import '../variables.scss';
 
 .how-it-works-container {
-  background: url('./background.png') fixed center;
+  background: url('./background.png') repeat fixed;
   background-size: cover;
   text-align: center;
   background-repeat: repeat;
-  height: 100%;
 }
 
 .how-it-works-title {
