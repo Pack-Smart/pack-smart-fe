@@ -1,14 +1,13 @@
 import { connect } from 'react-redux'
 import './AddItemModal.scss'
 import React, { useState } from 'react'
-import { editTripDetails } from '../actions/actions'
-import { patchTripDetails } from '../apiCalls/apiCalls'
+import { setCurrentList } from '../actions/actions'
+import { addCustomItem, getSinglePackingList } from '../apiCalls/apiCalls'
 import QuestionInput from '../QuestionInput/QuestionInput'
 import { addItemData } from './addItemData'
 
-const AddItemModal = ({ closeModal, customItemCategory }) => {
+const AddItemModal = ({ closeModal, customItemCategory, packingList, setCurrentList }) => {
   const [customItem, setCustomItem] = useState({
-    id: '',
     quantity: 0,
     name: '',
     category: customItemCategory
@@ -25,42 +24,38 @@ const AddItemModal = ({ closeModal, customItemCategory }) => {
   const attemptSubmission = (event) => {
     event.preventDefault()
     if (customItem.name) {
-      console.log(customItem)
-      // submitForm(customItem)
-
-      // TODO: data needed for adding a custom item 
-      //{
-      //     "data": {
-      //       "type": "custom item",
-      //       "attributes": {
-      //           "item": "PS5",
-      //           "quantity": 1,
-      //           "category": "video games",
-      //           "packing_list_id": 1 ***will need to pass through props???**
-      //       }
-      //   }
-      // }
-
-      // TODO: custom item endpoint:  /api/v1/custom_item/new
-      // TODO: add function to utility file to clean the data
-
-
-
+      closeModal()
+      let customItemData = compileCustomItemData()
+      addCustomItem(customItemData)
+      .then(() => refreshPackingList())
+      .catch(() => console.error)
     } else {
       invalidateSubmission()
     }
   }
-
-  // const submitForm = (title, destination, duration) => {
-  //   setFormValid(true)
-  //   props.editTripDetails(title, destination, duration)
-  //   props.closeModal()
-
-  //   const updatedTripDetails = compileTripDetails()
   
-  //   patchTripDetails(props.packingList.tripDetails.listId, updatedTripDetails)
-  //     .catch(() => console.error)
-  // }
+  const compileCustomItemData = () => {
+    // TODO: add function to utility file to clean the data
+    setFormValid(true)
+    return(
+      {
+        data: {
+          type: 'custom item',
+          attributes: {
+            item: customItem.name,
+            quantity: customItem.quantity,
+            category: customItem.category,
+            packing_list_id: packingList.tripDetails.listId
+          }
+        }
+      }
+    )
+  }
+
+  const refreshPackingList = () => {
+    getSinglePackingList(packingList.tripDetails.listId)
+    .then(data => setCurrentList(data.data.attributes))
+  }
 
   const invalidateSubmission = () => {
     setFormValid(false)
@@ -99,12 +94,11 @@ const AddItemModal = ({ closeModal, customItemCategory }) => {
 }
 
 const mapStateToProps = (state) => ({
-  packingList: state.packingList,
-  userInfo: state.userInfo
+  packingList: state.packingList
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  editTripDetails: (title, destination, duration) => dispatch(editTripDetails(title, destination, duration))
+  setCurrentList: data => dispatch(setCurrentList(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddItemModal)
