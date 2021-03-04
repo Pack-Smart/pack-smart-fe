@@ -14,7 +14,7 @@
   font-size: 20px;
 }
 
-.trip-destination-field, .trip-number_of_days-field, .trip-duration-field {
+.trip-destination-field, .trip-number_of_days-field, .trip-duration-field, .trip-quantity-field {
   @include row-center;
   @include quiz-question;
   font-size: 20px;
@@ -30,7 +30,7 @@
   font-size: 14px;
 }
 
-.trip-number_of_days-field input, .trip-duration-field input {
+.trip-number_of_days-field input, .trip-duration-field input, .trip-quantity-field input {
   @include input-line(60px);
 }
 

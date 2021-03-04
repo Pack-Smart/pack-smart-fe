@@ -13,14 +13,15 @@ import Modal from 'react-modal'
 import UpdateDetailsModal from '../UpdateDetailsModal/UpdateDetailsModal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { useHistory } from 'react-router-dom'
+import AddItemModal from '../AddItemModal/AddItemModal'
 
 const PackingList = ({ packingList, deleteItem }) => {
-  let history = useHistory()
   const { tripDetails, categories } = packingList
   const [deletionModalIsOpen, setDeletionModalIsOpen] = useState(false)
   const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
+  const [addItemModalIsOpen, setAddItemModalIsOpen] = useState(false)
   const [categoryToDelete, setCategoryToDelete] = useState('')
+  const [customItemCategory, setCustomItemCategory] = useState(null)
   const [itemToDelete, setItemToDelete] = useState('')
   const [itemIdToDelete, setItemIdToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
@@ -81,6 +82,8 @@ const PackingList = ({ packingList, deleteItem }) => {
           items={categories[cat]}
           openModal={openModal}
           verifyDeletion={verifyDeletion}
+          setAddItemModalIsOpen={setAddItemModalIsOpen}
+          setCustomItemCategory={setCustomItemCategory}
         />
       )
     })
@@ -113,6 +116,18 @@ const PackingList = ({ packingList, deleteItem }) => {
           <UpdateDetailsModal
             setDetailsModalIsOpen={setDetailsModalIsOpen}
             closeModal={closeModal}
+          />
+      </Modal>
+      <Modal
+          isOpen={addItemModalIsOpen}
+          onRequestClose={closeModal}
+          style={modalStructure}
+          contentLabel="Add Item Modal"
+        >
+          <AddItemModal
+            setAddItemModalIsOpen={setAddItemModalIsOpen}
+            closeModal={closeModal}
+            customItemCategory={customItemCategory}
           />
       </Modal>
     </section> 
