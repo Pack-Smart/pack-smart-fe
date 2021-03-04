@@ -1,5 +1,5 @@
 export const addItemData = [
-  {
+    {
     id: 1,
     question: "Item Name",
     name: "name",
@@ -8,9 +8,9 @@ export const addItemData = [
   },
   {
     id: 2,
-    question: "Quantity",
+    question: "Quantity (optional)",
     name: "quantity",
     placeholder: "i.e. 3",
     type: "number",
-  }
+  },
 ]
