@@ -43,6 +43,7 @@ const PackingList = ({ packingList, deleteItem }) => {
   const closeModal = () => {
     setDeletionModalIsOpen(false)
     setDetailsModalIsOpen(false)
+    setAddItemModalIsOpen(false)
   }
   
   const verifyPackingList = () => {

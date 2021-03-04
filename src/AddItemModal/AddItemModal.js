@@ -6,7 +6,7 @@ import { patchTripDetails } from '../apiCalls/apiCalls'
 import QuestionInput from '../QuestionInput/QuestionInput'
 import { addItemData } from './addItemData'
 
-const AddItemModal = ({ setAddItemModalIsOpen, closeModal, customItemCategory }) => {
+const AddItemModal = ({ closeModal, customItemCategory }) => {
   const [customItem, setCustomItem] = useState({
     id: '',
     quantity: 0,
@@ -22,15 +22,34 @@ const AddItemModal = ({ setAddItemModalIsOpen, closeModal, customItemCategory })
     })
   }
 
-  // const attemptSubmission = (event) => {
-  //   event.preventDefault()
-  //   const { title, destination, duration} = tripDetails
-  //   if (title && destination && duration) {
-  //     submitForm(title, destination, duration)
-  //   } else {
-  //     invalidateSubmission()
-  //   }
-  // }
+  const attemptSubmission = (event) => {
+    event.preventDefault()
+    if (customItem.name) {
+      console.log(customItem)
+      // submitForm(customItem)
+
+      // TODO: data needed for adding a custom item 
+      //{
+      //     "data": {
+      //       "type": "custom item",
+      //       "attributes": {
+      //           "item": "PS5",
+      //           "quantity": 1,
+      //           "category": "video games",
+      //           "packing_list_id": 1
+      //       }
+      //   }
+      // }
+
+      // TODO: custom item endpoint:  /api/v1/custom_item/new
+      // TODO: add function to utility file to clean the data
+
+
+
+    } else {
+      invalidateSubmission()
+    }
+  }
 
   // const submitForm = (title, destination, duration) => {
   //   setFormValid(true)
@@ -43,30 +62,9 @@ const AddItemModal = ({ setAddItemModalIsOpen, closeModal, customItemCategory })
   //     .catch(() => console.error)
   // }
 
-  // const invalidateSubmission = () => {
-  //   setFormValid(false)
-  // }
-  
-  // const compileTripDetails = () => {
-  //   return ({
-  //     title: tripDetails.title, 
-  //     destination: tripDetails.destination,
-  //     duration: tripDetails.duration,
-  //   })
-  // }
-
-  // const displayQuestionInputs = () => {
-  //   return modalData.map(question => {
-  //     return (
-  //       <QuestionInput
-  //         key={question.id}
-  //         questionDetails={question}
-  //         handleChange={handleChange}
-  //         value={tripDetails[question.name]}
-  //       />
-  //     )
-  //   })
-  // }
+  const invalidateSubmission = () => {
+    setFormValid(false)
+  }
 
   const generateModalQuestions = () => {
     return addItemData.map(item => {
@@ -89,14 +87,13 @@ const AddItemModal = ({ setAddItemModalIsOpen, closeModal, customItemCategory })
         >x</button>
       </div>
       {!formValid && 
-      <p className="modal-invalid-msg">Please fill out all trip details before proceeding.</p>}
+      <p className="modal-invalid-msg">Please enter a custom item name.</p>}
       <h1 className='update-details-title'>Add a Custom Item for {customItemCategory}</h1>
       {generateModalQuestions()}
-      {/* {displayQuestionInputs()} */}
-      {/* <button
+      <button
         className="update-trip-details-btn"
         onClick={attemptSubmission}
-      >Save</button> */}
+      >Save</button>
     </form>
   )
 }
