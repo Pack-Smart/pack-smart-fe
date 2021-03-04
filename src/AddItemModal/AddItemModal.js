@@ -36,7 +36,7 @@ const AddItemModal = ({ closeModal, customItemCategory }) => {
       //           "item": "PS5",
       //           "quantity": 1,
       //           "category": "video games",
-      //           "packing_list_id": 1
+      //           "packing_list_id": 1 ***will need to pass through props???**
       //       }
       //   }
       // }
