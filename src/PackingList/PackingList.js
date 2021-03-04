@@ -120,10 +120,12 @@ const PackingList = ({ packingList, deleteItem }) => {
           />
       </Modal>
       <Modal
+          //is there a way to make this modal wider?
           isOpen={addItemModalIsOpen}
           onRequestClose={closeModal}
           style={modalStructure}
           contentLabel="Add Item Modal"
+          className="add-item-modal"
         >
           <AddItemModal
             setAddItemModalIsOpen={setAddItemModalIsOpen}
