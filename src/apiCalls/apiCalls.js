@@ -43,7 +43,6 @@ export const deletePackingList = (listId) => {
 }
 
 export const editPackingListItem = (itemToUpdate) => {
-  console.log(itemToUpdate)
   return fetch(`${endpoint}/api/v1/item_list/update`, {
     method: 'PATCH',
     headers: {
