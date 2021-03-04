@@ -91,7 +91,6 @@ const Quiz = (props) => {
   const updateCurrentListInStore = (listId) => {
     getSinglePackingList(listId)
       .then(data => {
-        console.log(data)
         props.setCurrentList(data.data.attributes)
       })
       .catch(() => console.error)
