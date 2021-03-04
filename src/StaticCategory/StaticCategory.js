@@ -52,7 +52,7 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
         {displayItems === true && generateListItems()}
       </article>
       <article className='arrow-container'>
-        <button className='edit-category-btn' onClick={toggleListItems}>{displayItems === true ? <FaChevronUp size={25} /> : <FaChevronDown size={25} />}</button>
+        <button className='edit-category-btn' onClick={toggleListItems}>{displayItems === true ? <FaChevronDown size={25} /> : <FaChevronUp size={25} />}</button>
       </article>
     </section>
   )
