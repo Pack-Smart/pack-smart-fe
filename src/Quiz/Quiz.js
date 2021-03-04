@@ -26,6 +26,7 @@ const Quiz = (props) => {
   const [error, setError] = useState(false)
 
   const handleChange = (event) => {
+    setError(false)
     setQuizData({
       ...quizData, [event.target.name]: event.target.value
     })
