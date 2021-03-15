@@ -1,5 +1,5 @@
-import { compilePackingList, compileSubmissionData, compileRequiredList } from './utilities'
-import { mockPrecompiledPackingList, mockPackingList, mockQuizSubmissionData, mockQuizData } from '../sampleData'
+import { compilePackingList, compileSubmissionData, compileRequiredList, compileCustomItemData } from './utilities'
+import { mockPrecompiledPackingList, mockPackingList, mockQuizSubmissionData, mockQuizData, mockCompiledCustomItemData } from '../sampleData'
 
 describe('utilities', () => {
 
@@ -27,6 +27,17 @@ describe('utilities', () => {
       const compiledList = [name, weather, gender, destination, number_of_days]
   
       expect(result).toEqual(compiledList)
+    })
+  })
+
+  describe('should compileCustomItemData', () => {
+    it('should return a formatted object when given a custom item object and a list id', () => {
+      const item = {quantity: '3', name: 'Balloons', category: 'Accessories'}
+      const listId = 1
+
+      const result = compileCustomItemData(item, listId)
+     
+      expect(result).toEqual(mockCompiledCustomItemData)
     })
   })
 })
