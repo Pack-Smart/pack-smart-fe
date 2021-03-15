@@ -42,7 +42,6 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion, setAddItem
   const addCustomItem = () => {
     setAddItemModalIsOpen(true)
     setCustomItemCategory(catTitle)
-    console.log(catTitle)
   }
 
   return (

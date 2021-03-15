@@ -25,15 +25,17 @@ const PackingList = ({ packingList, deleteItem }) => {
   const [itemToDelete, setItemToDelete] = useState('')
   const [itemIdToDelete, setItemIdToDelete] = useState('')
   const [verifyDeletion, setVerifyDeletion] = useState(true)
+  const [itemItemId, setItemItemId] = useState('')
   
   useEffect(() => {
     Modal.setAppElement('body')
     window.scrollTo(0,0)
   }, [])
    
-  const openModal = (category, name, itemId) => {
+  const openModal = (category, name, itemId, itemItemId) => {
     setCategoryToDelete(category)
     setItemIdToDelete(itemId)
+    setItemItemId(itemItemId)
     setItemToDelete(name)
     if(verifyDeletion === true) {
       setDeletionModalIsOpen(true)  
@@ -106,6 +108,7 @@ const PackingList = ({ packingList, deleteItem }) => {
             categoryToDelete={categoryToDelete}
             itemToDelete={itemToDelete}
             itemIdToDelete={itemIdToDelete}
+            itemListId={itemItemId}
           />
       </Modal>
       <Modal
