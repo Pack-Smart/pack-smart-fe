@@ -21,7 +21,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
   }
 
   const updateListItem = (newQuantity) => {
-    const updatedItem = {
+    let updatedItem = {
       data: {
         item: [{
           id: item.id,
@@ -30,7 +30,10 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
         }]
       }
     }
-    
+    if (item.id === item.item_id) {
+      updatedItem.data.item[0].category = category
+    }
+  
    editPackingListItem(updatedItem)
       .catch(() => console.error)
   }
