@@ -23,7 +23,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
   const updateListItem = (newQuantity) => {
     const updatedItem = {
       data: {
-        items: [{
+        item: [{
           id: item.id,
           is_checked: item.is_checked,
           quantity: newQuantity
