@@ -61,7 +61,7 @@ export const patchTripDetails = (packingListId, updatedTripDetails) => {
     },
     body: JSON.stringify(updatedTripDetails)
   })
-  .then(response => response.json())
+  .then((response) => response.json())
 }
 
 export const deleteSingleItem = (deletedItemDetails) => {
@@ -72,5 +72,16 @@ export const deleteSingleItem = (deletedItemDetails) => {
     },
     body: JSON.stringify(deletedItemDetails)
   })
-  .then(response => response.json())
+  .then((response) => response.json())
+}
+
+export const addCustomItem = (customItem) => {
+  return fetch(`${endpoint}/api/v1/custom_item/new`, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(customItem)
+  })
+  .then((response) => response.json())
 }

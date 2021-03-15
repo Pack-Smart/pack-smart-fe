@@ -13,27 +13,31 @@ import Modal from 'react-modal'
 import UpdateDetailsModal from '../UpdateDetailsModal/UpdateDetailsModal'
 import StaticCategory from '../StaticCategory/StaticCategory'
 import VerifyDeletionModal from '../VerifyDeletionModal/VerifyDeletionModal'
-import { useHistory } from 'react-router-dom'
+import AddItemModal from '../AddItemModal/AddItemModal'
 
 const PackingList = ({ packingList, deleteItem }) => {
-  let history = useHistory()
   const { tripDetails, categories } = packingList
   const [deletionModalIsOpen, setDeletionModalIsOpen] = useState(false)
   const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
-  const [categoryToDelete, setCategoryToDelete] = useState('')
-  const [itemToDelete, setItemToDelete] = useState('')
-  const [itemIdToDelete, setItemIdToDelete] = useState('')
+  const [addItemModalIsOpen, setAddItemModalIsOpen] = useState(false)
   const [verifyDeletion, setVerifyDeletion] = useState(true)
+  const [customItemCategory, setCustomItemCategory] = useState(null)
+  const [categoryToDelete] = useState('')
+  const [item, setItem] = useState({
+    item: '',
+    id: 0,
+    item_id: 0,
+    category: ''
+  })
   
   useEffect(() => {
     Modal.setAppElement('body')
     window.scrollTo(0,0)
   }, [])
    
-  const openModal = (category, name, itemId) => {
-    setCategoryToDelete(category)
-    setItemIdToDelete(itemId)
-    setItemToDelete(name)
+  const openModal = (category, item, id, item_id) => {
+    setItem({ item, id, item_id, category })
+
     if(verifyDeletion === true) {
       setDeletionModalIsOpen(true)  
     }  
@@ -42,6 +46,7 @@ const PackingList = ({ packingList, deleteItem }) => {
   const closeModal = () => {
     setDeletionModalIsOpen(false)
     setDetailsModalIsOpen(false)
+    setAddItemModalIsOpen(false)
   }
   
   const verifyPackingList = () => {
@@ -81,6 +86,8 @@ const PackingList = ({ packingList, deleteItem }) => {
           items={categories[cat]}
           openModal={openModal}
           verifyDeletion={verifyDeletion}
+          setAddItemModalIsOpen={setAddItemModalIsOpen}
+          setCustomItemCategory={setCustomItemCategory}
         />
       )
     })
@@ -100,8 +107,7 @@ const PackingList = ({ packingList, deleteItem }) => {
             deleteItem={deleteItem}
             closeModal={closeModal}
             categoryToDelete={categoryToDelete}
-            itemToDelete={itemToDelete}
-            itemIdToDelete={itemIdToDelete}
+            itemToDelete={item}
           />
       </Modal>
       <Modal
@@ -113,6 +119,18 @@ const PackingList = ({ packingList, deleteItem }) => {
           <UpdateDetailsModal
             setDetailsModalIsOpen={setDetailsModalIsOpen}
             closeModal={closeModal}
+          />
+      </Modal>
+      <Modal
+          isOpen={addItemModalIsOpen}
+          onRequestClose={closeModal}
+          style={modalStructure}
+          contentLabel="Add Item Modal"
+        >
+          <AddItemModal
+            setAddItemModalIsOpen={setAddItemModalIsOpen}
+            closeModal={closeModal}
+            customItemCategory={customItemCategory}
           />
       </Modal>
     </section> 

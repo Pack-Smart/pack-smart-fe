@@ -5,7 +5,7 @@ import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 import { categoryIcons } from './categoryIcons.js'
 import StaticItem from '../StaticItem/StaticItem'
 
-const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
+const StaticCategory = ({ catTitle, items, openModal, verifyDeletion, setAddItemModalIsOpen, setCustomItemCategory }) => {
   const [displayItems, setDisplayItems] = useState(false)
 
   const generateListItems = () => {
@@ -39,13 +39,18 @@ const StaticCategory = ({ catTitle, items, openModal, verifyDeletion }) => {
     setDisplayItems(!displayItems)
   }
 
+  const addCustomItem = () => {
+    setAddItemModalIsOpen(true)
+    setCustomItemCategory(catTitle)
+  }
+
   return (
     <section className='category-container'>
         <h1 className='cat-title'>
           {generateCategoryIcon(catTitle)}
           <div className='edit-category-container'>
             {catTitle}
-            <button className='add-item-btn'><FiPlusCircle size={20} /></button>
+            <button className='add-item-btn'><FiPlusCircle size={20} onClick={addCustomItem}/></button>
           </div>
         </h1>
       <article className='list-items'>

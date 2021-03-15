@@ -126,3 +126,15 @@ export const mockDeletionData = {
     }
   }
 }
+
+export const mockCompiledCustomItemData = {
+  data: {
+    type: 'custom item',
+    attributes: {
+      item: 'Balloons',
+      quantity: '3',
+      category: 'Accessories',
+      packing_list_id: 1
+    }
+  }
+}

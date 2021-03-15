@@ -12,16 +12,16 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
     editItemQuantity(category, item.name, itemQuantity)
   }, [itemQuantity])
 
-  const determineModalOpen = (category, name, itemId) => {
+  const determineModalOpen = (category, name, itemId, itemItemId) => {
     if (verifyDeletion === true) {
-      openModal(category, name, itemId)
+      openModal(category, name, itemId, itemItemId)
     } else {
       deleteItem(category, item.name)
     }
   }
 
   const updateListItem = (newQuantity) => {
-    const updatedItem = {
+    let updatedItem = {
       data: {
         item: [{
           id: item.id,
@@ -30,8 +30,11 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
         }]
       }
     }
-    
-   editPackingListItem(updatedItem)
+    if (item.id === item.item_id) {
+      updatedItem.data.item[0].category = category
+    }
+  
+    editPackingListItem(updatedItem)
       .catch(() => console.error)
   }
 
@@ -76,7 +79,7 @@ const StaticItem = ({ item, category, quantity, openModal, verifyDeletion, toggl
       </div>
       <div className='delete'>
         <button className='delete-item' onClick={() => {
-          determineModalOpen(category, item.name, item.id)}}>
+          determineModalOpen(category, item.name, item.id, item.item_id)}}>
             X
         </button>
       </div>
