@@ -108,7 +108,7 @@ const PackingList = ({ packingList, deleteItem }) => {
             categoryToDelete={categoryToDelete}
             itemToDelete={itemToDelete}
             itemIdToDelete={itemIdToDelete}
-            itemListId={itemItemId}
+            itemItemId={itemItemId}
           />
       </Modal>
       <Modal
