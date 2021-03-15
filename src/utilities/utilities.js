@@ -88,3 +88,19 @@ export const compileRequiredList = (quizData) => {
     number_of_days
   ])
 }
+
+export const compileCustomItemData = (customItem, listId) => {
+  return(
+    {
+      data: {
+        type: 'custom item',
+        attributes: {
+          item: customItem.name,
+          quantity: customItem.quantity,
+          category: customItem.category,
+          packing_list_id: listId
+        }
+      }
+    }
+  )
+}

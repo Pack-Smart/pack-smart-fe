@@ -5,6 +5,7 @@ import { setCurrentList } from '../actions/actions'
 import { addCustomItem, getSinglePackingList } from '../apiCalls/apiCalls'
 import QuestionInput from '../QuestionInput/QuestionInput'
 import { addItemData } from './addItemData'
+import { compileCustomItemData } from '../utilities/utilities'
 
 const AddItemModal = ({ closeModal, customItemCategory, packingList, setCurrentList }) => {
   const [customItem, setCustomItem] = useState({
@@ -25,31 +26,14 @@ const AddItemModal = ({ closeModal, customItemCategory, packingList, setCurrentL
     event.preventDefault()
     if (customItem.name) {
       closeModal()
-      let customItemData = compileCustomItemData()
+      let customItemData = compileCustomItemData(customItem, packingList.tripDetails.listId)
+      setFormValid(true)
       addCustomItem(customItemData)
-      .then(() => refreshPackingList())
-      .catch(() => console.error)
+        .then(() => refreshPackingList())
+        .catch(() => console.error)
     } else {
       invalidateSubmission()
     }
-  }
-  
-  const compileCustomItemData = () => {
-    // TODO: add function to utility file to clean the data
-    setFormValid(true)
-    return(
-      {
-        data: {
-          type: 'custom item',
-          attributes: {
-            item: customItem.name,
-            quantity: customItem.quantity,
-            category: customItem.category,
-            packing_list_id: packingList.tripDetails.listId
-          }
-        }
-      }
-    )
   }
 
   const refreshPackingList = () => {
