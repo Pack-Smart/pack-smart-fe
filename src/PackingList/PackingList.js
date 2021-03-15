@@ -20,11 +20,19 @@ const PackingList = ({ packingList, deleteItem }) => {
   const [deletionModalIsOpen, setDeletionModalIsOpen] = useState(false)
   const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
   const [addItemModalIsOpen, setAddItemModalIsOpen] = useState(false)
-  const [categoryToDelete, setCategoryToDelete] = useState('')
+  const [verifyDeletion, setVerifyDeletion] = useState(true)
   const [customItemCategory, setCustomItemCategory] = useState(null)
+
+  const [item, setItem] = useState({
+    item: '',
+    id: 0,
+    item_id: 0,
+    category: '',     
+  })
+  
+  const [categoryToDelete, setCategoryToDelete] = useState('')
   const [itemToDelete, setItemToDelete] = useState('')
   const [itemIdToDelete, setItemIdToDelete] = useState('')
-  const [verifyDeletion, setVerifyDeletion] = useState(true)
   const [itemItemId, setItemItemId] = useState('')
   
   useEffect(() => {
@@ -32,15 +40,28 @@ const PackingList = ({ packingList, deleteItem }) => {
     window.scrollTo(0,0)
   }, [])
    
-  const openModal = (category, name, itemId, itemItemId) => {
-    setCategoryToDelete(category)
-    setItemIdToDelete(itemId)
-    setItemItemId(itemItemId)
-    setItemToDelete(name)
+  const openModal = (category, item, id, item_id) => {
+    setItem({
+      item,
+      id,
+      item_id,
+      category, 
+    })
+
     if(verifyDeletion === true) {
       setDeletionModalIsOpen(true)  
     }  
   }
+
+  // const openModal = (category, name, itemId, itemItemId) => {
+  //   setCategoryToDelete(category)
+  //   setItemIdToDelete(itemId)
+  //   setItemItemId(itemItemId)
+  //   setItemToDelete(name)
+  //   if(verifyDeletion === true) {
+  //     setDeletionModalIsOpen(true)  
+  //   }  
+  // }
 
   const closeModal = () => {
     setDeletionModalIsOpen(false)
@@ -106,9 +127,9 @@ const PackingList = ({ packingList, deleteItem }) => {
             deleteItem={deleteItem}
             closeModal={closeModal}
             categoryToDelete={categoryToDelete}
-            itemToDelete={itemToDelete}
-            itemIdToDelete={itemIdToDelete}
-            itemItemId={itemItemId}
+            item={item}
+            // itemIdToDelete={itemIdToDelete}
+            // itemItemId={itemItemId}
           />
       </Modal>
       <Modal

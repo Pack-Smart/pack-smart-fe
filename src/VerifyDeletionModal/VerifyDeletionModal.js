@@ -1,22 +1,20 @@
 import './VerifyDeletionModal.scss'
 import { deleteSingleItem } from '../apiCalls/apiCalls'
 
-const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, itemToDelete, itemIdToDelete, itemItemId }) => {
+const VerifyDeletionModal = ({ setVerifyDeletion, deleteItem, closeModal, categoryToDelete, item }) => {
   const compileDeletionData = () => {
-    let itemData = { data: { item: { id: itemIdToDelete } }}
-    console.log(itemIdToDelete, itemItemId)
-    if (itemItemId === itemIdToDelete) {
+    let itemData = { data: { item: { id: item.id } }}
+    if (item.item_id === item.id) {
       itemData.data.item.category = categoryToDelete
     }
-    console.log(itemData)
     return itemData
   }
 
   const determineItemToDelete = () => {
     if (categoryToDelete === 'list') {
-      deleteItem(itemToDelete)
+      deleteItem(item.list_id)
     } else {
-      deleteItem(categoryToDelete, itemToDelete)
+      deleteItem(item.category, item.item)
       const deletionData = compileDeletionData()
       deleteSingleItem(deletionData)
         .catch(() => console.error)
