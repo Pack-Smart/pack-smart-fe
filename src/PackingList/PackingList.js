@@ -26,8 +26,7 @@ const PackingList = ({ packingList, deleteItem }) => {
   const [item, setItem] = useState({
     item: '',
     id: 0,
-    item_id: 0,
-    category: '',     
+    item_id: 0
   })
   
   const [categoryToDelete, setCategoryToDelete] = useState('')
@@ -44,16 +43,6 @@ const PackingList = ({ packingList, deleteItem }) => {
       setDeletionModalIsOpen(true)  
     }  
   }
-
-  // const openModal = (category, name, itemId, itemItemId) => {
-  //   setCategoryToDelete(category)
-  //   setItemIdToDelete(itemId)
-  //   setItemItemId(itemItemId)
-  //   setItemToDelete(name)
-  //   if(verifyDeletion === true) {
-  //     setDeletionModalIsOpen(true)  
-  //   }  
-  // }
 
   const closeModal = () => {
     setDeletionModalIsOpen(false)
