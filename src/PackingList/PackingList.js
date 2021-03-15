@@ -22,13 +22,13 @@ const PackingList = ({ packingList, deleteItem }) => {
   const [addItemModalIsOpen, setAddItemModalIsOpen] = useState(false)
   const [verifyDeletion, setVerifyDeletion] = useState(true)
   const [customItemCategory, setCustomItemCategory] = useState(null)
-  const [categoryToDelete, setCategoryToDelete] = useState('')
+  const [categoryToDelete] = useState('')
   const [item, setItem] = useState({
     item: '',
     id: 0,
-    item_id: 0
+    item_id: 0,
+    category: ''
   })
-  
   
   useEffect(() => {
     Modal.setAppElement('body')
