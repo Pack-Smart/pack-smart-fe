@@ -17,6 +17,7 @@
 
 .saved-thumbnail-container {
   @include row-wrap-around;
+  background: url('./background.png') repeat fixed;
 }
 
 @media only screen and (max-width: 1025px) {
